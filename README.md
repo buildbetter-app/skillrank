@@ -42,24 +42,36 @@ skillrank publish https://github.com/... # index a public skill (needs login)
 | `eval <ref> --suite <id>` | no | Run forced-mode paired trials (skill vs no-skill) on your own agent, print per-task token/success deltas, write a result bundle. `--publish` to contribute it. |
 | `rate` / `review` / `publish` | yes | Contribute back. `login` stores a token; the core never needs one. |
 
-## Using it inside Claude Code (or Codex)
+## Using it inside Claude Code and Codex
 
-skillrank is a CLI, not a skill. It *installs* skills into `.claude/skills/` (or
-`.agents/skills/`), where your agent discovers them automatically — so
-`skillrank install <slug>` is all it takes to give Claude a new skill.
+You should never have to know a command. Register skillrank once and the agent
+gets it as native tools — say *"find me a skill for playwright and install it"*
+and it just works.
 
-To let the agent drive skillrank *for you* — "find me a good Playwright skill and
-install it", "does this skill actually help?" — install the bundled skillrank
-skill once per repo:
+```sh
+skillrank setup     # registers the skillrank MCP server with Claude Code + Codex
+```
+
+That writes an MCP server entry into `~/.claude.json` and `~/.codex/config.toml`
+(both backed up, idempotent). Restart your agent; it now has tools
+`skill_search`, `skill_recommend`, `skill_show`, `skill_install`, and
+`skill_list` and calls them on its own when you talk about skills. Claude Code
+prompts once to approve the tools — approve them (or pre-allow with
+`{"permissions":{"allow":["mcp__skillrank"]}}` in `~/.claude/settings.json`).
+
+**Why MCP:** the tools live in the agent's vocabulary directly, so it doesn't
+guess unrelated tools and doesn't depend on skill-activation heuristics. It's the
+one mechanism that works the same in Claude Code and Codex.
+
+*Alternative / complement — a skill file.* You can also drop a `SKILL.md` that
+teaches the agent about skillrank into a repo:
 
 ```sh
 skillrank skill --install     # writes .claude/skills/skillrank/SKILL.md
 ```
 
-Now when you ask Claude Code to find, install, or evaluate skills, it runs the
-right `skillrank` commands itself. (`skillrank skill` with no flag prints the
-SKILL.md.) Installed skills need no restart — the agent picks them up on its next
-run.
+Either way, skills you `install` land in `.claude/skills/` (or `.agents/skills/`)
+and the agent discovers them automatically — no restart needed.
 
 ## How the eval works
 

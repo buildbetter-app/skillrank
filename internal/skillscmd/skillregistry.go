@@ -42,6 +42,10 @@ func Run(args []string, ctx command.Context) int {
 		return runEval(tail, ctx)
 	case "skill":
 		return runSkill(tail, ctx)
+	case "mcp":
+		return runMCP(tail, ctx)
+	case "setup":
+		return runSetup(tail, ctx)
 	default:
 		fmt.Fprintf(ctx.Stderr, "unknown skills subcommand %q\n", sub)
 		printUsage(ctx)
@@ -69,6 +73,9 @@ Commands:
   eval <ref>         Run a local paired eval and optionally publish results.
   skill [--install]  Print, or install into .claude/skills, the SKILL.md that
                      teaches your agent (Claude Code/Codex) to use skillrank.
+  setup              Register the skillrank MCP server with Claude Code and Codex
+                     so the agent uses skillrank automatically (one-time).
+  mcp                Run as an MCP stdio server (invoked by the agent; not by you).
 
 Global flags:
   --json             Emit JSON.
