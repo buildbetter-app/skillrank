@@ -42,6 +42,25 @@ skillrank publish https://github.com/... # index a public skill (needs login)
 | `eval <ref> --suite <id>` | no | Run forced-mode paired trials (skill vs no-skill) on your own agent, print per-task token/success deltas, write a result bundle. `--publish` to contribute it. |
 | `rate` / `review` / `publish` | yes | Contribute back. `login` stores a token; the core never needs one. |
 
+## Using it inside Claude Code (or Codex)
+
+skillrank is a CLI, not a skill. It *installs* skills into `.claude/skills/` (or
+`.agents/skills/`), where your agent discovers them automatically — so
+`skillrank install <slug>` is all it takes to give Claude a new skill.
+
+To let the agent drive skillrank *for you* — "find me a good Playwright skill and
+install it", "does this skill actually help?" — install the bundled skillrank
+skill once per repo:
+
+```sh
+skillrank skill --install     # writes .claude/skills/skillrank/SKILL.md
+```
+
+Now when you ask Claude Code to find, install, or evaluate skills, it runs the
+right `skillrank` commands itself. (`skillrank skill` with no flag prints the
+SKILL.md.) Installed skills need no restart — the agent picks them up on its next
+run.
+
 ## How the eval works
 
 For each task in a suite, SkillRank runs your agent twice — once with the skill

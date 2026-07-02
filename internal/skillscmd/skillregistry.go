@@ -40,6 +40,8 @@ func Run(args []string, ctx command.Context) int {
 		return runRecommend(tail, ctx)
 	case "eval":
 		return runEval(tail, ctx)
+	case "skill":
+		return runSkill(tail, ctx)
 	default:
 		fmt.Fprintf(ctx.Stderr, "unknown skills subcommand %q\n", sub)
 		printUsage(ctx)
@@ -65,6 +67,8 @@ Commands:
   uninstall <slug>   Remove an installed skill.
   recommend          Suggest skills for this repo's detected stack.
   eval <ref>         Run a local paired eval and optionally publish results.
+  skill [--install]  Print, or install into .claude/skills, the SKILL.md that
+                     teaches your agent (Claude Code/Codex) to use skillrank.
 
 Global flags:
   --json             Emit JSON.
