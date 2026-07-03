@@ -2,7 +2,7 @@
 # SkillRank installer — installs the standalone `skillrank` CLI, then offers to
 # also install BuildBetter ZeroShot (optional; SkillRank works fully without it).
 #
-#   curl -fsSL https://skillrank.dev/install.sh | sh
+#   curl -fsSL skillrank.dev | sh
 #
 # Env:
 #   SKILLRANK_VERSION   pin a release (default: latest)

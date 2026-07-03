@@ -1,0 +1,6 @@
+{
+  "name": "skillrank-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "skillrank.dev — serves the installer at the domain root (curl -fsSL skillrank.dev | sh)"
+}

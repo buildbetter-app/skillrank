@@ -14,7 +14,7 @@ It works entirely on its own. The core — search, install, and local eval —
 recommends skills from your real coding sessions and tracks realized savings.
 
 ```sh
-curl -fsSL https://skillrank.dev/install.sh | sh
+curl -fsSL skillrank.dev | sh
 ```
 
 The installer offers to also install ZeroShot — optional, and you can add it any
