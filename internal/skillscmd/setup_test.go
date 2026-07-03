@@ -15,7 +15,7 @@ func TestEnsureCodexMCPPreservesAndIsIdempotent(t *testing.T) {
 	if err := os.WriteFile(path, []byte(existing), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := ensureCodexMCP(path, "/usr/local/bin/skillrank"); err != nil {
+	if err := ensureCodexMCP(path, "/usr/local/bin/skillrank", ""); err != nil {
 		t.Fatal(err)
 	}
 	data, _ := os.ReadFile(path)
@@ -27,7 +27,7 @@ func TestEnsureCodexMCPPreservesAndIsIdempotent(t *testing.T) {
 		t.Fatal("skillrank server not appended")
 	}
 	// Idempotent: second run adds no duplicate.
-	if err := ensureCodexMCP(path, "/usr/local/bin/skillrank"); err != nil {
+	if err := ensureCodexMCP(path, "/usr/local/bin/skillrank", ""); err != nil {
 		t.Fatal(err)
 	}
 	data, _ = os.ReadFile(path)
@@ -42,7 +42,7 @@ func TestEnsureClaudeMCPMergesPreservingData(t *testing.T) {
 	if err := os.WriteFile(path, []byte(`{"numStartups":42,"mcpServers":{"context7":{"command":"npx","args":["-y","context7"]}}}`), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := ensureClaudeMCP(path, "/usr/local/bin/skillrank"); err != nil {
+	if err := ensureClaudeMCP(path, "/usr/local/bin/skillrank", ""); err != nil {
 		t.Fatal(err)
 	}
 	var doc map[string]any
@@ -72,7 +72,7 @@ func TestEnsureClaudeMCPMergesPreservingData(t *testing.T) {
 
 func TestEnsureClaudeMCPCreatesFileWhenMissing(t *testing.T) {
 	path := filepath.Join(t.TempDir(), "claude.json")
-	if err := ensureClaudeMCP(path, "skillrank"); err != nil {
+	if err := ensureClaudeMCP(path, "skillrank", ""); err != nil {
 		t.Fatal(err)
 	}
 	var doc map[string]any

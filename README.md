@@ -73,6 +73,29 @@ skillrank skill --install     # writes .claude/skills/skillrank/SKILL.md
 Either way, skills you `install` land in `.claude/skills/` (or `.agents/skills/`)
 and the agent discovers them automatically — no restart needed.
 
+## Run a registry locally (make search work with no hosted service)
+
+skillrank talks to a registry over HTTP (`SKILLRANK_API_URL`). Until the hosted
+registry is up, run your own with one command — it serves a seed catalog of real
+skills, so search / recommend / install work end to end:
+
+```sh
+skillrank serve                              # http://localhost:8899, seed catalog
+export SKILLRANK_API_URL=http://localhost:8899
+skillrank search "front end"                 # real results
+```
+
+To point your **agent's** MCP server at the local registry (so "find me a
+front-end skill" works inside Claude Code / Codex), pass the URL to setup — it
+writes it into the MCP config's env for you:
+
+```sh
+skillrank serve &                                        # keep it running
+skillrank setup --api-url http://localhost:8899          # wires both agents
+```
+
+`serve --catalog <file.json>` uses your own catalog instead of the built-in seed.
+
 ## How the eval works
 
 For each task in a suite, SkillRank runs your agent twice — once with the skill

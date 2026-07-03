@@ -29,10 +29,15 @@ func runSetup(args []string, ctx command.Context) int {
 		codexPath = defaultCodexConfigPath()
 	}
 
+	// --api-url pins the registry the agent's MCP server talks to (e.g. a local
+	// `skillrank serve`). It is written into the MCP entry's env so the agent-
+	// launched server hits it without any shell setup.
+	apiURL := strings.TrimSpace(flags.Values["api-url"])
+
 	if flags.BoolValues["print"] {
 		fmt.Fprintf(ctx.Stdout, "Claude Code (%s) — add under \"mcpServers\":\n", claudePath)
-		fmt.Fprintf(ctx.Stdout, "  \"skillrank\": {\"type\": \"stdio\", \"command\": %q, \"args\": [\"mcp\"]}\n\n", self)
-		fmt.Fprintf(ctx.Stdout, "Codex (%s) — append:\n%s\n", codexPath, codexBlock(self))
+		fmt.Fprintf(ctx.Stdout, "  \"skillrank\": %s\n\n", claudeEntryJSON(self, apiURL))
+		fmt.Fprintf(ctx.Stdout, "Codex (%s) — append:\n%s\n", codexPath, codexBlock(self, apiURL))
 		return 0
 	}
 
@@ -41,7 +46,7 @@ func runSetup(args []string, ctx command.Context) int {
 	rc := 0
 
 	if doClaude {
-		if err := ensureClaudeMCP(claudePath, self); err != nil {
+		if err := ensureClaudeMCP(claudePath, self, apiURL); err != nil {
 			fmt.Fprintf(ctx.Stderr, "Claude Code: %s\n", err)
 			rc = 1
 		} else {
@@ -49,7 +54,7 @@ func runSetup(args []string, ctx command.Context) int {
 		}
 	}
 	if doCodex {
-		if err := ensureCodexMCP(codexPath, self); err != nil {
+		if err := ensureCodexMCP(codexPath, self, apiURL); err != nil {
 			fmt.Fprintf(ctx.Stderr, "Codex: %s\n", err)
 			rc = 1
 		} else {
@@ -97,13 +102,30 @@ func defaultCodexConfigPath() string {
 	return filepath.Join(home, ".codex", "config.toml")
 }
 
-func codexBlock(self string) string {
-	return fmt.Sprintf("[mcp_servers.skillrank]\ncommand = %q\nargs = [\"mcp\"]\n", self)
+func codexBlock(self, apiURL string) string {
+	block := fmt.Sprintf("[mcp_servers.skillrank]\ncommand = %q\nargs = [\"mcp\"]\n", self)
+	if apiURL != "" {
+		block += fmt.Sprintf("[mcp_servers.skillrank.env]\nSKILLRANK_API_URL = %q\n", apiURL)
+	}
+	return block
+}
+
+func claudeEntry(self, apiURL string) map[string]any {
+	entry := map[string]any{"type": "stdio", "command": self, "args": []string{"mcp"}}
+	if apiURL != "" {
+		entry["env"] = map[string]any{"SKILLRANK_API_URL": apiURL}
+	}
+	return entry
+}
+
+func claudeEntryJSON(self, apiURL string) string {
+	buf, _ := json.Marshal(claudeEntry(self, apiURL))
+	return string(buf)
 }
 
 // ensureClaudeMCP merges an mcpServers.skillrank entry into ~/.claude.json,
 // preserving all other data. Backs up the file first.
-func ensureClaudeMCP(path, self string) error {
+func ensureClaudeMCP(path, self, apiURL string) error {
 	doc := map[string]any{}
 	if data, err := os.ReadFile(path); err == nil {
 		if len(strings.TrimSpace(string(data))) > 0 {
@@ -122,11 +144,7 @@ func ensureClaudeMCP(path, self string) error {
 	if servers == nil {
 		servers = map[string]any{}
 	}
-	servers["skillrank"] = map[string]any{
-		"type":    "stdio",
-		"command": self,
-		"args":    []string{"mcp"},
-	}
+	servers["skillrank"] = claudeEntry(self, apiURL)
 	doc["mcpServers"] = servers
 
 	out, err := json.MarshalIndent(doc, "", "  ")
@@ -139,16 +157,13 @@ func ensureClaudeMCP(path, self string) error {
 	return os.WriteFile(path, append(out, '\n'), 0o644)
 }
 
-// ensureCodexMCP appends a [mcp_servers.skillrank] block to config.toml when
-// absent (idempotent). TOML is append-only edited to avoid a TOML dependency and
-// to preserve the user's existing config exactly.
-func ensureCodexMCP(path, self string) error {
+// ensureCodexMCP writes the [mcp_servers.skillrank] block to config.toml,
+// replacing any prior skillrank block (so re-running updates it) and preserving
+// everything else. TOML is edited textually to avoid a TOML dependency.
+func ensureCodexMCP(path, self, apiURL string) error {
 	var existing string
 	if data, err := os.ReadFile(path); err == nil {
-		existing = string(data)
-		if strings.Contains(existing, "[mcp_servers.skillrank]") {
-			return nil // already registered
-		}
+		existing = stripCodexSkillrankBlock(string(data))
 		if err := backup(path, data); err != nil {
 			return err
 		}
@@ -159,15 +174,32 @@ func ensureCodexMCP(path, self string) error {
 		return err
 	}
 	var b strings.Builder
-	b.WriteString(existing)
-	if existing != "" && !strings.HasSuffix(existing, "\n") {
-		b.WriteString("\n")
+	b.WriteString(strings.TrimRight(existing, "\n"))
+	if strings.TrimSpace(existing) != "" {
+		b.WriteString("\n\n")
 	}
-	if existing != "" {
-		b.WriteString("\n")
-	}
-	b.WriteString(codexBlock(self))
+	b.WriteString(codexBlock(self, apiURL))
 	return os.WriteFile(path, []byte(b.String()), 0o644)
+}
+
+// stripCodexSkillrankBlock removes any [mcp_servers.skillrank] and
+// [mcp_servers.skillrank.env] tables (from each header to the next table header
+// or EOF), leaving all other config intact.
+func stripCodexSkillrankBlock(s string) string {
+	lines := strings.Split(s, "\n")
+	var out []string
+	skipping := false
+	for _, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "[") {
+			// A new table header: skip skillrank tables, keep others.
+			skipping = trimmed == "[mcp_servers.skillrank]" || trimmed == "[mcp_servers.skillrank.env]"
+		}
+		if !skipping {
+			out = append(out, line)
+		}
+	}
+	return strings.Join(out, "\n")
 }
 
 func backup(path string, data []byte) error {

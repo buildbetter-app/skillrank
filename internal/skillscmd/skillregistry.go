@@ -46,6 +46,8 @@ func Run(args []string, ctx command.Context) int {
 		return runMCP(tail, ctx)
 	case "setup":
 		return runSetup(tail, ctx)
+	case "serve":
+		return runServe(tail, ctx)
 	default:
 		fmt.Fprintf(ctx.Stderr, "unknown skills subcommand %q\n", sub)
 		printUsage(ctx)
@@ -76,6 +78,8 @@ Commands:
   setup              Register the skillrank MCP server with Claude Code and Codex
                      so the agent uses skillrank automatically (one-time).
   mcp                Run as an MCP stdio server (invoked by the agent; not by you).
+  serve [--port N]   Run a local registry server (seed catalog) so search/install
+                     work with no hosted backend. Set SKILLRANK_API_URL to it.
 
 Global flags:
   --json             Emit JSON.
