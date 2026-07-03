@@ -11,7 +11,7 @@
 #   SKILLRANK_NO_ZEROSHOT=1     never install ZeroShot (skip the prompt)
 set -eu
 
-REPO="buildbetter/skillrank"           # GitHub releases source (placeholder)
+REPO="buildbetter-app/skillrank"           # GitHub releases source (placeholder)
 VERSION="${SKILLRANK_VERSION:-latest}"
 ZEROSHOT_INSTALL_URL="https://buildbetter.sh"  # ZeroShot installer (placeholder)
 

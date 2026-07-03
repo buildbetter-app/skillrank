@@ -6,7 +6,7 @@ members = ["crates/skillrank-core", "crates/skillrank"]
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/buildbetter/skillrank"
+repository = "https://github.com/buildbetter-app/skillrank"
 
 [workspace.dependencies]
 serde = { version = "1", features = ["derive"] }
