@@ -8,3 +8,7 @@
 *.log
 .claude/settings.local.json
 .DS_Store
+
+# Vercel local project link
+.vercel/
+site/.vercel/
