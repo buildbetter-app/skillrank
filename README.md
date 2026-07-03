@@ -118,24 +118,32 @@ only. See [`docs/`](docs) for the full methodology.
 
 ## Build from source
 
+Rust (stable, edition 2021):
+
 ```sh
-go build -o skillrank ./cmd/skillrank   # Go 1.23+
-go test ./...
+cargo build --release      # target/release/skillrank
+cargo test
 ```
 
 ## Architecture
 
-- `cmd/skillrank` — the binary.
-- `internal/registry` — registry client, lockfile, install, content-hash verify,
-  stack detection.
-- `internal/registry/runner` — the eval harness (fixture lifecycle, paired trials,
-  verifier isolation, agent usage parsing, bundle construction). The **same
-  harness** runs official baselines, audits, and community evals.
-- `internal/{command,config,api,skills}` — the small, dependency-free CLI harness.
+A Cargo workspace:
+
+- `crates/skillrank-core` — **library**: registry client, lockfile, install,
+  content-hash verify, stack detection, skill-surface discovery. Dependency-light
+  and agent-agnostic, so BuildBetter ZeroShot / the Rust `bb` CLI can embed it as a
+  crate to provide `bb skills` from this one implementation.
+- `crates/skillrank` — the `skillrank` **binary**: search/show/install/list/
+  uninstall/recommend, plus `serve` (local registry), `setup` (MCP registration),
+  `mcp` (stdio MCP server), and `skill`.
 
 The hosted registry (search, publish, reviews, leaderboards, official baselines)
-is a separate service; this repo is the client + the local eval harness. ZeroShot
-embeds this module to provide `bb skills`.
+is a separate service; this repo is the client + local registry + agent
+integration. The eval harness (paired trials, verifier isolation, bundle
+construction) is being ported next.
+
+> Ported from Go to Rust to match the ZeroShot/`bb` stack; the original Go
+> implementation is preserved under `legacy-go/` for reference.
 
 ## License
 

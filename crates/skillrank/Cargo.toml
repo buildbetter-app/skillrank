@@ -1,0 +1,17 @@
+[package]
+name = "skillrank"
+description = "SkillRank CLI — find, install, evaluate, and publish agent skills. Works on its own; integrates with BuildBetter ZeroShot."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "skillrank"
+path = "src/main.rs"
+
+[dependencies]
+skillrank-core = { path = "../skillrank-core" }
+serde.workspace = true
+serde_json.workspace = true
+tiny_http.workspace = true
