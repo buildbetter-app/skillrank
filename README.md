@@ -130,20 +130,19 @@ cargo test
 A Cargo workspace:
 
 - `crates/skillrank-core` — **library**: registry client, lockfile, install,
-  content-hash verify, stack detection, skill-surface discovery. Dependency-light
-  and agent-agnostic, so BuildBetter ZeroShot / the Rust `bb` CLI can embed it as a
-  crate to provide `bb skills` from this one implementation.
+  content-hash verify, stack detection, skill-surface discovery, and the eval
+  harness (`runner`: forced-mode paired trials, verifier isolation, agent-usage
+  parsing, bundle construction — the same code for official baselines and
+  community runs). Dependency-light and agent-agnostic, so BuildBetter ZeroShot /
+  the Rust `bb` CLI can embed it as a crate to provide `bb skills` from this one
+  implementation.
 - `crates/skillrank` — the `skillrank` **binary**: search/show/install/list/
-  uninstall/recommend, plus `serve` (local registry), `setup` (MCP registration),
-  `mcp` (stdio MCP server), and `skill`.
+  uninstall/recommend/eval, plus `serve` (local registry), `setup` (MCP
+  registration), `mcp` (stdio MCP server), and `skill`.
 
 The hosted registry (search, publish, reviews, leaderboards, official baselines)
-is a separate service; this repo is the client + local registry + agent
-integration. The eval harness (paired trials, verifier isolation, bundle
-construction) is being ported next.
-
-> Ported from Go to Rust to match the ZeroShot/`bb` stack; the original Go
-> implementation is preserved under `legacy-go/` for reference.
+is a separate service; this repo is the client + local registry + eval harness +
+agent integration.
 
 ## License
 

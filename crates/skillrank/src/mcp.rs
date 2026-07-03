@@ -88,7 +88,8 @@ impl McpServer {
 
     fn reply_error(&self, out: &mut impl Write, id: Option<Value>, code: i64, message: &str) {
         let id = id.unwrap_or(Value::Null);
-        let resp = json!({ "jsonrpc": "2.0", "id": id, "error": { "code": code, "message": message } });
+        let resp =
+            json!({ "jsonrpc": "2.0", "id": id, "error": { "code": code, "message": message } });
         let _ = writeln!(out, "{resp}");
         let _ = out.flush();
     }
@@ -144,7 +145,10 @@ impl McpServer {
             return tool_text("slug is required", true);
         }
         match self.client.show(&slug) {
-            Ok(detail) => tool_text(&serde_json::to_string_pretty(&detail).unwrap_or_default(), false),
+            Ok(detail) => tool_text(
+                &serde_json::to_string_pretty(&detail).unwrap_or_default(),
+                false,
+            ),
             Err(e) => tool_text(&format!("show failed: {e}"), true),
         }
     }
@@ -326,14 +330,27 @@ mod tests {
     use super::*;
 
     fn server() -> McpServer {
-        McpServer { client: skillrank_core::Client::new(Some("http://127.0.0.1:1")) }
+        McpServer {
+            client: skillrank_core::Client::new(Some("http://127.0.0.1:1")),
+        }
     }
 
     #[test]
     fn tool_definitions_expose_five_tools() {
         let defs = tool_definitions();
-        let names: Vec<&str> = defs.as_array().unwrap().iter().map(|t| t["name"].as_str().unwrap()).collect();
-        for want in ["skill_search", "skill_recommend", "skill_show", "skill_install", "skill_list"] {
+        let names: Vec<&str> = defs
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|t| t["name"].as_str().unwrap())
+            .collect();
+        for want in [
+            "skill_search",
+            "skill_recommend",
+            "skill_show",
+            "skill_install",
+            "skill_list",
+        ] {
             assert!(names.contains(&want), "missing {want}");
         }
     }
@@ -352,7 +369,10 @@ mod tests {
     fn notification_produces_no_response() {
         let s = server();
         let mut out: Vec<u8> = Vec::new();
-        s.handle_line(r#"{"jsonrpc":"2.0","method":"notifications/initialized"}"#, &mut out);
+        s.handle_line(
+            r#"{"jsonrpc":"2.0","method":"notifications/initialized"}"#,
+            &mut out,
+        );
         assert!(out.is_empty(), "notification must not reply");
     }
 }

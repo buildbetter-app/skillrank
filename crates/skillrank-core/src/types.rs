@@ -158,3 +158,141 @@ pub struct ResolveResponse {
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub tombstone_reason: String,
 }
+
+// ---- Eval types (used by the runner and `skillrank eval`) ----
+
+/// Treatment/control condition of a single trial.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum TrialArm {
+    Control,
+    Treatment,
+}
+
+impl TrialArm {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            TrialArm::Control => "control",
+            TrialArm::Treatment => "treatment",
+        }
+    }
+}
+
+/// One agent run against one task in one arm.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct TrialRecord {
+    pub task_id: String,
+    pub arm: TrialArm,
+    /// "pass" | "fail" | "agent_error" | "verifier_error"
+    pub verdict: String,
+    #[serde(default)]
+    pub input_tokens: i64,
+    #[serde(default)]
+    pub output_tokens: i64,
+    #[serde(default)]
+    pub cache_read_tokens: i64,
+    #[serde(default)]
+    pub cache_write_tokens: i64,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub cost_usd: Option<f64>,
+    #[serde(default)]
+    pub duration_ms: i64,
+    #[serde(default)]
+    pub turns: i64,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub trajectory_digest: String,
+}
+
+/// Keys where a bundle's results are comparable.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct EnvironmentCell {
+    pub agent: String,
+    pub agent_version_band: String,
+    pub model: String,
+    pub os: String,
+    /// "docker" | "worktree"
+    pub isolation: String,
+}
+
+/// Which runner produced a bundle.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct HarnessInfo {
+    pub name: String,
+    pub version: String,
+}
+
+/// The versioned result artifact written locally and (optionally) published.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct EvalBundle {
+    pub bundle_version: i32,
+    pub skill_slug: String,
+    pub skill_content_hash: String,
+    pub suite_id: String,
+    pub suite_version: String,
+    pub harness: HarnessInfo,
+    pub environment_cell: EnvironmentCell,
+    pub trials: Vec<TrialRecord>,
+    pub config_hash: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub created_at: String,
+}
+
+/// Pins the codebase an eval runs against.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SuiteFixture {
+    pub git_url: String,
+    pub commit: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub image: String,
+}
+
+/// One deterministic task in an eval suite (public contract fields only).
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SuiteTask {
+    pub id: String,
+    pub instruction: String,
+    #[serde(default)]
+    pub verifier_contract: String,
+    #[serde(default)]
+    pub timeout_sec: i64,
+    #[serde(default)]
+    pub est_tokens: i64,
+    #[serde(default)]
+    pub est_cost_usd: f64,
+}
+
+/// Pinned agent/model band a run must match to be eligible for aggregation.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct ReferenceEnv {
+    #[serde(default)]
+    pub agent_version_band: String,
+    #[serde(default)]
+    pub models: Vec<String>,
+}
+
+/// A full eval suite definition (public fields only).
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct Suite {
+    pub id: String,
+    pub version: String,
+    #[serde(default)]
+    pub fixture: SuiteFixture,
+    #[serde(default)]
+    pub tasks: Vec<SuiteTask>,
+    #[serde(default)]
+    pub reference_env: ReferenceEnv,
+}
+
+/// Returned when a bundle is submitted.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct IngestResponse {
+    pub accepted: bool,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub result_id: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub tier_state: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub reason: String,
+    #[serde(default)]
+    pub conforming: bool,
+}

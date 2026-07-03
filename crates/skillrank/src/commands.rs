@@ -21,7 +21,7 @@ fn print_json<T: Serialize>(value: &T) {
     }
 }
 
-fn confirm(prompt: &str) -> bool {
+pub fn confirm(prompt: &str) -> bool {
     print!("{prompt} [y/N] ");
     let _ = std::io::stdout().flush();
     let mut line = String::new();
@@ -64,10 +64,7 @@ pub fn search(args: &[String]) -> i32 {
             Some(avg) => format!("{avg:.1}★ ({})", item.rating_count),
             None => "—".to_string(),
         };
-        println!(
-            "{:<32} scan:{:<8} {}",
-            item.slug, item.scan_tier, rating
-        );
+        println!("{:<32} scan:{:<8} {}", item.slug, item.scan_tier, rating);
         if !item.summary.is_empty() {
             println!("    {}", truncate(&item.summary, 100));
         }
@@ -226,7 +223,8 @@ pub fn uninstall(args: &[String]) -> i32 {
         eprintln!("usage: uninstall <slug> [--yes]");
         return 2;
     };
-    if !f.bool("yes") && !f.bool("y") && !confirm(&format!("Remove skill {slug:?} and its files?")) {
+    if !f.bool("yes") && !f.bool("y") && !confirm(&format!("Remove skill {slug:?} and its files?"))
+    {
         println!("Aborted.");
         return 1;
     }

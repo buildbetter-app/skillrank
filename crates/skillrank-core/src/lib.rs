@@ -9,6 +9,7 @@ pub mod hash;
 pub mod install;
 pub mod lockfile;
 pub mod repo;
+pub mod runner;
 pub mod skills;
 pub mod stack;
 pub mod types;

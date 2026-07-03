@@ -2,6 +2,7 @@
 //! open source; integrates with BuildBetter ZeroShot when installed.
 
 mod commands;
+mod eval;
 mod flags;
 mod mcp;
 mod selfskill;
@@ -52,6 +53,7 @@ fn dispatch(args: &[String]) -> i32 {
         "list" | "ls" => commands::list(tail),
         "uninstall" | "remove" | "rm" => commands::uninstall(tail),
         "recommend" => commands::recommend(tail),
+        "eval" => eval::run(tail),
         "skill" => selfskill::run(tail),
         "mcp" => mcp::run(tail),
         "setup" => setup::run(tail),
@@ -106,7 +108,10 @@ fn logout() -> i32 {
 }
 
 fn whoami() -> i32 {
-    if std::env::var("SKILLRANK_TOKEN").map(|v| !v.is_empty()).unwrap_or(false) {
+    if std::env::var("SKILLRANK_TOKEN")
+        .map(|v| !v.is_empty())
+        .unwrap_or(false)
+    {
         println!("Authenticated via SKILLRANK_TOKEN.");
     } else {
         println!("Not signed in (reads and local eval still work).");
@@ -138,6 +143,7 @@ Commands:
   list               List installed skills and drift.
   uninstall <slug>   Remove an installed skill.
   recommend          Suggest skills for this repo's detected stack.
+  eval <ref>         Run a local paired eval on your own agent; optionally publish.
   skill [--install]  Print, or install into .claude/skills, the SKILL.md that
                      teaches your agent (Claude Code/Codex) to use skillrank.
   setup              Register the skillrank MCP server with Claude Code and Codex

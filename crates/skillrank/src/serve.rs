@@ -60,7 +60,17 @@ pub fn run(args: &[String]) -> i32 {
         .collect();
     let server = ServerState { entries, index };
 
-    let addr = format!("0.0.0.0:{port}");
+    // Bind loopback by default so the local seed registry is not exposed to the
+    // network. Opt into a wider bind (e.g. containers, LAN) with `--host 0.0.0.0`.
+    let host = {
+        let h = f.value("host").trim();
+        if h.is_empty() {
+            "127.0.0.1".to_string()
+        } else {
+            h.to_string()
+        }
+    };
+    let addr = format!("{host}:{port}");
     let http = match Server::http(&addr) {
         Ok(s) => s,
         Err(e) => {
@@ -68,11 +78,16 @@ pub fn run(args: &[String]) -> i32 {
             return 1;
         }
     };
+    let display_host = if host == "0.0.0.0" || host == "::" {
+        "localhost"
+    } else {
+        host.as_str()
+    };
     println!(
-        "skillrank registry serving {} skills on http://localhost:{port}",
+        "skillrank registry serving {} skills on http://{display_host}:{port} (bound {addr})",
         server.entries.len()
     );
-    println!("Point your CLI/agent at it:  export SKILLRANK_API_URL=http://localhost:{port}");
+    println!("Point your CLI/agent at it:  export SKILLRANK_API_URL=http://{display_host}:{port}");
 
     let json_header = Header::from_bytes(&b"Content-Type"[..], &b"application/json"[..]).unwrap();
     for request in http.incoming_requests() {
@@ -112,8 +127,16 @@ impl ServerState {
 
     fn search(&self, query: &HashMap<String, String>) -> String {
         let q = query.get("q").cloned().unwrap_or_default().to_lowercase();
-        let stack = query.get("stack").cloned().unwrap_or_default().to_lowercase();
-        let category = query.get("category").cloned().unwrap_or_default().to_lowercase();
+        let stack = query
+            .get("stack")
+            .cloned()
+            .unwrap_or_default()
+            .to_lowercase();
+        let category = query
+            .get("category")
+            .cloned()
+            .unwrap_or_default()
+            .to_lowercase();
         let limit: usize = query
             .get("limit")
             .and_then(|s| s.parse().ok())
@@ -204,7 +227,10 @@ struct ErrBody {
 }
 
 fn json_error(msg: &str) -> String {
-    serde_json::to_string(&ErrBody { error: msg.to_string() }).unwrap()
+    serde_json::to_string(&ErrBody {
+        error: msg.to_string(),
+    })
+    .unwrap()
 }
 
 /// matches_query is true when every whitespace word of the query is a substring
@@ -233,7 +259,9 @@ fn matches_query(e: &CatalogEntry, query: &str) -> bool {
 }
 
 fn strip_sep(s: &str) -> String {
-    s.chars().filter(|c| !matches!(c, ' ' | '-' | '_')).collect()
+    s.chars()
+        .filter(|c| !matches!(c, ' ' | '-' | '_'))
+        .collect()
 }
 
 /// Split a request target into (decoded path, query map). Percent-decodes the
@@ -311,7 +339,8 @@ mod tests {
 
     #[test]
     fn split_url_decodes_slug_and_query() {
-        let (path, params) = split_url("/v3/rest/skill-registry/skills/owner%2Fname/resolve?version=1&q=a+b");
+        let (path, params) =
+            split_url("/v3/rest/skill-registry/skills/owner%2Fname/resolve?version=1&q=a+b");
         assert_eq!(path, "/v3/rest/skill-registry/skills/owner/name/resolve");
         assert_eq!(params.get("version").unwrap(), "1");
         assert_eq!(params.get("q").unwrap(), "a b");
@@ -321,7 +350,10 @@ mod tests {
     fn resolve_hash_matches_its_own_content() {
         let mut e = entry("x/y", "frontend", &["react"]);
         e.hash = skillrank_core::compute_content_hash(&e.content);
-        let state = ServerState { entries: vec![e], index: [("x/y".to_string(), 0usize)].into_iter().collect() };
+        let state = ServerState {
+            entries: vec![e],
+            index: [("x/y".to_string(), 0usize)].into_iter().collect(),
+        };
         let (status, body) = state.resolve("x/y");
         assert_eq!(status, 200);
         let resolved: skillrank_core::ResolveResponse = serde_json::from_str(&body).unwrap();

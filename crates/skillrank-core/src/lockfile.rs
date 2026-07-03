@@ -108,8 +108,7 @@ impl Lockfile {
     /// Write the lockfile back with stable ordering, preserving foreign fields.
     pub fn save(&mut self) -> std::io::Result<()> {
         self.skills.sort_by(|a, b| a.skill_path.cmp(&b.skill_path));
-        let json = serde_json::to_string_pretty(self)
-            .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
+        let json = serde_json::to_string_pretty(self).map_err(std::io::Error::other)?;
         std::fs::write(&self.path, format!("{json}\n"))
     }
 }
@@ -153,7 +152,12 @@ mod tests {
     fn remove_reports_correctly() {
         let dir = tmpdir("lf-rm");
         let mut lf = Lockfile::load(&dir).unwrap();
-        lf.upsert(LockEntry { slug: "a".into(), skill_path: "p/a".into(), computed_hash: "h".into(), ..Default::default() });
+        lf.upsert(LockEntry {
+            slug: "a".into(),
+            skill_path: "p/a".into(),
+            computed_hash: "h".into(),
+            ..Default::default()
+        });
         assert!(lf.remove("p/a"));
         assert!(!lf.remove("p/a"));
         std::fs::remove_dir_all(&dir).ok();

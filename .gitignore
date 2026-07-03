@@ -2,3 +2,9 @@
 /dist/
 /skillrank
 *.test
+
+# Local runtime / editor / OS cruft that must never be published
+/logs/
+*.log
+.claude/settings.local.json
+.DS_Store

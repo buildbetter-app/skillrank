@@ -42,7 +42,10 @@ pub fn resolve_surface(repo_root: &Path, override_dir: &str) -> (String, PathBuf
     }
     if let Ok(discovery) = skills::discover(repo_root) {
         if let Some(surface) = discovery.surface {
-            return (surface.relative_path.clone(), PathBuf::from(surface.absolute_path));
+            return (
+                surface.relative_path.clone(),
+                PathBuf::from(surface.absolute_path),
+            );
         }
     }
     let rel = ".claude/skills".to_string();

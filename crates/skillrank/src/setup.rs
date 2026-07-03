@@ -28,7 +28,10 @@ pub fn run(args: &[String]) -> i32 {
             "Claude Code ({}) — add under \"mcpServers\":",
             claude_path.display()
         );
-        println!("  \"skillrank\": {}\n", claude_entry_json(&self_path, &api_url));
+        println!(
+            "  \"skillrank\": {}\n",
+            claude_entry_json(&self_path, &api_url)
+        );
         println!(
             "Codex ({}) — append:\n{}",
             codex_path.display(),
@@ -52,7 +55,10 @@ pub fn run(args: &[String]) -> i32 {
     }
     if !f.bool("no-codex") {
         match ensure_codex_mcp(&codex_path, &self_path, &api_url) {
-            Ok(_) => println!("✓ Registered skillrank MCP with Codex ({})", codex_path.display()),
+            Ok(_) => println!(
+                "✓ Registered skillrank MCP with Codex ({})",
+                codex_path.display()
+            ),
             Err(e) => {
                 eprintln!("Codex: {e}");
                 rc = 1;
@@ -60,7 +66,9 @@ pub fn run(args: &[String]) -> i32 {
         }
     }
     if rc == 0 {
-        println!("\nDone. Restart your agent, then just ask it to find, install, or evaluate skills —");
+        println!(
+            "\nDone. Restart your agent, then just ask it to find, install, or evaluate skills —"
+        );
         println!("no commands to remember. (Claude Code prompts once to approve the tools; approve them.)");
         println!("To skip the prompt, add to ~/.claude/settings.json: {{\"permissions\":{{\"allow\":[\"mcp__skillrank\"]}}}}");
     }
@@ -144,8 +152,7 @@ pub fn ensure_claude_mcp(path: &Path, self_path: &str, api_url: &str) -> std::io
     if let Some(parent) = path.parent() {
         std::fs::create_dir_all(parent)?;
     }
-    let mut out = serde_json::to_string_pretty(&doc)
-        .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
+    let mut out = serde_json::to_string_pretty(&doc).map_err(std::io::Error::other)?;
     out.push('\n');
     std::fs::write(path, out)
 }
@@ -207,14 +214,25 @@ mod tests {
     fn codex_preserves_and_is_idempotent() {
         let dir = tmp("codex");
         let path = dir.join("config.toml");
-        std::fs::write(&path, "[mcp_servers.playwright]\ncommand = \"npx\"\nargs = [\"@playwright/mcp@latest\"]\n").unwrap();
+        std::fs::write(
+            &path,
+            "[mcp_servers.playwright]\ncommand = \"npx\"\nargs = [\"@playwright/mcp@latest\"]\n",
+        )
+        .unwrap();
         ensure_codex_mcp(&path, "/usr/local/bin/skillrank", "").unwrap();
         let s = std::fs::read_to_string(&path).unwrap();
-        assert!(s.contains("[mcp_servers.playwright]"), "existing server lost");
+        assert!(
+            s.contains("[mcp_servers.playwright]"),
+            "existing server lost"
+        );
         assert!(s.contains("[mcp_servers.skillrank]"));
         ensure_codex_mcp(&path, "/usr/local/bin/skillrank", "").unwrap();
         let s = std::fs::read_to_string(&path).unwrap();
-        assert_eq!(s.matches("[mcp_servers.skillrank]").count(), 1, "duplicate section");
+        assert_eq!(
+            s.matches("[mcp_servers.skillrank]").count(),
+            1,
+            "duplicate section"
+        );
         std::fs::remove_dir_all(&dir).ok();
     }
 
@@ -222,13 +240,24 @@ mod tests {
     fn claude_merges_and_injects_api_url() {
         let dir = tmp("claude");
         let path = dir.join("claude.json");
-        std::fs::write(&path, r#"{"numStartups":42,"mcpServers":{"context7":{"command":"npx"}}}"#).unwrap();
+        std::fs::write(
+            &path,
+            r#"{"numStartups":42,"mcpServers":{"context7":{"command":"npx"}}}"#,
+        )
+        .unwrap();
         ensure_claude_mcp(&path, "/usr/local/bin/skillrank", "http://localhost:8899").unwrap();
-        let doc: serde_json::Value = serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+        let doc: serde_json::Value =
+            serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
         assert_eq!(doc["numStartups"], 42);
         assert!(doc["mcpServers"]["context7"].is_object(), "context7 lost");
-        assert_eq!(doc["mcpServers"]["skillrank"]["env"]["SKILLRANK_API_URL"], "http://localhost:8899");
-        assert!(path.with_extension("json.skillrank-bak").exists() || std::path::Path::new(&format!("{}.skillrank-bak", path.display())).exists());
+        assert_eq!(
+            doc["mcpServers"]["skillrank"]["env"]["SKILLRANK_API_URL"],
+            "http://localhost:8899"
+        );
+        assert!(
+            path.with_extension("json.skillrank-bak").exists()
+                || std::path::Path::new(&format!("{}.skillrank-bak", path.display())).exists()
+        );
         std::fs::remove_dir_all(&dir).ok();
     }
 }

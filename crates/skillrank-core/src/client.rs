@@ -83,22 +83,7 @@ impl Client {
         for (k, v) in query {
             req = req.query(k, v);
         }
-        match req.call() {
-            Ok(resp) => resp
-                .into_json::<T>()
-                .map_err(|e| ClientError::Parse(e.to_string())),
-            Err(ureq::Error::Status(code, resp)) => {
-                let retry_after = resp.header("Retry-After").map(|s| s.to_string());
-                let body = resp.into_string().unwrap_or_default();
-                Err(match code {
-                    404 => ClientError::NotFound,
-                    401 => ClientError::Unauthorized,
-                    429 => ClientError::RateLimited { retry_after },
-                    _ => ClientError::Http { status: code, body },
-                })
-            }
-            Err(ureq::Error::Transport(t)) => Err(ClientError::Unreachable(t.to_string())),
-        }
+        do_json(req.call())
     }
 
     /// Search the registry.
@@ -130,10 +115,7 @@ impl Client {
 
     /// Fetch a skill's full detail page.
     pub fn show(&self, slug: &str) -> Result<SkillDetail, ClientError> {
-        self.get_json(
-            &format!("{PATH_PREFIX}/skills/{}", encode_path(slug)),
-            &[],
-        )
+        self.get_json(&format!("{PATH_PREFIX}/skills/{}", encode_path(slug)), &[])
     }
 
     /// Return install coordinates for a ref (slug or slug@version).
@@ -145,6 +127,69 @@ impl Client {
         } else {
             self.get_json(&path, &[("version", version.as_str())])
         }
+    }
+
+    /// Fetch an eval suite's public definition.
+    pub fn get_suite(&self, id: &str) -> Result<crate::types::Suite, ClientError> {
+        self.get_json(
+            &format!("{PATH_PREFIX}/eval-suites/{}", encode_path(id)),
+            &[],
+        )
+    }
+
+    /// Fetch the private verifier scripts for a suite version (authenticated,
+    /// runner-only endpoint — never part of the public suite contract).
+    pub fn fetch_verifiers(
+        &self,
+        suite_id: &str,
+        version: &str,
+    ) -> Result<std::collections::HashMap<String, String>, ClientError> {
+        let path = format!(
+            "{PATH_PREFIX}/eval-suites/{}/verifiers",
+            encode_path(suite_id)
+        );
+        if version.is_empty() {
+            self.get_authenticated(&path, &[])
+        } else {
+            self.get_authenticated(&path, &[("version", version)])
+        }
+    }
+
+    /// Publish an eval result bundle (authenticated).
+    pub fn submit_bundle(
+        &self,
+        bundle: &crate::types::EvalBundle,
+    ) -> Result<crate::types::IngestResponse, ClientError> {
+        self.post_authenticated(&format!("{PATH_PREFIX}/eval-results"), bundle)
+    }
+
+    fn get_authenticated<T: DeserializeOwned>(
+        &self,
+        path: &str,
+        query: &[(&str, &str)],
+    ) -> Result<T, ClientError> {
+        let url = format!("{}{}", self.base_url, path);
+        let mut req = ureq::get(&url).set("Accept", "application/json");
+        if let Some(token) = resolve_token() {
+            req = req.set("Authorization", &format!("Bearer {token}"));
+        }
+        for (k, v) in query {
+            req = req.query(k, v);
+        }
+        do_json(req.call())
+    }
+
+    fn post_authenticated<B: serde::Serialize, T: DeserializeOwned>(
+        &self,
+        path: &str,
+        body: &B,
+    ) -> Result<T, ClientError> {
+        let url = format!("{}{}", self.base_url, path);
+        let mut req = ureq::post(&url).set("Accept", "application/json");
+        if let Some(token) = resolve_token() {
+            req = req.set("Authorization", &format!("Bearer {token}"));
+        }
+        do_json(req.send_json(serde_json::to_value(body).unwrap_or(serde_json::Value::Null)))
     }
 
     /// Download SKILL.md content from a raw URL (source-mode skills whose content
@@ -176,4 +221,43 @@ fn encode_path(s: &str) -> String {
         }
     }
     out
+}
+
+/// Convert a ureq call result into a typed JSON result with mapped error cases.
+fn do_json<T: DeserializeOwned>(
+    result: Result<ureq::Response, ureq::Error>,
+) -> Result<T, ClientError> {
+    match result {
+        Ok(resp) => resp
+            .into_json::<T>()
+            .map_err(|e| ClientError::Parse(e.to_string())),
+        Err(ureq::Error::Status(code, resp)) => {
+            let retry_after = resp.header("Retry-After").map(|s| s.to_string());
+            let body = resp.into_string().unwrap_or_default();
+            Err(match code {
+                404 => ClientError::NotFound,
+                401 => ClientError::Unauthorized,
+                429 => ClientError::RateLimited { retry_after },
+                _ => ClientError::Http { status: code, body },
+            })
+        }
+        Err(ureq::Error::Transport(t)) => Err(ClientError::Unreachable(t.to_string())),
+    }
+}
+
+/// Resolve a registry token from SKILLRANK_TOKEN or ~/.skillrank/auth.json.
+fn resolve_token() -> Option<String> {
+    if let Ok(t) = std::env::var("SKILLRANK_TOKEN") {
+        let t = t.trim().to_string();
+        if !t.is_empty() {
+            return Some(t);
+        }
+    }
+    let path = crate::config::auth_path().ok()?;
+    let data = std::fs::read_to_string(path).ok()?;
+    let v: serde_json::Value = serde_json::from_str(&data).ok()?;
+    v.get("token")
+        .and_then(|t| t.as_str())
+        .map(|s| s.trim().to_string())
+        .filter(|s| !s.is_empty())
 }

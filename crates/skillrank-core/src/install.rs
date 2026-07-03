@@ -65,7 +65,20 @@ impl Client {
             } else {
                 resolved.tombstone_reason.clone()
             };
-            return Err(format!("skill {:?} is unavailable: {reason}", resolved.slug));
+            return Err(format!(
+                "skill {:?} is unavailable: {reason}",
+                resolved.slug
+            ));
+        }
+
+        // The slug is registry-controlled and is joined onto the local skill
+        // surface below, so reject anything that could escape it (traversal,
+        // absolute paths, backslashes) before it touches the filesystem.
+        if !is_safe_slug(&resolved.slug) {
+            return Err(format!(
+                "registry returned an unsafe skill slug {:?}; refusing to install",
+                resolved.slug
+            ));
         }
 
         let content = self.fetch_skill_content(&resolved)?;
@@ -77,8 +90,7 @@ impl Client {
             ));
         }
 
-        let (surface_rel, surface_abs) =
-            resolve_surface(&opts.repo_root, &opts.surface_override);
+        let (surface_rel, surface_abs) = resolve_surface(&opts.repo_root, &opts.surface_override);
         let skill_dir = surface_abs.join(&resolved.slug);
         let skill_file = skill_dir.join("SKILL.md");
         let skill_path_rel = format!("{surface_rel}/{}/SKILL.md", resolved.slug);
@@ -100,10 +112,10 @@ impl Client {
         }
 
         // Atomic write: temp then rename, so a failed write leaves no partial install.
-        std::fs::create_dir_all(&skill_dir)
-            .map_err(|e| format!("create skill directory: {e}"))?;
+        std::fs::create_dir_all(&skill_dir).map_err(|e| format!("create skill directory: {e}"))?;
         let tmp = skill_dir.join("SKILL.md.tmp");
-        std::fs::write(&tmp, content.as_bytes()).map_err(|e| format!("write skill content: {e}"))?;
+        std::fs::write(&tmp, content.as_bytes())
+            .map_err(|e| format!("write skill content: {e}"))?;
         std::fs::rename(&tmp, &skill_file).map_err(|e| {
             let _ = std::fs::remove_file(&tmp);
             format!("finalize skill install: {e}")
@@ -144,10 +156,7 @@ impl Client {
         surface_rel: &str,
     ) -> Result<(), String> {
         let mut lf = Lockfile::load(&opts.repo_root).map_err(|e| e.to_string())?;
-        let now = opts
-            .now_rfc3339
-            .clone()
-            .unwrap_or_else(now_rfc3339);
+        let now = opts.now_rfc3339.clone().unwrap_or_else(now_rfc3339);
         let registry_ref = if resolved.version.is_empty() {
             resolved.slug.clone()
         } else {
@@ -206,8 +215,16 @@ pub fn uninstall(repo_root: &std::path::Path, slug: &str) -> Result<String, Stri
     let abs = repo_root.join(&entry.skill_path);
     let dir = abs.parent().map(|p| p.to_path_buf());
     // Remove the per-skill dir when it looks dedicated; otherwise just the file.
+    // Only recurse into a dir whose name equals a single-segment safe slug, so a
+    // tampered lockfile can't turn uninstall into an arbitrary directory delete.
     if let Some(dir) = &dir {
-        if dir.file_name().map(|n| n.to_string_lossy() == slug).unwrap_or(false) {
+        if is_safe_slug(slug)
+            && !slug.contains('/')
+            && dir
+                .file_name()
+                .map(|n| n.to_string_lossy() == slug)
+                .unwrap_or(false)
+        {
             let _ = std::fs::remove_dir_all(dir);
         } else {
             let _ = std::fs::remove_file(&abs);
@@ -223,6 +240,26 @@ pub fn uninstall(repo_root: &std::path::Path, slug: &str) -> Result<String, Stri
 /// Whether a scan tier is safe to install without an extra confirmation prompt.
 pub fn safe_scan_tier(tier: ScanTier) -> bool {
     tier.is_safe()
+}
+
+/// True when a registry slug is safe to use as a relative filesystem path:
+/// one or more `/`-separated segments, each a non-empty run of `[A-Za-z0-9._-]`
+/// that is not `.` or `..`. Rejects absolute paths, backslashes, empty segments,
+/// and traversal — the slug is registry-controlled and gets joined onto the
+/// local skill surface, so this is the boundary that keeps writes/removes inside
+/// the surface directory.
+pub fn is_safe_slug(slug: &str) -> bool {
+    if slug.is_empty() || slug.len() > 255 || slug.starts_with('/') || slug.contains('\\') {
+        return false;
+    }
+    slug.split('/').all(|seg| {
+        !seg.is_empty()
+            && seg != "."
+            && seg != ".."
+            && seg
+                .bytes()
+                .all(|b| b.is_ascii_alphanumeric() || matches!(b, b'.' | b'-' | b'_'))
+    })
 }
 
 /// RFC3339 UTC timestamp (seconds precision) without an external date dependency.
@@ -250,4 +287,30 @@ fn civil_from_days(z: i64) -> (i64, u32, u32) {
     let d = (doy - (153 * mp + 2) / 5 + 1) as u32;
     let m = (if mp < 10 { mp + 3 } else { mp - 9 }) as u32;
     (if m <= 2 { y + 1 } else { y }, m, d)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::is_safe_slug;
+
+    #[test]
+    fn accepts_normal_slugs() {
+        assert!(is_safe_slug("playwright"));
+        assert!(is_safe_slug("owner/skill"));
+        assert!(is_safe_slug("owner/skill.name_v2-1"));
+    }
+
+    #[test]
+    fn rejects_traversal_and_absolute() {
+        assert!(!is_safe_slug(""));
+        assert!(!is_safe_slug("../etc/passwd"));
+        assert!(!is_safe_slug("owner/../../etc"));
+        assert!(!is_safe_slug("/etc/passwd"));
+        assert!(!is_safe_slug("owner/.."));
+        assert!(!is_safe_slug(".."));
+        assert!(!is_safe_slug("."));
+        assert!(!is_safe_slug("owner//skill"));
+        assert!(!is_safe_slug("owner\\skill"));
+        assert!(!is_safe_slug("owner/skill space"));
+    }
 }

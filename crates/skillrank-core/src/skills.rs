@@ -41,7 +41,10 @@ pub struct DiscoveryResult {
 /// Scan repo_root for skill surfaces and the skills within them.
 pub fn discover(repo_root: &Path) -> std::io::Result<DiscoveryResult> {
     let mut result = DiscoveryResult {
-        supported_directories: SUPPORTED_DIRECTORIES.iter().map(|s| s.to_string()).collect(),
+        supported_directories: SUPPORTED_DIRECTORIES
+            .iter()
+            .map(|s| s.to_string())
+            .collect(),
         ..Default::default()
     };
     for relative in SUPPORTED_DIRECTORIES {
@@ -79,18 +82,22 @@ fn list_skills_in_surface(surface: &Surface) -> std::io::Result<Vec<Skill>> {
             if candidate.exists() {
                 skill_path = Some(candidate);
             }
-        } else if name.eq_ignore_ascii_case("SKILL.md")
-            || name.to_lowercase().ends_with(".md")
-        {
+        } else if name.eq_ignore_ascii_case("SKILL.md") || name.to_lowercase().ends_with(".md") {
             skill_path = Some(entry.path());
         }
-        let Some(skill_path) = skill_path else { continue };
+        let Some(skill_path) = skill_path else {
+            continue;
+        };
 
         let rel_within = skill_path
             .strip_prefix(&dir)
             .map(|p| p.to_string_lossy().to_string())
             .unwrap_or_else(|_| skill_path.to_string_lossy().to_string());
-        let repo_relative = format!("{}/{}", surface.relative_path, rel_within.replace('\\', "/"));
+        let repo_relative = format!(
+            "{}/{}",
+            surface.relative_path,
+            rel_within.replace('\\', "/")
+        );
         let content = std::fs::read_to_string(&skill_path).unwrap_or_default();
         let mut skill_name = parse_manifest_name(&content);
         if skill_name.trim().is_empty() {
@@ -120,7 +127,10 @@ pub fn parse_manifest_name(content: &str) -> String {
             break;
         }
         if let Some(rest) = trimmed.strip_prefix("name:") {
-            return rest.trim().trim_matches(|c| c == '"' || c == '\'').to_string();
+            return rest
+                .trim()
+                .trim_matches(|c| c == '"' || c == '\'')
+                .to_string();
         }
     }
     String::new()
