@@ -12,3 +12,4 @@
 # Vercel local project link
 .vercel/
 site/.vercel/
+logs/
