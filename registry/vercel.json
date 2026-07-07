@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/v3/rest/skill-registry/:path*",
+      "destination": "/api/registry?path=:path*"
+    }
+  ]
+}
