@@ -1,0 +1,2360 @@
+[
+  {
+    "slug": "obra/brainstorming",
+    "display_name": "Brainstorming",
+    "category": "meta",
+    "tags": [
+      "design",
+      "requirements"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/brainstorming",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/brainstorming",
+    "description": "Explore user intent, requirements, and design before any creative or implementation work.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/systematic-debugging",
+    "display_name": "Systematic Debugging",
+    "category": "testing",
+    "tags": [
+      "debugging",
+      "root-cause"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/systematic-debugging",
+    "description": "Four-phase root-cause debugging process to apply before proposing fixes for any bug or failure.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/test-driven-development",
+    "display_name": "Test-Driven Development",
+    "category": "testing",
+    "tags": [
+      "tdd",
+      "tests"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/test-driven-development",
+    "description": "Write tests before implementation code for any feature or bugfix.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/verification-before-completion",
+    "display_name": "Verification Before Completion",
+    "category": "testing",
+    "tags": [
+      "verification"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/verification-before-completion",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/verification-before-completion",
+    "description": "Run verification commands and confirm output before claiming work is complete, fixed, or passing.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/writing-plans",
+    "display_name": "Writing Plans",
+    "category": "meta",
+    "tags": [
+      "planning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/writing-plans",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/writing-plans",
+    "description": "Break a spec into bite-sized tasks with exact file paths and verification steps before touching code.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/executing-plans",
+    "display_name": "Executing Plans",
+    "category": "meta",
+    "tags": [
+      "planning",
+      "execution"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/executing-plans",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/executing-plans",
+    "description": "Execute a written implementation plan in a separate session with review checkpoints.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/writing-skills",
+    "display_name": "Writing Skills",
+    "category": "meta",
+    "tags": [
+      "authoring"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/writing-skills",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/writing-skills",
+    "description": "Create, edit, and verify skills before deployment.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/using-git-worktrees",
+    "display_name": "Using Git Worktrees",
+    "category": "devops",
+    "tags": [
+      "git",
+      "worktrees"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/using-git-worktrees",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/using-git-worktrees",
+    "description": "Ensure an isolated workspace exists via native tools or git worktree before feature work.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/subagent-driven-development",
+    "display_name": "Subagent-Driven Development",
+    "category": "meta",
+    "tags": [
+      "subagents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/subagent-driven-development",
+    "description": "Execute implementation plans with independent tasks in the current session via subagents.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/dispatching-parallel-agents",
+    "display_name": "Dispatching Parallel Agents",
+    "category": "meta",
+    "tags": [
+      "parallel",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/dispatching-parallel-agents",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/dispatching-parallel-agents",
+    "description": "Coordinate two or more independent tasks that can run without shared state or sequential dependencies.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/requesting-code-review",
+    "display_name": "Requesting Code Review",
+    "category": "meta",
+    "tags": [
+      "review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/requesting-code-review",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/requesting-code-review",
+    "description": "Request review when completing tasks or before merging to verify work meets requirements.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/receiving-code-review",
+    "display_name": "Receiving Code Review",
+    "category": "meta",
+    "tags": [
+      "review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/receiving-code-review",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/receiving-code-review",
+    "description": "Handle code-review feedback with technical rigor and verification rather than blind implementation.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/finishing-a-development-branch",
+    "display_name": "Finishing a Development Branch",
+    "category": "devops",
+    "tags": [
+      "git",
+      "merge"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/finishing-a-development-branch",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/finishing-a-development-branch",
+    "description": "Guide completion of development work with structured options for merge, PR, or cleanup.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/using-superpowers",
+    "display_name": "Using Superpowers",
+    "category": "meta",
+    "tags": [
+      "skills",
+      "entry-point"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/using-superpowers",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/using-superpowers",
+    "description": "Entry-point skill establishing how to find and invoke other skills before responding.",
+    "signals": {
+      "stars": 248882,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 74,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/pdf",
+    "display_name": "PDF",
+    "category": "document",
+    "tags": [
+      "forms",
+      "extraction",
+      "ocr"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/pdf",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/pdf",
+    "description": "PDF toolkit: extract text/tables, merge/split, rotate, watermark, fill forms, encrypt, OCR, and create PDFs.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/docx",
+    "display_name": "DOCX",
+    "category": "document",
+    "tags": [
+      "word",
+      "tracked-changes"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/docx",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/docx",
+    "description": "Create, read, edit, and manipulate Word (.docx) documents including formatting, tracked changes, and images.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/pptx",
+    "display_name": "PPTX",
+    "category": "document",
+    "tags": [
+      "powerpoint",
+      "slides"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/pptx",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/pptx",
+    "description": "Create, read, edit, and combine PowerPoint (.pptx) presentations, templates, layouts, and speaker notes.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/xlsx",
+    "display_name": "XLSX",
+    "category": "document",
+    "tags": [
+      "excel",
+      "spreadsheet",
+      "formulas"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/xlsx",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/xlsx",
+    "description": "Open, read, edit, create, and convert spreadsheets (.xlsx/.csv) with formulas, formatting, and charts.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/mcp-builder",
+    "display_name": "MCP Builder",
+    "category": "ai",
+    "tags": [
+      "mcp",
+      "servers"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/mcp-builder",
+    "description": "Guide for building high-quality MCP servers in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/webapp-testing",
+    "display_name": "Webapp Testing",
+    "category": "testing",
+    "tags": [
+      "playwright",
+      "e2e"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/webapp-testing",
+    "description": "Playwright toolkit for testing local web apps: verify frontend behavior, capture screenshots, view browser logs.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/skill-creator",
+    "display_name": "Skill Creator",
+    "category": "meta",
+    "tags": [
+      "authoring",
+      "benchmarking"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/skill-creator",
+    "description": "Create, modify, evaluate, and optimize skills, including benchmarking and description-triggering accuracy.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/frontend-design",
+    "display_name": "Frontend Design",
+    "category": "frontend",
+    "tags": [
+      "ui",
+      "design"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/frontend-design",
+    "description": "Guidance for distinctive, intentional visual design when building or reshaping UI.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/web-artifacts-builder",
+    "display_name": "Web Artifacts Builder",
+    "category": "frontend",
+    "tags": [
+      "react",
+      "tailwind",
+      "shadcn"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/web-artifacts-builder",
+    "description": "Tools for building elaborate multi-component claude.ai HTML artifacts using React, Tailwind, and shadcn/ui.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/canvas-design",
+    "display_name": "Canvas Design",
+    "category": "styling",
+    "tags": [
+      "design",
+      "png",
+      "pdf"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/canvas-design",
+    "description": "Create visual art in .png and .pdf documents (posters, designs) using a design philosophy.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/algorithmic-art",
+    "display_name": "Algorithmic Art",
+    "category": "styling",
+    "tags": [
+      "p5js",
+      "generative"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/algorithmic-art",
+    "description": "Create generative/algorithmic art using p5.js with seeded randomness and interactive parameter exploration.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/theme-factory",
+    "display_name": "Theme Factory",
+    "category": "styling",
+    "tags": [
+      "themes",
+      "tokens"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/theme-factory",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/theme-factory",
+    "description": "Toolkit for styling artifacts (slides, docs, HTML pages) with preset or on-the-fly generated themes.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/brand-guidelines",
+    "display_name": "Brand Guidelines",
+    "category": "styling",
+    "tags": [
+      "brand",
+      "typography"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/brand-guidelines",
+    "description": "Apply official brand colors and typography to artifacts that benefit from a company look-and-feel.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/canvas-claude-api",
+    "display_name": "Claude API",
+    "category": "ai",
+    "tags": [
+      "api",
+      "tool-use",
+      "streaming"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/claude-api",
+    "description": "Reference and guidance for building against the Claude/Anthropic API: models, params, tool use, streaming.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/doc-coauthoring",
+    "display_name": "Doc Co-authoring",
+    "category": "document",
+    "tags": [
+      "docs",
+      "specs"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/doc-coauthoring",
+    "description": "Structured workflow for co-authoring documentation, proposals, technical specs, and decision docs.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/internal-comms",
+    "display_name": "Internal Comms",
+    "category": "other",
+    "tags": [
+      "writing",
+      "reports"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/internal-comms",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/internal-comms",
+    "description": "Resources for writing internal communications: status reports, leadership updates, newsletters, incident reports.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/slack-gif-creator",
+    "display_name": "Slack GIF Creator",
+    "category": "other",
+    "tags": [
+      "gif",
+      "slack"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator",
+    "source_repo": "anthropics/skills",
+    "source_subpath": "skills/slack-gif-creator",
+    "description": "Knowledge and utilities for creating animated GIFs optimized for Slack with validation tools.",
+    "signals": {
+      "stars": 159243,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 71,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/feature-dev",
+    "display_name": "Feature Dev",
+    "category": "meta",
+    "tags": [
+      "plugin",
+      "workflow"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/feature-dev",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/feature-dev",
+    "description": "First-party Claude Code plugin: end-to-end feature workflow with agents for exploration, architecture, and review.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/pr-review-toolkit",
+    "display_name": "PR Review Toolkit",
+    "category": "meta",
+    "tags": [
+      "plugin",
+      "review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/pr-review-toolkit",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/pr-review-toolkit",
+    "description": "First-party plugin: PR review agents for comments, tests, error handling, type design, and simplification.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/code-review-plugin",
+    "display_name": "Code Review",
+    "category": "meta",
+    "tags": [
+      "plugin",
+      "review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/code-review",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/code-review",
+    "description": "First-party plugin: automated PR code review using multiple specialized agents with confidence-based scoring.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/security-guidance",
+    "display_name": "Security Guidance",
+    "category": "security",
+    "tags": [
+      "plugin",
+      "security"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/security-guidance",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/security-guidance",
+    "description": "First-party plugin: security reminder hook warning about command injection, XSS, and unsafe code on edits.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/plugin-dev",
+    "display_name": "Plugin Dev",
+    "category": "meta",
+    "tags": [
+      "plugin",
+      "hooks",
+      "mcp"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/plugin-dev",
+    "description": "First-party toolkit for developing Claude Code plugins: skills covering hooks, MCP, commands, and agents.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/agent-sdk-dev",
+    "display_name": "Agent SDK Dev",
+    "category": "ai",
+    "tags": [
+      "plugin",
+      "sdk"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/agent-sdk-dev",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/agent-sdk-dev",
+    "description": "First-party Claude Code plugin: development kit for working with the Claude Agent SDK.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "anthropics/hookify",
+    "display_name": "Hookify",
+    "category": "meta",
+    "tags": [
+      "plugin",
+      "hooks"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/anthropics/claude-code/tree/main/plugins/hookify",
+    "source_repo": "anthropics/claude-code",
+    "source_subpath": "plugins/hookify",
+    "description": "First-party plugin to create custom hooks from conversation patterns or explicit markdown rules.",
+    "signals": {
+      "stars": 136745,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "official"
+    },
+    "score": 70,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "gsd-build/get-shit-done",
+    "display_name": "Get Shit Done",
+    "category": "meta",
+    "tags": [
+      "spec-driven",
+      "context-engineering"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/gsd-build/get-shit-done",
+    "source_repo": "gsd-build/get-shit-done",
+    "source_subpath": "",
+    "description": "Meta-prompting, context-engineering, and spec-driven development system for Claude Code.",
+    "signals": {
+      "stars": 64700,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 66,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "K-Dense-AI/scientific-agent-skills",
+    "display_name": "Scientific Agent Skills",
+    "category": "data",
+    "tags": [
+      "science",
+      "biology",
+      "chemistry"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "source_repo": "K-Dense-AI/scientific-agent-skills",
+    "source_subpath": "",
+    "description": "140 science skills plus 100+ database connectors for biology, chemistry, medicine, and drug discovery.",
+    "signals": {
+      "stars": 30414,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "zarazhangrui/frontend-slides",
+    "display_name": "Frontend Slides",
+    "category": "frontend",
+    "tags": [
+      "slides",
+      "animation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/zarazhangrui/frontend-slides",
+    "source_repo": "zarazhangrui/frontend-slides",
+    "source_subpath": "",
+    "description": "Create animation-rich HTML presentation slides using a coding agent's frontend skills.",
+    "signals": {
+      "stars": 24805,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "yusufkaraaslan/skill-seekers",
+    "display_name": "Skill Seekers",
+    "category": "meta",
+    "tags": [
+      "authoring",
+      "docs"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/yusufkaraaslan/Skill_Seekers",
+    "source_repo": "yusufkaraaslan/Skill_Seekers",
+    "source_subpath": "",
+    "description": "Convert documentation sites, GitHub repos, and PDFs into Claude skills with conflict detection.",
+    "signals": {
+      "stars": 14386,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 57,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "PleasePrompto/notebooklm-skill",
+    "display_name": "NotebookLM Skill",
+    "category": "ai",
+    "tags": [
+      "notebooklm",
+      "citations"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/PleasePrompto/notebooklm-skill",
+    "source_repo": "PleasePrompto/notebooklm-skill",
+    "source_subpath": "",
+    "description": "Query Google NotebookLM notebooks for source-grounded, citation-backed answers via browser automation.",
+    "signals": {
+      "stars": 7325,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 53,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "trailofbits/skills",
+    "display_name": "Trail of Bits Security Skills",
+    "category": "security",
+    "tags": [
+      "codeql",
+      "semgrep",
+      "audit"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/trailofbits/skills",
+    "source_repo": "trailofbits/skills",
+    "source_subpath": "",
+    "description": "Security research skills for CodeQL, Semgrep, vulnerability detection, and audit workflows.",
+    "signals": {
+      "stars": 6021,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 52,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "yvgude/lean-ctx",
+    "display_name": "LeanCTX",
+    "category": "performance",
+    "tags": [
+      "tokens",
+      "context"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/yvgude/lean-ctx",
+    "source_repo": "yvgude/lean-ctx",
+    "source_subpath": "",
+    "description": "Context intelligence layer for AI agents that cuts token usage 60-90% via a local Rust binary.",
+    "signals": {
+      "stars": 3139,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "lackeyjb/playwright-skill",
+    "display_name": "Playwright Skill",
+    "category": "testing",
+    "tags": [
+      "playwright",
+      "browser"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/lackeyjb/playwright-skill",
+    "source_repo": "lackeyjb/playwright-skill",
+    "source_subpath": "",
+    "description": "Model-invoked browser automation with Playwright for testing and validation.",
+    "signals": {
+      "stars": 2879,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "expo/skills",
+    "display_name": "Expo Skills",
+    "category": "frontend",
+    "tags": [
+      "expo",
+      "react-native"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/expo/skills",
+    "source_repo": "expo/skills",
+    "source_subpath": "",
+    "description": "Agent skills for working with Expo projects and Expo Application Services.",
+    "signals": {
+      "stars": 2168,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "antonbabenko/terraform-skill",
+    "display_name": "Terraform Skill",
+    "category": "devops",
+    "tags": [
+      "terraform",
+      "opentofu"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/antonbabenko/terraform-skill",
+    "source_repo": "antonbabenko/terraform-skill",
+    "source_subpath": "",
+    "description": "Best-practices skill for safer Terraform and OpenTofu with failure-mode routing.",
+    "signals": {
+      "stars": 2154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NeoLabHQ/context-engineering-kit",
+    "display_name": "Context Engineering Kit",
+    "category": "meta",
+    "tags": [
+      "context",
+      "quality"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/NeoLabHQ/context-engineering-kit",
+    "source_repo": "NeoLabHQ/context-engineering-kit",
+    "source_subpath": "",
+    "description": "Hand-crafted skills focused on improving agent result quality across multiple CLI agents.",
+    "signals": {
+      "stars": 1208,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 42,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "conorluddy/ios-simulator-skill",
+    "display_name": "iOS Simulator Skill",
+    "category": "devops",
+    "tags": [
+      "ios",
+      "xcode"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/conorluddy/ios-simulator-skill",
+    "source_repo": "conorluddy/ios-simulator-skill",
+    "source_subpath": "",
+    "description": "Build, run, and interact with iOS apps via an xcodebuild wrapper to save context.",
+    "signals": {
+      "stars": 1138,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 42,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "asklokesh/loki-mode",
+    "display_name": "Loki Mode",
+    "category": "meta",
+    "tags": [
+      "multi-agent",
+      "sdlc"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/asklokesh/loki-mode",
+    "source_repo": "asklokesh/loki-mode",
+    "source_subpath": "",
+    "description": "Multi-agent autonomous SDLC framework taking a brief to a deployed app with quality gates.",
+    "signals": {
+      "stars": 1011,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 41,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mrtooher/fable-mode",
+    "display_name": "Fable Mode",
+    "category": "meta",
+    "tags": [
+      "planning",
+      "delegation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mrtooher/fable-mode",
+    "source_repo": "mrtooher/fable-mode",
+    "source_subpath": "",
+    "description": "Activates multi-stage planning, sub-agent delegation, and self-verification behavior.",
+    "signals": {
+      "stars": 671,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 39,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mhattingpete/claude-skills-marketplace",
+    "display_name": "Claude Skills Marketplace",
+    "category": "meta",
+    "tags": [
+      "git",
+      "testing",
+      "review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mhattingpete/claude-skills-marketplace",
+    "source_repo": "mhattingpete/claude-skills-marketplace",
+    "source_subpath": "",
+    "description": "Skills for software-engineering workflows: Git automation, testing, and code review.",
+    "signals": {
+      "stars": 641,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 39,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "tjboudreaux/cc-thinking-skills",
+    "display_name": "CC Thinking Skills",
+    "category": "meta",
+    "tags": [
+      "mental-models",
+      "reasoning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/tjboudreaux/cc-thinking-skills",
+    "source_repo": "tjboudreaux/cc-thinking-skills",
+    "source_subpath": "",
+    "description": "18 mental-model and critical-thinking frameworks (First Principles, Bayesian, OODA, Pre-Mortem).",
+    "signals": {
+      "stars": 637,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 38,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "michalparkola/tapestry-skills",
+    "display_name": "Tapestry Skills",
+    "category": "data",
+    "tags": [
+      "sources",
+      "ingest"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/michalparkola/tapestry-skills",
+    "source_repo": "michalparkola/tapestry-skills",
+    "source_subpath": "",
+    "description": "Download sources (articles, PDFs, YouTube transcripts) into an agent workflow.",
+    "signals": {
+      "stars": 469,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 37,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alonw0/web-asset-generator",
+    "display_name": "Web Asset Generator",
+    "category": "frontend",
+    "tags": [
+      "favicons",
+      "icons"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alonw0/web-asset-generator",
+    "source_repo": "alonw0/web-asset-generator",
+    "source_subpath": "",
+    "description": "Generate favicons, app icons, and social media images from logos, text, or emojis.",
+    "signals": {
+      "stars": 446,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 36,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "coffeefuelbump/csv-data-summarizer",
+    "display_name": "CSV Data Summarizer",
+    "category": "data",
+    "tags": [
+      "csv",
+      "pandas"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill",
+    "source_repo": "coffeefuelbump/csv-data-summarizer-claude-skill",
+    "source_subpath": "",
+    "description": "Analyze uploaded CSVs with summary stats, missing-data detection, and pandas visualizations.",
+    "signals": {
+      "stars": 421,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 36,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "rampstackco/claude-skills",
+    "display_name": "Rampstack Website Skills",
+    "category": "frontend",
+    "tags": [
+      "website",
+      "seo",
+      "content"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/rampstackco/claude-skills",
+    "source_repo": "rampstackco/claude-skills",
+    "source_subpath": "",
+    "description": "Stack-agnostic skills covering the website lifecycle: brand, design, content, SEO, dev, ops.",
+    "signals": {
+      "stars": 419,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 36,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "obra/superpowers-lab",
+    "display_name": "Superpowers Lab",
+    "category": "meta",
+    "tags": [
+      "experimental"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers-lab",
+    "source_repo": "obra/superpowers-lab",
+    "source_subpath": "",
+    "description": "Experimental Claude Code skills and techniques from the Superpowers project.",
+    "signals": {
+      "stars": 391,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 36,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "haunchen/n8n-skills",
+    "display_name": "n8n Skills",
+    "category": "devops",
+    "tags": [
+      "n8n",
+      "automation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/haunchen/n8n-skills",
+    "source_repo": "haunchen/n8n-skills",
+    "source_subpath": "",
+    "description": "n8n workflow-automation skills suite designed for AI assistants.",
+    "signals": {
+      "stars": 371,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 35,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "zxkane/aws-skills",
+    "display_name": "AWS Skills",
+    "category": "devops",
+    "tags": [
+      "aws",
+      "cdk",
+      "serverless"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/zxkane/aws-skills",
+    "source_repo": "zxkane/aws-skills",
+    "source_subpath": "",
+    "description": "Plugins and skills for AWS: IaC (CDK/SST), serverless, cost ops, and Bedrock AgentCore.",
+    "signals": {
+      "stars": 328,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 35,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "iart-ai/motion-skills",
+    "display_name": "Motion Skills",
+    "category": "styling",
+    "tags": [
+      "motion",
+      "video",
+      "animation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/iart-ai/motion-skills",
+    "source_repo": "iart-ai/motion-skills",
+    "source_subpath": "",
+    "description": "50 skills for motion graphics, animation, and video across 14 installable packs.",
+    "signals": {
+      "stars": 254,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 33,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "chrisvoncsefalvay/claude-d3js-skill",
+    "display_name": "D3.js Skill",
+    "category": "data",
+    "tags": [
+      "d3",
+      "visualization"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/chrisvoncsefalvay/claude-d3js-skill",
+    "source_repo": "chrisvoncsefalvay/claude-d3js-skill",
+    "source_subpath": "",
+    "description": "Build D3.js data visualizations.",
+    "signals": {
+      "stars": 209,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 32,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "jthack/ffuf-claude-skill",
+    "display_name": "ffuf Web Fuzzing",
+    "category": "security",
+    "tags": [
+      "ffuf",
+      "fuzzing",
+      "pentest"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/jthack/ffuf_claude_skill",
+    "source_repo": "jthack/ffuf_claude_skill",
+    "source_subpath": "",
+    "description": "Web fuzzing guidance with ffuf for penetration testing.",
+    "signals": {
+      "stars": 196,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 31,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "Wholiver/swiftui-design-skill",
+    "display_name": "SwiftUI Design Skill",
+    "category": "frontend",
+    "tags": [
+      "swiftui",
+      "ios",
+      "design"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/Wholiver/swiftui-design-skill",
+    "source_repo": "Wholiver/swiftui-design-skill",
+    "source_subpath": "",
+    "description": "SwiftUI front-end design rules, brand asset guidelines, and multi-dimensional review.",
+    "signals": {
+      "stars": 143,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 30,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "WenyuChiou/ai-research-skills",
+    "display_name": "AI Research Skills",
+    "category": "data",
+    "tags": [
+      "research",
+      "literature"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/WenyuChiou/ai-research-skills",
+    "source_repo": "WenyuChiou/ai-research-skills",
+    "source_subpath": "",
+    "description": "SKILL.md catalog for research: literature review, research design, project memory, manuscript writing.",
+    "signals": {
+      "stars": 137,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "smerchek/claude-epub-skill",
+    "display_name": "EPUB Skill",
+    "category": "document",
+    "tags": [
+      "epub",
+      "kindle"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/smerchek/claude-epub-skill",
+    "source_repo": "smerchek/claude-epub-skill",
+    "source_subpath": "",
+    "description": "Convert markdown, summaries, or reports into a downloadable EPUB for Kindle.",
+    "signals": {
+      "stars": 135,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "bluzername/claude-code-terminal-title",
+    "display_name": "Terminal Title",
+    "category": "devops",
+    "tags": [
+      "terminal",
+      "ux"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/bluzername/claude-code-terminal-title",
+    "source_repo": "bluzername/claude-code-terminal-title",
+    "source_subpath": "",
+    "description": "Automatically update terminal window titles based on Claude Code tasks.",
+    "signals": {
+      "stars": 128,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "uxKero/anydesign",
+    "display_name": "AnyDesign",
+    "category": "styling",
+    "tags": [
+      "design",
+      "figma",
+      "tokens"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/uxKero/anydesign",
+    "source_repo": "uxKero/anydesign",
+    "source_subpath": "",
+    "description": "Analyze images, websites, and Figma files into a structured design.md with a token system.",
+    "signals": {
+      "stars": 127,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/code-review",
+    "display_name": "Code Review",
+    "category": "testing",
+    "tags": [
+      "review",
+      "quality"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/code-review",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/code-review",
+    "description": "Review code for bugs, style violations, and performance issues.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/debugging",
+    "display_name": "Debugging",
+    "category": "testing",
+    "tags": [
+      "debugging",
+      "root-cause"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/debugging",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/debugging",
+    "description": "Identify and fix errors with root-cause analysis.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/api-design",
+    "display_name": "API Design",
+    "category": "backend",
+    "tags": [
+      "rest",
+      "api"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/api-design",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/api-design",
+    "description": "Design RESTful APIs with resources, endpoints, and data models.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/graphql-api-design",
+    "display_name": "GraphQL API Design",
+    "category": "backend",
+    "tags": [
+      "graphql",
+      "schema"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/graphql-api-design",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/graphql-api-design",
+    "description": "Design GraphQL schemas, queries, and mutations.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/database-schema-design",
+    "display_name": "Database Schema Design",
+    "category": "data",
+    "tags": [
+      "schema",
+      "normalization"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/database-schema-design",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/database-schema-design",
+    "description": "Design normalized database schemas.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/query-optimization",
+    "display_name": "Query Optimization",
+    "category": "performance",
+    "tags": [
+      "sql",
+      "optimization"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/query-optimization",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/query-optimization",
+    "description": "Optimize slow database queries.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/kubernetes-deployment",
+    "display_name": "Kubernetes Deployment",
+    "category": "devops",
+    "tags": [
+      "k8s",
+      "deploy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/kubernetes-deployment",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/kubernetes-deployment",
+    "description": "Deploy and manage applications on Kubernetes.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/ci-cd",
+    "display_name": "CI/CD",
+    "category": "devops",
+    "tags": [
+      "ci",
+      "cd",
+      "pipelines"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/ci-cd",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/ci-cd",
+    "description": "Set up CI/CD pipelines for automated builds and deployments.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/infrastructure-as-code",
+    "display_name": "Infrastructure as Code",
+    "category": "devops",
+    "tags": [
+      "terraform",
+      "pulumi"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/infrastructure-as-code",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/infrastructure-as-code",
+    "description": "Define infrastructure using Terraform, Pulumi, or CloudFormation.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/threat-modeling",
+    "display_name": "Threat Modeling",
+    "category": "security",
+    "tags": [
+      "threats",
+      "security"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/threat-modeling",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/threat-modeling",
+    "description": "Identify and prioritize security threats.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/static-application-security-testing",
+    "display_name": "SAST",
+    "category": "security",
+    "tags": [
+      "sast",
+      "scanning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/static-application-security-testing",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/static-application-security-testing",
+    "description": "Analyze source code for security vulnerabilities.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/accessibility-testing",
+    "display_name": "Accessibility Testing",
+    "category": "accessibility",
+    "tags": [
+      "wcag",
+      "a11y"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/accessibility-testing",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/accessibility-testing",
+    "description": "Test interfaces for WCAG compliance.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/data-visualization",
+    "display_name": "Data Visualization",
+    "category": "data",
+    "tags": [
+      "charts",
+      "viz"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/data-visualization",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/data-visualization",
+    "description": "Create charts, graphs, and interactive visualizations.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/sql-query-generation",
+    "display_name": "SQL Query Generation",
+    "category": "data",
+    "tags": [
+      "sql",
+      "nl2sql"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/sql-query-generation",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/sql-query-generation",
+    "description": "Generate optimized SQL queries from natural language.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/model-deployment",
+    "display_name": "Model Deployment",
+    "category": "ai",
+    "tags": [
+      "ml",
+      "deploy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/model-deployment",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/model-deployment",
+    "description": "Deploy trained ML models to production environments.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "seb1n/technical-writing",
+    "display_name": "Technical Writing",
+    "category": "document",
+    "tags": [
+      "docs",
+      "writing"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/seb1n/awesome-ai-agent-skills/tree/main/skills/technical-writing",
+    "source_repo": "seb1n/awesome-ai-agent-skills",
+    "source_subpath": "skills/technical-writing",
+    "description": "Write technical documentation and user guides.",
+    "signals": {
+      "stars": 124,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "omkamal/pypict-claude-skill",
+    "display_name": "PyPICT Test Generator",
+    "category": "testing",
+    "tags": [
+      "combinatorial",
+      "testing"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/omkamal/pypict-claude-skill",
+    "source_repo": "omkamal/pypict-claude-skill",
+    "source_subpath": "",
+    "description": "Generate N-wise combinatorial test cases using the pypict library.",
+    "signals": {
+      "stars": 86,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 27,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "1NickPappas/move-code-quality-skill",
+    "display_name": "Move Code Quality",
+    "category": "backend",
+    "tags": [
+      "move",
+      "quality"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/1NickPappas/move-code-quality-skill",
+    "source_repo": "1NickPappas/move-code-quality-skill",
+    "source_subpath": "",
+    "description": "Analyze Move packages against the official Move Book Code Quality Checklist.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "self"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  }
+]

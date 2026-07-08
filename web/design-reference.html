@@ -1,0 +1,492 @@
+<title>skillrank — the registry & benchmark for agent skills</title>
+<style>
+  :root {
+    --topbar-h: 46px;
+    /* ---- PHOSPHOR (dark CRT) — primary ---- */
+    --bg:#0e0c08; --bg-panel:#141009; --bg-elev:#1b160d; --bg-hi:#241d10;
+    --ink:#e8c27c; --ink-dim:#a67f3c; --ink-faint:#6f5628;
+    --amber:#ffb000; --amber-hi:#ffd166; --cyan:#4fd6d0;
+    --green:#6fdc6f; --red:#ff6b5e; --border:#55411f;
+    --glow:0 0 2px rgba(255,176,0,.45); --scanline:rgba(0,0,0,.28); --flick:.026;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg:#efe7d2; --bg-panel:#e8ddc0; --bg-elev:#f5eeda; --bg-hi:#e0d3b0;
+      --ink:#2c2413; --ink-dim:#6c5a38; --ink-faint:#b09b6f;
+      --amber:#b5560a; --amber-hi:#8a3f06; --cyan:#0f7480;
+      --green:#2f7d2f; --red:#b23b2e; --border:#c6b78e;
+      --glow:none; --scanline:rgba(120,150,110,.10); --flick:0;
+    }
+  }
+  :root[data-theme="dark"]{ --bg:#0e0c08;--bg-panel:#141009;--bg-elev:#1b160d;--bg-hi:#241d10;--ink:#e8c27c;--ink-dim:#a67f3c;--ink-faint:#6f5628;--amber:#ffb000;--amber-hi:#ffd166;--cyan:#4fd6d0;--green:#6fdc6f;--red:#ff6b5e;--border:#55411f;--glow:0 0 2px rgba(255,176,0,.45);--scanline:rgba(0,0,0,.28);--flick:.026; }
+  :root[data-theme="light"]{ --bg:#efe7d2;--bg-panel:#e8ddc0;--bg-elev:#f5eeda;--bg-hi:#e0d3b0;--ink:#2c2413;--ink-dim:#6c5a38;--ink-faint:#b09b6f;--amber:#b5560a;--amber-hi:#8a3f06;--cyan:#0f7480;--green:#2f7d2f;--red:#b23b2e;--border:#c6b78e;--glow:none;--scanline:rgba(120,150,110,.10);--flick:0; }
+
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family: ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code","DejaVu Sans Mono",Menlo,Consolas,monospace;
+    font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection { background:var(--amber); color:var(--bg); }
+  a { color:var(--cyan); text-decoration:none; text-underline-offset:3px; }
+  a:hover { text-decoration:underline; }
+  a:focus-visible,button:focus-visible,input:focus-visible { outline:2px solid var(--amber); outline-offset:2px; }
+
+  /* CRT overlays */
+  .crt,.crt-flicker { position:fixed; inset:0; pointer-events:none; z-index:60; }
+  .crt { background:
+      radial-gradient(120% 95% at 50% 35%, transparent 58%, rgba(0,0,0,.4) 100%),
+      repeating-linear-gradient(to bottom, transparent 0 2px, var(--scanline) 2px 3px);
+    mix-blend-mode:multiply; }
+  :root[data-theme="light"] .crt { mix-blend-mode:normal; }
+  .crt-flicker { background:var(--amber-hi); opacity:0; animation:flick 7s steps(2) infinite; }
+  @keyframes flick { 0%,97%,100%{opacity:0;} 98%{opacity:var(--flick);} }
+  @keyframes blink { 50% { opacity:0; } }
+
+  /* top bar */
+  .topbar {
+    position:sticky; top:0; z-index:50; height:var(--topbar-h);
+    display:flex; align-items:center; gap:0 18px;
+    padding:0 clamp(12px,3vw,24px);
+    background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(4px);
+    border-bottom:1px solid var(--border); font-size:12.5px; color:var(--ink-dim); letter-spacing:.03em;
+  }
+  .topbar .brand { color:var(--amber); font-weight:700; font-size:15px; text-shadow:var(--glow); letter-spacing:.02em; }
+  .topbar .brand .cur { animation:blink 1.1s steps(1) infinite; }
+  .topbar .kv { white-space:nowrap; }
+  .topbar .kv i { color:var(--ink-faint); font-style:normal; }
+  .topbar .sp { flex:1; }
+  .topbar .hidesm { }
+  @media (max-width:640px){ .topbar .hidesm { display:none; } }
+
+  .wrap { max-width:1080px; margin:0 auto; padding:0 clamp(12px,3vw,24px) 96px; }
+
+  /* ---- install hero (top) ---- */
+  .hero { padding: clamp(26px,5vw,52px) 0 22px; }
+  .hero .tag { color:var(--ink-dim); font-size:13px; letter-spacing:.16em; text-transform:uppercase; margin:0 0 12px; }
+  .hero h1 { margin:0 0 10px; font-size:clamp(15px,2vw,17px); font-weight:500; color:var(--ink); max-width:64ch; line-height:1.5; }
+  .hero h1 b { color:var(--amber-hi); font-weight:600; }
+  .installrow { display:flex; align-items:stretch; border:1px solid var(--border); border-radius:3px; background:var(--bg-elev); max-width:560px; box-shadow:0 14px 40px -28px rgba(0,0,0,.8); }
+  .installrow code { flex:1; padding:15px 16px; font-size:15.5px; color:var(--ink); overflow-x:auto; white-space:nowrap; }
+  .installrow code .p { color:var(--green); } .installrow code b { color:var(--amber-hi); font-weight:600; }
+  .installrow .copy { border:none; border-left:1px solid var(--border); background:transparent; color:var(--amber); font:inherit; font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding:0 18px; cursor:pointer; }
+  .installrow .copy:hover { background:var(--amber); color:var(--bg); }
+  .hero .aux { margin:12px 0 0; color:var(--ink-dim); font-size:13px; display:flex; flex-wrap:wrap; gap:4px 22px; }
+  .hero .aux code { color:var(--amber-hi); } .hero .aux .c { color:var(--ink-faint); }
+
+  /* ---- registry ---- */
+  .reg-head {
+    position:sticky; top:var(--topbar-h); z-index:40;
+    background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(4px);
+    padding:14px 0 12px; border-bottom:1px solid var(--border); margin-top:8px;
+  }
+  .search { display:flex; align-items:center; gap:10px; border:1px solid var(--border); border-radius:3px; background:var(--bg-panel); padding:0 14px; }
+  .search:focus-within { border-color:var(--amber); box-shadow:var(--glow); }
+  .search .pfx { color:var(--green); white-space:nowrap; font-size:14px; }
+  .search .pfx b { color:var(--ink-dim); font-weight:400; }
+  .search input { flex:1; border:none; background:transparent; color:var(--amber-hi); font:inherit; font-size:15px; padding:13px 0; outline:none; }
+  .search input::placeholder { color:var(--ink-faint); }
+  .search .caret { color:var(--amber); animation:blink 1.1s steps(1) infinite; margin-left:-6px; }
+  .search kbd { color:var(--bg); background:var(--ink-dim); border-radius:2px; padding:1px 6px; font:inherit; font-size:11px; }
+
+  .registry { display:grid; grid-template-columns:212px 1fr; gap:26px; margin-top:22px; align-items:start; }
+  @media (max-width:860px){ .registry { grid-template-columns:1fr; gap:16px; } }
+
+  /* sidebar */
+  .side { position:sticky; top:calc(var(--topbar-h) + 78px); display:grid; gap:22px; }
+  @media (max-width:860px){ .side { position:static; grid-template-columns:1fr; } }
+  .grp .glabel { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 8px; }
+  .opts { display:grid; gap:1px; }
+  @media (max-width:860px){ .opts { grid-auto-flow:column; grid-auto-columns:max-content; overflow-x:auto; gap:8px; padding-bottom:4px; } }
+  .opt { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; text-align:left;
+    background:none; border:none; border-left:2px solid transparent; color:var(--ink-dim); font:inherit; font-size:13.5px;
+    padding:5px 8px; cursor:pointer; white-space:nowrap; border-radius:0 2px 2px 0; }
+  @media (max-width:860px){ .opt { border:1px solid var(--border); border-radius:2px; padding:5px 12px; } }
+  .opt:hover { color:var(--amber); background:var(--bg-panel); }
+  .opt[aria-pressed="true"] { color:var(--amber-hi); border-left-color:var(--amber); background:var(--bg-panel); }
+  @media (max-width:860px){ .opt[aria-pressed="true"] { border-color:var(--amber); } }
+  .opt .cnt { color:var(--ink-faint); font-size:12px; font-variant-numeric:tabular-nums; }
+  .opt[aria-pressed="true"] .cnt { color:var(--amber); }
+  .legend-note { font-size:11.5px; color:var(--ink-faint); line-height:1.5; border-left:2px solid var(--border); padding-left:10px; }
+  .legend-note b { color:var(--ink-dim); }
+
+  /* list */
+  .listhead { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:6px; }
+  .listhead h2 { margin:0; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); text-shadow:var(--glow); }
+  .listhead .meta { color:var(--ink-dim); font-size:12.5px; }
+  .listhead .meta b { color:var(--amber-hi); }
+
+  .colhead { display:grid; grid-template-columns:30px 1fr 78px 78px 92px 120px; gap:12px; padding:6px 12px; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); border-bottom:1px solid var(--border); }
+  .colhead .r { text-align:right; }
+  @media (max-width:720px){ .colhead { grid-template-columns:26px 1fr 88px; } .colhead .c-inst,.colhead .c-star { display:none; } }
+
+  .rows { display:grid; gap:0; }
+  .row { border-bottom:1px dashed var(--border); }
+  .row-main { display:grid; grid-template-columns:30px 1fr 78px 78px 92px 120px; gap:12px; align-items:center;
+    padding:11px 12px; cursor:pointer; background:none; border:none; width:100%; text-align:left; color:var(--ink); font:inherit; }
+  @media (max-width:720px){ .row-main { grid-template-columns:26px 1fr 88px; } .row-main .c-inst,.row-main .c-star { display:none; } }
+  .row-main:hover { background:var(--bg-panel); }
+  .row.sel .row-main { background:var(--bg-hi); }
+  .row.sel { border-left:2px solid var(--amber); }
+  .rank { color:var(--ink-faint); font-variant-numeric:tabular-nums; text-align:right; font-size:13px; }
+  .row.top1 .rank,.row.top2 .rank,.row.top3 .rank { color:var(--amber); }
+  .nm { display:flex; flex-direction:column; gap:1px; min-width:0; }
+  .nm .n { color:var(--amber-hi); font-size:14.5px; }
+  .nm .n .caret { color:var(--ink-faint); font-size:11px; margin-right:6px; display:inline-block; width:8px; transition:transform .12s; }
+  .row.open .nm .n .caret { transform:rotate(90deg); color:var(--amber); }
+  .nm .sub { color:var(--ink-dim); font-size:11.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .nm .sub .cat { color:var(--cyan); }
+  .num { text-align:right; font-variant-numeric:tabular-nums; font-size:13px; }
+  .star { color:var(--ink-dim); } .inst { color:var(--ink-dim); }
+  .succ .pos { color:var(--green); } .succ .neg { color:var(--red); } .succ .zero { color:var(--ink-dim); } .succ .pend { color:var(--ink-faint); }
+  .score { display:flex; align-items:center; gap:8px; justify-content:flex-end; }
+  .score .bar { letter-spacing:-1px; font-size:12px; }
+  .score .v { font-variant-numeric:tabular-nums; font-size:13.5px; width:24px; text-align:right; }
+  .sc-hi .bar,.sc-hi .v { color:var(--green); }
+  .sc-mid .bar,.sc-mid .v { color:var(--amber); }
+  .sc-lo .bar,.sc-lo .v { color:var(--red); }
+
+  /* expanded detail */
+  .detail { padding:2px 12px 18px 44px; display:none; }
+  .row.open .detail { display:block; }
+  @media (max-width:720px){ .detail { padding-left:26px; } }
+  .detail .desc { color:var(--ink); font-size:13.5px; max-width:64ch; margin:6px 0 14px; }
+  .signals { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; max-width:520px; margin-bottom:14px; }
+  @media (max-width:560px){ .signals { grid-template-columns:1fr; gap:8px; } }
+  .sig { border:1px solid var(--border); border-radius:2px; padding:8px 10px; background:var(--bg-panel); }
+  .sig .lab { font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+  .sig .val { font-size:15px; color:var(--amber-hi); font-variant-numeric:tabular-nums; margin-top:2px; }
+  .sig .val small { color:var(--ink-dim); font-size:11px; }
+  .detail .instrow { display:flex; align-items:stretch; border:1px solid var(--border); border-radius:2px; background:var(--bg-elev); max-width:420px; }
+  .detail .instrow code { flex:1; padding:9px 12px; font-size:13px; color:var(--ink); overflow-x:auto; white-space:nowrap; }
+  .detail .instrow code .p { color:var(--green); } .detail .instrow code b { color:var(--amber-hi); }
+  .detail .instrow .copy { border:none; border-left:1px solid var(--border); background:transparent; color:var(--amber); font:inherit; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:0 14px; cursor:pointer; }
+  .detail .instrow .copy:hover { background:var(--amber); color:var(--bg); }
+  .detail .dmeta { margin:10px 0 0; font-size:12px; color:var(--ink-dim); display:flex; flex-wrap:wrap; gap:4px 16px; }
+  .tier { font-size:10.5px; letter-spacing:.04em; padding:1px 7px; border:1px solid var(--border); border-radius:2px; color:var(--ink-dim); white-space:nowrap; }
+  .tier.official { color:var(--amber); border-color:color-mix(in srgb,var(--amber) 45%,var(--border)); }
+  @media (max-width:720px){ .c-tier { display:none; } }
+
+  .empty { padding:40px 12px; text-align:center; color:var(--ink-dim); font-size:14px; }
+  .empty b { color:var(--amber-hi); }
+
+  .foot { margin-top:36px; padding-top:16px; border-top:1px solid var(--border); color:var(--ink-faint); font-size:12px; display:flex; flex-wrap:wrap; gap:6px 18px; }
+  .foot b { color:var(--ink-dim); }
+
+  /* keybar */
+  .keybar { position:fixed; left:0; right:0; bottom:0; z-index:55; display:flex; flex-wrap:wrap; gap:4px 16px; align-items:center;
+    padding:9px clamp(12px,3vw,24px); background:color-mix(in srgb,var(--bg) 92%,transparent); backdrop-filter:blur(5px);
+    border-top:1px solid var(--border); font-size:12px; }
+  .keybar .k { color:var(--ink-dim); white-space:nowrap; }
+  .keybar a.k:hover { color:var(--amber); text-decoration:none; }
+  .keybar kbd { color:var(--bg); background:var(--amber); border-radius:2px; padding:1px 6px; font:inherit; font-size:11px; margin-right:5px; }
+  .keybar .sp { flex:1; }
+  .keybar .themebtn { background:none; border:1px solid var(--border); color:var(--ink-dim); font:inherit; font-size:11px; padding:3px 10px; border-radius:2px; cursor:pointer; letter-spacing:.04em; }
+  .keybar .themebtn:hover { color:var(--amber); border-color:var(--amber); }
+  @media (max-width:640px){ .keybar .hidesm { display:none; } }
+
+  @media (prefers-reduced-motion: reduce){ .crt-flicker,.cur,.caret { animation:none !important; } }
+</style>
+
+<div class="crt" aria-hidden="true"></div>
+<div class="crt-flicker" aria-hidden="true"></div>
+
+<header class="topbar">
+  <span class="brand">skillrank<span class="cur">_</span></span>
+  <span class="kv hidesm">registry <i>▸</i> <span id="c-skills">0</span> skills</span>
+  <span class="kv hidesm">evals <i>▸</i> <span id="c-evals">0</span> trials</span>
+  <span class="kv hidesm">agents <i>▸</i> claude · codex</span>
+  <span class="sp"></span>
+  <span class="kv">MIT · open registry</span>
+</header>
+
+<main class="wrap">
+
+  <!-- INSTALL — top -->
+  <section class="hero" id="top">
+    <p class="tag">the registry &amp; benchmark for agent skills</p>
+    <h1>Find the skills that make your coding agent <b>measurably</b> faster — install one, or make skillrank ambient in Claude Code &amp; Codex.</h1>
+    <div class="installrow">
+      <code><span class="p">$</span> curl -fsSL <b>skillrank.dev</b> | sh</code>
+      <button class="copy" data-copy="curl -fsSL skillrank.dev | sh">copy</button>
+    </div>
+    <p class="aux">
+      <span><span class="c"># ambient over MCP →</span> <code>skillrank setup</code></span>
+      <span><span class="c"># just find one →</span> <code>skillrank recommend</code></span>
+      <span class="c">no account to browse · no telemetry</span>
+    </p>
+  </section>
+
+  <!-- REGISTRY -->
+  <div class="reg-head">
+    <label class="search">
+      <span class="pfx"><b>$</b> skillrank search</span>
+      <input id="q" type="text" placeholder="react, testing, tokens, playwright…" autocomplete="off" spellcheck="false" aria-label="Search skills">
+      <span class="caret" aria-hidden="true">▊</span>
+      <kbd>/</kbd>
+    </label>
+  </div>
+
+  <div class="registry">
+    <aside class="side">
+      <div class="grp">
+        <p class="glabel">sort by</p>
+        <div class="opts" id="sorts">
+          <button class="opt" data-sort="score" aria-pressed="true">skillrank score <span class="cnt">▼</span></button>
+          <button class="opt" data-sort="stars" aria-pressed="false">stars</button>
+          <button class="opt" data-sort="installs" aria-pressed="false">installs</button>
+          <button class="opt" data-sort="lift" aria-pressed="false">eval lift</button>
+        </div>
+      </div>
+      <div class="grp">
+        <p class="glabel">category</p>
+        <div class="opts" id="cats"></div>
+      </div>
+      <p class="legend-note"><b>SkillRank score</b> blends community stars, real install usage, and our own eval lift. Stars alone don't rank — a hyped skill that fails the evals sinks.</p>
+    </aside>
+
+    <section class="list">
+      <div class="listhead">
+        <h2 id="list-title">top skills</h2>
+        <span class="meta"><b id="n-shown">0</b> of <span id="n-total">0</span> · sorted by <b id="sort-name">skillrank score</b></span>
+      </div>
+      <div class="colhead">
+        <span class="r">#</span>
+        <span>skill</span>
+        <span class="r c-star">★ stars</span>
+        <span class="r c-inst">⤓ installs</span>
+        <span class="r">Δ success</span>
+        <span class="r">score</span>
+      </div>
+      <div class="rows" id="rows"></div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <span><b>skillrank</b> — MIT</span>
+    <span>github.com/buildbetter-app/skillrank</span>
+    <span>content-hashed · scanned · reproducible evals</span>
+    <span>part of the BuildBetter universe</span>
+  </footer>
+</main>
+
+<nav class="keybar" aria-label="commands">
+  <a class="k" href="#top"><kbd>i</kbd>install</a>
+  <span class="k" id="kb-search"><kbd>/</kbd>search</span>
+  <span class="k hidesm"><kbd>↑↓</kbd>move</span>
+  <span class="k hidesm"><kbd>↵</kbd>open</span>
+  <a class="k" href="https://github.com/buildbetter-app/skillrank"><kbd>g</kbd>github</a>
+  <span class="sp"></span>
+  <button class="themebtn" id="themebtn" type="button">◐ theme</button>
+</nav>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- data (illustrative) ---------- */
+  var SKILLS = [
+    { slug:"react-performance",  cat:"performance",   tags:["memo","profiling"],      stars:1200, installs:8400,  succ:18,  tok:-22, tier:"official",  score:96, desc:"Teaches the agent to profile before optimizing: memoization boundaries, render tracing, and when NOT to useMemo. Cuts wasted re-renders and the tokens spent re-explaining them." },
+    { slug:"playwright-testing", cat:"testing",       tags:["e2e","fixtures"],        stars:2100, installs:12000, succ:31,  tok:4,   tier:"official",  score:95, desc:"End-to-end patterns that survive CI: role-based selectors, fixture isolation, and auto-wait discipline. Biggest single success-rate lift in the registry." },
+    { slug:"prompt-caching",     cat:"ai",            tags:["anthropic","cache"],     stars:430,  installs:1900,  succ:21,  tok:-31, tier:"official",  score:90, desc:"Structures long-context prompts so the model reuses cached prefixes. Few stars, huge token win — the clearest case for why usage-plus-evals beats a popularity contest." },
+    { slug:"nextjs-app-router",  cat:"frontend",      tags:["routing","rsc"],         stars:3400, installs:15000, succ:12,  tok:-9,  tier:"community", score:88, desc:"Server vs. client component boundaries, streaming, and the data-fetching rules the App Router actually rewards. Keeps the agent from reaching for pages/ habits." },
+    { slug:"zod-validation",     cat:"backend",       tags:["schema","types"],        stars:1800, installs:9100,  succ:14,  tok:-6,  tier:"community", score:85, desc:"Schema-first request validation with inferred types, so handlers stop hand-rolling guards and the agent stops inventing shapes." },
+    { slug:"vitest-unit",        cat:"testing",       tags:["unit","mocks"],          stars:1100, installs:6700,  succ:11,  tok:-3,  tier:"community", score:81, desc:"Fast unit patterns: focused mocks, table-driven cases, and coverage that means something. Pairs well with playwright-testing." },
+    { slug:"go-error-handling",  cat:"backend",       tags:["wrapping","sentinels"],  stars:980,  installs:5200,  succ:9,   tok:-14, tier:"community", score:79, desc:"Idiomatic error wrapping, sentinel vs. typed errors, and when to add context. Trims the verbose if err != nil noise the agent tends to over-produce." },
+    { slug:"fastapi-endpoints",  cat:"backend",       tags:["pydantic","async"],      stars:1500, installs:7000,  succ:null,tok:null,tier:"community", score:73, desc:"Dependency-injection, async routes, and Pydantic response models done the FastAPI way. Eval suite in progress." },
+    { slug:"web-accessibility",  cat:"accessibility", tags:["aria","wcag"],           stars:860,  installs:3900,  succ:null,tok:null,tier:"official",  score:71, desc:"ARIA roles, focus order, and WCAG contrast rules the agent can apply without a screen-reader in the loop. Eval suite in progress." },
+    { slug:"sql-migrations",     cat:"data",          tags:["ddl","reversible"],      stars:720,  installs:4100,  succ:7,   tok:-5,  tier:"community", score:68, desc:"Reversible, reviewable migrations with safe defaults and backfill patterns — fewer destructive DDL surprises." },
+    { slug:"docker-compose",     cat:"devops",        tags:["services","local"],      stars:1300, installs:6000,  succ:null,tok:null,tier:"community", score:62, desc:"Local multi-service dev with healthchecks and sane volumes. Eval suite in progress." },
+    { slug:"tailwind-styling",   cat:"styling",       tags:["utility","tokens"],      stars:4200, installs:18000, succ:3,   tok:-1,  tier:"community", score:58, desc:"Popular, but the evals are honest: a marginal +3% success and no token savings. Handy reference, not a difference-maker." },
+    { slug:"stripe-integration", cat:"backend",       tags:["billing","webhooks"],    stars:910,  installs:4400,  succ:6,   tok:-2,  tier:"self",      score:54, desc:"Checkout, webhooks, and idempotency keys. Self-reported evals only — not yet independently reproduced." },
+    { slug:"shadcn-ui",          cat:"frontend",      tags:["components","radix"],    stars:5100, installs:21000, succ:0,   tok:7,   tier:"self",      score:47, desc:"Most-starred skill in the registry — and it costs 7% MORE tokens for no measurable success lift. Exactly the mismatch stars hide and SkillRank surfaces." },
+    { slug:"django-orm",         cat:"backend",       tags:["queries","n+1"],         stars:1000, installs:3300,  succ:null,tok:null,tier:"community", score:44, desc:"Query optimization, select_related/prefetch, and N+1 avoidance. Eval suite in progress." },
+    { slug:"terraform-modules",  cat:"devops",        tags:["iac","modules"],         stars:640,  installs:2800,  succ:null,tok:null,tier:"community", score:39, desc:"Reusable module structure, variable hygiene, and state-safe patterns. Eval suite in progress." }
+  ];
+
+  var SORT_NAMES = { score:"skillrank score", stars:"stars", installs:"installs", lift:"eval lift" };
+  var state = { q:"", cat:"all", sort:"score", sel:0 };
+
+  /* ---------- helpers ---------- */
+  function fmt(n){ return n >= 1000 ? (n/1000).toFixed(n%1000===0?0:1)+"k" : String(n); }
+  function bar(pct, width){ var f = Math.round(pct/100*width); return "█".repeat(f) + "░".repeat(width-f); }
+  function scoreBand(s){ return s>=85 ? "sc-hi" : s>=60 ? "sc-mid" : "sc-lo"; }
+  function liftVal(s){ return s.succ==null ? -1 : s.succ; } /* pending sinks in lift sort */
+
+  function categories(){
+    var m = {};
+    SKILLS.forEach(function(s){ m[s.cat] = (m[s.cat]||0)+1; });
+    return Object.keys(m).sort().map(function(k){ return {name:k, count:m[k]}; });
+  }
+
+  function filtered(){
+    var q = state.q.trim().toLowerCase();
+    var list = SKILLS.filter(function(s){
+      if (state.cat !== "all" && s.cat !== state.cat) return false;
+      if (!q) return true;
+      var hay = (s.slug+" "+s.cat+" "+s.tags.join(" ")+" "+s.desc).toLowerCase();
+      return q.split(/\s+/).every(function(w){ return hay.indexOf(w) !== -1; });
+    });
+    var cmp = {
+      score:    function(a,b){ return b.score-a.score; },
+      stars:    function(a,b){ return b.stars-a.stars; },
+      installs: function(a,b){ return b.installs-a.installs; },
+      lift:     function(a,b){ return liftVal(b)-liftVal(a); }
+    }[state.sort];
+    return list.slice().sort(cmp);
+  }
+
+  /* ---------- render ---------- */
+  var rowsEl = document.getElementById("rows");
+
+  function succCell(s){
+    if (s.succ==null) return '<span class="pend">— pending</span>';
+    var cls = s.succ>5 ? "pos" : s.succ<=0 ? (s.succ<0?"neg":"zero") : "zero";
+    var sign = s.succ>0 ? "+" : (s.succ<0? "" : "±");
+    return '<span class="'+cls+'">'+sign+s.succ+'%</span>';
+  }
+
+  function render(){
+    var list = filtered();
+    if (state.sel >= list.length) state.sel = Math.max(0, list.length-1);
+
+    document.getElementById("n-shown").textContent = list.length;
+    document.getElementById("sort-name").textContent = SORT_NAMES[state.sort];
+    document.getElementById("list-title").textContent =
+      state.cat==="all" ? (state.sort==="score" ? "top skills" : "all skills") : state.cat + " skills";
+
+    if (!list.length){
+      rowsEl.innerHTML = '<div class="empty">no skills match <b>"'+state.q+'"</b> — try a stack, a tag, or clear the search.</div>';
+      return;
+    }
+    rowsEl.innerHTML = list.map(function(s, i){
+      var band = scoreBand(s.score);
+      var topcls = i===0?"top1":i===1?"top2":i===2?"top3":"";
+      var selcls = i===state.sel ? "sel" : "";
+      return ''+
+      '<div class="row '+topcls+' '+selcls+'" data-i="'+i+'" data-slug="'+s.slug+'">'+
+        '<button class="row-main" data-act="toggle">'+
+          '<span class="rank">'+(i+1)+'</span>'+
+          '<span class="nm">'+
+            '<span class="n"><span class="caret">▸</span>'+s.slug+'</span>'+
+            '<span class="sub"><span class="cat">'+s.cat+'</span> · '+s.tags.join(" · ")+'</span>'+
+          '</span>'+
+          '<span class="num star c-star">★ '+fmt(s.stars)+'</span>'+
+          '<span class="num inst c-inst">'+fmt(s.installs)+'</span>'+
+          '<span class="num succ">'+succCell(s)+'</span>'+
+          '<span class="score '+band+'"><span class="bar">'+bar(s.score,8)+'</span><span class="v">'+s.score+'</span></span>'+
+        '</button>'+
+        '<div class="detail">'+
+          '<p class="desc">'+s.desc+'</p>'+
+          '<div class="signals">'+
+            '<div class="sig"><div class="lab">community</div><div class="val">★ '+fmt(s.stars)+'</div></div>'+
+            '<div class="sig"><div class="lab">usage</div><div class="val">'+fmt(s.installs)+' <small>installs</small></div></div>'+
+            '<div class="sig"><div class="lab">eval lift</div><div class="val">'+(s.succ==null?'<small>pending</small>':((s.succ>0?"+":s.succ<0?"":"±")+s.succ+'% <small>'+(s.tok>0?"+"+s.tok:s.tok)+'% tok</small>'))+'</div></div>'+
+          '</div>'+
+          '<div class="instrow"><code><span class="p">$</span> skillrank install <b>'+s.slug+'</b></code>'+
+            '<button class="copy" data-act="copy" data-copy="skillrank install '+s.slug+'">copy</button></div>'+
+          '<p class="dmeta"><span class="tier '+(s.tier==="official"?"official":"")+'">'+s.tier+'</span>'+
+            '<span>skillrank score <b>'+s.score+'</b>/100</span>'+
+            '<span><a href="#top">view evals ▸</a></span></p>'+
+        '</div>'+
+      '</div>';
+    }).join("");
+
+    // restore open state for selected if flagged
+    var sel = rowsEl.querySelector('.row[data-i="'+state.sel+'"]');
+    if (sel && state.openSlug === sel.getAttribute("data-slug")) sel.classList.add("open");
+  }
+
+  /* ---------- sidebar ---------- */
+  (function buildCats(){
+    var el = document.getElementById("cats");
+    var cats = categories();
+    var html = '<button class="opt" data-cat="all" aria-pressed="true">all <span class="cnt">'+SKILLS.length+'</span></button>';
+    html += cats.map(function(c){
+      return '<button class="opt" data-cat="'+c.name+'" aria-pressed="false">'+c.name+' <span class="cnt">'+c.count+'</span></button>';
+    }).join("");
+    el.innerHTML = html;
+  })();
+  document.getElementById("c-skills").textContent = SKILLS.length;
+  document.getElementById("c-evals").textContent = "1,040";
+  document.getElementById("n-total").textContent = SKILLS.length;
+
+  /* ---------- interactions ---------- */
+  var q = document.getElementById("q");
+  q.addEventListener("input", function(){ state.q = q.value; state.sel = 0; render(); });
+
+  document.getElementById("sorts").addEventListener("click", function(e){
+    var b = e.target.closest("[data-sort]"); if (!b) return;
+    state.sort = b.getAttribute("data-sort"); state.sel = 0;
+    Array.prototype.forEach.call(this.children, function(c){ c.setAttribute("aria-pressed", c===b ? "true":"false"); });
+    var cnt = this.querySelector(".cnt"); // move the ▼ marker
+    render();
+  });
+
+  document.getElementById("cats").addEventListener("click", function(e){
+    var b = e.target.closest("[data-cat]"); if (!b) return;
+    state.cat = b.getAttribute("data-cat"); state.sel = 0;
+    Array.prototype.forEach.call(this.children, function(c){ c.setAttribute("aria-pressed", c===b ? "true":"false"); });
+    render();
+  });
+
+  rowsEl.addEventListener("click", function(e){
+    var copyBtn = e.target.closest('[data-act="copy"]');
+    if (copyBtn){ e.stopPropagation(); doCopy(copyBtn, copyBtn.getAttribute("data-copy")); return; }
+    var main = e.target.closest('[data-act="toggle"]');
+    if (!main) return;
+    var row = main.closest(".row");
+    var i = +row.getAttribute("data-i");
+    state.sel = i;
+    var isOpen = row.classList.toggle("open");
+    state.openSlug = isOpen ? row.getAttribute("data-slug") : null;
+    Array.prototype.forEach.call(rowsEl.querySelectorAll(".row"), function(r){ r.classList.toggle("sel", r===row); });
+  });
+
+  /* copy (hero + rows) */
+  function doCopy(btn, txt){
+    var old = btn.textContent, done = function(){ btn.textContent = "copied ✓"; setTimeout(function(){ btn.textContent = old; }, 1300); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, done); else done();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".hero .copy"), function(b){
+    b.addEventListener("click", function(){ doCopy(b, b.getAttribute("data-copy")); });
+  });
+
+  /* keyboard nav */
+  function move(d){
+    var rows = rowsEl.querySelectorAll(".row"); if (!rows.length) return;
+    state.sel = Math.max(0, Math.min(rows.length-1, state.sel + d));
+    Array.prototype.forEach.call(rows, function(r,i){ r.classList.toggle("sel", i===state.sel); });
+    rows[state.sel].scrollIntoView({ block:"nearest" });
+  }
+  document.addEventListener("keydown", function(e){
+    var typing = document.activeElement === q;
+    if (e.key === "/" && !typing){ e.preventDefault(); q.focus(); q.select(); return; }
+    if (typing){
+      if (e.key === "Escape"){ q.value=""; state.q=""; state.sel=0; render(); q.blur(); }
+      return;
+    }
+    if (e.key === "ArrowDown" || e.key === "j"){ e.preventDefault(); move(1); }
+    else if (e.key === "ArrowUp" || e.key === "k"){ e.preventDefault(); move(-1); }
+    else if (e.key === "Enter"){
+      var row = rowsEl.querySelector('.row[data-i="'+state.sel+'"]');
+      if (row){ var open = row.classList.toggle("open"); state.openSlug = open ? row.getAttribute("data-slug") : null; row.scrollIntoView({block:"nearest"}); }
+    } else if (e.key.toLowerCase() === "g"){ window.location.href = "https://github.com/buildbetter-app/skillrank"; }
+    else if (e.key.toLowerCase() === "i"){ document.getElementById("top").scrollIntoView({behavior: reduce?"auto":"smooth"}); }
+  });
+  document.getElementById("kb-search").addEventListener("click", function(){ q.focus(); });
+
+  /* theme toggle */
+  var root = document.documentElement;
+  document.getElementById("themebtn").addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme");
+    if (!cur){ cur = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark":"light"; }
+    root.setAttribute("data-theme", cur==="dark" ? "light":"dark");
+  });
+
+  render();
+})();
+</script>
