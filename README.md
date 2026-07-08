@@ -146,4 +146,16 @@ agent integration.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+SkillRank is split by component:
+
+- **CLI + core library** (`crates/`) — **MIT** ([LICENSE](LICENSE)). Fully open
+  source: install it, embed it, fork it, ship it commercially. This is the part
+  you run.
+- **Hosted registry service + website** (`registry/`, `web/`) — **Elastic License
+  2.0** ([registry/LICENSE](registry/LICENSE)). Source-available: read it, run it,
+  self-host it — but you may not offer it to others as a hosted or managed service
+  that competes with SkillRank.
+
+In short: the tool is MIT and free for anyone (including at companies); you just
+can't stand up a competing hosted SkillRank. Indexed skills remain under their own
+upstream licenses.
