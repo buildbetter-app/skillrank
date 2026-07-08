@@ -1,45 +1,46 @@
 // Hosted SkillRank registry (read side) — serves the /v3/rest/skill-registry
-// contract from the seed catalog, so the CLI/MCP work out of the box.
+// contract from the ingested public-skill catalog.
 //
-// Content hashes are computed the SAME way as the Rust client
-// (skillrank-core::hash::compute_content_hash): normalize CRLF->LF, strip
-// trailing newlines, sha256, "sha256:" prefix — so `install` verifies.
+//   search / show  -> over ALL catalog entries (enriched.json, ~87)
+//   resolve        -> installable entries carry pinned commit + content + hash
+//                     (ingested.json, ~41); collections resolve to a tombstone
+//                     pointing at the source repo.
+//
+// Content hashes were computed by the ingestion pipeline the SAME way as the Rust
+// client (skillrank-core::hash), so `skillrank install` hash-verification passes.
 
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 
-const catalog = JSON.parse(
-  readFileSync(new URL("./seed_catalog.json", import.meta.url), "utf8")
-);
+const enriched = JSON.parse(readFileSync(new URL("./enriched.json", import.meta.url), "utf8"));
+const ingested = JSON.parse(readFileSync(new URL("./ingested.json", import.meta.url), "utf8"));
 
-function contentHash(content) {
-  const normalized = content.split("\r\n").join("\n").replace(/\n+$/, "");
-  return "sha256:" + createHash("sha256").update(normalized, "utf8").digest("hex");
+const bySlug = new Map(enriched.map((e) => [e.slug, e]));
+const installBySlug = new Map(ingested.map((e) => [e.slug, e]));
+const sorted = [...enriched].sort((a, b) => (b.score || 0) - (a.score || 0));
+
+function scanTier(e) {
+  return e.status === "installable" ? "pending" : "unknown";
 }
-
-// Precompute hashes + a slug index.
-const entries = catalog.map((e) => ({ ...e, hash: contentHash(e.content) }));
-const bySlug = new Map(entries.map((e) => [e.slug, e]));
 
 function summary(e) {
   return {
     slug: e.slug,
     display_name: e.display_name,
     category: e.category || "",
-    stacks: e.stacks || [],
+    stacks: e.tags || [],
     source_type: "github",
     source_url: e.source_url || "",
-    latest_version: e.hash,
-    scan_tier: "safe",
+    latest_version: e.content_hash || "",
+    scan_tier: scanTier(e),
+    signals_score: typeof e.score === "number" ? e.score : null,
     rating_count: 0,
-    summary: e.summary || "",
+    summary: e.description || "",
   };
 }
 
-const stripSep = (s) => s.replace(/[\s\-_]/g, "");
-
+const stripSep = (s) => s.replace(/[\s\-_/]/g, "");
 function matchesQuery(e, q) {
-  const hay = [e.slug, e.display_name, e.summary, e.category, (e.stacks || []).join(" ")]
+  const hay = [e.slug, e.display_name, e.summary || e.description, e.category, (e.tags || []).join(" "), e.source_repo]
     .join(" ")
     .toLowerCase();
   const collapsed = stripSep(q);
@@ -56,31 +57,28 @@ function json(res, status, body) {
 }
 
 export default function handler(req, res) {
-  // The path after /v3/rest/skill-registry is passed via ?path (see vercel.json).
   const url = new URL(req.url, "http://x");
   const path = url.searchParams.get("path") || "";
   const parts = path.split("/").filter(Boolean);
 
-  if (parts[0] !== "skills") {
-    return json(res, 404, { error: "not found" });
-  }
+  if (parts[0] !== "skills") return json(res, 404, { error: "not found" });
   const rest = parts.slice(1);
 
-  // /skills  -> search
+  // /skills -> search
   if (rest.length === 0) {
     const q = (url.searchParams.get("q") || "").toLowerCase();
     const stack = (url.searchParams.get("stack") || "").toLowerCase();
     const category = (url.searchParams.get("category") || "").toLowerCase();
     const limit = Math.max(1, parseInt(url.searchParams.get("limit") || "20", 10) || 20);
-    let items = entries.filter((e) => {
-      if (stack && !(e.stacks || []).some((s) => s.toLowerCase() === stack)) return false;
+    let items = sorted.filter((e) => {
+      if (stack && !(e.tags || []).some((s) => s.toLowerCase() === stack)) return false;
       if (category && (e.category || "").toLowerCase() !== category) return false;
       if (q && !matchesQuery(e, q)) return false;
       return true;
     });
-    items.sort((a, b) => a.slug.localeCompare(b.slug));
+    const total = items.length;
     items = items.slice(0, limit).map(summary);
-    return json(res, 200, { items, total: items.length });
+    return json(res, 200, { items, total });
   }
 
   // /skills/<slug...>/resolve  or  /skills/<slug...>
@@ -90,20 +88,42 @@ export default function handler(req, res) {
   if (!e) return json(res, 404, { error: "not found" });
 
   if (isResolve) {
+    const inst = installBySlug.get(slug);
+    if (!inst) {
+      // a collection / non-single-SKILL.md source
+      return json(res, 200, {
+        slug: e.slug,
+        version: "",
+        source_type: "github",
+        source_url: e.source_url || "",
+        content_hash: "",
+        scan_tier: "unknown",
+        tombstoned: true,
+        tombstone_reason: `"${e.slug}" is a skill collection, not a single SKILL.md. Browse and install from the source repo: ${e.source_url}`,
+      });
+    }
     return json(res, 200, {
-      slug: e.slug,
-      version: e.hash,
+      slug: inst.slug,
+      version: inst.content_hash,
       source_type: "github",
-      source_url: e.source_url || "",
-      content_hash: e.hash,
-      scan_tier: "safe",
-      inline_content: e.content,
+      source_url: inst.source_url || "",
+      source_subpath: inst.skill_path || inst.source_subpath || "",
+      pinned_commit: inst.pinned_commit || "",
+      content_hash: inst.content_hash,
+      scan_tier: "pending",
+      signals_score: typeof inst.score === "number" ? inst.score : null,
+      raw_content_url: inst.raw_content_url || "",
       tombstoned: false,
     });
   }
+
+  // show
+  const inst = installBySlug.get(slug);
   return json(res, 200, {
     ...summary(e),
-    versions: [{ content_hash: e.hash, scan_tier: "safe" }],
+    versions: inst
+      ? [{ content_hash: inst.content_hash, pinned_commit: inst.pinned_commit || "", scan_tier: "pending", published_at: e.signals?.pushed_at || "" }]
+      : [],
     eval_cells: [],
   });
 }
