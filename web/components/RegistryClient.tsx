@@ -75,6 +75,7 @@ export function RegistryClient({ skills }: RegistryClientProps) {
   const [sort, setSort] = useState<SortKey>("score");
   const [selected, setSelected] = useState(0);
   const [openSlug, setOpenSlug] = useState<string | null>(null);
+  const [limit, setLimit] = useState(80); // cap rendered rows; "load more" extends
   const [themeLabel, setThemeLabel] = useState("◐ theme");
   const searchRef = useRef<HTMLInputElement>(null);
   const rowsRef = useRef<HTMLDivElement>(null);
@@ -101,6 +102,9 @@ export function RegistryClient({ skills }: RegistryClientProps) {
     setSelected((current) => Math.max(0, Math.min(current, Math.max(filtered.length - 1, 0))));
   }, [filtered.length]);
 
+  // reset the render window whenever the result set changes
+  useEffect(() => setLimit(80), [query, category, sort]);
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const typing = document.activeElement === searchRef.current;
@@ -125,7 +129,10 @@ export function RegistryClient({ skills }: RegistryClientProps) {
         event.preventDefault();
         setSelected((current) => {
           const next = Math.min(filtered.length - 1, current + 1);
-          rowsRef.current?.querySelectorAll(".row")[next]?.scrollIntoView({ block: "nearest" });
+          setLimit((l) => (next >= l ? next + 40 : l)); // pull more rows into view when arrowing past the window
+          requestAnimationFrame(() =>
+            rowsRef.current?.querySelectorAll(".row")[next]?.scrollIntoView({ block: "nearest" })
+          );
           return next;
         });
       } else if (event.key === "ArrowUp" || event.key === "k") {
@@ -321,7 +328,8 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             </div>
             <div className="rows" ref={rowsRef}>
               {filtered.length ? (
-                filtered.map((skill, index) => {
+                <>
+                  {filtered.slice(0, limit).map((skill, index) => {
                   const isOpen = openSlug === skill.slug;
                   const isSelected = selected === index;
                   return (
@@ -409,7 +417,13 @@ export function RegistryClient({ skills }: RegistryClientProps) {
                       </div>
                     </div>
                   );
-                })
+                  })}
+                  {filtered.length > limit ? (
+                    <button className="loadmore" type="button" onClick={() => setLimit((l) => l + 120)}>
+                      load {Math.min(120, filtered.length - limit)} more · {filtered.length - limit} remaining
+                    </button>
+                  ) : null}
+                </>
               ) : (
                 <div className="empty">
                   no skills match <b>&quot;{query}&quot;</b> -- try a stack, a tag, or clear the search.
