@@ -1,0 +1,43 @@
+name: Refresh
+
+# Weekly: re-pin skills whose source repo has advanced past the commit we pinned,
+# so `skillrank outdated` / `upgrade` reflect real upstream updates. Cheap — one
+# HEAD check per repo, content re-fetched only for skills that actually changed.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Re-pin skills whose source advanced
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node registry/ingest/ingest.mjs --refresh
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "skillrank-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add registry/data/ingested.json registry/data/enriched.json registry/api/ingested.json registry/api/enriched.json
+          if git diff --cached --quiet; then
+            echo "no upstream changes"
+          else
+            git commit -m "chore(catalog): weekly refresh — re-pin updated skills [skip ci]"
+            git push
+          fi

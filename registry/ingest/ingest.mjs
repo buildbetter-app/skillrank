@@ -27,6 +27,7 @@ const args = process.argv.slice(2);
 const limitFlag = args.indexOf("--limit");
 const LIMIT = limitFlag >= 0 ? parseInt(args[limitFlag + 1], 10) : Infinity;
 const FORCE = args.includes("--force"); // re-fetch everything; default is incremental
+const REFRESH = args.includes("--refresh"); // re-pin only skills whose source repo advanced
 
 // Incremental: reuse already-ingested skills (by slug) so CI only fetches new
 // ones. `--force` re-does the whole catalog.
@@ -111,13 +112,28 @@ let ok = 0,
   failed = 0;
 
 let reused = 0;
+let repinned = 0;
 for (const skill of ordered) {
-  // incremental: keep prior result, skip network
+  // incremental: keep prior result, skip network.
   if (prevEnriched.has(skill.slug)) {
-    enriched.push(prevEnriched.get(skill.slug));
-    if (prevIngested.has(skill.slug)) installable.push(prevIngested.get(skill.slug));
-    reused++;
-    continue;
+    // --refresh: re-ingest installable skills whose source repo advanced past
+    // the commit we pinned; otherwise reuse (cheap: one HEAD check per repo).
+    if (REFRESH && prevIngested.has(skill.slug)) {
+      const prev = prevIngested.get(skill.slug);
+      const info = repoInfo(skill.source_repo);
+      if (info && info.head_sha && prev.pinned_commit && info.head_sha === prev.pinned_commit) {
+        enriched.push(prevEnriched.get(skill.slug));
+        installable.push(prev);
+        reused++;
+        continue;
+      }
+      repinned++; // source advanced → fall through and re-fetch/re-pin
+    } else {
+      enriched.push(prevEnriched.get(skill.slug));
+      if (prevIngested.has(skill.slug)) installable.push(prevIngested.get(skill.slug));
+      reused++;
+      continue;
+    }
   }
   const info = repoInfo(skill.source_repo);
   const base = {
@@ -189,5 +205,7 @@ for (const dir of [OUT_DIR, API_DIR]) {
   writeFileSync(path.join(dir, "enriched.json"), enrichedJson);
 }
 
-console.log(`\nattempted ${ordered.length}: ${reused} reused, ${ok} newly ingested, ${collection} collections, ${failed} failed`);
+console.log(
+  `\nattempted ${ordered.length}: ${reused} reused, ${repinned} re-pinned, ${ok} newly ingested, ${collection} collections, ${failed} failed`
+);
 console.log(`wrote registry/{data,api}/ingested.json (${installable.length}) + enriched.json (${enriched.length})`);
