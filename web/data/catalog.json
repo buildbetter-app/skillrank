@@ -17947,6 +17947,519 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "mukul975/abusing-dpapi-for-credential-access",
+    "display_name": "abusing-dpapi-for-credential-access",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/abusing-dpapi-for-credential-access",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/abusing-dpapi-for-credential-access",
+    "description": "Extract DPAPI-protected secrets such as credentials and browser data offline and online.",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/abusing-shadow-credentials-for-privesc",
+    "display_name": "abusing-shadow-credentials-for-privesc",
+    "category": "document",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/abusing-shadow-credentials-for-privesc",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/abusing-shadow-credentials-for-privesc",
+    "description": "Take over Active Directory user and computer accounts by writing alternate certificate keys to msDS-KeyCredentialLink (Shadow Credentials) with pyWhisker, Whisker, and Certipy, the",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/acquiring-disk-image-with-dd-and-dcfldd",
+    "display_name": "acquiring-disk-image-with-dd-and-dcfldd",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/acquiring-disk-image-with-dd-and-dcfldd",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/acquiring-disk-image-with-dd-and-dcfldd",
+    "description": "Create forensically sound bit-for-bit disk images using dd and dcfldd",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-active-directory-acl-abuse",
+    "display_name": "analyzing-active-directory-acl-abuse",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-active-directory-acl-abuse",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-active-directory-acl-abuse",
+    "description": "Detect dangerous ACL misconfigurations in Active Directory using ldap3",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-android-malware-with-apktool",
+    "display_name": "analyzing-android-malware-with-apktool",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-android-malware-with-apktool",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-android-malware-with-apktool",
+    "description": "Perform static analysis of Android APK malware samples using apktool",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-api-gateway-access-logs",
+    "display_name": "analyzing-api-gateway-access-logs",
+    "category": "devops",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-api-gateway-access-logs",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-api-gateway-access-logs",
+    "description": "Parses API Gateway access logs (AWS API Gateway, Kong, Nginx) to detect",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-apt-group-with-mitre-navigator",
+    "display_name": "analyzing-apt-group-with-mitre-navigator",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-apt-group-with-mitre-navigator",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-apt-group-with-mitre-navigator",
+    "description": "Analyze advanced persistent threat (APT) group techniques using MITRE",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-azure-activity-logs-for-threats",
+    "display_name": "analyzing-azure-activity-logs-for-threats",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-azure-activity-logs-for-threats",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-azure-activity-logs-for-threats",
+    "description": "Queries Azure Monitor activity logs and sign-in logs via azure-monitor-query",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-bootkit-and-rootkit-samples",
+    "display_name": "analyzing-bootkit-and-rootkit-samples",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-bootkit-and-rootkit-samples",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-bootkit-and-rootkit-samples",
+    "description": "Analyzes bootkit and advanced rootkit malware that infects the Master",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-browser-forensics-with-hindsight",
+    "display_name": "analyzing-browser-forensics-with-hindsight",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-browser-forensics-with-hindsight",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-browser-forensics-with-hindsight",
+    "description": "Analyze Chromium-based browser artifacts using Hindsight to extract browsing",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-campaign-attribution-evidence",
+    "display_name": "analyzing-campaign-attribution-evidence",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-campaign-attribution-evidence",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-campaign-attribution-evidence",
+    "description": "Campaign attribution analysis involves systematically evaluating evidence",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-certificate-transparency-for-phishing",
+    "display_name": "analyzing-certificate-transparency-for-phishing",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-certificate-transparency-for-phishing",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-certificate-transparency-for-phishing",
+    "description": "Monitor Certificate Transparency logs using crt.sh and Certstream to",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-cloud-storage-access-patterns",
+    "display_name": "analyzing-cloud-storage-access-patterns",
+    "category": "devops",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cloud-storage-access-patterns",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-cloud-storage-access-patterns",
+    "description": "Detect abnormal access patterns in AWS S3, GCS, and Azure Blob Storage",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-cobalt-strike-beacon-configuration",
+    "display_name": "analyzing-cobalt-strike-beacon-configuration",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cobalt-strike-beacon-configuration",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-cobalt-strike-beacon-configuration",
+    "description": "Extract and analyze Cobalt Strike beacon configuration from PE files",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-cobaltstrike-malleable-c2-profiles",
+    "display_name": "analyzing-cobaltstrike-malleable-c2-profiles",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cobaltstrike-malleable-c2-profiles",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-cobaltstrike-malleable-c2-profiles",
+    "description": "Parse and analyze Cobalt Strike Malleable C2 profiles using dissect.cobaltstrike",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-command-and-control-communication",
+    "display_name": "analyzing-command-and-control-communication",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-command-and-control-communication",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-command-and-control-communication",
+    "description": "Analyzes malware command-and-control (C2) communication protocols to",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-cyber-kill-chain",
+    "display_name": "analyzing-cyber-kill-chain",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cyber-kill-chain",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-cyber-kill-chain",
+    "description": "Analyzes intrusion activity against the Lockheed Martin Cyber Kill Chain",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-disk-image-with-autopsy",
+    "display_name": "analyzing-disk-image-with-autopsy",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-disk-image-with-autopsy",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-disk-image-with-autopsy",
+    "description": "Perform comprehensive forensic analysis of disk images using Autopsy",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "mukul975/analyzing-dns-logs-for-exfiltration",
+    "display_name": "analyzing-dns-logs-for-exfiltration",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-dns-logs-for-exfiltration",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_subpath": "skills/analyzing-dns-logs-for-exfiltration",
+    "description": "Analyzes DNS query logs to detect data exfiltration via DNS tunneling,",
+    "signals": {
+      "stars": 24971,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "zarazhangrui/frontend-slides",
     "display_name": "Frontend Slides",
     "category": "frontend",
@@ -20323,6 +20836,519 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "alirezarezvani/agent-name",
+    "display_name": "Agent Name",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/TEMPLATE",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/TEMPLATE",
+    "description": "One paragraph describing what this agent does, who it's for, and when to activate it.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/a11y-audit",
+    "display_name": "a11y-audit",
+    "category": "frontend",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/a11y-audit",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/a11y-audit",
+    "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/ab-test-setup",
+    "display_name": "ab-test-setup",
+    "category": "testing",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ab-test-setup",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/ab-test-setup",
+    "description": "When the user wants to plan, design, or implement an A/B test or experiment.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/ad-creative",
+    "display_name": "ad-creative",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ad-creative",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/ad-creative",
+    "description": "When the user needs to generate, iterate, or scale ad creative for paid advertising.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/adversarial-reviewer",
+    "display_name": "adversarial-reviewer",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/adversarial-reviewer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/adversarial-reviewer",
+    "description": "Adversarial code review that breaks the self-review monoculture.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/aeo",
+    "display_name": "aeo",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/aeo",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/aeo",
+    "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/agent-designer",
+    "display_name": "agent-designer",
+    "category": "devops",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agent-designer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/agent-designer",
+    "description": "Use when the user asks to design a multi-agent system, pick an orchestration pattern (supervisor/swarm/pipeline), generate tool schemas for agents, or evaluate agent execution logs",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/agent-protocol",
+    "display_name": "agent-protocol",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agent-protocol",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/agent-protocol",
+    "description": "Inter-agent communication protocol for C-suite agent teams.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/agent-workflow-designer",
+    "display_name": "agent-workflow-designer",
+    "category": "styling",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agent-workflow-designer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/agent-workflow-designer",
+    "description": "Design production-grade multi-agent workflows with clear pattern choice (sequential, parallel, hierarchical), handoff contracts, failure handling, and cost/context controls.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/agenthub",
+    "display_name": "agenthub",
+    "category": "meta",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agenthub",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/agenthub",
+    "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/agile-product-owner",
+    "display_name": "agile-product-owner",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agile-product-owner",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/agile-product-owner",
+    "description": "Agile product ownership for backlog management and sprint execution.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/ai-act-readiness",
+    "display_name": "ai-act-readiness",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ai-act-readiness",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/ai-act-readiness",
+    "description": "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/ai-security",
+    "display_name": "ai-security",
+    "category": "security",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ai-security",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/ai-security",
+    "description": "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/aims-audit",
+    "display_name": "aims-audit",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/aims-audit",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/aims-audit",
+    "description": "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/analytics-tracking",
+    "display_name": "analytics-tracking",
+    "category": "testing",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/analytics-tracking",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/analytics-tracking",
+    "description": "Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/andreessen",
+    "display_name": "andreessen",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/andreessen",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/andreessen",
+    "description": "Marc Andreessen-mode decision and productivity skill.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/api-design-reviewer",
+    "display_name": "api-design-reviewer",
+    "category": "styling",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/api-design-reviewer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/api-design-reviewer",
+    "description": "Comprehensive REST API design review with automated linting, breaking-change detection, and design scorecards.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/api-test-suite-builder",
+    "display_name": "api-test-suite-builder",
+    "category": "testing",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/api-test-suite-builder",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/api-test-suite-builder",
+    "description": "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests.",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "alirezarezvani/app-store-optimization",
+    "display_name": "app-store-optimization",
+    "category": "data",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/app-store-optimization",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_subpath": ".gemini/skills/app-store-optimization",
+    "description": "App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, generating metadata suggestions, and improving app visibility on Apple App Store and G",
+    "signals": {
+      "stars": 21697,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 59,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "mksglu/context-mode-ops",
     "display_name": "context-mode-ops",
     "category": "meta",
@@ -21873,6 +22899,546 @@
       "tier": "community"
     },
     "score": 57,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/ablation-planner",
+    "display_name": "ablation-planner",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/ablation-planner",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/ablation-planner",
+    "description": "Use when main results pass result-to-claim (claim_supported=yes or partial) and ablation studies are needed for paper submission.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/alphaxiv",
+    "display_name": "alphaxiv",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/alphaxiv",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/alphaxiv",
+    "description": "Quick single-paper lookup via AlphaXiv LLM-optimized summaries with tiered source fallback.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/analyze-results",
+    "display_name": "analyze-results",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/analyze-results",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/analyze-results",
+    "description": "Analyze ML experiment results, compute statistics, generate comparison tables and insights.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/arxiv",
+    "display_name": "arxiv",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/arxiv",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/arxiv",
+    "description": "Search, download, and summarize academic papers from arXiv.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/auto-paper-improvement-loop",
+    "display_name": "auto-paper-improvement-loop",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-paper-improvement-loop",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/auto-paper-improvement-loop",
+    "description": "Autonomously improve a generated paper via GPT-5.5 xhigh review → implement fixes → recompile, for 2 rounds.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/auto-review-loop",
+    "display_name": "auto-review-loop",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-review-loop",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/auto-review-loop",
+    "description": "Autonomous multi-round research review loop.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/auto-review-loop-llm",
+    "display_name": "auto-review-loop-llm",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-review-loop-llm",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/auto-review-loop-llm",
+    "description": "Autonomous research review loop using any OpenAI-compatible LLM API.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/auto-review-loop-minimax",
+    "display_name": "auto-review-loop-minimax",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-review-loop-minimax",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/auto-review-loop-minimax",
+    "description": "Autonomous multi-round research review loop using MiniMax API.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/citation-audit",
+    "display_name": "citation-audit",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/citation-audit",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/citation-audit",
+    "description": "Zero-context verification that every bibliographic entry in the paper is real, correctly attributed, and used in a context the cited paper actually supports — catching hallucinated",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/claims-drafting",
+    "display_name": "claims-drafting",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/claims-drafting",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/claims-drafting",
+    "description": "Draft patent claims for an invention.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/comm-lit-review",
+    "display_name": "comm-lit-review",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/comm-lit-review",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/comm-lit-review",
+    "description": "Communications-domain literature review with Claude-style knowledge-base-first retrieval.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/deepxiv",
+    "display_name": "deepxiv",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/deepxiv",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/deepxiv",
+    "description": "Search and progressively read open-access academic papers through DeepXiv.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/dse-loop",
+    "display_name": "dse-loop",
+    "category": "styling",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/dse-loop",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/dse-loop",
+    "description": "Autonomous design space exploration loop for computer architecture and EDA.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/embodiment-description",
+    "display_name": "embodiment-description",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/embodiment-description",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/embodiment-description",
+    "description": "Write detailed embodiment descriptions for patent specifications.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/exa-search",
+    "display_name": "exa-search",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/exa-search",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/exa-search",
+    "description": "AI-powered web search via Exa with content extraction.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/experiment-audit",
+    "display_name": "experiment-audit",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-audit",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/experiment-audit",
+    "description": "Audit experiment integrity before claiming results.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/experiment-bridge",
+    "display_name": "experiment-bridge",
+    "category": "meta",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-bridge",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/experiment-bridge",
+    "description": "Workflow 1.5: Bridge between idea discovery and auto review.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/experiment-plan",
+    "display_name": "experiment-plan",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-plan",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/experiment-plan",
+    "description": "Turn a refined research proposal or method idea into a detailed, claim-driven experiment roadmap.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/experiment-queue",
+    "display_name": "experiment-queue",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-queue",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/experiment-queue",
+    "description": "SSH job queue for multi-seed/multi-config ML experiments with OOM-aware retry, stale-screen cleanup, and wave-transition race prevention.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "wanshuiyin/feishu-notify",
+    "display_name": "feishu-notify",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/feishu-notify",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_subpath": "skills/feishu-notify",
+    "description": "Send notifications to Feishu/Lark.",
+    "signals": {
+      "stars": 13150,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 56,
     "provisional": true,
     "added_at": "2026-07-07"
   },
@@ -38234,6 +39800,276 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "parcadei/agentica-claude-proxy",
+    "display_name": "agentica-claude-proxy",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-claude-proxy",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/agentica-claude-proxy",
+    "description": "Guide for integrating Agentica SDK with Claude Code CLI proxy",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/agentica-infrastructure",
+    "display_name": "agentica-infrastructure",
+    "category": "devops",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-infrastructure",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/agentica-infrastructure",
+    "description": "Reference guide for Agentica multi-agent infrastructure APIs",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/agentica-prompts",
+    "display_name": "agentica-prompts",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-prompts",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/agentica-prompts",
+    "description": "Write reliable prompts for Agentica/REPL agents that avoid LLM instruction ambiguity",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/agentica-sdk",
+    "display_name": "agentica-sdk",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-sdk",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/agentica-sdk",
+    "description": "Build Python agents with Agentica SDK - @agentic decorator, spawn(), persistence, MCP integration",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/agentica-server",
+    "display_name": "agentica-server",
+    "category": "testing",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-server",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/agentica-server",
+    "description": "Agentica server + Claude proxy setup - architecture, startup sequence, debugging",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/agentica-spawn",
+    "display_name": "agentica-spawn",
+    "category": "meta",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-spawn",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/agentica-spawn",
+    "description": "Spawn Agentica multi-agent patterns",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/leann-search",
+    "display_name": "leann-search",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/archive/leann-search",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/archive/leann-search",
+    "description": "Semantic search across codebase using LEANN vector index",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/ast-grep-find",
+    "display_name": "ast-grep-find",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/ast-grep-find",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/ast-grep-find",
+    "description": "AST-based code search and refactoring via ast-grep MCP",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/braintrust-analyze",
+    "display_name": "braintrust-analyze",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/braintrust-analyze",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/braintrust-analyze",
+    "description": "Analyze Claude Code sessions via Braintrust",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "parcadei/braintrust-tracing",
+    "display_name": "braintrust-tracing",
+    "category": "testing",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/braintrust-tracing",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_subpath": ".claude/skills/braintrust-tracing",
+    "description": "Braintrust tracing for Claude Code - hook architecture, sub-agent correlation, debugging",
+    "signals": {
+      "stars": 3856,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 49,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "SamurAIGPT/muapi-ad-creative",
     "display_name": "muapi-ad-creative",
     "category": "ai",
@@ -41077,6 +42913,546 @@
     "description": "Use when writing, reviewing, or refactoring SwiftUI code for iOS or macOS, including state management and `@Observable` data flow, view composition and invalidation/performance, li",
     "signals": {
       "stars": 3197,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/code-health",
+    "display_name": "code-health",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/code-health",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agent-triforce/skills/code-health",
+    "description": "Scans the codebase for dead code, tech debt, outdated dependencies, and code quality issues.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/feature-spec",
+    "display_name": "feature-spec",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/feature-spec",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agent-triforce/skills/feature-spec",
+    "description": "Creates a complete product feature specification with acceptance criteria, scope, dependencies, and risks.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/implement-feature",
+    "display_name": "implement-feature",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/implement-feature",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agent-triforce/skills/implement-feature",
+    "description": "Implements a feature from its specification.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/release-check",
+    "display_name": "release-check",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/release-check",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agent-triforce/skills/release-check",
+    "description": "Pre-release verification checklist.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/review-findings",
+    "display_name": "review-findings",
+    "category": "testing",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/review-findings",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agent-triforce/skills/review-findings",
+    "description": "Addresses and fixes findings from a QA code review.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/security-audit",
+    "display_name": "security-audit",
+    "category": "security",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/security-audit",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agent-triforce/skills/security-audit",
+    "description": "Deep security audit covering OWASP Top 10, authentication, authorization, data protection, dependency vulnerabilities, and secrets scanning.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/uctm-init",
+    "display_name": "uctm-init",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/init",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agents-uc-taskmanager/skills/init",
+    "description": "Initialize uc-taskmanager for the current project.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/sdd-pipeline",
+    "display_name": "sdd-pipeline",
+    "category": "devops",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/sdd-pipeline",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agents-uc-taskmanager/skills/sdd-pipeline",
+    "description": "Skill from davepoon/buildwithclaude.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/work-pipeline",
+    "display_name": "work-pipeline",
+    "category": "devops",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/work-pipeline",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agents-uc-taskmanager/skills/work-pipeline",
+    "description": "Triggers the WORK-PIPELINE when a user request starts with a [] tag (e.g., [new-feature], [bugfix], [WORK start]).",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/work-status",
+    "display_name": "work-status",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/work-status",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/agents-uc-taskmanager/skills/work-status",
+    "description": "Shows WORK progress and TASK status.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/activecampaign-automation",
+    "display_name": "activecampaign-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/activecampaign-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/activecampaign-automation",
+    "description": "Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, automation enrollment, and tasks.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/agent-analytics",
+    "display_name": "agent-analytics",
+    "category": "data",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/agent-analytics",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/agent-analytics",
+    "description": "Analytics your AI agent can actually use.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/airtable-automation",
+    "display_name": "airtable-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/airtable-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/airtable-automation",
+    "description": "Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/amplitude-automation",
+    "display_name": "amplitude-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/amplitude-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/amplitude-automation",
+    "description": "Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identification.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/artifacts-builder",
+    "display_name": "artifacts-builder",
+    "category": "styling",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/artifacts-builder",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/artifacts-builder",
+    "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui).",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/asana-automation",
+    "display_name": "asana-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/asana-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/asana-automation",
+    "description": "Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/aurakit",
+    "display_name": "aurakit",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/aurakit",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/aurakit",
+    "description": "Sonnet Amplified fullstack engine.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/bamboohr-automation",
+    "display_name": "bamboohr-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/bamboohr-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/bamboohr-automation",
+    "description": "Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee updates.",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/basecamp-automation",
+    "display_name": "basecamp-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/basecamp-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/basecamp-automation",
+    "description": "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio).",
+    "signals": {
+      "stars": 3154,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "davepoon/bitbucket-automation",
+    "display_name": "bitbucket-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/bitbucket-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_subpath": "plugins/all-skills/skills/bitbucket-automation",
+    "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio).",
+    "signals": {
+      "stars": 3154,
       "installs": null
     },
     "eval": {
@@ -44017,6 +46393,546 @@
     "description": "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization.",
     "signals": {
       "stars": 2760,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills",
+    "display_name": "auto-empirical-research-skills",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "",
+    "description": "Route empirical-research requests through the Auto-Empirical Research Skills catalog when this whole repository is installed as one skill in Codex, CodeBuddy, Claude Code, or anoth",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/full-empirical-analysis-skill",
+    "display_name": "Full-empirical-analysis-skill",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-python/skills/pipeline",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "plugins/empirical-analysis-python/skills/pipeline",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack — pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/full-empirical-analysis-skill-r",
+    "display_name": "Full-empirical-analysis-skill-R",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-r/skills/pipeline",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "plugins/empirical-analysis-r/skills/pipeline",
+    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem — dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/full-empirical-analysis-skill-stata",
+    "display_name": "Full-empirical-analysis-skill-Stata",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-stata/skills/pipeline",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "plugins/empirical-analysis-stata/skills/pipeline",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem — native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/statspai_skill",
+    "display_name": "StatsPAI_skill",
+    "category": "other",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00-Full-empirical-analysis-skill_StatsPAI",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/00-Full-empirical-analysis-skill_StatsPAI",
+    "description": "Use when the user asks to run a full empirical / causal analysis in Python — by default in the style of an applied economics paper (AER / QJE / JPE / ReStud / AEJ) with DID / RD /",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-00.1-full-empirical-analysis-",
+    "display_name": "Full-empirical-analysis-skill",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00.1-Full-empirical-analysis-skill_Python",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/00.1-Full-empirical-analysis-skill_Python",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack — pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-00.2-full-empirical-analysis-",
+    "display_name": "Full-empirical-analysis-skill-Stata",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00.2-Full-empirical-analysis-skill_Stata",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/00.2-Full-empirical-analysis-skill_Stata",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem — native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-00.3-full-empirical-analysis-",
+    "display_name": "Full-empirical-analysis-skill-R",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00.3-Full-empirical-analysis-skill_R",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/00.3-Full-empirical-analysis-skill_R",
+    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem — dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/composer",
+    "display_name": "composer",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/01-lishix520-academic-paper-skills/composer",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/01-lishix520-academic-paper-skills/composer",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/strategist",
+    "display_name": "strategist",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/01-lishix520-academic-paper-skills/strategist",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/01-lishix520-academic-paper-skills/strategist",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/medical-imaging-review",
+    "display_name": "medical-imaging-review",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/02-luwill-research-skills/medical-imaging-review",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/02-luwill-research-skills/medical-imaging-review",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/paper-slide-deck",
+    "display_name": "paper-slide-deck",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/02-luwill-research-skills/paper-slide-deck",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/02-luwill-research-skills/paper-slide-deck",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/research-proposal",
+    "display_name": "research-proposal",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/02-luwill-research-skills/research-proposal",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/02-luwill-research-skills/research-proposal",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/hypothesis-generation",
+    "display_name": "hypothesis-generation",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/hypothesis-generation",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/03-K-Dense-AI-claude-scientific-skills/hypothesis-generation",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/literature-review",
+    "display_name": "literature-review",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/literature-review",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/03-K-Dense-AI-claude-scientific-skills/literature-review",
+    "description": "Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXiv, bioRxiv, Semantic Scholar, etc.).",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/research-grants",
+    "display_name": "research-grants",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/research-grants",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/03-K-Dense-AI-claude-scientific-skills/research-grants",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/scientific-writing",
+    "display_name": "scientific-writing",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/scientific-writing",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/03-K-Dense-AI-claude-scientific-skills/scientific-writing",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/citation-management",
+    "display_name": "citation-management",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/04-K-Dense-AI-claude-scientific-writer/citation-management",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/04-K-Dense-AI-claude-scientific-writer/citation-management",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-hypothesis-generation",
+    "display_name": "hypothesis-generation",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/04-K-Dense-AI-claude-scientific-writer/hypothesis-generation",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/04-K-Dense-AI-claude-scientific-writer/hypothesis-generation",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-literature-review",
+    "display_name": "literature-review",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/04-K-Dense-AI-claude-scientific-writer/literature-review",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_subpath": "skills/04-K-Dense-AI-claude-scientific-writer/literature-review",
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "signals": {
+      "stars": 2728,
       "installs": null
     },
     "eval": {
@@ -49963,6 +52879,1467 @@
       "tier": "community"
     },
     "score": 47,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/vibe",
+    "display_name": "vibe",
+    "category": "meta",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "",
+    "description": "Vibe Code Orchestrator (VCO) is a governed runtime entry that freezes requirements, bounds execution, and enforces verification and phase cleanup.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/skill-creator",
+    "display_name": "skill-creator",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/.system/skill-creator",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/.system/skill-creator",
+    "description": "Guide for creating effective skills.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/skill-installer",
+    "display_name": "skill-installer",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/.system/skill-installer",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/.system/skill-installer",
+    "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/adaptyv",
+    "display_name": "adaptyv",
+    "category": "testing",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/adaptyv",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/adaptyv",
+    "description": "Cloud laboratory platform for automated protein testing and validation.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/aeon",
+    "display_name": "aeon",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/aeon",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/aeon",
+    "description": "This skill should be used for time series machine learning tasks including classification, regression, clustering, forecasting, anomaly detection, segmentation, and similarity sear",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/alpha-vantage",
+    "display_name": "alpha-vantage",
+    "category": "backend",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/alpha-vantage",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/alpha-vantage",
+    "description": "Access real-time and historical stock market data, forex rates, cryptocurrency prices, commodities, economic indicators, and 50+ technical indicators via the Alpha Vantage API.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/architecture-patterns",
+    "display_name": "architecture-patterns",
+    "category": "styling",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/architecture-patterns",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/architecture-patterns",
+    "description": "Implement proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, and Domain-Driven Design.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/astropy",
+    "display_name": "astropy",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/astropy",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/astropy",
+    "description": "Comprehensive Python library for astronomy and astrophysics.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/autonomous-builder",
+    "display_name": "autonomous-builder",
+    "category": "testing",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/autonomous-builder",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/autonomous-builder",
+    "description": "Full-stack software development agent for design, implementation, testing, and deployment.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/bio-database-evidence",
+    "display_name": "bio-database-evidence",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/bio-database-evidence",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/bio-database-evidence",
+    "description": "Unified biological database evidence owner.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/biopython",
+    "display_name": "biopython",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/biopython",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/biopython",
+    "description": "Primary retained Python toolkit for molecular biology sequence work.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/brainstorming",
+    "display_name": "brainstorming",
+    "category": "frontend",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/brainstorming",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/brainstorming",
+    "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/cancel-ralph",
+    "display_name": "cancel-ralph",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/cancel-ralph",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/cancel-ralph",
+    "description": "Codex-compatible cancel command for Ralph loop state, preserving the original command name.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/chembl-database",
+    "display_name": "chembl-database",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/chembl-database",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/chembl-database",
+    "description": "Query ChEMBL bioactive molecules and drug discovery data.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/citation-management",
+    "display_name": "citation-management",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/citation-management",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/citation-management",
+    "description": "Comprehensive citation management for academic research.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/claude-skills",
+    "display_name": "claude-skills",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/claude-skills",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/claude-skills",
+    "description": "Claude Skills meta-skill: extract domain material (docs/APIs/code/specs) into a reusable Skill (SKILL.md + references/scripts/assets), and refactor existing Skills for clarity, act",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/clinical-decision-support",
+    "display_name": "clinical-decision-support",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/clinical-decision-support",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/clinical-decision-support",
+    "description": "Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical research settings, including patient cohort analyses (biomarker-stratified with outc",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/clinical-reports",
+    "display_name": "clinical-reports",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/clinical-reports",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/clinical-reports",
+    "description": "Write comprehensive clinical reports including case reports (CARE guidelines), diagnostic reports (radiology/pathology/lab), clinical trial reports (ICH-E3, SAE, CSR), and patient",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "foryourhealth111-pixel/clinicaltrials-database",
+    "display_name": "clinicaltrials-database",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/clinicaltrials-database",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_subpath": "bundled/skills/clinicaltrials-database",
+    "description": "Query ClinicalTrials.gov via API v2.",
+    "signals": {
+      "stars": 2377,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/ad-account-auditor",
+    "display_name": "ad-account-auditor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/ad-account-auditor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/activate/ad-account-auditor",
+    "description": "Use when auditing a paid ad account for ROAS quality, wasted spend, or measurement integrity before scaling; runs RQS scoring with veto checks and a SHIP/FIX/BLOCK gate on your own",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/conversion-signal-qa",
+    "display_name": "conversion-signal-qa",
+    "category": "testing",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/conversion-signal-qa",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/activate/conversion-signal-qa",
+    "description": "Use when the user asks to \"QA my conversion tracking before launch\", \"check my UTMs / pixel / event firing\", \"set up a tracking pre-flight\", or \"set the dedup rule so Meta and Goog",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/conversion-value-mapper",
+    "display_name": "conversion-value-mapper",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/conversion-value-mapper",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/activate/conversion-value-mapper",
+    "description": "Use when the user asks to \"set up conversion values so tROAS optimizes profit not orders\", \"map margin onto my purchase value\", \"build value rules for lead / phone / signup convers",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/placement-exclusion-manager",
+    "display_name": "placement-exclusion-manager",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/placement-exclusion-manager",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/activate/placement-exclusion-manager",
+    "description": "Use when the user asks to \"build my brand-safety exclusion lists\", \"set placement / topic / content exclusions before launch\", \"add network and audience exclusions\", or \"prep the A",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/ad-creative-builder",
+    "display_name": "ad-creative-builder",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/ad-creative-builder",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/orchestrate/ad-creative-builder",
+    "description": "Use when the user asks to \"write ad copy\", \"generate RSA headlines\", or \"build ad creative at volume\"; produces ad units — RSA headlines/descriptions, hooks, and an angle matrix —",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/ad-test-designer",
+    "display_name": "ad-test-designer",
+    "category": "testing",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/ad-test-designer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/orchestrate/ad-test-designer",
+    "description": "Use when the user asks to \"design an A/B test\", \"set up a creative/landing test\", \"run an incrementality test\", or \"is this test significant — promote or kill?\"; produces a hypothe",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/bid-strategy-planner",
+    "display_name": "bid-strategy-planner",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/bid-strategy-planner",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/orchestrate/bid-strategy-planner",
+    "description": "Use when the user asks to \"pick a bid strategy\", \"set a tCPA/tROAS target\", or \"plan the learning-phase entry\"; produces a bid-strategy choice (tCPA / tROAS / max-conversions / man",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/landing-experience-checker",
+    "display_name": "landing-experience-checker",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/landing-experience-checker",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/orchestrate/landing-experience-checker",
+    "description": "Use when the user asks to \"pre-launch check the landing page\", \"run a Quality-Score preflight\", or \"verify ad-to-page message match before launch\"; produces an ad↔page continuity r",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/audience-segment-builder",
+    "display_name": "audience-segment-builder",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/audience-segment-builder",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/research/audience-segment-builder",
+    "description": "Use when the user asks to \"build audience segments from my customer list\", \"make value-based / lookalike seed lists\", \"set up exclusion / suppression segments\", or \"map audiences t",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/campaign-architect",
+    "display_name": "campaign-architect",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/campaign-architect",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/research/campaign-architect",
+    "description": "Use when the user asks to \"plan my paid account structure\", \"pick Search vs PMax\", \"lay out ad groups / asset groups\", or \"audit paid-vs-organic cannibalization\"; designs campaign-",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/product-feed-optimizer",
+    "display_name": "product-feed-optimizer",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/product-feed-optimizer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/research/product-feed-optimizer",
+    "description": "Use when the user asks to \"optimize my Shopping feed\", \"fix product disapprovals\", \"improve product titles/attributes\", or \"build feed-driven PMax asset groups\"; audits and rewrite",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/search-term-miner",
+    "display_name": "search-term-miner",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/search-term-miner",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/research/search-term-miner",
+    "description": "Use when the user asks to \"mine my search terms\", \"find new keywords from converting queries\", \"build a negative-keyword list\", or \"cut wasted paid spend\"; harvests converting quer",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/attribution-reconciler",
+    "display_name": "attribution-reconciler",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/attribution-reconciler",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/scale/attribution-reconciler",
+    "description": "Use when platform-reported conversions disagree with GA4/ecommerce, when you suspect Meta and Google are double-counting the same sales, or for a standing (monthly) reconciliation",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/budget-pacing-monitor",
+    "display_name": "budget-pacing-monitor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/budget-pacing-monitor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/scale/budget-pacing-monitor",
+    "description": "Use when the user asks to \"check pacing\", \"am I over/under-spending\", \"is this campaign on track to hit budget\", or \"why did spend spike/stall mid-flight\"; returns a spend-vs-targe",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/fatigue-frequency-manager",
+    "display_name": "fatigue-frequency-manager",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/fatigue-frequency-manager",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/scale/fatigue-frequency-manager",
+    "description": "Use when the user asks to \"is my ad fatiguing\", \"why is CTR dropping at scale\", or \"should I rotate creative / widen the audience\"; reads frequency, CTR and CVR decay against an ea",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/paid-measurement-loop",
+    "display_name": "paid-measurement-loop",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/paid-measurement-loop",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "ad/scale/paid-measurement-loop",
+    "description": "Use when the user asks to \"read back\" a paid campaign change, \"did this ad change work\", or \"compare ROAS/CPA before and after\"; reads ROAS/CPA against a control over a fixed readb",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/cold-outbound-sequencer",
+    "display_name": "cold-outbound-sequencer",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/cold-outbound-sequencer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "email/deliver/cold-outbound-sequencer",
+    "description": "Use when the user asks to \"build a B2B cold-outbound sequence\", \"design reply-triage branching\", \"plan a domain warmup / sending throttle\", or \"make my outbound CAN-SPAM / opt-in c",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/email-quality-auditor",
+    "display_name": "email-quality-auditor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/email-quality-auditor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "email/deliver/email-quality-auditor",
+    "description": "Use when the user asks to \"audit an email program\", \"is this campaign safe to send\", or run a pre-send go/no-go on their own exported email data; runs SEND EQS scoring with S1/S2/N",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/inbox-placement-monitor",
+    "display_name": "inbox-placement-monitor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/inbox-placement-monitor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "email/deliver/inbox-placement-monitor",
+    "description": "Use when the user asks to \"track where my emails are actually landing after I send\", \"read my seed-list inbox vs spam vs promotions results\", \"trend my Gmail Postmaster / Microsoft",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aaron-he-zhu/send-experiment-designer",
+    "display_name": "send-experiment-designer",
+    "category": "testing",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/send-experiment-designer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_subpath": "email/deliver/send-experiment-designer",
+    "description": "Use when the user asks to \"design an email A/B test\", \"set up a multivariate subject/CTA test\", \"run a send-time test\", \"build a hold-out group\", or \"is this email test significant",
+    "signals": {
+      "stars": 2345,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/cuopt-numerical-optimization-api",
+    "display_name": "cuopt-numerical-optimization-api",
+    "category": "backend",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/cuopt-numerical-optimization-api",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/cuopt-numerical-optimization-api",
+    "description": "LP, MILP, and QP (beta) with cuOpt — Python, C, and CLI.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/dali-dynamic-mode",
+    "display_name": "dali-dynamic-mode",
+    "category": "devops",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/dali-dynamic-mode",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/dali-dynamic-mode",
+    "description": "DALI imperative dynamic mode (`nvidia.dali.experimental.dynamic`, ndd): use when working on ndd code or migrating pipelines; skip pipeline-only tasks.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/dynamo-interconnect-check",
+    "display_name": "dynamo-interconnect-check",
+    "category": "devops",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/dynamo-interconnect-check",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/dynamo-interconnect-check",
+    "description": "Validate that a Dynamo deployment's NIXL/UCX/NCCL interconnect is ready for disaggregated serving over RDMA/NVLink.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/dynamo-router-starter",
+    "display_name": "dynamo-router-starter",
+    "category": "backend",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/dynamo-router-starter",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/dynamo-router-starter",
+    "description": "Start or patch Dynamo router modes and run router endpoint smoke checks.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/nemoclaw-user-guide",
+    "display_name": "nemoclaw-user-guide",
+    "category": "backend",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/nemoclaw-user-guide",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/nemoclaw-user-guide",
+    "description": "Guides human users' AI agents to the NemoClaw docs MCP server and canonical Fern documentation in Markdown form.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/omniverse-cad-to-simready",
+    "display_name": "omniverse-cad-to-simready",
+    "category": "meta",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/omniverse-cad-to-simready",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/omniverse-cad-to-simready",
+    "description": "Coordinate the end-to-end CAD/source-asset to SimReady workflow.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/omniverse-realtime-viewer",
+    "display_name": "omniverse-realtime-viewer",
+    "category": "other",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/omniverse-realtime-viewer",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/omniverse-realtime-viewer",
+    "description": "Use as the top-level router for Omniverse Realtime Viewer USD app requests and focused viewer reference documents.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/omniverse-usd-performance-tuning",
+    "display_name": "omniverse-usd-performance-tuning",
+    "category": "meta",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/omniverse-usd-performance-tuning",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/omniverse-usd-performance-tuning",
+    "description": "Top-level workflow skill for USD performance diagnosis and optimization.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/physical-ai-neural-reconstruction",
+    "display_name": "physical-ai-neural-reconstruction",
+    "category": "data",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/physical-ai-neural-reconstruction",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "plugins/nvidia-skills/skills/physical-ai-neural-reconstruction",
+    "description": "Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, PhysicalAI HF datasets.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/accelerated-computing-cudf",
+    "display_name": "accelerated-computing-cudf",
+    "category": "data",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/accelerated-computing-cudf",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/accelerated-computing-cudf",
+    "description": "Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, CSV/Parquet I/O, nullable semantics, and multi-GPU DataFrame",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/amc-run-sample-calibration",
+    "display_name": "amc-run-sample-calibration",
+    "category": "data",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/amc-run-sample-calibration",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/amc-run-sample-calibration",
+    "description": "Run end-to-end calibration on the shipped sample dataset (sdg_08_2_sample_data_010926.zip) against a running AMC microservice.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/amc-run-video-calibration",
+    "display_name": "amc-run-video-calibration",
+    "category": "data",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/amc-run-video-calibration",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/amc-run-video-calibration",
+    "description": "Calibrate a new dataset from pre-recorded video files via the AutoMagicCalib REST API.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/amc-setup-calibration-stack",
+    "display_name": "amc-setup-calibration-stack",
+    "category": "devops",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/amc-setup-calibration-stack",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/amc-setup-calibration-stack",
+    "description": "Launch AutoMagicCalib microservice and web UI from NGC release images via Docker Compose.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/cudaq-guide",
+    "display_name": "cudaq-guide",
+    "category": "testing",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cudaq-guide",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/cudaq-guide",
+    "description": "CUDA-Q onboarding guide for installation, test programs, GPU simulation, QPU hardware, and quantum applications.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/cufolio",
+    "display_name": "cufolio",
+    "category": "other",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cufolio",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/cufolio",
+    "description": "Use when a user asks to build, optimize, backtest, rebalance, or analyze a stock portfolio with Mean-CVaR, efficient frontiers, scenario generation, or NVIDIA cuOpt.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/cuopt-developer",
+    "display_name": "cuopt-developer",
+    "category": "testing",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-developer",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/cuopt-developer",
+    "description": "Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI).",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "NVIDIA/cuopt-install",
+    "display_name": "cuopt-install",
+    "category": "devops",
+    "tags": [],
+    "source_type": "github",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-install",
+    "source_repo": "NVIDIA/skills",
+    "source_subpath": "skills/cuopt-install",
+    "description": "Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install.",
+    "signals": {
+      "stars": 2317,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 46,
     "provisional": true,
     "added_at": "2026-07-07"
   },
