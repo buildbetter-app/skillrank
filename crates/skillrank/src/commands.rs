@@ -258,10 +258,12 @@ pub fn recommend(args: &[String]) -> i32 {
     };
     let mut seen = std::collections::HashSet::new();
     for stack in &detected.stacks {
+        // Keyword search on the stack name — the registry's `stack` tag filter is
+        // sparse, but a keyword query matches skill names/descriptions/tags well.
         if let Ok(resp) = client.search(&core::SearchOptions {
-            stack: stack.clone(),
+            query: stack.clone(),
             sort: "signals".into(),
-            limit: 5,
+            limit: 4,
             ..Default::default()
         }) {
             for item in resp.items {
