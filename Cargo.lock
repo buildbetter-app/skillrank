@@ -457,6 +457,7 @@ dependencies = [
  "serde_json",
  "skillrank-core",
  "tiny_http",
+ "ureq",
 ]
 
 [[package]]

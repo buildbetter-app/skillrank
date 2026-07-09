@@ -8,6 +8,7 @@ mod mcp;
 mod selfskill;
 mod serve;
 mod setup;
+mod update;
 
 use flags::Flags;
 
@@ -57,6 +58,7 @@ fn dispatch(args: &[String]) -> i32 {
         "skill" => selfskill::run(tail),
         "mcp" => mcp::run(tail),
         "setup" => setup::run(tail),
+        "update" | "upgrade" | "self-update" => update::run(tail),
         "serve" => serve::run(tail),
         other => {
             eprintln!("unknown skillrank subcommand {other:?}");
@@ -148,6 +150,7 @@ Commands:
                      teaches your agent (Claude Code/Codex) to use skillrank.
   setup              Register the skillrank MCP server with Claude Code and Codex
                      so the agent uses skillrank automatically (one-time).
+  update             Update this skillrank binary from the latest GitHub release.
   mcp                Run as an MCP stdio server (invoked by the agent; not by you).
   serve [--port N]   Run a local registry server (seed catalog) so search/install
                      work with no hosted backend. Set SKILLRANK_API_URL to it.
