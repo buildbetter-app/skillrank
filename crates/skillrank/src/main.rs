@@ -148,8 +148,8 @@ Commands:
   eval <ref>         Run a local paired eval on your own agent; optionally publish.
   skill [--install]  Print, or install into .claude/skills, the SKILL.md that
                      teaches your agent (Claude Code/Codex) to use skillrank.
-  setup              Register the skillrank MCP server with Claude Code and Codex
-                     so the agent uses skillrank automatically (one-time).
+  setup              Register skillrank MCP, Skill, and /skillrank command with
+                     Claude Code and Codex (one-time).
   update             Update this skillrank binary from the latest GitHub release.
   mcp                Run as an MCP stdio server (invoked by the agent; not by you).
   serve [--port N]   Run a local registry server (seed catalog) so search/install

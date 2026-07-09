@@ -1,5 +1,6 @@
-//! `skillrank setup` — register the MCP server with Claude Code and Codex so the
-//! agent uses skillrank automatically. Writes directly to the config files
+//! `skillrank setup` — register the MCP server, Skill, and slash command with
+//! Claude Code and Codex so the agent uses skillrank automatically. Writes
+//! directly to the config files and global user skill/command paths
 //! (idempotent, backed up) so it works even if the agent CLIs are not on PATH.
 
 use crate::flags::Flags;
@@ -7,69 +8,145 @@ use serde_json::{json, Map, Value};
 use skillrank_core::config;
 use std::path::{Path, PathBuf};
 
+const SKILL_MD: &str = include_str!("skillrank_skill.md");
+const COMMAND_MD: &str = include_str!("skillrank_command.md");
+
+#[derive(Clone, Copy)]
+struct SetupParts {
+    mcp: bool,
+    skill: bool,
+    command: bool,
+}
+
+struct AgentPaths {
+    config: PathBuf,
+    skill: PathBuf,
+    command: PathBuf,
+}
+
 pub fn run(args: &[String]) -> i32 {
     let f = Flags::parse(args);
     let self_path = self_path();
 
-    let claude_path = if !f.value("claude-config").is_empty() {
+    let claude_config = if !f.value("claude-config").is_empty() {
         PathBuf::from(f.value("claude-config"))
     } else {
         default_claude_config_path()
     };
-    let codex_path = if !f.value("codex-config").is_empty() {
+    let codex_config = if !f.value("codex-config").is_empty() {
         PathBuf::from(f.value("codex-config"))
     } else {
         default_codex_config_path()
     };
+    let claude_base = default_claude_base_path();
+    let codex_base = default_codex_base_path();
+    let claude_paths = AgentPaths {
+        config: claude_config,
+        skill: claude_skill_path(&claude_base),
+        command: claude_command_path(&claude_base),
+    };
+    let codex_paths = AgentPaths {
+        config: codex_config,
+        skill: codex_skill_path(&codex_base),
+        command: codex_command_path(&codex_base),
+    };
     let api_url = f.value("api-url").trim().to_string();
+    let parts = SetupParts {
+        mcp: !f.bool("no-mcp"),
+        skill: !f.bool("no-skill"),
+        command: !f.bool("no-command"),
+    };
 
     if f.bool("print") {
-        println!(
-            "Claude Code ({}) — add under \"mcpServers\":",
-            claude_path.display()
-        );
-        println!(
-            "  \"skillrank\": {}\n",
-            claude_entry_json(&self_path, &api_url)
-        );
-        println!(
-            "Codex ({}) — append:\n{}",
-            codex_path.display(),
-            codex_block(&self_path, &api_url)
-        );
+        if !f.bool("no-claude") {
+            print_claude_plan(parts, &claude_paths, &self_path, &api_url);
+        }
+        if !f.bool("no-codex") {
+            print_codex_plan(parts, &codex_paths, &self_path, &api_url);
+        }
         return 0;
     }
 
     let mut rc = 0;
     if !f.bool("no-claude") {
-        match ensure_claude_mcp(&claude_path, &self_path, &api_url) {
-            Ok(_) => println!(
-                "✓ Registered skillrank MCP with Claude Code ({})",
-                claude_path.display()
-            ),
-            Err(e) => {
-                eprintln!("Claude Code: {e}");
-                rc = 1;
+        if parts.mcp {
+            match ensure_claude_mcp(&claude_paths.config, &self_path, &api_url) {
+                Ok(_) => println!(
+                    "✓ Registered skillrank MCP with Claude Code ({})",
+                    claude_paths.config.display()
+                ),
+                Err(e) => {
+                    eprintln!("Claude Code MCP: {e}");
+                    rc = 1;
+                }
+            }
+        }
+        if parts.skill {
+            match ensure_skill(&claude_paths.skill) {
+                Ok(_) => println!(
+                    "✓ Installed skillrank Skill for Claude Code ({})",
+                    claude_paths.skill.display()
+                ),
+                Err(e) => {
+                    eprintln!("Claude Code Skill: {e}");
+                    rc = 1;
+                }
+            }
+        }
+        if parts.command {
+            match ensure_command(&claude_paths.command) {
+                Ok(_) => println!(
+                    "✓ Installed /skillrank command for Claude Code ({})",
+                    claude_paths.command.display()
+                ),
+                Err(e) => {
+                    eprintln!("Claude Code command: {e}");
+                    rc = 1;
+                }
             }
         }
     }
     if !f.bool("no-codex") {
-        match ensure_codex_mcp(&codex_path, &self_path, &api_url) {
-            Ok(_) => println!(
-                "✓ Registered skillrank MCP with Codex ({})",
-                codex_path.display()
-            ),
-            Err(e) => {
-                eprintln!("Codex: {e}");
-                rc = 1;
+        if parts.mcp {
+            match ensure_codex_mcp(&codex_paths.config, &self_path, &api_url) {
+                Ok(_) => println!(
+                    "✓ Registered skillrank MCP with Codex ({})",
+                    codex_paths.config.display()
+                ),
+                Err(e) => {
+                    eprintln!("Codex MCP: {e}");
+                    rc = 1;
+                }
+            }
+        }
+        if parts.skill {
+            match ensure_skill(&codex_paths.skill) {
+                Ok(_) => println!(
+                    "✓ Installed skillrank Skill for Codex ({})",
+                    codex_paths.skill.display()
+                ),
+                Err(e) => {
+                    eprintln!("Codex Skill: {e}");
+                    rc = 1;
+                }
+            }
+        }
+        if parts.command {
+            match ensure_command(&codex_paths.command) {
+                Ok(_) => println!(
+                    "✓ Installed /skillrank command for Codex ({})",
+                    codex_paths.command.display()
+                ),
+                Err(e) => {
+                    eprintln!("Codex command: {e}");
+                    rc = 1;
+                }
             }
         }
     }
     if rc == 0 {
-        println!(
-            "\nDone. Restart your agent, then just ask it to find, install, or evaluate skills —"
-        );
-        println!("no commands to remember. (Claude Code prompts once to approve the tools; approve them.)");
+        print_success(parts);
+        println!("(Claude Code prompts once to approve the tools; approve them.)");
         println!("To skip the prompt, add to ~/.claude/settings.json: {{\"permissions\":{{\"allow\":[\"mcp__skillrank\"]}}}}");
     }
     rc
@@ -86,20 +163,128 @@ fn self_path() -> String {
 }
 
 fn default_claude_config_path() -> PathBuf {
-    config::home_dir()
-        .map(|h| h.join(".claude.json"))
-        .unwrap_or_else(|| PathBuf::from(".claude.json"))
+    default_home_path().join(".claude.json")
 }
 
 fn default_codex_config_path() -> PathBuf {
+    default_codex_base_path().join("config.toml")
+}
+
+fn default_claude_base_path() -> PathBuf {
+    default_home_path().join(".claude")
+}
+
+fn default_codex_base_path() -> PathBuf {
     if let Ok(h) = std::env::var("CODEX_HOME") {
         if !h.trim().is_empty() {
-            return PathBuf::from(h).join("config.toml");
+            return PathBuf::from(h);
         }
     }
-    config::home_dir()
-        .map(|h| h.join(".codex").join("config.toml"))
-        .unwrap_or_else(|| PathBuf::from(".codex/config.toml"))
+    default_home_path().join(".codex")
+}
+
+fn default_home_path() -> PathBuf {
+    config::home_dir().unwrap_or_else(|| PathBuf::from("."))
+}
+
+fn claude_skill_path(base: &Path) -> PathBuf {
+    base.join("skills").join("skillrank").join("SKILL.md")
+}
+
+fn claude_command_path(base: &Path) -> PathBuf {
+    base.join("commands").join("skillrank.md")
+}
+
+fn codex_skill_path(base: &Path) -> PathBuf {
+    base.join("skills").join("skillrank").join("SKILL.md")
+}
+
+fn codex_command_path(base: &Path) -> PathBuf {
+    base.join("prompts").join("skillrank.md")
+}
+
+fn print_claude_plan(parts: SetupParts, paths: &AgentPaths, self_path: &str, api_url: &str) {
+    if parts.mcp {
+        println!(
+            "Claude Code ({}) — add under \"mcpServers\":",
+            paths.config.display()
+        );
+        println!(
+            "  \"skillrank\": {}\n",
+            claude_entry_json(self_path, api_url)
+        );
+    }
+    if parts.skill {
+        println!("Claude Code Skill — write {}", paths.skill.display());
+    }
+    if parts.command {
+        println!(
+            "Claude Code /skillrank command — write {}",
+            paths.command.display()
+        );
+    }
+    if parts.skill || parts.command {
+        println!();
+    }
+}
+
+fn print_codex_plan(parts: SetupParts, paths: &AgentPaths, self_path: &str, api_url: &str) {
+    if parts.mcp {
+        println!(
+            "Codex ({}) — append:\n{}",
+            paths.config.display(),
+            codex_block(self_path, api_url)
+        );
+    }
+    if parts.skill {
+        println!("Codex Skill — write {}", paths.skill.display());
+    }
+    if parts.command {
+        println!(
+            "Codex /skillrank command — write {}",
+            paths.command.display()
+        );
+    }
+}
+
+fn print_success(parts: SetupParts) {
+    if parts.mcp && parts.command && parts.skill {
+        println!("\nDone. MCP registered + /skillrank command available + skill installed.");
+        println!("Type `/skillrank recommend`, or just ask your agent to find/install skills. Restart the agent to load them.");
+        return;
+    }
+
+    let mut installed = Vec::new();
+    if parts.mcp {
+        installed.push("MCP registered");
+    }
+    if parts.command {
+        installed.push("/skillrank command available");
+    }
+    if parts.skill {
+        installed.push("skill installed");
+    }
+    if installed.is_empty() {
+        println!("\nDone. Nothing selected to install.");
+    } else {
+        println!("\nDone. {}.", installed.join(" + "));
+        println!("Restart the agent to load the installed pieces.");
+    }
+}
+
+pub fn ensure_skill(path: &Path) -> std::io::Result<()> {
+    write_owned_file(path, SKILL_MD)
+}
+
+pub fn ensure_command(path: &Path) -> std::io::Result<()> {
+    write_owned_file(path, COMMAND_MD)
+}
+
+fn write_owned_file(path: &Path, contents: &str) -> std::io::Result<()> {
+    if let Some(parent) = path.parent() {
+        std::fs::create_dir_all(parent)?;
+    }
+    std::fs::write(path, contents)
 }
 
 pub fn claude_entry(self_path: &str, api_url: &str) -> Value {
@@ -259,5 +444,67 @@ mod tests {
                 || std::path::Path::new(&format!("{}.skillrank-bak", path.display())).exists()
         );
         std::fs::remove_dir_all(&dir).ok();
+    }
+
+    #[test]
+    fn installs_claude_skill_and_command_under_user_home() {
+        let home = tmp("claude-assets");
+        let base = home.join(".claude");
+        let skill_path = claude_skill_path(&base);
+        let command_path = claude_command_path(&base);
+
+        ensure_skill(&skill_path).unwrap();
+        ensure_command(&command_path).unwrap();
+        ensure_skill(&skill_path).unwrap();
+        ensure_command(&command_path).unwrap();
+
+        assert_eq!(skill_path, home.join(".claude/skills/skillrank/SKILL.md"));
+        assert_eq!(command_path, home.join(".claude/commands/skillrank.md"));
+        assert_eq!(std::fs::read_to_string(&skill_path).unwrap(), SKILL_MD);
+        assert_eq!(std::fs::read_to_string(&command_path).unwrap(), COMMAND_MD);
+        assert_eq!(
+            std::fs::read_dir(home.join(".claude/skills/skillrank"))
+                .unwrap()
+                .count(),
+            1
+        );
+        assert_eq!(
+            std::fs::read_dir(home.join(".claude/commands"))
+                .unwrap()
+                .count(),
+            1
+        );
+        std::fs::remove_dir_all(&home).ok();
+    }
+
+    #[test]
+    fn installs_codex_skill_and_command_under_user_home() {
+        let home = tmp("codex-assets");
+        let base = home.join(".codex");
+        let skill_path = codex_skill_path(&base);
+        let command_path = codex_command_path(&base);
+
+        ensure_skill(&skill_path).unwrap();
+        ensure_command(&command_path).unwrap();
+        ensure_skill(&skill_path).unwrap();
+        ensure_command(&command_path).unwrap();
+
+        assert_eq!(skill_path, home.join(".codex/skills/skillrank/SKILL.md"));
+        assert_eq!(command_path, home.join(".codex/prompts/skillrank.md"));
+        assert_eq!(std::fs::read_to_string(&skill_path).unwrap(), SKILL_MD);
+        assert_eq!(std::fs::read_to_string(&command_path).unwrap(), COMMAND_MD);
+        assert_eq!(
+            std::fs::read_dir(home.join(".codex/skills/skillrank"))
+                .unwrap()
+                .count(),
+            1
+        );
+        assert_eq!(
+            std::fs::read_dir(home.join(".codex/prompts"))
+                .unwrap()
+                .count(),
+            1
+        );
+        std::fs::remove_dir_all(&home).ok();
     }
 }
