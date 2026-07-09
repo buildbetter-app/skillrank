@@ -1,0 +1,20 @@
+[
+  {
+    "id": "debug-basics",
+    "version": "1",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "522d59c97e5f7f4a444512c1596cbd2208622f52"
+    },
+    "tasks": [
+      {
+        "id": "merge-intervals",
+        "instruction": "The unit tests under tests/ are failing because of a bug in src/intervals.py. Find and fix the bug so the entire test suite passes. Do not modify any files under tests/. You can run the tests with: python3 -m unittest discover -s tests -q",
+        "verifier_contract": "python3 -m unittest discover -s tests -q exits 0",
+        "timeout_sec": 300,
+        "est_tokens": 20000
+      }
+    ],
+    "reference_env": { "agent_version_band": "", "models": ["claude-sonnet-5"] }
+  }
+]

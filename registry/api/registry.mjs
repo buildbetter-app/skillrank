@@ -13,6 +13,15 @@ import { readFileSync } from "node:fs";
 
 const enriched = JSON.parse(readFileSync(new URL("./enriched.json", import.meta.url), "utf8"));
 const ingested = JSON.parse(readFileSync(new URL("./ingested.json", import.meta.url), "utf8"));
+function loadJson(name, fallback) {
+  try {
+    return JSON.parse(readFileSync(new URL(name, import.meta.url), "utf8"));
+  } catch {
+    return fallback;
+  }
+}
+const suites = loadJson("./suites.json", []);
+const verifiers = loadJson("./verifiers.json", {});
 
 const bySlug = new Map(enriched.map((e) => [e.slug, e]));
 const installBySlug = new Map(ingested.map((e) => [e.slug, e]));
@@ -60,6 +69,17 @@ export default function handler(req, res) {
   const url = new URL(req.url, "http://x");
   const path = url.searchParams.get("path") || "";
   const parts = path.split("/").filter(Boolean);
+
+  // ---- eval suites: /eval-suites/:id  and  /eval-suites/:id/verifiers ----
+  if (parts[0] === "eval-suites") {
+    const id = parts[1] || "";
+    const suite = suites.find((s) => s.id === id);
+    if (!suite) return json(res, 404, { error: "suite not found" });
+    if (parts[2] === "verifiers") {
+      return json(res, 200, verifiers[id] || {});
+    }
+    return json(res, 200, suite);
+  }
 
   if (parts[0] !== "skills") return json(res, 404, { error: "not found" });
   const rest = parts.slice(1);

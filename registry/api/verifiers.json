@@ -1,0 +1,5 @@
+{
+  "debug-basics": {
+    "merge-intervals": "#!/usr/bin/env bash\npython3 -m unittest discover -s tests -q\n"
+  }
+}
