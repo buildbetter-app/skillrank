@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "slug": "Jeffallan/rust-engineer",
+      "registryRef": "Jeffallan/rust-engineer@sha256:9f91c4be57cdc0364c9f4283f35ea83d54768681c24a25089a4b07c28bf4f340",
+      "sourceType": "github",
+      "source": "https://github.com/Jeffallan/claude-skills/tree/main/skills/rust-engineer",
+      "skillPath": ".claude/skills/Jeffallan/rust-engineer/SKILL.md",
+      "surface": ".claude/skills",
+      "computedHash": "sha256:9f91c4be57cdc0364c9f4283f35ea83d54768681c24a25089a4b07c28bf4f340",
+      "pinnedCommit": "e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319",
+      "installedAt": "2026-07-09T15:15:47Z"
+    },
+    {
+      "slug": "obra/receiving-code-review",
+      "registryRef": "obra/receiving-code-review@sha256:57ec1feefc503219f9a36867df4acf3f4fe226c8fdeac7ec71f6d1d33ec11dc4",
+      "sourceType": "github",
+      "source": "https://github.com/obra/superpowers/tree/main/skills/receiving-code-review",
+      "skillPath": ".claude/skills/obra/receiving-code-review/SKILL.md",
+      "surface": ".claude/skills",
+      "computedHash": "sha256:57ec1feefc503219f9a36867df4acf3f4fe226c8fdeac7ec71f6d1d33ec11dc4",
+      "pinnedCommit": "d884ae04edebef577e82ff7c4e143debd0bbec99",
+      "installedAt": "2026-07-09T15:15:50Z"
+    },
+    {
+      "slug": "obra/systematic-debugging",
+      "registryRef": "obra/systematic-debugging@sha256:0a51b2cb622ce3de76c292cffb3fdc803c34cd995b601737d648e03035db22f3",
+      "sourceType": "github",
+      "source": "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging",
+      "skillPath": ".claude/skills/obra/systematic-debugging/SKILL.md",
+      "surface": ".claude/skills",
+      "computedHash": "sha256:0a51b2cb622ce3de76c292cffb3fdc803c34cd995b601737d648e03035db22f3",
+      "pinnedCommit": "d884ae04edebef577e82ff7c4e143debd0bbec99",
+      "installedAt": "2026-07-09T15:15:49Z"
+    },
+    {
+      "slug": "obra/test-driven-development",
+      "registryRef": "obra/test-driven-development@sha256:0fd3d15474b5ad58eae097f2c047ab1eb8a0a975caf51c44ddb83cf4111062af",
+      "sourceType": "github",
+      "source": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
+      "skillPath": ".claude/skills/obra/test-driven-development/SKILL.md",
+      "surface": ".claude/skills",
+      "computedHash": "sha256:0fd3d15474b5ad58eae097f2c047ab1eb8a0a975caf51c44ddb83cf4111062af",
+      "pinnedCommit": "d884ae04edebef577e82ff7c4e143debd0bbec99",
+      "installedAt": "2026-07-09T15:15:48Z"
+    },
+    {
+      "slug": "zebbern/vercel-react-best-practices",
+      "registryRef": "zebbern/vercel-react-best-practices@sha256:e8cfa7fa51cc72b47db34d2a936476fa865ea38cf475c0ce73369cb55ea9a2a5",
+      "sourceType": "github",
+      "source": "https://github.com/zebbern/claude-code-guide/tree/main/skills/react-best-practices",
+      "skillPath": ".claude/skills/zebbern/vercel-react-best-practices/SKILL.md",
+      "surface": ".claude/skills",
+      "computedHash": "sha256:e8cfa7fa51cc72b47db34d2a936476fa865ea38cf475c0ce73369cb55ea9a2a5",
+      "pinnedCommit": "cc2f30ca090f6d8d5875f6df51fedf03c1eac35c",
+      "installedAt": "2026-07-09T15:15:50Z"
+    }
+  ]
+}
