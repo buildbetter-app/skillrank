@@ -204,18 +204,6 @@
     "tier": "community"
   },
   {
-    "slug": "mattpocock/tdd",
-    "name": "tdd",
-    "source_repo": "mattpocock/skills",
-    "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd",
-    "subpath": "skills/engineering/tdd",
-    "category": "testing",
-    "tags": [],
-    "description": "Test-driven development.",
-    "stars": 161298,
-    "tier": "community"
-  },
-  {
     "slug": "mattpocock/to-spec",
     "name": "to-spec",
     "source_repo": "mattpocock/skills",
@@ -663,96 +651,6 @@
     "tier": "community"
   },
   {
-    "slug": "DietrichGebert/ponytail-ponytail",
-    "name": "ponytail",
-    "source_repo": "DietrichGebert/ponytail",
-    "source_url": "https://github.com/DietrichGebert/ponytail/tree/main/skills/ponytail",
-    "subpath": "skills/ponytail",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-agents"
-    ],
-    "description": ">",
-    "stars": 78019,
-    "tier": "community"
-  },
-  {
-    "slug": "DietrichGebert/ponytail-ponytail-audit",
-    "name": "ponytail-audit",
-    "source_repo": "DietrichGebert/ponytail",
-    "source_url": "https://github.com/DietrichGebert/ponytail/tree/main/skills/ponytail-audit",
-    "subpath": "skills/ponytail-audit",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-agents"
-    ],
-    "description": ">",
-    "stars": 78019,
-    "tier": "community"
-  },
-  {
-    "slug": "DietrichGebert/ponytail-ponytail-debt",
-    "name": "ponytail-debt",
-    "source_repo": "DietrichGebert/ponytail",
-    "source_url": "https://github.com/DietrichGebert/ponytail/tree/main/skills/ponytail-debt",
-    "subpath": "skills/ponytail-debt",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-agents"
-    ],
-    "description": ">",
-    "stars": 78019,
-    "tier": "community"
-  },
-  {
-    "slug": "DietrichGebert/ponytail-ponytail-gain",
-    "name": "ponytail-gain",
-    "source_repo": "DietrichGebert/ponytail",
-    "source_url": "https://github.com/DietrichGebert/ponytail/tree/main/skills/ponytail-gain",
-    "subpath": "skills/ponytail-gain",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-agents"
-    ],
-    "description": ">",
-    "stars": 78019,
-    "tier": "community"
-  },
-  {
-    "slug": "DietrichGebert/ponytail-ponytail-help",
-    "name": "ponytail-help",
-    "source_repo": "DietrichGebert/ponytail",
-    "source_url": "https://github.com/DietrichGebert/ponytail/tree/main/skills/ponytail-help",
-    "subpath": "skills/ponytail-help",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-agents"
-    ],
-    "description": ">",
-    "stars": 78019,
-    "tier": "community"
-  },
-  {
-    "slug": "DietrichGebert/ponytail-ponytail-review",
-    "name": "ponytail-review",
-    "source_repo": "DietrichGebert/ponytail",
-    "source_url": "https://github.com/DietrichGebert/ponytail/tree/main/skills/ponytail-review",
-    "subpath": "skills/ponytail-review",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-agents"
-    ],
-    "description": ">",
-    "stars": 78019,
-    "tier": "community"
-  },
-  {
     "slug": "addyosmani/api-and-interface-design",
     "name": "api-and-interface-design",
     "source_repo": "addyosmani/agent-skills",
@@ -809,21 +707,6 @@
       "antigravity"
     ],
     "description": "Conducts multi-axis code review.",
-    "stars": 74022,
-    "tier": "community"
-  },
-  {
-    "slug": "addyosmani/code-simplification",
-    "name": "code-simplification",
-    "source_repo": "addyosmani/agent-skills",
-    "source_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/code-simplification",
-    "subpath": "skills/code-simplification",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "antigravity"
-    ],
-    "description": "Simplifies code for clarity.",
     "stars": 74022,
     "tier": "community"
   },
@@ -1038,21 +921,6 @@
     "tier": "community"
   },
   {
-    "slug": "addyosmani/shipping-and-launch",
-    "name": "shipping-and-launch",
-    "source_repo": "addyosmani/agent-skills",
-    "source_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/shipping-and-launch",
-    "subpath": "skills/shipping-and-launch",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "antigravity"
-    ],
-    "description": "Prepares production launches.",
-    "stars": 74022,
-    "tier": "community"
-  },
-  {
     "slug": "addyosmani/source-driven-development",
     "name": "source-driven-development",
     "source_repo": "addyosmani/agent-skills",
@@ -1064,21 +932,6 @@
       "antigravity"
     ],
     "description": "Grounds every implementation decision in official documentation.",
-    "stars": 74022,
-    "tier": "community"
-  },
-  {
-    "slug": "addyosmani/spec-driven-development",
-    "name": "spec-driven-development",
-    "source_repo": "addyosmani/agent-skills",
-    "source_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/spec-driven-development",
-    "subpath": "skills/spec-driven-development",
-    "category": "meta",
-    "tags": [
-      "agent-skills",
-      "antigravity"
-    ],
-    "description": "Creates specs before coding.",
     "stars": 74022,
     "tier": "community"
   },
@@ -1455,21 +1308,6 @@
     ],
     "description": "Skill from santifer/career-ops.",
     "stars": 59193,
-    "tier": "community"
-  },
-  {
-    "slug": "Panniantong/agent-reach",
-    "name": "agent-reach",
-    "source_repo": "Panniantong/Agent-Reach",
-    "source_url": "https://github.com/Panniantong/Agent-Reach/tree/main/agent_reach/skill",
-    "subpath": "agent_reach/skill",
-    "category": "devops",
-    "tags": [
-      "agent-infrastructure",
-      "ai-agent"
-    ],
-    "description": ">",
-    "stars": 53242,
     "tier": "community"
   },
   {
@@ -2943,21 +2781,6 @@
     "tier": "community"
   },
   {
-    "slug": "K-Dense-AI/bids",
-    "name": "bids",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/bids",
-    "subpath": "skills/bids",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": ">",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
     "slug": "K-Dense-AI/biopython",
     "name": "biopython",
     "source_repo": "K-Dense-AI/claude-scientific-skills",
@@ -3164,21 +2987,6 @@
       "ai-scientist"
     ],
     "description": "Molecular ML with diverse featurizers and pre-built datasets.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
-    "slug": "K-Dense-AI/deeptools",
-    "name": "deeptools",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/deeptools",
-    "subpath": "skills/deeptools",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "NGS analysis toolkit.",
     "stars": 30489,
     "tier": "community"
   },
@@ -3918,21 +3726,6 @@
     "tier": "community"
   },
   {
-    "slug": "K-Dense-AI/onekgpd",
-    "name": "onekgpd",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/onekgpd",
-    "subpath": "skills/onekgpd",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": ">",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
     "slug": "K-Dense-AI/open-notebook",
     "name": "open-notebook",
     "source_repo": "K-Dense-AI/claude-scientific-skills",
@@ -4308,36 +4101,6 @@
     "tier": "community"
   },
   {
-    "slug": "K-Dense-AI/pymatgen",
-    "name": "pymatgen",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/pymatgen",
-    "subpath": "skills/pymatgen",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "Materials science toolkit.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
-    "slug": "K-Dense-AI/pymc",
-    "name": "pymc",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/pymc",
-    "subpath": "skills/pymc",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "Bayesian modeling with PyMC.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
     "slug": "K-Dense-AI/pymoo",
     "name": "pymoo",
     "source_repo": "K-Dense-AI/claude-scientific-skills",
@@ -4364,36 +4127,6 @@
       "ai-scientist"
     ],
     "description": "Complete mass spectrometry analysis platform.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
-    "slug": "K-Dense-AI/pysam",
-    "name": "pysam",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/pysam",
-    "subpath": "skills/pysam",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "Genomic file toolkit.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
-    "slug": "K-Dense-AI/pytdc",
-    "name": "pytdc",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/pytdc",
-    "subpath": "skills/pytdc",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "Therapeutics Data Commons.",
     "stars": 30489,
     "tier": "community"
   },
@@ -4634,21 +4367,6 @@
       "ai-scientist"
     ],
     "description": "Core skill for the deep research and writing tool.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
-    "slug": "K-Dense-AI/scikit-bio",
-    "name": "scikit-bio",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/scikit-bio",
-    "subpath": "skills/scikit-bio",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "Biological data toolkit.",
     "stars": 30489,
     "tier": "community"
   },
@@ -4953,21 +4671,6 @@
     "tier": "community"
   },
   {
-    "slug": "K-Dense-AI/usfiscaldata",
-    "name": "usfiscaldata",
-    "source_repo": "K-Dense-AI/claude-scientific-skills",
-    "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/skills/usfiscaldata",
-    "subpath": "skills/usfiscaldata",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "ai-scientist"
-    ],
-    "description": "Query the U.S.",
-    "stars": 30489,
-    "tier": "community"
-  },
-  {
     "slug": "K-Dense-AI/vaex",
     "name": "vaex",
     "source_repo": "K-Dense-AI/claude-scientific-skills",
@@ -5129,21 +4832,6 @@
       "ai-assistant"
     ],
     "description": "Add Discord bot channel integration via Chat SDK.",
-    "stars": 30161,
-    "tier": "community"
-  },
-  {
-    "slug": "nanocoai/add-emacs",
-    "name": "add-emacs",
-    "source_repo": "nanocoai/nanoclaw",
-    "source_url": "https://github.com/nanocoai/nanoclaw/tree/main/.claude/skills/add-emacs",
-    "subpath": ".claude/skills/add-emacs",
-    "category": "security",
-    "tags": [
-      "ai-agents",
-      "ai-assistant"
-    ],
-    "description": "Add Emacs as a channel.",
     "stars": 30161,
     "tier": "community"
   },
@@ -5448,21 +5136,6 @@
     "tier": "community"
   },
   {
-    "slug": "nanocoai/vercel-cli",
-    "name": "vercel-cli",
-    "source_repo": "nanocoai/nanoclaw",
-    "source_url": "https://github.com/nanocoai/nanoclaw/tree/main/.claude/skills/add-vercel/container-skills/vercel-cli",
-    "subpath": ".claude/skills/add-vercel/container-skills/vercel-cli",
-    "category": "devops",
-    "tags": [
-      "ai-agents",
-      "ai-assistant"
-    ],
-    "description": "Deploy apps to Vercel.",
-    "stars": 30161,
-    "tier": "community"
-  },
-  {
     "slug": "nanocoai/add-webex",
     "name": "add-webex",
     "source_repo": "nanocoai/nanoclaw",
@@ -5534,21 +5207,6 @@
       "ai-assistant"
     ],
     "description": "Add new capabilities or modify NanoClaw behavior.",
-    "stars": 30161,
-    "tier": "community"
-  },
-  {
-    "slug": "nanocoai/debug",
-    "name": "debug",
-    "source_repo": "nanocoai/nanoclaw",
-    "source_url": "https://github.com/nanocoai/nanoclaw/tree/main/.claude/skills/debug",
-    "subpath": ".claude/skills/debug",
-    "category": "testing",
-    "tags": [
-      "ai-agents",
-      "ai-assistant"
-    ],
-    "description": "Debug container agent issues.",
     "stars": 30161,
     "tier": "community"
   },
@@ -5718,21 +5376,6 @@
     "tier": "community"
   },
   {
-    "slug": "nanocoai/setup",
-    "name": "setup",
-    "source_repo": "nanocoai/nanoclaw",
-    "source_url": "https://github.com/nanocoai/nanoclaw/tree/main/.claude/skills/setup",
-    "subpath": ".claude/skills/setup",
-    "category": "security",
-    "tags": [
-      "ai-agents",
-      "ai-assistant"
-    ],
-    "description": "Run initial NanoClaw setup.",
-    "stars": 30161,
-    "tier": "community"
-  },
-  {
     "slug": "nanocoai/update-nanoclaw",
     "name": "update-nanoclaw",
     "source_repo": "nanocoai/nanoclaw",
@@ -5808,21 +5451,6 @@
     "tier": "community"
   },
   {
-    "slug": "nanocoai/onecli-gateway",
-    "name": "onecli-gateway",
-    "source_repo": "nanocoai/nanoclaw",
-    "source_url": "https://github.com/nanocoai/nanoclaw/tree/main/container/skills/onecli-gateway",
-    "subpath": "container/skills/onecli-gateway",
-    "category": "security",
-    "tags": [
-      "ai-agents",
-      "ai-assistant"
-    ],
-    "description": ">-",
-    "stars": 30161,
-    "tier": "community"
-  },
-  {
     "slug": "nanocoai/self-customize",
     "name": "self-customize",
     "source_repo": "nanocoai/nanoclaw",
@@ -5849,21 +5477,6 @@
       "ai-assistant"
     ],
     "description": "Format messages for Slack using mrkdwn syntax.",
-    "stars": 30161,
-    "tier": "community"
-  },
-  {
-    "slug": "nanocoai/nanoclaw-vercel-cli",
-    "name": "vercel-cli",
-    "source_repo": "nanocoai/nanoclaw",
-    "source_url": "https://github.com/nanocoai/nanoclaw/tree/main/container/skills/vercel-cli",
-    "subpath": "container/skills/vercel-cli",
-    "category": "devops",
-    "tags": [
-      "ai-agents",
-      "ai-assistant"
-    ],
-    "description": "Deploy apps to Vercel.",
     "stars": 30161,
     "tier": "community"
   },
@@ -6003,21 +5616,6 @@
     "tier": "community"
   },
   {
-    "slug": "googleworkspace/gws-docs",
-    "name": "gws-docs",
-    "source_repo": "googleworkspace/cli",
-    "source_url": "https://github.com/googleworkspace/cli/tree/main/skills/gws-docs",
-    "subpath": "skills/gws-docs",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "ai-agent"
-    ],
-    "description": "Read and write Google Docs.",
-    "stars": 29524,
-    "tier": "community"
-  },
-  {
     "slug": "googleworkspace/gws-docs-write",
     "name": "gws-docs-write",
     "source_repo": "googleworkspace/cli",
@@ -6108,21 +5706,6 @@
     "tier": "community"
   },
   {
-    "slug": "googleworkspace/gws-forms",
-    "name": "gws-forms",
-    "source_repo": "googleworkspace/cli",
-    "source_url": "https://github.com/googleworkspace/cli/tree/main/skills/gws-forms",
-    "subpath": "skills/gws-forms",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "ai-agent"
-    ],
-    "description": "Read and write Google Forms.",
-    "stars": 29524,
-    "tier": "community"
-  },
-  {
     "slug": "googleworkspace/gws-gmail",
     "name": "gws-gmail",
     "source_repo": "googleworkspace/cli",
@@ -6198,21 +5781,6 @@
     "tier": "community"
   },
   {
-    "slug": "googleworkspace/gws-gmail-send",
-    "name": "gws-gmail-send",
-    "source_repo": "googleworkspace/cli",
-    "source_url": "https://github.com/googleworkspace/cli/tree/main/skills/gws-gmail-send",
-    "subpath": "skills/gws-gmail-send",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "ai-agent"
-    ],
-    "description": "Gmail: Send an email.",
-    "stars": 29524,
-    "tier": "community"
-  },
-  {
     "slug": "googleworkspace/gws-gmail-triage",
     "name": "gws-gmail-triage",
     "source_repo": "googleworkspace/cli",
@@ -6239,21 +5807,6 @@
       "ai-agent"
     ],
     "description": "Gmail: Watch for new emails and stream them as NDJSON.",
-    "stars": 29524,
-    "tier": "community"
-  },
-  {
-    "slug": "googleworkspace/gws-keep",
-    "name": "gws-keep",
-    "source_repo": "googleworkspace/cli",
-    "source_url": "https://github.com/googleworkspace/cli/tree/main/skills/gws-keep",
-    "subpath": "skills/gws-keep",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "ai-agent"
-    ],
-    "description": "Manage Google Keep notes.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7323,18 +6876,6 @@
     "tier": "community"
   },
   {
-    "slug": "blader/humanizer",
-    "name": "humanizer",
-    "source_repo": "blader/humanizer",
-    "source_url": "https://github.com/blader/humanizer",
-    "subpath": "",
-    "category": "document",
-    "tags": [],
-    "description": "|",
-    "stars": 28099,
-    "tier": "community"
-  },
-  {
     "slug": "vercel-labs/find-skills",
     "name": "find-skills",
     "source_repo": "vercel-labs/skills",
@@ -7464,21 +7005,6 @@
     ],
     "description": "基於 Manus 風格的檔案規劃系統，用於組織和追蹤複雜任務的進度。建立 task_plan.md、findings.md 和 progress.md 三個檔案。當使用者要求規劃、拆解或組織多步驟專案、研究任務或需要超過5次工具呼叫的工作時使用。支援 /clear 後的自動會話恢復。觸發詞：任務規劃、專案計畫、制定計畫、分解任務、多步驟規劃、進度追蹤、檔案規",
     "stars": 25058,
-    "tier": "community"
-  },
-  {
-    "slug": "JimLiu/release-skills",
-    "name": "release-skills",
-    "source_repo": "JimLiu/baoyu-skills",
-    "source_url": "https://github.com/JimLiu/baoyu-skills/tree/main/.claude/skills/release-skills",
-    "subpath": ".claude/skills/release-skills",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "claude-skills"
-    ],
-    "description": "Universal release workflow.",
-    "stars": 23304,
     "tier": "community"
   },
   {
@@ -7677,21 +7203,6 @@
     "tier": "community"
   },
   {
-    "slug": "JimLiu/baoyu-post-to-weibo",
-    "name": "baoyu-post-to-weibo",
-    "source_repo": "JimLiu/baoyu-skills",
-    "source_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-weibo",
-    "subpath": "skills/baoyu-post-to-weibo",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "claude-skills"
-    ],
-    "description": "Posts content to Weibo (微博).",
-    "stars": 23304,
-    "tier": "community"
-  },
-  {
     "slug": "JimLiu/baoyu-post-to-x",
     "name": "baoyu-post-to-x",
     "source_repo": "JimLiu/baoyu-skills",
@@ -7718,21 +7229,6 @@
       "claude-skills"
     ],
     "description": "Generates professional slide deck images from content.",
-    "stars": 23304,
-    "tier": "community"
-  },
-  {
-    "slug": "JimLiu/baoyu-translate",
-    "name": "baoyu-translate",
-    "source_repo": "JimLiu/baoyu-skills",
-    "source_url": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-translate",
-    "subpath": "skills/baoyu-translate",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "claude-skills"
-    ],
-    "description": ">-",
     "stars": 23304,
     "tier": "community"
   },
@@ -8862,111 +8358,6 @@
     "tier": "community"
   },
   {
-    "slug": "mksglu/ctx-doctor",
-    "name": "ctx-doctor",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-doctor",
-    "subpath": "skills/ctx-doctor",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
-    "slug": "mksglu/ctx-index",
-    "name": "ctx-index",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-index",
-    "subpath": "skills/ctx-index",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
-    "slug": "mksglu/ctx-insight",
-    "name": "ctx-insight",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-insight",
-    "subpath": "skills/ctx-insight",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
-    "slug": "mksglu/ctx-purge",
-    "name": "ctx-purge",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-purge",
-    "subpath": "skills/ctx-purge",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
-    "slug": "mksglu/ctx-search",
-    "name": "ctx-search",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-search",
-    "subpath": "skills/ctx-search",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
-    "slug": "mksglu/ctx-stats",
-    "name": "ctx-stats",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-stats",
-    "subpath": "skills/ctx-stats",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
-    "slug": "mksglu/ctx-upgrade",
-    "name": "ctx-upgrade",
-    "source_repo": "mksglu/context-mode",
-    "source_url": "https://github.com/mksglu/context-mode/tree/main/skills/ctx-upgrade",
-    "subpath": "skills/ctx-upgrade",
-    "category": "ai",
-    "tags": [
-      "antigravity",
-      "claude"
-    ],
-    "description": "|",
-    "stars": 18712,
-    "tier": "community"
-  },
-  {
     "slug": "tanweai/pua",
     "name": "pua",
     "source_repo": "tanweai/pua",
@@ -9072,171 +8463,6 @@
     "tier": "community"
   },
   {
-    "slug": "tanweai/pua-flavor",
-    "name": "pua-flavor",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-flavor",
-    "subpath": "codex/pua-flavor",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA flavor alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-kpi",
-    "name": "pua-kpi",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-kpi",
-    "subpath": "codex/pua-kpi",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA KPI alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-loop",
-    "name": "pua-loop",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-loop",
-    "subpath": "codex/pua-loop",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA Loop alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-mama",
-    "name": "pua-mama",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-mama",
-    "subpath": "codex/pua-mama",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA mama alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-off",
-    "name": "pua-off",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-off",
-    "subpath": "codex/pua-off",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA off alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-offline",
-    "name": "pua-offline",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-offline",
-    "subpath": "codex/pua-offline",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA offline alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-on",
-    "name": "pua-on",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-on",
-    "subpath": "codex/pua-on",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA on alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-p10",
-    "name": "pua-p10",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-p10",
-    "subpath": "codex/pua-p10",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA P10 alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-p7",
-    "name": "pua-p7",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-p7",
-    "subpath": "codex/pua-p7",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA P7 alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-p9",
-    "name": "pua-p9",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-p9",
-    "subpath": "codex/pua-p9",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA P9 alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-pro",
-    "name": "pua-pro",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-pro",
-    "subpath": "codex/pua-pro",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA Pro alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
     "slug": "tanweai/pua-reap-orphans",
     "name": "pua-reap-orphans",
     "source_repo": "tanweai/pua",
@@ -9252,21 +8478,6 @@
     "tier": "community"
   },
   {
-    "slug": "tanweai/pua-survey",
-    "name": "pua-survey",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-survey",
-    "subpath": "codex/pua-survey",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA survey alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
     "slug": "tanweai/pua-team-status",
     "name": "pua-team-status",
     "source_repo": "tanweai/pua",
@@ -9278,36 +8489,6 @@
       "agent"
     ],
     "description": "PUA team status alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-teardown-all",
-    "name": "pua-teardown-all",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-teardown-all",
-    "subpath": "codex/pua-teardown-all",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA teardown alias for Codex.",
-    "stars": 18697,
-    "tier": "community"
-  },
-  {
-    "slug": "tanweai/pua-yes",
-    "name": "pua-yes",
-    "source_repo": "tanweai/pua",
-    "source_url": "https://github.com/tanweai/pua/tree/main/codex/pua-yes",
-    "subpath": "codex/pua-yes",
-    "category": "ai",
-    "tags": [
-      "agency",
-      "agent"
-    ],
-    "description": "PUA yes alias for Codex.",
     "stars": 18697,
     "tier": "community"
   },
@@ -9741,51 +8922,6 @@
     "tier": "community"
   },
   {
-    "slug": "google/data-manager-api-audience-ingestion",
-    "name": "data-manager-api-audience-ingestion",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/ads/data-manager-api/data-manager-api-audience-ingestion",
-    "subpath": "skills/ads/data-manager-api/data-manager-api-audience-ingestion",
-    "category": "backend",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/data-manager-api-event-ingestion",
-    "name": "data-manager-api-event-ingestion",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/ads/data-manager-api/data-manager-api-event-ingestion",
-    "subpath": "skills/ads/data-manager-api/data-manager-api-event-ingestion",
-    "category": "backend",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/data-manager-api-setup",
-    "name": "data-manager-api-setup",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/ads/data-manager-api/data-manager-api-setup",
-    "subpath": "skills/ads/data-manager-api/data-manager-api-setup",
-    "category": "backend",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
     "slug": "google/google-ads-api-mcp-setup",
     "name": "google-ads-api-mcp-setup",
     "source_repo": "google/skills",
@@ -9797,21 +8933,6 @@
       "googlecloud"
     ],
     "description": "Guides developers through downloading, configuring, and installing the official open-source Google Ads MCP Server.",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-ads-api-quickstart",
-    "name": "google-ads-api-quickstart",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/ads/google-ads-api/google-ads-api-quickstart",
-    "subpath": "skills/ads/google-ads-api/google-ads-api-quickstart",
-    "category": "backend",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": "|",
     "stars": 14458,
     "tier": "community"
   },
@@ -9891,366 +9012,6 @@
     "tier": "community"
   },
   {
-    "slug": "google/ima-sdk-basics",
-    "name": "ima-sdk-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/ads/interactive-media-ads/ima-sdk-basics",
-    "subpath": "skills/ads/interactive-media-ads/ima-sdk-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-analytics-admin-api-basics",
-    "name": "google-analytics-admin-api-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/analytics/google-analytics-admin-api-basics",
-    "subpath": "skills/analytics/google-analytics-admin-api-basics",
-    "category": "data",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-analytics-data-api-basics",
-    "name": "google-analytics-data-api-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/analytics/google-analytics-data-api-basics",
-    "subpath": "skills/analytics/google-analytics-data-api-basics",
-    "category": "data",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-alert-configuration",
-    "name": "agent-platform-alert-configuration",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-alert-configuration",
-    "subpath": "skills/cloud/agent-platform-alert-configuration",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-deploy",
-    "name": "agent-platform-deploy",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-deploy",
-    "subpath": "skills/cloud/agent-platform-deploy",
-    "category": "devops",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-endpoint-management",
-    "name": "agent-platform-endpoint-management",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-endpoint-management",
-    "subpath": "skills/cloud/agent-platform-endpoint-management",
-    "category": "backend",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-eval-flywheel",
-    "name": "agent-platform-eval-flywheel",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-eval-flywheel",
-    "subpath": "skills/cloud/agent-platform-eval-flywheel",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-inference",
-    "name": "agent-platform-inference",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-inference",
-    "subpath": "skills/cloud/agent-platform-inference",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-migrate-from-ai-studio",
-    "name": "agent-platform-migrate-from-ai-studio",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-migrate-from-ai-studio",
-    "subpath": "skills/cloud/agent-platform-migrate-from-ai-studio",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-model-registry",
-    "name": "agent-platform-model-registry",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-model-registry",
-    "subpath": "skills/cloud/agent-platform-model-registry",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-prompt-management",
-    "name": "agent-platform-prompt-management",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-prompt-management",
-    "subpath": "skills/cloud/agent-platform-prompt-management",
-    "category": "ai",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-rag-engine-management",
-    "name": "agent-platform-rag-engine-management",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-rag-engine-management",
-    "subpath": "skills/cloud/agent-platform-rag-engine-management",
-    "category": "ai",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-skill-registry",
-    "name": "agent-platform-skill-registry",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-skill-registry",
-    "subpath": "skills/cloud/agent-platform-skill-registry",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-tuning",
-    "name": "agent-platform-tuning",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-tuning",
-    "subpath": "skills/cloud/agent-platform-tuning",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/agent-platform-tuning-management",
-    "name": "agent-platform-tuning-management",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/agent-platform-tuning-management",
-    "subpath": "skills/cloud/agent-platform-tuning-management",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/alloydb-basics",
-    "name": "alloydb-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/alloydb-basics",
-    "subpath": "skills/cloud/alloydb-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/bigquery-ai-ml",
-    "name": "bigquery-ai-ml",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/bigquery-ai-ml",
-    "subpath": "skills/cloud/bigquery-ai-ml",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/bigquery-basics",
-    "name": "bigquery-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/bigquery-basics",
-    "subpath": "skills/cloud/bigquery-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/bigquery-bigframes",
-    "name": "bigquery-bigframes",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/bigquery-bigframes",
-    "subpath": "skills/cloud/bigquery-bigframes",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/bigtable-basics",
-    "name": "bigtable-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/bigtable-basics",
-    "subpath": "skills/cloud/bigtable-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/cloud-run-basics",
-    "name": "cloud-run-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/cloud-run-basics",
-    "subpath": "skills/cloud/cloud-run-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/cloud-sql-basics",
-    "name": "cloud-sql-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/cloud-sql-basics",
-    "subpath": "skills/cloud/cloud-sql-basics",
-    "category": "data",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/datalineage-bigquery-asset-impact-analysis",
-    "name": "datalineage-bigquery-asset-impact-analysis",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/datalineage-bigquery-asset-impact-analysis",
-    "subpath": "skills/cloud/datalineage-bigquery-asset-impact-analysis",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/detection-engineering-coverage-evaluation",
-    "name": "detection-engineering-coverage-evaluation",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/detection-engineering-coverage-evaluation",
-    "subpath": "skills/cloud/detection-engineering-coverage-evaluation",
-    "category": "testing",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
     "slug": "google/firebase-basics",
     "name": "firebase-basics",
     "source_repo": "google/skills",
@@ -10262,21 +9023,6 @@
       "googlecloud"
     ],
     "description": "Use this skill whenever you are working on a project that uses Firebase products or services, especially for mobile or web apps.",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gcloud",
-    "name": "gcloud",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gcloud",
-    "subpath": "skills/cloud/gcloud",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
     "stars": 14458,
     "tier": "community"
   },
@@ -10326,306 +9072,6 @@
     "tier": "community"
   },
   {
-    "slug": "google/gke-app-onboarding",
-    "name": "gke-app-onboarding",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-app-onboarding",
-    "subpath": "skills/cloud/gke-app-onboarding",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-backup-dr",
-    "name": "gke-backup-dr",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-backup-dr",
-    "subpath": "skills/cloud/gke-backup-dr",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-basics",
-    "name": "gke-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-basics",
-    "subpath": "skills/cloud/gke-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-batch-hpc",
-    "name": "gke-batch-hpc",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-batch-hpc",
-    "subpath": "skills/cloud/gke-batch-hpc",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-cluster-autoscaler",
-    "name": "gke-cluster-autoscaler",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-cluster-autoscaler",
-    "subpath": "skills/cloud/gke-cluster-autoscaler",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-cluster-creation",
-    "name": "gke-cluster-creation",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-cluster-creation",
-    "subpath": "skills/cloud/gke-cluster-creation",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-compute-classes",
-    "name": "gke-compute-classes",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-compute-classes",
-    "subpath": "skills/cloud/gke-compute-classes",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-cost",
-    "name": "gke-cost",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-cost",
-    "subpath": "skills/cloud/gke-cost",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-golden-path",
-    "name": "gke-golden-path",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-golden-path",
-    "subpath": "skills/cloud/gke-golden-path",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-inference",
-    "name": "gke-inference",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-inference",
-    "subpath": "skills/cloud/gke-inference",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-multitenancy",
-    "name": "gke-multitenancy",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-multitenancy",
-    "subpath": "skills/cloud/gke-multitenancy",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-networking",
-    "name": "gke-networking",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-networking",
-    "subpath": "skills/cloud/gke-networking",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-observability",
-    "name": "gke-observability",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-observability",
-    "subpath": "skills/cloud/gke-observability",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-reliability",
-    "name": "gke-reliability",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-reliability",
-    "subpath": "skills/cloud/gke-reliability",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-scaling",
-    "name": "gke-scaling",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-scaling",
-    "subpath": "skills/cloud/gke-scaling",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-security",
-    "name": "gke-security",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-security",
-    "subpath": "skills/cloud/gke-security",
-    "category": "security",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-storage",
-    "name": "gke-storage",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-storage",
-    "subpath": "skills/cloud/gke-storage",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/gke-upgrades",
-    "name": "gke-upgrades",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/gke-upgrades",
-    "subpath": "skills/cloud/gke-upgrades",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-agents-cli-onboarding",
-    "name": "google-agents-cli-onboarding",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-agents-cli-onboarding",
-    "subpath": "skills/cloud/google-agents-cli-onboarding",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-networking-observability",
-    "name": "google-cloud-networking-observability",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-networking-observability",
-    "subpath": "skills/cloud/google-cloud-networking-observability",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
     "slug": "google/google-cloud-recipe-auth",
     "name": "google-cloud-recipe-auth",
     "source_repo": "google/skills",
@@ -10641,66 +9087,6 @@
     "tier": "community"
   },
   {
-    "slug": "google/google-cloud-recipe-foundation-builder",
-    "name": "google-cloud-recipe-foundation-builder",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-recipe-foundation-builder",
-    "subpath": "skills/cloud/google-cloud-recipe-foundation-builder",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-recipe-onboarding",
-    "name": "google-cloud-recipe-onboarding",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-recipe-onboarding",
-    "subpath": "skills/cloud/google-cloud-recipe-onboarding",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-solution-agentic-ai-bidirectional-streaming",
-    "name": "google-cloud-solution-agentic-ai-bidirectional-streaming",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
-    "subpath": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-solution-architecture",
-    "name": "google-cloud-solution-architecture",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-solution-architecture",
-    "subpath": "skills/cloud/google-cloud-solution-architecture",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
     "slug": "google/google-cloud-waf-cost-optimization",
     "name": "google-cloud-waf-cost-optimization",
     "source_repo": "google/skills",
@@ -10712,36 +9098,6 @@
       "googlecloud"
     ],
     "description": "Generates cost optimization guidance for Google Cloud workloads based on the Google Cloud Well-Architected Framework (WAF).",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-waf-operational-excellence",
-    "name": "google-cloud-waf-operational-excellence",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-waf-operational-excellence",
-    "subpath": "skills/cloud/google-cloud-waf-operational-excellence",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-waf-performance-optimization",
-    "name": "google-cloud-waf-performance-optimization",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-waf-performance-optimization",
-    "subpath": "skills/cloud/google-cloud-waf-performance-optimization",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
     "stars": 14458,
     "tier": "community"
   },
@@ -10772,51 +9128,6 @@
       "googlecloud"
     ],
     "description": "Generates security-focused guidance for Google Cloud workloads based on the design principles and recommendations in the Google Cloud Well-Architected Framework (WAF).",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/google-cloud-waf-sustainability",
-    "name": "google-cloud-waf-sustainability",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/google-cloud-waf-sustainability",
-    "subpath": "skills/cloud/google-cloud-waf-sustainability",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/iam-recommendations-fetcher",
-    "name": "iam-recommendations-fetcher",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/iam-recommendations-fetcher",
-    "subpath": "skills/cloud/iam-recommendations-fetcher",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
-    "stars": 14458,
-    "tier": "community"
-  },
-  {
-    "slug": "google/workload-manager-basics",
-    "name": "workload-manager-basics",
-    "source_repo": "google/skills",
-    "source_url": "https://github.com/google/skills/tree/main/skills/cloud/workload-manager-basics",
-    "subpath": "skills/cloud/workload-manager-basics",
-    "category": "other",
-    "tags": [
-      "google",
-      "googlecloud"
-    ],
-    "description": ">-",
     "stars": 14458,
     "tier": "community"
   },
@@ -10853,42 +9164,6 @@
     "category": "security",
     "tags": [],
     "description": "A friendly greeting skill that says hello to users",
-    "stars": 12497,
-    "tier": "community"
-  },
-  {
-    "slug": "NVIDIA/over-privileged-helper",
-    "name": "over-privileged-helper",
-    "source_repo": "NVIDIA/SkillSpector",
-    "source_url": "https://github.com/NVIDIA/SkillSpector/tree/main/tests/fixtures/mcp_overprivileged_skill",
-    "subpath": "tests/fixtures/mcp_overprivileged_skill",
-    "category": "security",
-    "tags": [],
-    "description": "A simple file reader utility",
-    "stars": 12497,
-    "tier": "community"
-  },
-  {
-    "slug": "NVIDIA/re-d_data",
-    "name": "reаd_data",
-    "source_repo": "NVIDIA/SkillSpector",
-    "source_url": "https://github.com/NVIDIA/SkillSpector/tree/main/tests/fixtures/mcp_poisoned_tool",
-    "subpath": "tests/fixtures/mcp_poisoned_tool",
-    "category": "security",
-    "tags": [],
-    "description": "|",
-    "stars": 12497,
-    "tier": "community"
-  },
-  {
-    "slug": "NVIDIA/underdeclared-agent",
-    "name": "underdeclared-agent",
-    "source_repo": "NVIDIA/SkillSpector",
-    "source_url": "https://github.com/NVIDIA/SkillSpector/tree/main/tests/fixtures/mcp_underdeclared_skill",
-    "subpath": "tests/fixtures/mcp_underdeclared_skill",
-    "category": "security",
-    "tags": [],
-    "description": "A helpful assistant agent",
     "stars": 12497,
     "tier": "community"
   },
@@ -11187,36 +9462,6 @@
     "tier": "community"
   },
   {
-    "slug": "AgriciDaniel/seo-dataforseo",
-    "name": "seo-dataforseo",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/extensions/dataforseo/skills/seo-dataforseo",
-    "subpath": "extensions/dataforseo/skills/seo-dataforseo",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-firecrawl",
-    "name": "seo-firecrawl",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/extensions/firecrawl/skills/seo-firecrawl",
-    "subpath": "extensions/firecrawl/skills/seo-firecrawl",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
     "slug": "AgriciDaniel/seo-profound",
     "name": "seo-profound",
     "source_repo": "AgriciDaniel/claude-seo",
@@ -11307,306 +9552,6 @@
     "tier": "community"
   },
   {
-    "slug": "AgriciDaniel/seo-cluster",
-    "name": "seo-cluster",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-cluster",
-    "subpath": "skills/seo-cluster",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-competitor-pages",
-    "name": "seo-competitor-pages",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-competitor-pages",
-    "subpath": "skills/seo-competitor-pages",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-content",
-    "name": "seo-content",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-content",
-    "subpath": "skills/seo-content",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-content-brief",
-    "name": "seo-content-brief",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-content-brief",
-    "subpath": "skills/seo-content-brief",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-drift",
-    "name": "seo-drift",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-drift",
-    "subpath": "skills/seo-drift",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-ecommerce",
-    "name": "seo-ecommerce",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-ecommerce",
-    "subpath": "skills/seo-ecommerce",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-flow",
-    "name": "seo-flow",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-flow",
-    "subpath": "skills/seo-flow",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-geo",
-    "name": "seo-geo",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-geo",
-    "subpath": "skills/seo-geo",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-google",
-    "name": "seo-google",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-google",
-    "subpath": "skills/seo-google",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-hreflang",
-    "name": "seo-hreflang",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-hreflang",
-    "subpath": "skills/seo-hreflang",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-images",
-    "name": "seo-images",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-images",
-    "subpath": "skills/seo-images",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-local",
-    "name": "seo-local",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-local",
-    "subpath": "skills/seo-local",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-maps",
-    "name": "seo-maps",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-maps",
-    "subpath": "skills/seo-maps",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-page",
-    "name": "seo-page",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-page",
-    "subpath": "skills/seo-page",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-plan",
-    "name": "seo-plan",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-plan",
-    "subpath": "skills/seo-plan",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-programmatic",
-    "name": "seo-programmatic",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-programmatic",
-    "subpath": "skills/seo-programmatic",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-schema",
-    "name": "seo-schema",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-schema",
-    "subpath": "skills/seo-schema",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-sitemap",
-    "name": "seo-sitemap",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-sitemap",
-    "subpath": "skills/seo-sitemap",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-sxo",
-    "name": "seo-sxo",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-sxo",
-    "subpath": "skills/seo-sxo",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/seo-technical",
-    "name": "seo-technical",
-    "source_repo": "AgriciDaniel/claude-seo",
-    "source_url": "https://github.com/AgriciDaniel/claude-seo/tree/main/skills/seo-technical",
-    "subpath": "skills/seo-technical",
-    "category": "document",
-    "tags": [
-      "ai",
-      "ai-seo"
-    ],
-    "description": ">",
-    "stars": 10831,
-    "tier": "community"
-  },
-  {
     "slug": "aden-hive/browser-edge-cases",
     "name": "browser-edge-cases",
     "source_repo": "aden-hive/hive",
@@ -11618,36 +9563,6 @@
       "agent-framework"
     ],
     "description": "SOP for debugging browser automation failures on complex websites.",
-    "stars": 10647,
-    "tier": "community"
-  },
-  {
-    "slug": "aden-hive/test-reporting",
-    "name": "test-reporting",
-    "source_repo": "aden-hive/hive",
-    "source_url": "https://github.com/aden-hive/hive/tree/main/.claude/skills/test-reporting",
-    "subpath": ".claude/skills/test-reporting",
-    "category": "testing",
-    "tags": [
-      "agent",
-      "agent-framework"
-    ],
-    "description": "Skill from aden-hive/hive.",
-    "stars": 10647,
-    "tier": "community"
-  },
-  {
-    "slug": "aden-hive/triage-issue",
-    "name": "triage-issue",
-    "source_repo": "aden-hive/hive",
-    "source_url": "https://github.com/aden-hive/hive/tree/main/.claude/skills/triage-issue",
-    "subpath": ".claude/skills/triage-issue",
-    "category": "ai",
-    "tags": [
-      "agent",
-      "agent-framework"
-    ],
-    "description": "Skill from aden-hive/hive.",
     "stars": 10647,
     "tier": "community"
   },
@@ -14502,36 +12417,6 @@
     "tier": "community"
   },
   {
-    "slug": "AgriciDaniel/autoresearch",
-    "name": "autoresearch",
-    "source_repo": "AgriciDaniel/claude-obsidian",
-    "source_url": "https://github.com/AgriciDaniel/claude-obsidian/tree/main/skills/autoresearch",
-    "subpath": "skills/autoresearch",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-note-taking"
-    ],
-    "description": ">",
-    "stars": 9033,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/canvas",
-    "name": "canvas",
-    "source_repo": "AgriciDaniel/claude-obsidian",
-    "source_url": "https://github.com/AgriciDaniel/claude-obsidian/tree/main/skills/canvas",
-    "subpath": "skills/canvas",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-note-taking"
-    ],
-    "description": "Visual layer of the wiki.",
-    "stars": 9033,
-    "tier": "community"
-  },
-  {
     "slug": "AgriciDaniel/defuddle",
     "name": "defuddle",
     "source_repo": "AgriciDaniel/claude-obsidian",
@@ -14577,21 +12462,6 @@
     "tier": "community"
   },
   {
-    "slug": "AgriciDaniel/save",
-    "name": "save",
-    "source_repo": "AgriciDaniel/claude-obsidian",
-    "source_url": "https://github.com/AgriciDaniel/claude-obsidian/tree/main/skills/save",
-    "subpath": "skills/save",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-note-taking"
-    ],
-    "description": ">",
-    "stars": 9033,
-    "tier": "community"
-  },
-  {
     "slug": "AgriciDaniel/think",
     "name": "think",
     "source_repo": "AgriciDaniel/claude-obsidian",
@@ -14603,21 +12473,6 @@
       "ai-note-taking"
     ],
     "description": "Apply the 10-principle thinking loop (OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW) to any non-trivial problem.",
-    "stars": 9033,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/wiki",
-    "name": "wiki",
-    "source_repo": "AgriciDaniel/claude-obsidian",
-    "source_url": "https://github.com/AgriciDaniel/claude-obsidian/tree/main/skills/wiki",
-    "subpath": "skills/wiki",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-note-taking"
-    ],
-    "description": ">",
     "stars": 9033,
     "tier": "community"
   },
@@ -14663,21 +12518,6 @@
       "ai-note-taking"
     ],
     "description": "Ingest sources into the Obsidian wiki vault.",
-    "stars": 9033,
-    "tier": "community"
-  },
-  {
-    "slug": "AgriciDaniel/wiki-lint",
-    "name": "wiki-lint",
-    "source_repo": "AgriciDaniel/claude-obsidian",
-    "source_url": "https://github.com/AgriciDaniel/claude-obsidian/tree/main/skills/wiki-lint",
-    "subpath": "skills/wiki-lint",
-    "category": "ai",
-    "tags": [
-      "agent-skills",
-      "ai-note-taking"
-    ],
-    "description": ">",
     "stars": 9033,
     "tier": "community"
   },
@@ -14772,36 +12612,6 @@
     "tier": "community"
   },
   {
-    "slug": "nexu-io/card-twitter",
-    "name": "card-twitter",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/card-twitter",
-    "subpath": "next/src/lib/templates/skills/card-twitter",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "推特金句 / 数据卡, 适合配推文",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
-    "slug": "nexu-io/card-xiaohongshu",
-    "name": "card-xiaohongshu",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/card-xiaohongshu",
-    "subpath": "next/src/lib/templates/skills/card-xiaohongshu",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "小红书风格知识卡片, 多张联排可滑动浏览",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
     "slug": "nexu-io/competitive-teardown",
     "name": "competitive-teardown",
     "source_repo": "nexu-io/html-anything",
@@ -14813,21 +12623,6 @@
       "agentic"
     ],
     "description": "定位图 + 功能矩阵 + 价格对比 + 机会窗口, 把竞品资料转成产品决策报告",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
-    "slug": "nexu-io/dashboard",
-    "name": "dashboard",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/dashboard",
-    "subpath": "next/src/lib/templates/skills/dashboard",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "固定侧栏 + 顶栏 + KPI 网格 + 1-2 张图",
     "stars": 7630,
     "tier": "community"
   },
@@ -15203,21 +12998,6 @@
       "agentic"
     ],
     "description": "暖羊皮纸底 (#f5f4ed) + 墨蓝单色 accent (#1B365D) + 单一衬线字体, 编辑级排印",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
-    "slug": "nexu-io/docs-page",
-    "name": "docs-page",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/docs-page",
-    "subpath": "next/src/lib/templates/skills/docs-page",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "三栏文档页: 侧导航 + 正文 + 右 TOC",
     "stars": 7630,
     "tier": "community"
   },
@@ -15612,21 +13392,6 @@
     "tier": "community"
   },
   {
-    "slug": "nexu-io/poster-hero",
-    "name": "poster-hero",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/poster-hero",
-    "subpath": "next/src/lib/templates/skills/poster-hero",
-    "category": "styling",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "竖版海报 / 朋友圈分享图, 强视觉冲击",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
     "slug": "nexu-io/ppt-keynote",
     "name": "ppt-keynote",
     "source_repo": "nexu-io/html-anything",
@@ -15638,21 +13403,6 @@
       "agentic"
     ],
     "description": "苹果 Keynote 级别幻灯片, 一屏一卡, 键盘左右切换",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
-    "slug": "nexu-io/pricing-page",
-    "name": "pricing-page",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/pricing-page",
-    "subpath": "next/src/lib/templates/skills/pricing-page",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "三档定价 + 特性对比表 + FAQ",
     "stars": 7630,
     "tier": "community"
   },
@@ -15672,21 +13422,6 @@
     "tier": "community"
   },
   {
-    "slug": "nexu-io/resume-modern",
-    "name": "resume-modern",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/resume-modern",
-    "subpath": "next/src/lib/templates/skills/resume-modern",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "现代极简简历, A4 单页, 适合打印或导出 PDF",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
     "slug": "nexu-io/saas-landing",
     "name": "saas-landing",
     "source_repo": "nexu-io/html-anything",
@@ -15698,21 +13433,6 @@
       "agentic"
     ],
     "description": "单页 SaaS 落地页, 含 hero/features/social-proof/pricing/CTA",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
-    "slug": "nexu-io/social-carousel",
-    "name": "social-carousel",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/social-carousel",
-    "subpath": "next/src/lib/templates/skills/social-carousel",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "三张方形卡片轮播, 标题串联, 品牌 mark + 编号",
     "stars": 7630,
     "tier": "community"
   },
@@ -15848,21 +13568,6 @@
       "agentic"
     ],
     "description": "Hyperframes / Remotion 兼容的连续帧动画, 可自动播放",
-    "stars": 7630,
-    "tier": "community"
-  },
-  {
-    "slug": "nexu-io/waitlist-page",
-    "name": "waitlist-page",
-    "source_repo": "nexu-io/html-anything",
-    "source_url": "https://github.com/nexu-io/html-anything/tree/main/next/src/lib/templates/skills/waitlist-page",
-    "subpath": "next/src/lib/templates/skills/waitlist-page",
-    "category": "styling",
-    "tags": [
-      "agent-skills",
-      "agentic"
-    ],
-    "description": "极简产品预发布落地页, 含邮箱捕获、logo、装饰图层",
     "stars": 7630,
     "tier": "community"
   },
@@ -16452,21 +14157,6 @@
     "tier": "community"
   },
   {
-    "slug": "jnMetaCode/subagent-driven-development",
-    "name": "subagent-driven-development",
-    "source_repo": "jnMetaCode/superpowers-zh",
-    "source_url": "https://github.com/jnMetaCode/superpowers-zh/tree/main/skills/subagent-driven-development",
-    "subpath": "skills/subagent-driven-development",
-    "category": "meta",
-    "tags": [
-      "agent-skills",
-      "agentic-coding"
-    ],
-    "description": "当在当前会话中执行包含独立任务的实现计划时使用",
-    "stars": 6595,
-    "tier": "community"
-  },
-  {
     "slug": "jnMetaCode/systematic-debugging",
     "name": "systematic-debugging",
     "source_repo": "jnMetaCode/superpowers-zh",
@@ -16478,21 +14168,6 @@
       "agentic-coding"
     ],
     "description": "遇到任何 bug、测试失败或异常行为时使用，在提出修复方案之前执行",
-    "stars": 6595,
-    "tier": "community"
-  },
-  {
-    "slug": "jnMetaCode/test-driven-development",
-    "name": "test-driven-development",
-    "source_repo": "jnMetaCode/superpowers-zh",
-    "source_url": "https://github.com/jnMetaCode/superpowers-zh/tree/main/skills/test-driven-development",
-    "subpath": "skills/test-driven-development",
-    "category": "testing",
-    "tags": [
-      "agent-skills",
-      "agentic-coding"
-    ],
-    "description": "在实现任何功能或修复 bug 时使用，在编写实现代码之前",
     "stars": 6595,
     "tier": "community"
   },
@@ -16553,36 +14228,6 @@
       "agentic-coding"
     ],
     "description": "在 Claude Code / OpenClaw / Cursor 中直接运行 agency-orchestrator YAML 工作流——无需 API key，使用当前会话的 LLM 作为执行引擎。当用户提供 .yaml 工作流文件或要求多角色协作完成任务时触发。",
-    "stars": 6595,
-    "tier": "community"
-  },
-  {
-    "slug": "jnMetaCode/writing-plans",
-    "name": "writing-plans",
-    "source_repo": "jnMetaCode/superpowers-zh",
-    "source_url": "https://github.com/jnMetaCode/superpowers-zh/tree/main/skills/writing-plans",
-    "subpath": "skills/writing-plans",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic-coding"
-    ],
-    "description": "当你有规格说明或需求用于多步骤任务时使用，在动手写代码之前",
-    "stars": 6595,
-    "tier": "community"
-  },
-  {
-    "slug": "jnMetaCode/writing-skills",
-    "name": "writing-skills",
-    "source_repo": "jnMetaCode/superpowers-zh",
-    "source_url": "https://github.com/jnMetaCode/superpowers-zh/tree/main/skills/writing-skills",
-    "subpath": "skills/writing-skills",
-    "category": "document",
-    "tags": [
-      "agent-skills",
-      "agentic-coding"
-    ],
-    "description": "当创建新技能、编辑现有技能或在部署前验证技能是否有效时使用",
     "stars": 6595,
     "tier": "community"
   },
@@ -16928,21 +14573,6 @@
       "ai-product-management"
     ],
     "description": "Create a company research brief with executive quotes, product strategy, and org context.",
-    "stars": 5645,
-    "tier": "community"
-  },
-  {
-    "slug": "deanpeters/context-engineering-advisor",
-    "name": "context-engineering-advisor",
-    "source_repo": "deanpeters/Product-Manager-Skills",
-    "source_url": "https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/context-engineering-advisor",
-    "subpath": "skills/context-engineering-advisor",
-    "category": "testing",
-    "tags": [
-      "ai-agents",
-      "ai-product-management"
-    ],
-    "description": "Diagnose context stuffing vs.",
     "stars": 5645,
     "tier": "community"
   },
@@ -17802,21 +15432,6 @@
     "tier": "community"
   },
   {
-    "slug": "antfu/turborepo",
-    "name": "turborepo",
-    "source_repo": "antfu/skills",
-    "source_url": "https://github.com/antfu/skills/tree/main/skills/turborepo",
-    "subpath": "skills/turborepo",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "skills"
-    ],
-    "description": "|",
-    "stars": 5502,
-    "tier": "community"
-  },
-  {
     "slug": "antfu/unocss",
     "name": "unocss",
     "source_repo": "antfu/skills",
@@ -17922,21 +15537,6 @@
     "tier": "community"
   },
   {
-    "slug": "antfu/vue-testing-best-practices",
-    "name": "vue-testing-best-practices",
-    "source_repo": "antfu/skills",
-    "source_url": "https://github.com/antfu/skills/tree/main/skills/vue-testing-best-practices",
-    "subpath": "skills/vue-testing-best-practices",
-    "category": "testing",
-    "tags": [
-      "agent-skills",
-      "skills"
-    ],
-    "description": "Use for Vue.js testing.",
-    "stars": 5502,
-    "tier": "community"
-  },
-  {
     "slug": "antfu/vueuse-functions",
     "name": "vueuse-functions",
     "source_repo": "antfu/skills",
@@ -17979,36 +15579,6 @@
     ],
     "description": "Generate Guizang-style social card image sets, Live Photo motion cards, material-first Live Photo puzzle layouts, triple Live Photo collages, long-video-to-Live-Photo treatments, a",
     "stars": 4783,
-    "tier": "community"
-  },
-  {
-    "slug": "gosom/google-maps-scraper",
-    "name": "google-maps-scraper",
-    "source_repo": "gosom/google-maps-scraper",
-    "source_url": "https://github.com/gosom/google-maps-scraper/tree/main/skills/google-maps-scraper",
-    "subpath": "skills/google-maps-scraper",
-    "category": "data",
-    "tags": [
-      "agent-skills",
-      "claude-skills"
-    ],
-    "description": ">",
-    "stars": 4714,
-    "tier": "community"
-  },
-  {
-    "slug": "htdt/asset-gen",
-    "name": "asset-gen",
-    "source_repo": "htdt/godogen",
-    "source_url": "https://github.com/htdt/godogen/tree/master/asset-gen",
-    "subpath": "asset-gen",
-    "category": "other",
-    "tags": [
-      "claude",
-      "claude-code"
-    ],
-    "description": "|",
-    "stars": 4492,
     "tier": "community"
   },
   {
@@ -21612,21 +19182,6 @@
     "tier": "community"
   },
   {
-    "slug": "ibelick/fixing-metadata",
-    "name": "fixing-metadata",
-    "source_repo": "ibelick/ui-skills",
-    "source_url": "https://github.com/ibelick/ui-skills/tree/main/skills/fixing-metadata",
-    "subpath": "skills/fixing-metadata",
-    "category": "styling",
-    "tags": [
-      "skills",
-      "ui-skills"
-    ],
-    "description": ">",
-    "stars": 3610,
-    "tier": "community"
-  },
-  {
     "slug": "ibelick/fixing-motion-performance",
     "name": "fixing-motion-performance",
     "source_repo": "ibelick/ui-skills",
@@ -21683,21 +19238,6 @@
       "claude-code"
     ],
     "description": "Investigate implementation failures using root-cause-first debugging.",
-    "stars": 3547,
-    "tier": "community"
-  },
-  {
-    "slug": "gotalab/kiro-discovery",
-    "name": "kiro-discovery",
-    "source_repo": "gotalab/cc-sdd",
-    "source_url": "https://github.com/gotalab/cc-sdd/tree/main/tools/cc-sdd/templates/agents/antigravity-skills/skills/kiro-discovery",
-    "subpath": "tools/cc-sdd/templates/agents/antigravity-skills/skills/kiro-discovery",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "claude-code"
-    ],
-    "description": "Entry point for new work.",
     "stars": 3547,
     "tier": "community"
   },
@@ -21938,21 +19478,6 @@
       "claude-code"
     ],
     "description": "Investigate implementation failures using root-cause-first debugging.",
-    "stars": 3547,
-    "tier": "community"
-  },
-  {
-    "slug": "gotalab/cc-sdd-kiro-discovery",
-    "name": "kiro-discovery",
-    "source_repo": "gotalab/cc-sdd",
-    "source_url": "https://github.com/gotalab/cc-sdd/tree/main/tools/cc-sdd/templates/agents/claude-code-skills/skills/kiro-discovery",
-    "subpath": "tools/cc-sdd/templates/agents/claude-code-skills/skills/kiro-discovery",
-    "category": "other",
-    "tags": [
-      "agent-skills",
-      "claude-code"
-    ],
-    "description": "Entry point for new work.",
     "stars": 3547,
     "tier": "community"
   },
