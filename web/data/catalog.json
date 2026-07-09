@@ -2356,5 +2356,356 @@
     "score": 19,
     "provisional": true,
     "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-skills-update",
+    "display_name": "bb-skills-update",
+    "category": "meta",
+    "tags": [
+      "core",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/core/bb-skills-update",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/core/bb-skills-update",
+    "description": "Check for and install BuildBetter Skills updates.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-analyze",
+    "display_name": "bb-analyze",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-analyze",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-analyze",
+    "description": "Perform a non-destructive cross-artifact consistency and quality analysis across spec.md, plan.md, and tasks.md after task generation.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-checklist",
+    "display_name": "bb-checklist",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-checklist",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-checklist",
+    "description": "Generate a custom checklist for the current feature based on user requirements.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-clarify",
+    "display_name": "bb-clarify",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-clarify",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-clarify",
+    "description": "Identify underspecified areas in the current feature spec by asking up to 5 highly targeted clarification questions and encoding answers back into the spec.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-constitution",
+    "display_name": "bb-constitution",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-constitution",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-constitution",
+    "description": "Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-implement",
+    "display_name": "bb-implement",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-implement",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-implement",
+    "description": "Execute the implementation plan by processing and executing all tasks defined in tasks.md",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-plan",
+    "display_name": "bb-plan",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-plan",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-plan",
+    "description": "Execute the implementation planning workflow using the plan template to generate design artifacts.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-review",
+    "display_name": "bb-review",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-review",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-review",
+    "description": "Run a BuildBetter-first UX/usability and/or code review for the current feature.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-specify",
+    "display_name": "bb-specify",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-specify",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-specify",
+    "description": "Create or update the feature specification from a natural language feature description.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/bb-tasks",
+    "display_name": "bb-tasks",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-tasks",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-tasks",
+    "description": "Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts.",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/app-navigator",
+    "display_name": "app-navigator",
+    "category": "testing",
+    "tags": [
+      "testing",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/testing/app-navigator",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/testing/app-navigator",
+    "description": "Use when you need to map the application's routes, pages, and components, build reusable Playwright playbooks, or perform a UI/UX audit across the application",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/generate-tests",
+    "display_name": "generate-tests",
+    "category": "testing",
+    "tags": [
+      "testing",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/testing/generate-tests",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/testing/generate-tests",
+    "description": "Use when you want to generate reusable Playwright .spec.ts test files from the app-navigator's app map and playbooks",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/trust-but-verify",
+    "display_name": "trust-but-verify",
+    "category": "testing",
+    "tags": [
+      "testing",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/testing/trust-but-verify",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/testing/trust-but-verify",
+    "description": "Use when a feature branch has been implemented and you need to verify the UI/UX and functionality match the original plan before merging",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
   }
 ]
