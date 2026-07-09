@@ -8,7 +8,7 @@ import { SCORE_EXPLAINER, formatCount, scoreBand, scoreBar, skillPath } from "..
 const SORT_NAMES = {
   score: "skillrank score",
   stars: "stars",
-  lift: "eval lift"
+  skills: "skills"
 } as const;
 
 const SUBMIT_URL =
@@ -20,11 +20,15 @@ type RegistryClientProps = {
   skills: Skill[];
 };
 
-function sortValue(skill: Skill, sort: SortKey) {
-  if (sort === "stars") return skill.signals.stars ?? -1;
-  if (sort === "lift") return skill.eval.success_delta_pct ?? -Infinity;
-  return skill.score;
-}
+type RepoGroup = {
+  repo: string;
+  stars: number | null;
+  score: number;
+  tier: Skill["eval"]["tier"];
+  sourceUrl: string;
+  skills: Skill[];
+  categories: Set<string>;
+};
 
 function searchableText(skill: Skill) {
   return [
@@ -69,20 +73,44 @@ function copyText(button: HTMLButtonElement, text: string) {
   }
 }
 
+function repoTags(group: RepoGroup) {
+  return [...new Set(group.skills.flatMap((skill) => skill.tags))].slice(0, 2);
+}
+
+function repoCategoryLabel(group: RepoGroup) {
+  return group.categories.size === 1 ? [...group.categories][0] : "mixed";
+}
+
+function sortGroups(groups: RepoGroup[], sort: SortKey) {
+  return [...groups].sort((a, b) => {
+    let primary = 0;
+    if (sort === "stars") {
+      primary = (b.stars ?? -1) - (a.stars ?? -1);
+    } else if (sort === "skills") {
+      primary = b.skills.length - a.skills.length;
+    } else {
+      primary = b.score - a.score;
+    }
+    if (primary !== 0) return primary;
+    return a.repo.localeCompare(b.repo);
+  });
+}
+
 export function RegistryClient({ skills }: RegistryClientProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState<SortKey>("score");
   const [selected, setSelected] = useState(0);
-  const [openSlug, setOpenSlug] = useState<string | null>(null);
-  const [limit, setLimit] = useState(80); // cap rendered rows; "load more" extends
+  const [openRepos, setOpenRepos] = useState<Set<string>>(new Set());
+  const [limit, setLimit] = useState(60); // cap rendered repo rows; "load more" extends
   const [themeLabel, setThemeLabel] = useState("◐ theme");
   const searchRef = useRef<HTMLInputElement>(null);
   const rowsRef = useRef<HTMLDivElement>(null);
 
   const counts = useMemo(() => categoryCounts(skills, query), [skills, query]);
+  const hasQuery = query.trim().length > 0;
 
-  const filtered = useMemo(() => {
+  const filteredSkills = useMemo(() => {
     const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return skills
       .filter((skill) => {
@@ -90,20 +118,57 @@ export function RegistryClient({ skills }: RegistryClientProps) {
         if (!words.length) return true;
         const haystack = searchableText(skill);
         return words.every((word) => haystack.includes(word));
-      })
-      .sort((a, b) => {
-        const primary = sortValue(b, sort) - sortValue(a, sort);
-        if (primary !== 0) return primary;
-        return a.slug.localeCompare(b.slug);
       });
-  }, [category, query, skills, sort]);
+  }, [category, query, skills]);
+
+  const groups = useMemo(() => {
+    const byRepo = new Map<string, RepoGroup>();
+    filteredSkills.forEach((skill) => {
+      const existing = byRepo.get(skill.source_repo);
+      if (existing) {
+        existing.skills.push(skill);
+        existing.categories.add(skill.category);
+        return;
+      }
+      byRepo.set(skill.source_repo, {
+        repo: skill.source_repo,
+        stars: skill.signals.stars,
+        score: skill.score,
+        tier: skill.eval.tier,
+        sourceUrl: skill.source_url,
+        skills: [skill],
+        categories: new Set([skill.category])
+      });
+    });
+    const repoGroups = [...byRepo.values()].map((group) => ({
+      ...group,
+      skills: [...group.skills].sort((a, b) => a.slug.localeCompare(b.slug))
+    }));
+    return sortGroups(repoGroups, sort);
+  }, [filteredSkills, sort]);
 
   useEffect(() => {
-    setSelected((current) => Math.max(0, Math.min(current, Math.max(filtered.length - 1, 0))));
-  }, [filtered.length]);
+    setSelected((current) => Math.max(0, Math.min(current, Math.max(groups.length - 1, 0))));
+  }, [groups.length]);
 
   // reset the render window whenever the result set changes
-  useEffect(() => setLimit(80), [query, category, sort]);
+  useEffect(() => setLimit(60), [query, category, sort]);
+
+  useEffect(() => {
+    setOpenRepos(new Set());
+  }, [query, category, sort]);
+
+  function toggleRepo(repo: string) {
+    setOpenRepos((current) => {
+      const next = new Set(current);
+      if (next.has(repo)) {
+        next.delete(repo);
+      } else {
+        next.add(repo);
+      }
+      return next;
+    });
+  }
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -127,9 +192,10 @@ export function RegistryClient({ skills }: RegistryClientProps) {
 
       if (event.key === "ArrowDown" || event.key === "j") {
         event.preventDefault();
+        if (!groups.length) return;
         setSelected((current) => {
-          const next = Math.min(filtered.length - 1, current + 1);
-          setLimit((l) => (next >= l ? next + 40 : l)); // pull more rows into view when arrowing past the window
+          const next = Math.min(groups.length - 1, current + 1);
+          setLimit((l) => (next >= l ? next + 40 : l)); // pull more repo rows into view when arrowing past the window
           requestAnimationFrame(() =>
             rowsRef.current?.querySelectorAll(".row")[next]?.scrollIntoView({ block: "nearest" })
           );
@@ -137,22 +203,23 @@ export function RegistryClient({ skills }: RegistryClientProps) {
         });
       } else if (event.key === "ArrowUp" || event.key === "k") {
         event.preventDefault();
+        if (!groups.length) return;
         setSelected((current) => {
           const next = Math.max(0, current - 1);
           rowsRef.current?.querySelectorAll(".row")[next]?.scrollIntoView({ block: "nearest" });
           return next;
         });
       } else if (event.key === "Enter") {
-        const skill = filtered[selected];
-        if (skill) {
+        const group = groups[selected];
+        if (group) {
           event.preventDefault();
-          setOpenSlug((current) => (current === skill.slug ? null : skill.slug));
+          toggleRepo(group.repo);
           rowsRef.current?.querySelectorAll(".row")[selected]?.scrollIntoView({ block: "nearest" });
         }
       } else if (event.key.toLowerCase() === "g") {
-        const skill = filtered[selected];
-        if (skill) {
-          window.location.href = skill.source_url;
+        const group = groups[selected];
+        if (group) {
+          window.location.href = group.sourceUrl;
         }
       } else if (event.key.toLowerCase() === "i") {
         document.getElementById("top")?.scrollIntoView({
@@ -165,7 +232,7 @@ export function RegistryClient({ skills }: RegistryClientProps) {
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [filtered, selected]);
+  }, [groups, selected]);
 
   function changeTheme() {
     const root = document.documentElement;
@@ -313,114 +380,109 @@ export function RegistryClient({ skills }: RegistryClientProps) {
 
           <section className="list">
             <div className="listhead">
-              <h2>{category === "all" ? (sort === "score" ? "top skills" : "all skills") : `${category} skills`}</h2>
+              <h2>{category === "all" ? (sort === "score" ? "top repos" : "all repos") : `${category} repos`}</h2>
               <span className="meta">
-                <b>{filtered.length}</b> of {skills.length} · sorted by <b>{SORT_NAMES[sort]}</b>
+                <b>{groups.length}</b> repos · <b>{filteredSkills.length}</b> skills · sorted by{" "}
+                <b>{SORT_NAMES[sort]}</b>
               </span>
             </div>
             <div className="colhead">
               <span className="r">#</span>
-              <span>skill</span>
+              <span>repo</span>
               <span className="r c-star">★ stars</span>
               <span className="r c-tier">tier</span>
-              <span className="r">Δ success</span>
+              <span className="r">skills</span>
               <span className="r">score</span>
             </div>
             <div className="rows" ref={rowsRef}>
-              {filtered.length ? (
+              {groups.length ? (
                 <>
-                  {filtered.slice(0, limit).map((skill, index) => {
-                  const isOpen = openSlug === skill.slug;
-                  const isSelected = selected === index;
-                  return (
-                    <div
-                      className={`row ${index < 3 ? `top${index + 1}` : ""} ${isSelected ? "sel" : ""} ${
-                        isOpen ? "open" : ""
-                      }`}
-                      key={skill.slug}
-                    >
-                      <button
-                        className="row-main"
-                        type="button"
-                        onClick={() => {
-                          setSelected(index);
-                          setOpenSlug(isOpen ? null : skill.slug);
-                        }}
-                        aria-expanded={isOpen}
+                  {groups.slice(0, limit).map((group, index) => {
+                    const isOpen = hasQuery || openRepos.has(group.repo);
+                    const isSelected = selected === index;
+                    const tags = repoTags(group);
+                    const subParts = [
+                      `${group.skills.length} ${group.skills.length === 1 ? "skill" : "skills"}`,
+                      repoCategoryLabel(group),
+                      ...tags
+                    ];
+                    return (
+                      <div
+                        className={`row ${index < 3 ? `top${index + 1}` : ""} ${isSelected ? "sel" : ""} ${
+                          isOpen ? "open" : ""
+                        }`}
+                        key={group.repo}
                       >
-                        <span className="rank">{index + 1}</span>
-                        <span className="nm">
-                          <span className="n">
-                            <span className="caret">▸</span>
-                            {skill.slug}
+                        <button
+                          className="row-main"
+                          type="button"
+                          onClick={() => {
+                            setSelected(index);
+                            toggleRepo(group.repo);
+                          }}
+                          aria-expanded={isOpen}
+                        >
+                          <span className="rank">{index + 1}</span>
+                          <span className="nm">
+                            <span className="n">
+                              <span className="caret">▸</span>
+                              {group.repo}
+                            </span>
+                            <span className="sub">
+                              {subParts.map((part, partIndex) => (
+                                <span className={partIndex === 1 ? "cat" : undefined} key={`${group.repo}-${part}`}>
+                                  {partIndex > 0 ? " · " : ""}
+                                  {part}
+                                </span>
+                              ))}
+                            </span>
                           </span>
-                          <span className="sub">
-                            <span className="cat">{skill.category}</span> · {skill.tags.join(" · ")}
+                          <span className="num star c-star">★ {formatCount(group.stars)}</span>
+                          <span className={`tier c-tier ${group.tier === "official" ? "official" : ""}`}>
+                            {group.tier}
                           </span>
-                        </span>
-                        <span className="num star c-star">★ {formatCount(skill.signals.stars)}</span>
-                        <span className={`tier c-tier ${skill.eval.tier === "official" ? "official" : ""}`}>
-                          {skill.eval.tier}
-                        </span>
-                        <span className="num succ">
-                          <span className="pend">eval pending</span>
-                        </span>
-                        <span className={`score ${scoreBand(skill.score)}`}>
-                          <span className="bar">{scoreBar(skill.score)}</span>
-                          <span className="v">{skill.score}</span>
-                        </span>
-                      </button>
-                      <div className="detail">
-                        <p className="desc">{skill.description}</p>
-                        <div className="signals">
-                          <div className="sig">
-                            <div className="lab">community</div>
-                            <div className="val">★ {formatCount(skill.signals.stars)}</div>
-                          </div>
-                          <div className="sig">
-                            <div className="lab">usage</div>
-                            <div className="val">
-                              {formatCount(skill.signals.installs)} <small>installs</small>
+                          <span className="num succ">{group.skills.length}</span>
+                          <span className={`score ${scoreBand(group.score)}`}>
+                            <span className="bar">{scoreBar(group.score)}</span>
+                            <span className="v">{group.score}</span>
+                          </span>
+                        </button>
+                        <div className="detail repo-detail">
+                          {isOpen ? group.skills.map((skill) => (
+                            <div className="skillrow" key={skill.slug}>
+                              <div className="skillrow-head">
+                                <span className="skillrow-name">{skill.display_name}</span>
+                                <span className="skillrow-slug">{skill.slug}</span>
+                              </div>
+                              <p className="desc">{skill.description}</p>
+                              <div className="instrow">
+                                <code>
+                                  <span className="p">$</span> skillrank install <b>{skill.slug}</b>
+                                </code>
+                                <button
+                                  className="copy"
+                                  type="button"
+                                  onClick={(event) => copyText(event.currentTarget, `skillrank install ${skill.slug}`)}
+                                >
+                                  copy
+                                </button>
+                              </div>
+                              <p className="dmeta">
+                                <span className={`tier ${skill.eval.tier === "official" ? "official" : ""}`}>
+                                  {skill.eval.tier}
+                                </span>
+                                <span className="badge">eval pending</span>
+                                <Link href={skillPath(skill.slug)}>view page ▸</Link>
+                              </p>
                             </div>
-                          </div>
-                          <div className="sig">
-                            <div className="lab">eval lift</div>
-                            <div className="val">
-                              <small>eval pending</small>
-                            </div>
-                          </div>
+                          )) : null}
                         </div>
-                        <div className="instrow">
-                          <code>
-                            <span className="p">$</span> skillrank install <b>{skill.slug}</b>
-                          </code>
-                          <button
-                            className="copy"
-                            type="button"
-                            onClick={(event) => copyText(event.currentTarget, `skillrank install ${skill.slug}`)}
-                          >
-                            copy
-                          </button>
-                        </div>
-                        <p className="dmeta">
-                          <span className={`tier ${skill.eval.tier === "official" ? "official" : ""}`}>
-                            {skill.eval.tier}
-                          </span>
-                          <span className="badge">provisional</span>
-                          <span>
-                            skillrank score <b>{skill.score}</b>/100
-                          </span>
-                          <a href={skill.source_url}>source ▸</a>
-                          <Link href={skillPath(skill.slug)}>view full page ▸</Link>
-                        </p>
-                        <p className="explain">{SCORE_EXPLAINER}</p>
                       </div>
-                    </div>
-                  );
+                    );
                   })}
-                  {filtered.length > limit ? (
-                    <button className="loadmore" type="button" onClick={() => setLimit((l) => l + 120)}>
-                      load {Math.min(120, filtered.length - limit)} more · {filtered.length - limit} remaining
+                  {groups.length > limit ? (
+                    <button className="loadmore" type="button" onClick={() => setLimit((l) => l + 80)}>
+                      load {Math.min(80, groups.length - limit)} more · {groups.length - limit} remaining
                     </button>
                   ) : null}
                 </>

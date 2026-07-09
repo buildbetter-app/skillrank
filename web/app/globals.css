@@ -566,7 +566,8 @@ button {
 @media (max-width: 720px) {
   .colhead,
   .row-main {
-    grid-template-columns: 26px 1fr 88px;
+    grid-template-columns: 26px minmax(0, 1fr) 44px 96px;
+    gap: 8px;
   }
 
   .colhead .c-star,
@@ -735,6 +736,45 @@ button {
   font-size: 13.5px;
   max-width: 64ch;
   margin: 6px 0 14px;
+}
+
+.repo-detail {
+  padding-top: 4px;
+}
+
+.skillrow {
+  max-width: 720px;
+  padding: 13px 0 15px;
+  border-top: 1px dashed color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.skillrow:first-child {
+  border-top: none;
+  padding-top: 4px;
+}
+
+.skillrow-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+.skillrow-name {
+  color: var(--amber-hi);
+  font-size: 14px;
+}
+
+.skillrow-slug {
+  color: var(--ink-dim);
+  font-size: 11.5px;
+  overflow-wrap: anywhere;
+}
+
+.skillrow .desc {
+  margin: 4px 0 10px;
+  color: var(--ink-dim);
 }
 
 .signals {
