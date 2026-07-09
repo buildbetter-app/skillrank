@@ -217,6 +217,178 @@ pub fn list(args: &[String]) -> i32 {
     0
 }
 
+#[derive(Serialize)]
+struct OutdatedRow {
+    slug: String,
+    status: String,
+    installed: String,
+    available: String,
+}
+
+fn short_hash(h: &str) -> String {
+    h.strip_prefix("sha256:")
+        .unwrap_or(h)
+        .chars()
+        .take(10)
+        .collect()
+}
+
+/// Compare each installed skill's locked content hash to the registry's current
+/// version. A skill is "outdated" when the registry has re-pinned it to a newer
+/// source commit than the one we installed.
+pub fn outdated(args: &[String]) -> i32 {
+    let f = Flags::parse(args);
+    let repo_root = core::repo_root(f.value("cwd"));
+    let lock = match core::Lockfile::load(&repo_root) {
+        Ok(l) => l,
+        Err(e) => {
+            eprintln!("error: {e}");
+            return 1;
+        }
+    };
+    if lock.skills.is_empty() {
+        if f.wants_json() {
+            print_json(&Vec::<OutdatedRow>::new());
+        } else {
+            println!("No registry-installed skills in this repo.");
+        }
+        return 0;
+    }
+    let client = new_client(&f);
+    let mut rows: Vec<OutdatedRow> = Vec::new();
+    let (mut n_out, mut n_gone, mut n_ok) = (0u32, 0u32, 0u32);
+    for e in &lock.skills {
+        let (status, available) = match client.resolve(&e.slug) {
+            Ok(r) if r.tombstoned => {
+                n_gone += 1;
+                ("unavailable", String::new())
+            }
+            Ok(r) if !r.content_hash.is_empty() && r.content_hash != e.computed_hash => {
+                n_out += 1;
+                ("outdated", r.content_hash)
+            }
+            Ok(r) => {
+                n_ok += 1;
+                ("up-to-date", r.content_hash)
+            }
+            Err(_) => {
+                n_gone += 1;
+                ("unavailable", String::new())
+            }
+        };
+        rows.push(OutdatedRow {
+            slug: e.slug.clone(),
+            status: status.to_string(),
+            installed: e.computed_hash.clone(),
+            available,
+        });
+    }
+    if f.wants_json() {
+        print_json(&rows);
+        return 0;
+    }
+    for r in &rows {
+        if r.status == "outdated" {
+            println!(
+                "{:<40} OUTDATED   {} → {}",
+                r.slug,
+                short_hash(&r.installed),
+                short_hash(&r.available)
+            );
+        } else {
+            println!("{:<40} {}", r.slug, r.status);
+        }
+    }
+    println!(
+        "\n{n_out} outdated, {n_gone} unavailable, {n_ok} up to date (of {}).",
+        lock.skills.len()
+    );
+    if n_out > 0 {
+        println!("Upgrade with: skillrank upgrade --all");
+    }
+    0
+}
+
+/// Re-install skills to the registry's current version. Targets: the given
+/// slugs, or every outdated skill with `--all`.
+pub fn upgrade(args: &[String]) -> i32 {
+    let f = Flags::parse(args);
+    let repo_root = core::repo_root(f.value("cwd"));
+    let client = new_client(&f);
+    let lock = match core::Lockfile::load(&repo_root) {
+        Ok(l) => l,
+        Err(e) => {
+            eprintln!("error: {e}");
+            return 1;
+        }
+    };
+
+    let targets: Vec<String> = if !f.positionals.is_empty() {
+        f.positionals.clone()
+    } else if f.bool("all") {
+        let mut v = Vec::new();
+        for e in &lock.skills {
+            if let Ok(r) = client.resolve(&e.slug) {
+                if !r.tombstoned && !r.content_hash.is_empty() && r.content_hash != e.computed_hash
+                {
+                    v.push(e.slug.clone());
+                }
+            }
+        }
+        v
+    } else {
+        eprintln!("usage: upgrade <slug>... | --all [--yes] [--surface DIR]");
+        return 2;
+    };
+
+    if targets.is_empty() {
+        println!("Everything is up to date.");
+        return 0;
+    }
+
+    let yes = f.bool("yes") || f.bool("y");
+    let (mut upgraded, mut failed) = (0u32, 0u32);
+    for slug in &targets {
+        let resolved = match client.resolve(slug) {
+            Ok(r) => r,
+            Err(e) => {
+                eprintln!("{slug}: {e}");
+                failed += 1;
+                continue;
+            }
+        };
+        if !core::safe_scan_tier(resolved.scan_tier) && !yes {
+            println!("⚠ {} has scan tier {:?}.", slug, resolved.scan_tier);
+            if !confirm("Upgrade anyway?") {
+                println!("Skipped {slug}.");
+                continue;
+            }
+        }
+        match client.install(&core::InstallOptions {
+            reference: slug.clone(),
+            repo_root: repo_root.clone(),
+            surface_override: f.value("surface").to_string(),
+            now_rfc3339: None,
+        }) {
+            Ok(r) if r.already_exact => println!("{} already up to date.", r.slug),
+            Ok(r) => {
+                println!("Upgraded {} → {}", r.slug, r.skill_path);
+                upgraded += 1;
+            }
+            Err(e) => {
+                eprintln!("{slug}: {e}");
+                failed += 1;
+            }
+        }
+    }
+    println!("\n{upgraded} upgraded, {failed} failed.");
+    if failed > 0 {
+        1
+    } else {
+        0
+    }
+}
+
 pub fn uninstall(args: &[String]) -> i32 {
     let f = Flags::parse(args);
     let Some(slug) = f.positionals.first().cloned() else {

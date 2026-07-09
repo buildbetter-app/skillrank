@@ -52,13 +52,15 @@ fn dispatch(args: &[String]) -> i32 {
         "show" => commands::show(tail),
         "install" | "add" => commands::install(tail),
         "list" | "ls" => commands::list(tail),
+        "outdated" => commands::outdated(tail),
+        "upgrade" => commands::upgrade(tail),
         "uninstall" | "remove" | "rm" => commands::uninstall(tail),
         "recommend" => commands::recommend(tail),
         "eval" => eval::run(tail),
         "skill" => selfskill::run(tail),
         "mcp" => mcp::run(tail),
         "setup" => setup::run(tail),
-        "update" | "upgrade" | "self-update" => update::run(tail),
+        "update" | "self-update" => update::run(tail),
         "serve" => serve::run(tail),
         other => {
             eprintln!("unknown skillrank subcommand {other:?}");
@@ -143,6 +145,8 @@ Commands:
   show <ref>         Show a skill's scores, security, and eval results.
   install <ref>      Install a skill into this repo (hash-verified).
   list               List installed skills and drift.
+  outdated           Show installed skills that have a newer version.
+  upgrade [<slug>]   Update installed skills to the latest (--all for every outdated one).
   uninstall <slug>   Remove an installed skill.
   recommend          Suggest skills for this repo's detected stack.
   eval <ref>         Run a local paired eval on your own agent; optionally publish.
