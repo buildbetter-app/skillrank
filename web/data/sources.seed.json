@@ -28450,5 +28450,2414 @@
     "description": "Comprehensive web quality audit covering performance, accessibility, SEO, and best practices.",
     "stars": 2476,
     "tier": "community"
+  },
+  {
+    "slug": "mukul975/abusing-dpapi-for-credential-access",
+    "name": "abusing-dpapi-for-credential-access",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/abusing-dpapi-for-credential-access",
+    "subpath": "skills/abusing-dpapi-for-credential-access",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Extract DPAPI-protected secrets such as credentials and browser data offline and online.",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/abusing-shadow-credentials-for-privesc",
+    "name": "abusing-shadow-credentials-for-privesc",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/abusing-shadow-credentials-for-privesc",
+    "subpath": "skills/abusing-shadow-credentials-for-privesc",
+    "category": "document",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Take over Active Directory user and computer accounts by writing alternate certificate keys to msDS-KeyCredentialLink (Shadow Credentials) with pyWhisker, Whisker, and Certipy, the",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/acquiring-disk-image-with-dd-and-dcfldd",
+    "name": "acquiring-disk-image-with-dd-and-dcfldd",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/acquiring-disk-image-with-dd-and-dcfldd",
+    "subpath": "skills/acquiring-disk-image-with-dd-and-dcfldd",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Create forensically sound bit-for-bit disk images using dd and dcfldd",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-active-directory-acl-abuse",
+    "name": "analyzing-active-directory-acl-abuse",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-active-directory-acl-abuse",
+    "subpath": "skills/analyzing-active-directory-acl-abuse",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Detect dangerous ACL misconfigurations in Active Directory using ldap3",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-android-malware-with-apktool",
+    "name": "analyzing-android-malware-with-apktool",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-android-malware-with-apktool",
+    "subpath": "skills/analyzing-android-malware-with-apktool",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Perform static analysis of Android APK malware samples using apktool",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-api-gateway-access-logs",
+    "name": "analyzing-api-gateway-access-logs",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-api-gateway-access-logs",
+    "subpath": "skills/analyzing-api-gateway-access-logs",
+    "category": "devops",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Parses API Gateway access logs (AWS API Gateway, Kong, Nginx) to detect",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-apt-group-with-mitre-navigator",
+    "name": "analyzing-apt-group-with-mitre-navigator",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-apt-group-with-mitre-navigator",
+    "subpath": "skills/analyzing-apt-group-with-mitre-navigator",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Analyze advanced persistent threat (APT) group techniques using MITRE",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-azure-activity-logs-for-threats",
+    "name": "analyzing-azure-activity-logs-for-threats",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-azure-activity-logs-for-threats",
+    "subpath": "skills/analyzing-azure-activity-logs-for-threats",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Queries Azure Monitor activity logs and sign-in logs via azure-monitor-query",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-bootkit-and-rootkit-samples",
+    "name": "analyzing-bootkit-and-rootkit-samples",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-bootkit-and-rootkit-samples",
+    "subpath": "skills/analyzing-bootkit-and-rootkit-samples",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Analyzes bootkit and advanced rootkit malware that infects the Master",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-browser-forensics-with-hindsight",
+    "name": "analyzing-browser-forensics-with-hindsight",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-browser-forensics-with-hindsight",
+    "subpath": "skills/analyzing-browser-forensics-with-hindsight",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Analyze Chromium-based browser artifacts using Hindsight to extract browsing",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-campaign-attribution-evidence",
+    "name": "analyzing-campaign-attribution-evidence",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-campaign-attribution-evidence",
+    "subpath": "skills/analyzing-campaign-attribution-evidence",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Campaign attribution analysis involves systematically evaluating evidence",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-certificate-transparency-for-phishing",
+    "name": "analyzing-certificate-transparency-for-phishing",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-certificate-transparency-for-phishing",
+    "subpath": "skills/analyzing-certificate-transparency-for-phishing",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Monitor Certificate Transparency logs using crt.sh and Certstream to",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-cloud-storage-access-patterns",
+    "name": "analyzing-cloud-storage-access-patterns",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cloud-storage-access-patterns",
+    "subpath": "skills/analyzing-cloud-storage-access-patterns",
+    "category": "devops",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Detect abnormal access patterns in AWS S3, GCS, and Azure Blob Storage",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-cobalt-strike-beacon-configuration",
+    "name": "analyzing-cobalt-strike-beacon-configuration",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cobalt-strike-beacon-configuration",
+    "subpath": "skills/analyzing-cobalt-strike-beacon-configuration",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Extract and analyze Cobalt Strike beacon configuration from PE files",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-cobaltstrike-malleable-c2-profiles",
+    "name": "analyzing-cobaltstrike-malleable-c2-profiles",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cobaltstrike-malleable-c2-profiles",
+    "subpath": "skills/analyzing-cobaltstrike-malleable-c2-profiles",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Parse and analyze Cobalt Strike Malleable C2 profiles using dissect.cobaltstrike",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-command-and-control-communication",
+    "name": "analyzing-command-and-control-communication",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-command-and-control-communication",
+    "subpath": "skills/analyzing-command-and-control-communication",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Analyzes malware command-and-control (C2) communication protocols to",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-cyber-kill-chain",
+    "name": "analyzing-cyber-kill-chain",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-cyber-kill-chain",
+    "subpath": "skills/analyzing-cyber-kill-chain",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Analyzes intrusion activity against the Lockheed Martin Cyber Kill Chain",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-disk-image-with-autopsy",
+    "name": "analyzing-disk-image-with-autopsy",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-disk-image-with-autopsy",
+    "subpath": "skills/analyzing-disk-image-with-autopsy",
+    "category": "security",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Perform comprehensive forensic analysis of disk images using Autopsy",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "mukul975/analyzing-dns-logs-for-exfiltration",
+    "name": "analyzing-dns-logs-for-exfiltration",
+    "source_repo": "mukul975/Anthropic-Cybersecurity-Skills",
+    "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-dns-logs-for-exfiltration",
+    "subpath": "skills/analyzing-dns-logs-for-exfiltration",
+    "category": "testing",
+    "tags": [
+      "ai-agents",
+      "claude-code"
+    ],
+    "description": "Analyzes DNS query logs to detect data exfiltration via DNS tunneling,",
+    "stars": 24971,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/agent-name",
+    "name": "Agent Name",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/TEMPLATE",
+    "subpath": ".gemini/skills/TEMPLATE",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "One paragraph describing what this agent does, who it's for, and when to activate it.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/a11y-audit",
+    "name": "a11y-audit",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/a11y-audit",
+    "subpath": ".gemini/skills/a11y-audit",
+    "category": "frontend",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/ab-test-setup",
+    "name": "ab-test-setup",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ab-test-setup",
+    "subpath": ".gemini/skills/ab-test-setup",
+    "category": "testing",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "When the user wants to plan, design, or implement an A/B test or experiment.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/ad-creative",
+    "name": "ad-creative",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ad-creative",
+    "subpath": ".gemini/skills/ad-creative",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "When the user needs to generate, iterate, or scale ad creative for paid advertising.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/adversarial-reviewer",
+    "name": "adversarial-reviewer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/adversarial-reviewer",
+    "subpath": ".gemini/skills/adversarial-reviewer",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Adversarial code review that breaks the self-review monoculture.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/aeo",
+    "name": "aeo",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/aeo",
+    "subpath": ".gemini/skills/aeo",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/agent-designer",
+    "name": "agent-designer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agent-designer",
+    "subpath": ".gemini/skills/agent-designer",
+    "category": "devops",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Use when the user asks to design a multi-agent system, pick an orchestration pattern (supervisor/swarm/pipeline), generate tool schemas for agents, or evaluate agent execution logs",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/agent-protocol",
+    "name": "agent-protocol",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agent-protocol",
+    "subpath": ".gemini/skills/agent-protocol",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Inter-agent communication protocol for C-suite agent teams.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/agent-workflow-designer",
+    "name": "agent-workflow-designer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agent-workflow-designer",
+    "subpath": ".gemini/skills/agent-workflow-designer",
+    "category": "styling",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Design production-grade multi-agent workflows with clear pattern choice (sequential, parallel, hierarchical), handoff contracts, failure handling, and cost/context controls.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/agenthub",
+    "name": "agenthub",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agenthub",
+    "subpath": ".gemini/skills/agenthub",
+    "category": "meta",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/agile-product-owner",
+    "name": "agile-product-owner",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/agile-product-owner",
+    "subpath": ".gemini/skills/agile-product-owner",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Agile product ownership for backlog management and sprint execution.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/ai-act-readiness",
+    "name": "ai-act-readiness",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ai-act-readiness",
+    "subpath": ".gemini/skills/ai-act-readiness",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/ai-security",
+    "name": "ai-security",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/ai-security",
+    "subpath": ".gemini/skills/ai-security",
+    "category": "security",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/aims-audit",
+    "name": "aims-audit",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/aims-audit",
+    "subpath": ".gemini/skills/aims-audit",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/analytics-tracking",
+    "name": "analytics-tracking",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/analytics-tracking",
+    "subpath": ".gemini/skills/analytics-tracking",
+    "category": "testing",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/andreessen",
+    "name": "andreessen",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/andreessen",
+    "subpath": ".gemini/skills/andreessen",
+    "category": "ai",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Marc Andreessen-mode decision and productivity skill.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/api-design-reviewer",
+    "name": "api-design-reviewer",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/api-design-reviewer",
+    "subpath": ".gemini/skills/api-design-reviewer",
+    "category": "styling",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Comprehensive REST API design review with automated linting, breaking-change detection, and design scorecards.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/api-test-suite-builder",
+    "name": "api-test-suite-builder",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/api-test-suite-builder",
+    "subpath": ".gemini/skills/api-test-suite-builder",
+    "category": "testing",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests.",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "alirezarezvani/app-store-optimization",
+    "name": "app-store-optimization",
+    "source_repo": "alirezarezvani/claude-skills",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/main/.gemini/skills/app-store-optimization",
+    "subpath": ".gemini/skills/app-store-optimization",
+    "category": "data",
+    "tags": [
+      "agent-plugins",
+      "agent-skills"
+    ],
+    "description": "App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, generating metadata suggestions, and improving app visibility on Apple App Store and G",
+    "stars": 21697,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/ablation-planner",
+    "name": "ablation-planner",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/ablation-planner",
+    "subpath": "skills/ablation-planner",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Use when main results pass result-to-claim (claim_supported=yes or partial) and ablation studies are needed for paper submission.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/alphaxiv",
+    "name": "alphaxiv",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/alphaxiv",
+    "subpath": "skills/alphaxiv",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Quick single-paper lookup via AlphaXiv LLM-optimized summaries with tiered source fallback.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/analyze-results",
+    "name": "analyze-results",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/analyze-results",
+    "subpath": "skills/analyze-results",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Analyze ML experiment results, compute statistics, generate comparison tables and insights.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/arxiv",
+    "name": "arxiv",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/arxiv",
+    "subpath": "skills/arxiv",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Search, download, and summarize academic papers from arXiv.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/auto-paper-improvement-loop",
+    "name": "auto-paper-improvement-loop",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-paper-improvement-loop",
+    "subpath": "skills/auto-paper-improvement-loop",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Autonomously improve a generated paper via GPT-5.5 xhigh review → implement fixes → recompile, for 2 rounds.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/auto-review-loop",
+    "name": "auto-review-loop",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-review-loop",
+    "subpath": "skills/auto-review-loop",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Autonomous multi-round research review loop.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/auto-review-loop-llm",
+    "name": "auto-review-loop-llm",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-review-loop-llm",
+    "subpath": "skills/auto-review-loop-llm",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Autonomous research review loop using any OpenAI-compatible LLM API.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/auto-review-loop-minimax",
+    "name": "auto-review-loop-minimax",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/auto-review-loop-minimax",
+    "subpath": "skills/auto-review-loop-minimax",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Autonomous multi-round research review loop using MiniMax API.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/citation-audit",
+    "name": "citation-audit",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/citation-audit",
+    "subpath": "skills/citation-audit",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Zero-context verification that every bibliographic entry in the paper is real, correctly attributed, and used in a context the cited paper actually supports — catching hallucinated",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/claims-drafting",
+    "name": "claims-drafting",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/claims-drafting",
+    "subpath": "skills/claims-drafting",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Draft patent claims for an invention.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/comm-lit-review",
+    "name": "comm-lit-review",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/comm-lit-review",
+    "subpath": "skills/comm-lit-review",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Communications-domain literature review with Claude-style knowledge-base-first retrieval.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/deepxiv",
+    "name": "deepxiv",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/deepxiv",
+    "subpath": "skills/deepxiv",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Search and progressively read open-access academic papers through DeepXiv.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/dse-loop",
+    "name": "dse-loop",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/dse-loop",
+    "subpath": "skills/dse-loop",
+    "category": "styling",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Autonomous design space exploration loop for computer architecture and EDA.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/embodiment-description",
+    "name": "embodiment-description",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/embodiment-description",
+    "subpath": "skills/embodiment-description",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Write detailed embodiment descriptions for patent specifications.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/exa-search",
+    "name": "exa-search",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/exa-search",
+    "subpath": "skills/exa-search",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "AI-powered web search via Exa with content extraction.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/experiment-audit",
+    "name": "experiment-audit",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-audit",
+    "subpath": "skills/experiment-audit",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Audit experiment integrity before claiming results.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/experiment-bridge",
+    "name": "experiment-bridge",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-bridge",
+    "subpath": "skills/experiment-bridge",
+    "category": "meta",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Workflow 1.5: Bridge between idea discovery and auto review.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/experiment-plan",
+    "name": "experiment-plan",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-plan",
+    "subpath": "skills/experiment-plan",
+    "category": "data",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Turn a refined research proposal or method idea into a detailed, claim-driven experiment roadmap.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/experiment-queue",
+    "name": "experiment-queue",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/experiment-queue",
+    "subpath": "skills/experiment-queue",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "SSH job queue for multi-seed/multi-config ML experiments with OOM-aware retry, stale-screen cleanup, and wave-transition race prevention.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "wanshuiyin/feishu-notify",
+    "name": "feishu-notify",
+    "source_repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/feishu-notify",
+    "subpath": "skills/feishu-notify",
+    "category": "ai",
+    "tags": [
+      "ai-research",
+      "ai-tools"
+    ],
+    "description": "Send notifications to Feishu/Lark.",
+    "stars": 13150,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/agentica-claude-proxy",
+    "name": "agentica-claude-proxy",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-claude-proxy",
+    "subpath": ".claude/skills/agentica-claude-proxy",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Guide for integrating Agentica SDK with Claude Code CLI proxy",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/agentica-infrastructure",
+    "name": "agentica-infrastructure",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-infrastructure",
+    "subpath": ".claude/skills/agentica-infrastructure",
+    "category": "devops",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Reference guide for Agentica multi-agent infrastructure APIs",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/agentica-prompts",
+    "name": "agentica-prompts",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-prompts",
+    "subpath": ".claude/skills/agentica-prompts",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Write reliable prompts for Agentica/REPL agents that avoid LLM instruction ambiguity",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/agentica-sdk",
+    "name": "agentica-sdk",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-sdk",
+    "subpath": ".claude/skills/agentica-sdk",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Build Python agents with Agentica SDK - @agentic decorator, spawn(), persistence, MCP integration",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/agentica-server",
+    "name": "agentica-server",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-server",
+    "subpath": ".claude/skills/agentica-server",
+    "category": "testing",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Agentica server + Claude proxy setup - architecture, startup sequence, debugging",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/agentica-spawn",
+    "name": "agentica-spawn",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/agentica-spawn",
+    "subpath": ".claude/skills/agentica-spawn",
+    "category": "meta",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Spawn Agentica multi-agent patterns",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/leann-search",
+    "name": "leann-search",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/archive/leann-search",
+    "subpath": ".claude/skills/archive/leann-search",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Semantic search across codebase using LEANN vector index",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/ast-grep-find",
+    "name": "ast-grep-find",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/ast-grep-find",
+    "subpath": ".claude/skills/ast-grep-find",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "AST-based code search and refactoring via ast-grep MCP",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/braintrust-analyze",
+    "name": "braintrust-analyze",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/braintrust-analyze",
+    "subpath": ".claude/skills/braintrust-analyze",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Analyze Claude Code sessions via Braintrust",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "parcadei/braintrust-tracing",
+    "name": "braintrust-tracing",
+    "source_repo": "parcadei/Continuous-Claude-v3",
+    "source_url": "https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/braintrust-tracing",
+    "subpath": ".claude/skills/braintrust-tracing",
+    "category": "testing",
+    "tags": [
+      "agents",
+      "claude-code"
+    ],
+    "description": "Braintrust tracing for Claude Code - hook architecture, sub-agent correlation, debugging",
+    "stars": 3856,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/code-health",
+    "name": "code-health",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/code-health",
+    "subpath": "plugins/agent-triforce/skills/code-health",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Scans the codebase for dead code, tech debt, outdated dependencies, and code quality issues.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/feature-spec",
+    "name": "feature-spec",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/feature-spec",
+    "subpath": "plugins/agent-triforce/skills/feature-spec",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Creates a complete product feature specification with acceptance criteria, scope, dependencies, and risks.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/implement-feature",
+    "name": "implement-feature",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/implement-feature",
+    "subpath": "plugins/agent-triforce/skills/implement-feature",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Implements a feature from its specification.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/release-check",
+    "name": "release-check",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/release-check",
+    "subpath": "plugins/agent-triforce/skills/release-check",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Pre-release verification checklist.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/review-findings",
+    "name": "review-findings",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/review-findings",
+    "subpath": "plugins/agent-triforce/skills/review-findings",
+    "category": "testing",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Addresses and fixes findings from a QA code review.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/security-audit",
+    "name": "security-audit",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agent-triforce/skills/security-audit",
+    "subpath": "plugins/agent-triforce/skills/security-audit",
+    "category": "security",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Deep security audit covering OWASP Top 10, authentication, authorization, data protection, dependency vulnerabilities, and secrets scanning.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/uctm-init",
+    "name": "uctm-init",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/init",
+    "subpath": "plugins/agents-uc-taskmanager/skills/init",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Initialize uc-taskmanager for the current project.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/sdd-pipeline",
+    "name": "sdd-pipeline",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/sdd-pipeline",
+    "subpath": "plugins/agents-uc-taskmanager/skills/sdd-pipeline",
+    "category": "devops",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Skill from davepoon/buildwithclaude.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/work-pipeline",
+    "name": "work-pipeline",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/work-pipeline",
+    "subpath": "plugins/agents-uc-taskmanager/skills/work-pipeline",
+    "category": "devops",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Triggers the WORK-PIPELINE when a user request starts with a [] tag (e.g., [new-feature], [bugfix], [WORK start]).",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/work-status",
+    "name": "work-status",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/agents-uc-taskmanager/skills/work-status",
+    "subpath": "plugins/agents-uc-taskmanager/skills/work-status",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Shows WORK progress and TASK status.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/activecampaign-automation",
+    "name": "activecampaign-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/activecampaign-automation",
+    "subpath": "plugins/all-skills/skills/activecampaign-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, automation enrollment, and tasks.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/agent-analytics",
+    "name": "agent-analytics",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/agent-analytics",
+    "subpath": "plugins/all-skills/skills/agent-analytics",
+    "category": "data",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Analytics your AI agent can actually use.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/airtable-automation",
+    "name": "airtable-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/airtable-automation",
+    "subpath": "plugins/all-skills/skills/airtable-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/amplitude-automation",
+    "name": "amplitude-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/amplitude-automation",
+    "subpath": "plugins/all-skills/skills/amplitude-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identification.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/artifacts-builder",
+    "name": "artifacts-builder",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/artifacts-builder",
+    "subpath": "plugins/all-skills/skills/artifacts-builder",
+    "category": "styling",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui).",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/asana-automation",
+    "name": "asana-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/asana-automation",
+    "subpath": "plugins/all-skills/skills/asana-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/aurakit",
+    "name": "aurakit",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/aurakit",
+    "subpath": "plugins/all-skills/skills/aurakit",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Sonnet Amplified fullstack engine.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/bamboohr-automation",
+    "name": "bamboohr-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/bamboohr-automation",
+    "subpath": "plugins/all-skills/skills/bamboohr-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee updates.",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/basecamp-automation",
+    "name": "basecamp-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/basecamp-automation",
+    "subpath": "plugins/all-skills/skills/basecamp-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio).",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "davepoon/bitbucket-automation",
+    "name": "bitbucket-automation",
+    "source_repo": "davepoon/buildwithclaude",
+    "source_url": "https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/bitbucket-automation",
+    "subpath": "plugins/all-skills/skills/bitbucket-automation",
+    "category": "ai",
+    "tags": [
+      "claude",
+      "claude-code"
+    ],
+    "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio).",
+    "stars": 3154,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills",
+    "name": "auto-empirical-research-skills",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills",
+    "subpath": "",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Route empirical-research requests through the Auto-Empirical Research Skills catalog when this whole repository is installed as one skill in Codex, CodeBuddy, Claude Code, or anoth",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/full-empirical-analysis-skill",
+    "name": "Full-empirical-analysis-skill",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-python/skills/pipeline",
+    "subpath": "plugins/empirical-analysis-python/skills/pipeline",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack — pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/full-empirical-analysis-skill-r",
+    "name": "Full-empirical-analysis-skill-R",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-r/skills/pipeline",
+    "subpath": "plugins/empirical-analysis-r/skills/pipeline",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem — dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/full-empirical-analysis-skill-stata",
+    "name": "Full-empirical-analysis-skill-Stata",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/plugins/empirical-analysis-stata/skills/pipeline",
+    "subpath": "plugins/empirical-analysis-stata/skills/pipeline",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem — native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/statspai_skill",
+    "name": "StatsPAI_skill",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00-Full-empirical-analysis-skill_StatsPAI",
+    "subpath": "skills/00-Full-empirical-analysis-skill_StatsPAI",
+    "category": "other",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Use when the user asks to run a full empirical / causal analysis in Python — by default in the style of an applied economics paper (AER / QJE / JPE / ReStud / AEJ) with DID / RD /",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-00.1-full-empirical-analysis-",
+    "name": "Full-empirical-analysis-skill",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00.1-Full-empirical-analysis-skill_Python",
+    "subpath": "skills/00.1-Full-empirical-analysis-skill_Python",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack — pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-00.2-full-empirical-analysis-",
+    "name": "Full-empirical-analysis-skill-Stata",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00.2-Full-empirical-analysis-skill_Stata",
+    "subpath": "skills/00.2-Full-empirical-analysis-skill_Stata",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem — native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-00.3-full-empirical-analysis-",
+    "name": "Full-empirical-analysis-skill-R",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/00.3-Full-empirical-analysis-skill_R",
+    "subpath": "skills/00.3-Full-empirical-analysis-skill_R",
+    "category": "meta",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem — dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/composer",
+    "name": "composer",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/01-lishix520-academic-paper-skills/composer",
+    "subpath": "skills/01-lishix520-academic-paper-skills/composer",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/strategist",
+    "name": "strategist",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/01-lishix520-academic-paper-skills/strategist",
+    "subpath": "skills/01-lishix520-academic-paper-skills/strategist",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/medical-imaging-review",
+    "name": "medical-imaging-review",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/02-luwill-research-skills/medical-imaging-review",
+    "subpath": "skills/02-luwill-research-skills/medical-imaging-review",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/paper-slide-deck",
+    "name": "paper-slide-deck",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/02-luwill-research-skills/paper-slide-deck",
+    "subpath": "skills/02-luwill-research-skills/paper-slide-deck",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/research-proposal",
+    "name": "research-proposal",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/02-luwill-research-skills/research-proposal",
+    "subpath": "skills/02-luwill-research-skills/research-proposal",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/hypothesis-generation",
+    "name": "hypothesis-generation",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/hypothesis-generation",
+    "subpath": "skills/03-K-Dense-AI-claude-scientific-skills/hypothesis-generation",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/literature-review",
+    "name": "literature-review",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/literature-review",
+    "subpath": "skills/03-K-Dense-AI-claude-scientific-skills/literature-review",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXiv, bioRxiv, Semantic Scholar, etc.).",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/research-grants",
+    "name": "research-grants",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/research-grants",
+    "subpath": "skills/03-K-Dense-AI-claude-scientific-skills/research-grants",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/scientific-writing",
+    "name": "scientific-writing",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/03-K-Dense-AI-claude-scientific-skills/scientific-writing",
+    "subpath": "skills/03-K-Dense-AI-claude-scientific-skills/scientific-writing",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/citation-management",
+    "name": "citation-management",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/04-K-Dense-AI-claude-scientific-writer/citation-management",
+    "subpath": "skills/04-K-Dense-AI-claude-scientific-writer/citation-management",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-hypothesis-generation",
+    "name": "hypothesis-generation",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/04-K-Dense-AI-claude-scientific-writer/hypothesis-generation",
+    "subpath": "skills/04-K-Dense-AI-claude-scientific-writer/hypothesis-generation",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "brycewang-stanford/auto-empirical-research-skills-literature-review",
+    "name": "literature-review",
+    "source_repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/tree/main/skills/04-K-Dense-AI-claude-scientific-writer/literature-review",
+    "subpath": "skills/04-K-Dense-AI-claude-scientific-writer/literature-review",
+    "category": "data",
+    "tags": [
+      "academic-research",
+      "agent-skills"
+    ],
+    "description": "Skill from brycewang-stanford/Auto-Empirical-Research-Skills.",
+    "stars": 2728,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/vibe",
+    "name": "vibe",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills",
+    "subpath": "",
+    "category": "meta",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Vibe Code Orchestrator (VCO) is a governed runtime entry that freezes requirements, bounds execution, and enforces verification and phase cleanup.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/skill-creator",
+    "name": "skill-creator",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/.system/skill-creator",
+    "subpath": "bundled/skills/.system/skill-creator",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Guide for creating effective skills.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/skill-installer",
+    "name": "skill-installer",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/.system/skill-installer",
+    "subpath": "bundled/skills/.system/skill-installer",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/adaptyv",
+    "name": "adaptyv",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/adaptyv",
+    "subpath": "bundled/skills/adaptyv",
+    "category": "testing",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Cloud laboratory platform for automated protein testing and validation.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/aeon",
+    "name": "aeon",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/aeon",
+    "subpath": "bundled/skills/aeon",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "This skill should be used for time series machine learning tasks including classification, regression, clustering, forecasting, anomaly detection, segmentation, and similarity sear",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/alpha-vantage",
+    "name": "alpha-vantage",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/alpha-vantage",
+    "subpath": "bundled/skills/alpha-vantage",
+    "category": "backend",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Access real-time and historical stock market data, forex rates, cryptocurrency prices, commodities, economic indicators, and 50+ technical indicators via the Alpha Vantage API.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/architecture-patterns",
+    "name": "architecture-patterns",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/architecture-patterns",
+    "subpath": "bundled/skills/architecture-patterns",
+    "category": "styling",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Implement proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, and Domain-Driven Design.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/astropy",
+    "name": "astropy",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/astropy",
+    "subpath": "bundled/skills/astropy",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Comprehensive Python library for astronomy and astrophysics.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/autonomous-builder",
+    "name": "autonomous-builder",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/autonomous-builder",
+    "subpath": "bundled/skills/autonomous-builder",
+    "category": "testing",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Full-stack software development agent for design, implementation, testing, and deployment.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/bio-database-evidence",
+    "name": "bio-database-evidence",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/bio-database-evidence",
+    "subpath": "bundled/skills/bio-database-evidence",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Unified biological database evidence owner.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/biopython",
+    "name": "biopython",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/biopython",
+    "subpath": "bundled/skills/biopython",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Primary retained Python toolkit for molecular biology sequence work.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/brainstorming",
+    "name": "brainstorming",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/brainstorming",
+    "subpath": "bundled/skills/brainstorming",
+    "category": "frontend",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/cancel-ralph",
+    "name": "cancel-ralph",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/cancel-ralph",
+    "subpath": "bundled/skills/cancel-ralph",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Codex-compatible cancel command for Ralph loop state, preserving the original command name.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/chembl-database",
+    "name": "chembl-database",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/chembl-database",
+    "subpath": "bundled/skills/chembl-database",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Query ChEMBL bioactive molecules and drug discovery data.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/citation-management",
+    "name": "citation-management",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/citation-management",
+    "subpath": "bundled/skills/citation-management",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Comprehensive citation management for academic research.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/claude-skills",
+    "name": "claude-skills",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/claude-skills",
+    "subpath": "bundled/skills/claude-skills",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Claude Skills meta-skill: extract domain material (docs/APIs/code/specs) into a reusable Skill (SKILL.md + references/scripts/assets), and refactor existing Skills for clarity, act",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/clinical-decision-support",
+    "name": "clinical-decision-support",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/clinical-decision-support",
+    "subpath": "bundled/skills/clinical-decision-support",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical research settings, including patient cohort analyses (biomarker-stratified with outc",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/clinical-reports",
+    "name": "clinical-reports",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/clinical-reports",
+    "subpath": "bundled/skills/clinical-reports",
+    "category": "ai",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Write comprehensive clinical reports including case reports (CARE guidelines), diagnostic reports (radiology/pathology/lab), clinical trial reports (ICH-E3, SAE, CSR), and patient",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "foryourhealth111-pixel/clinicaltrials-database",
+    "name": "clinicaltrials-database",
+    "source_repo": "foryourhealth111-pixel/Vibe-Skills",
+    "source_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/clinicaltrials-database",
+    "subpath": "bundled/skills/clinicaltrials-database",
+    "category": "data",
+    "tags": [
+      "agent-framework",
+      "agent-skills"
+    ],
+    "description": "Query ClinicalTrials.gov via API v2.",
+    "stars": 2377,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/ad-account-auditor",
+    "name": "ad-account-auditor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/ad-account-auditor",
+    "subpath": "ad/activate/ad-account-auditor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when auditing a paid ad account for ROAS quality, wasted spend, or measurement integrity before scaling; runs RQS scoring with veto checks and a SHIP/FIX/BLOCK gate on your own",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/conversion-signal-qa",
+    "name": "conversion-signal-qa",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/conversion-signal-qa",
+    "subpath": "ad/activate/conversion-signal-qa",
+    "category": "testing",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"QA my conversion tracking before launch\", \"check my UTMs / pixel / event firing\", \"set up a tracking pre-flight\", or \"set the dedup rule so Meta and Goog",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/conversion-value-mapper",
+    "name": "conversion-value-mapper",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/conversion-value-mapper",
+    "subpath": "ad/activate/conversion-value-mapper",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"set up conversion values so tROAS optimizes profit not orders\", \"map margin onto my purchase value\", \"build value rules for lead / phone / signup convers",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/placement-exclusion-manager",
+    "name": "placement-exclusion-manager",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/activate/placement-exclusion-manager",
+    "subpath": "ad/activate/placement-exclusion-manager",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"build my brand-safety exclusion lists\", \"set placement / topic / content exclusions before launch\", \"add network and audience exclusions\", or \"prep the A",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/ad-creative-builder",
+    "name": "ad-creative-builder",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/ad-creative-builder",
+    "subpath": "ad/orchestrate/ad-creative-builder",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"write ad copy\", \"generate RSA headlines\", or \"build ad creative at volume\"; produces ad units — RSA headlines/descriptions, hooks, and an angle matrix —",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/ad-test-designer",
+    "name": "ad-test-designer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/ad-test-designer",
+    "subpath": "ad/orchestrate/ad-test-designer",
+    "category": "testing",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"design an A/B test\", \"set up a creative/landing test\", \"run an incrementality test\", or \"is this test significant — promote or kill?\"; produces a hypothe",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/bid-strategy-planner",
+    "name": "bid-strategy-planner",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/bid-strategy-planner",
+    "subpath": "ad/orchestrate/bid-strategy-planner",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"pick a bid strategy\", \"set a tCPA/tROAS target\", or \"plan the learning-phase entry\"; produces a bid-strategy choice (tCPA / tROAS / max-conversions / man",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/landing-experience-checker",
+    "name": "landing-experience-checker",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/orchestrate/landing-experience-checker",
+    "subpath": "ad/orchestrate/landing-experience-checker",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"pre-launch check the landing page\", \"run a Quality-Score preflight\", or \"verify ad-to-page message match before launch\"; produces an ad↔page continuity r",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/audience-segment-builder",
+    "name": "audience-segment-builder",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/audience-segment-builder",
+    "subpath": "ad/research/audience-segment-builder",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"build audience segments from my customer list\", \"make value-based / lookalike seed lists\", \"set up exclusion / suppression segments\", or \"map audiences t",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/campaign-architect",
+    "name": "campaign-architect",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/campaign-architect",
+    "subpath": "ad/research/campaign-architect",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"plan my paid account structure\", \"pick Search vs PMax\", \"lay out ad groups / asset groups\", or \"audit paid-vs-organic cannibalization\"; designs campaign-",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/product-feed-optimizer",
+    "name": "product-feed-optimizer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/product-feed-optimizer",
+    "subpath": "ad/research/product-feed-optimizer",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"optimize my Shopping feed\", \"fix product disapprovals\", \"improve product titles/attributes\", or \"build feed-driven PMax asset groups\"; audits and rewrite",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/search-term-miner",
+    "name": "search-term-miner",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/research/search-term-miner",
+    "subpath": "ad/research/search-term-miner",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"mine my search terms\", \"find new keywords from converting queries\", \"build a negative-keyword list\", or \"cut wasted paid spend\"; harvests converting quer",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/attribution-reconciler",
+    "name": "attribution-reconciler",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/attribution-reconciler",
+    "subpath": "ad/scale/attribution-reconciler",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when platform-reported conversions disagree with GA4/ecommerce, when you suspect Meta and Google are double-counting the same sales, or for a standing (monthly) reconciliation",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/budget-pacing-monitor",
+    "name": "budget-pacing-monitor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/budget-pacing-monitor",
+    "subpath": "ad/scale/budget-pacing-monitor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"check pacing\", \"am I over/under-spending\", \"is this campaign on track to hit budget\", or \"why did spend spike/stall mid-flight\"; returns a spend-vs-targe",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/fatigue-frequency-manager",
+    "name": "fatigue-frequency-manager",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/fatigue-frequency-manager",
+    "subpath": "ad/scale/fatigue-frequency-manager",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"is my ad fatiguing\", \"why is CTR dropping at scale\", or \"should I rotate creative / widen the audience\"; reads frequency, CTR and CVR decay against an ea",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/paid-measurement-loop",
+    "name": "paid-measurement-loop",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/ad/scale/paid-measurement-loop",
+    "subpath": "ad/scale/paid-measurement-loop",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"read back\" a paid campaign change, \"did this ad change work\", or \"compare ROAS/CPA before and after\"; reads ROAS/CPA against a control over a fixed readb",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/cold-outbound-sequencer",
+    "name": "cold-outbound-sequencer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/cold-outbound-sequencer",
+    "subpath": "email/deliver/cold-outbound-sequencer",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"build a B2B cold-outbound sequence\", \"design reply-triage branching\", \"plan a domain warmup / sending throttle\", or \"make my outbound CAN-SPAM / opt-in c",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/email-quality-auditor",
+    "name": "email-quality-auditor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/email-quality-auditor",
+    "subpath": "email/deliver/email-quality-auditor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"audit an email program\", \"is this campaign safe to send\", or run a pre-send go/no-go on their own exported email data; runs SEND EQS scoring with S1/S2/N",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/inbox-placement-monitor",
+    "name": "inbox-placement-monitor",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/inbox-placement-monitor",
+    "subpath": "email/deliver/inbox-placement-monitor",
+    "category": "styling",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"track where my emails are actually landing after I send\", \"read my seed-list inbox vs spam vs promotions results\", \"trend my Gmail Postmaster / Microsoft",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "aaron-he-zhu/send-experiment-designer",
+    "name": "send-experiment-designer",
+    "source_repo": "aaron-he-zhu/aaron-marketing-skills",
+    "source_url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/tree/main/email/deliver/send-experiment-designer",
+    "subpath": "email/deliver/send-experiment-designer",
+    "category": "testing",
+    "tags": [
+      "agent-skills",
+      "brand-messaging"
+    ],
+    "description": "Use when the user asks to \"design an email A/B test\", \"set up a multivariate subject/CTA test\", \"run a send-time test\", \"build a hold-out group\", or \"is this email test significant",
+    "stars": 2345,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/cuopt-numerical-optimization-api",
+    "name": "cuopt-numerical-optimization-api",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/cuopt-numerical-optimization-api",
+    "subpath": "plugins/nvidia-skills/skills/cuopt-numerical-optimization-api",
+    "category": "backend",
+    "tags": [],
+    "description": "LP, MILP, and QP (beta) with cuOpt — Python, C, and CLI.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/dali-dynamic-mode",
+    "name": "dali-dynamic-mode",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/dali-dynamic-mode",
+    "subpath": "plugins/nvidia-skills/skills/dali-dynamic-mode",
+    "category": "devops",
+    "tags": [],
+    "description": "DALI imperative dynamic mode (`nvidia.dali.experimental.dynamic`, ndd): use when working on ndd code or migrating pipelines; skip pipeline-only tasks.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/dynamo-interconnect-check",
+    "name": "dynamo-interconnect-check",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/dynamo-interconnect-check",
+    "subpath": "plugins/nvidia-skills/skills/dynamo-interconnect-check",
+    "category": "devops",
+    "tags": [],
+    "description": "Validate that a Dynamo deployment's NIXL/UCX/NCCL interconnect is ready for disaggregated serving over RDMA/NVLink.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/dynamo-router-starter",
+    "name": "dynamo-router-starter",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/dynamo-router-starter",
+    "subpath": "plugins/nvidia-skills/skills/dynamo-router-starter",
+    "category": "backend",
+    "tags": [],
+    "description": "Start or patch Dynamo router modes and run router endpoint smoke checks.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/nemoclaw-user-guide",
+    "name": "nemoclaw-user-guide",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/nemoclaw-user-guide",
+    "subpath": "plugins/nvidia-skills/skills/nemoclaw-user-guide",
+    "category": "backend",
+    "tags": [],
+    "description": "Guides human users' AI agents to the NemoClaw docs MCP server and canonical Fern documentation in Markdown form.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/omniverse-cad-to-simready",
+    "name": "omniverse-cad-to-simready",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/omniverse-cad-to-simready",
+    "subpath": "plugins/nvidia-skills/skills/omniverse-cad-to-simready",
+    "category": "meta",
+    "tags": [],
+    "description": "Coordinate the end-to-end CAD/source-asset to SimReady workflow.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/omniverse-realtime-viewer",
+    "name": "omniverse-realtime-viewer",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/omniverse-realtime-viewer",
+    "subpath": "plugins/nvidia-skills/skills/omniverse-realtime-viewer",
+    "category": "other",
+    "tags": [],
+    "description": "Use as the top-level router for Omniverse Realtime Viewer USD app requests and focused viewer reference documents.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/omniverse-usd-performance-tuning",
+    "name": "omniverse-usd-performance-tuning",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/omniverse-usd-performance-tuning",
+    "subpath": "plugins/nvidia-skills/skills/omniverse-usd-performance-tuning",
+    "category": "meta",
+    "tags": [],
+    "description": "Top-level workflow skill for USD performance diagnosis and optimization.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/physical-ai-neural-reconstruction",
+    "name": "physical-ai-neural-reconstruction",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/plugins/nvidia-skills/skills/physical-ai-neural-reconstruction",
+    "subpath": "plugins/nvidia-skills/skills/physical-ai-neural-reconstruction",
+    "category": "data",
+    "tags": [],
+    "description": "Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, PhysicalAI HF datasets.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/accelerated-computing-cudf",
+    "name": "accelerated-computing-cudf",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/accelerated-computing-cudf",
+    "subpath": "skills/accelerated-computing-cudf",
+    "category": "data",
+    "tags": [],
+    "description": "Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, CSV/Parquet I/O, nullable semantics, and multi-GPU DataFrame",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/amc-run-sample-calibration",
+    "name": "amc-run-sample-calibration",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/amc-run-sample-calibration",
+    "subpath": "skills/amc-run-sample-calibration",
+    "category": "data",
+    "tags": [],
+    "description": "Run end-to-end calibration on the shipped sample dataset (sdg_08_2_sample_data_010926.zip) against a running AMC microservice.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/amc-run-video-calibration",
+    "name": "amc-run-video-calibration",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/amc-run-video-calibration",
+    "subpath": "skills/amc-run-video-calibration",
+    "category": "data",
+    "tags": [],
+    "description": "Calibrate a new dataset from pre-recorded video files via the AutoMagicCalib REST API.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/amc-setup-calibration-stack",
+    "name": "amc-setup-calibration-stack",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/amc-setup-calibration-stack",
+    "subpath": "skills/amc-setup-calibration-stack",
+    "category": "devops",
+    "tags": [],
+    "description": "Launch AutoMagicCalib microservice and web UI from NGC release images via Docker Compose.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/cudaq-guide",
+    "name": "cudaq-guide",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cudaq-guide",
+    "subpath": "skills/cudaq-guide",
+    "category": "testing",
+    "tags": [],
+    "description": "CUDA-Q onboarding guide for installation, test programs, GPU simulation, QPU hardware, and quantum applications.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/cufolio",
+    "name": "cufolio",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cufolio",
+    "subpath": "skills/cufolio",
+    "category": "other",
+    "tags": [],
+    "description": "Use when a user asks to build, optimize, backtest, rebalance, or analyze a stock portfolio with Mean-CVaR, efficient frontiers, scenario generation, or NVIDIA cuOpt.",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/cuopt-developer",
+    "name": "cuopt-developer",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-developer",
+    "subpath": "skills/cuopt-developer",
+    "category": "testing",
+    "tags": [],
+    "description": "Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI).",
+    "stars": 2317,
+    "tier": "community"
+  },
+  {
+    "slug": "NVIDIA/cuopt-install",
+    "name": "cuopt-install",
+    "source_repo": "NVIDIA/skills",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-install",
+    "subpath": "skills/cuopt-install",
+    "category": "devops",
+    "tags": [],
+    "description": "Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install.",
+    "stars": 2317,
+    "tier": "community"
   }
 ]
