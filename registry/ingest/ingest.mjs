@@ -26,6 +26,21 @@ const catalog = JSON.parse(readFileSync(path.join(REPO_ROOT, "web/data/catalog.j
 const args = process.argv.slice(2);
 const limitFlag = args.indexOf("--limit");
 const LIMIT = limitFlag >= 0 ? parseInt(args[limitFlag + 1], 10) : Infinity;
+const FORCE = args.includes("--force"); // re-fetch everything; default is incremental
+
+// Incremental: reuse already-ingested skills (by slug) so CI only fetches new
+// ones. `--force` re-does the whole catalog.
+const OUT_DIR = path.join(REPO_ROOT, "registry/data");
+const API_DIR = path.join(REPO_ROOT, "registry/api");
+function loadPrev(file) {
+  try {
+    return new Map(JSON.parse(readFileSync(path.join(OUT_DIR, file), "utf8")).map((e) => [e.slug, e]));
+  } catch {
+    return new Map();
+  }
+}
+const prevIngested = FORCE ? new Map() : loadPrev("ingested.json");
+const prevEnriched = FORCE ? new Map() : loadPrev("enriched.json");
 
 // --- content hash, matching skillrank-core::hash::compute_content_hash ---
 function contentHash(content) {
@@ -95,7 +110,15 @@ let ok = 0,
   collection = 0,
   failed = 0;
 
+let reused = 0;
 for (const skill of ordered) {
+  // incremental: keep prior result, skip network
+  if (prevEnriched.has(skill.slug)) {
+    enriched.push(prevEnriched.get(skill.slug));
+    if (prevIngested.has(skill.slug)) installable.push(prevIngested.get(skill.slug));
+    reused++;
+    continue;
+  }
   const info = repoInfo(skill.source_repo);
   const base = {
     slug: skill.slug,
@@ -145,24 +168,26 @@ for (const skill of ordered) {
     skill_path: found.path,
     content_hash: hash,
     raw_content_url: rawUrl,
-    inline_content: found.content,
     scan_tier: "pending",
     signals,
     score,
     provisional: true,
     installable: true,
   };
+  // index-only: resolve serves raw_content_url + hash, never rehosts content.
   installable.push(entry);
-  // enriched carries metadata only (no big content blob)
-  const { inline_content, ...meta } = entry;
-  enriched.push({ ...meta, status: "installable" });
+  enriched.push({ ...entry, status: "installable" });
   console.log(`  ✓ ${skill.slug} — ${found.path} @ ${info.head_sha.slice(0, 7)} (${hash.slice(0, 14)}…)`);
 }
 
-const outDir = path.join(REPO_ROOT, "registry/data");
-mkdirSync(outDir, { recursive: true });
-writeFileSync(path.join(outDir, "ingested.json"), JSON.stringify(installable, null, 2) + "\n");
-writeFileSync(path.join(outDir, "enriched.json"), JSON.stringify(enriched, null, 2) + "\n");
+mkdirSync(OUT_DIR, { recursive: true });
+mkdirSync(API_DIR, { recursive: true });
+const ingestedJson = JSON.stringify(installable, null, 2) + "\n";
+const enrichedJson = JSON.stringify(enriched, null, 2) + "\n";
+for (const dir of [OUT_DIR, API_DIR]) {
+  writeFileSync(path.join(dir, "ingested.json"), ingestedJson);
+  writeFileSync(path.join(dir, "enriched.json"), enrichedJson);
+}
 
-console.log(`\nattempted ${ordered.length}: ${ok} installable, ${collection} collections, ${failed} failed`);
-console.log(`wrote registry/data/ingested.json (${installable.length}) + enriched.json (${enriched.length})`);
+console.log(`\nattempted ${ordered.length}: ${reused} reused, ${ok} newly ingested, ${collection} collections, ${failed} failed`);
+console.log(`wrote registry/{data,api}/ingested.json (${installable.length}) + enriched.json (${enriched.length})`);

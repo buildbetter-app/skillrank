@@ -11,6 +11,9 @@ const SORT_NAMES = {
   lift: "eval lift"
 } as const;
 
+const SUBMIT_URL =
+  "https://github.com/buildbetter-app/skillrank/issues/new?template=skill-submission.yml";
+
 type SortKey = keyof typeof SORT_NAMES;
 
 type RegistryClientProps = {
@@ -148,6 +151,8 @@ export function RegistryClient({ skills }: RegistryClientProps) {
         document.getElementById("top")?.scrollIntoView({
           behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
         });
+      } else if (event.key.toLowerCase() === "s") {
+        window.location.href = SUBMIT_URL;
       }
     };
 
@@ -419,7 +424,9 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             <b>skillrank</b> -- MIT
           </span>
           <span>github.com/buildbetter-app/skillrank</span>
-          <span>content-hashed · scanned · reproducible evals</span>
+          <span>
+            <a href={SUBMIT_URL}>submit a skill ▸</a>
+          </span>
           <span>part of the BuildBetter universe</span>
         </footer>
       </main>
@@ -440,6 +447,9 @@ export function RegistryClient({ skills }: RegistryClientProps) {
         <span className="k">
           <kbd>g</kbd>github
         </span>
+        <a className="k" href={SUBMIT_URL}>
+          <kbd>s</kbd>submit
+        </a>
         <span className="sp" />
         <button className="themebtn" type="button" onClick={changeTheme}>
           {themeLabel}
