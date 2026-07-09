@@ -15,6 +15,35 @@
         "est_tokens": 20000
       }
     ],
-    "reference_env": { "agent_version_band": "", "models": ["claude-sonnet-5"] }
+    "reference_env": {
+      "agent_version_band": "",
+      "models": [
+        "claude-sonnet-5"
+      ]
+    }
+  },
+  {
+    "id": "spec-parse",
+    "version": "1",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "0ee05e388ab46de5893f75c296a01a947bd2a6a2"
+    },
+    "tasks": [
+      {
+        "id": "parse-duration",
+        "instruction": "Implement the parse_duration function in src/duration.py to match its docstring specification exactly, including every error case. Do NOT add or rely on test files \u2014 your code is checked against a hidden test suite. Read the spec carefully and handle all edge cases.",
+        "verifier_contract": "hidden edge-case tests for parse_duration all pass",
+        "timeout_sec": 400,
+        "est_tokens": 30000
+      }
+    ],
+    "reference_env": {
+      "agent_version_band": "",
+      "models": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-5"
+      ]
+    }
   }
 ]

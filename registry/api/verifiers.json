@@ -1,5 +1,8 @@
 {
   "debug-basics": {
     "merge-intervals": "#!/usr/bin/env bash\npython3 -m unittest discover -s tests -q\n"
+  },
+  "spec-parse": {
+    "parse-duration": "#!/usr/bin/env bash\npython3 - <<'PYEOF'\nimport sys\nsys.path.insert(0, \"src\")\ntry:\n    from duration import parse_duration as p\nexcept Exception as e:\n    print(\"import failed:\", e); sys.exit(1)\nok = True\nvalid = [(\"90s\",90),(\"1h30m\",5400),(\"2d4h\",187200),(\"45m10s\",2710),(\"1d\",86400),\n         (\"1h 30m\",5400),(\"1H30M\",5400),(\"0s\",0),(\"10m\",600),(\"3600s\",3600),\n         (\"2d 4h 30m\",189000),(\"15s\",15),(\"1m\",60)]\ninvalid = [\"\",\"abc\",\"10\",\"h\",\"10x\",\"1h30\",\"-5s\",\"1.5h\",\"s10\",\"10 20s\",\"m\"]\nfor inp,exp in valid:\n    try:\n        got = p(inp)\n        if got != exp: print(f\"FAIL valid {inp!r}: got {got!r} want {exp}\"); ok=False\n    except Exception as e:\n        print(f\"FAIL valid {inp!r}: raised {type(e).__name__}\"); ok=False\nfor inp in invalid:\n    try:\n        got = p(inp); print(f\"FAIL invalid {inp!r}: expected ValueError got {got!r}\"); ok=False\n    except ValueError:\n        pass\n    except Exception as e:\n        print(f\"FAIL invalid {inp!r}: expected ValueError got {type(e).__name__}\"); ok=False\nsys.exit(0 if ok else 1)\nPYEOF\n"
   }
 }
