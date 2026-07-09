@@ -76,44 +76,6 @@
     }
   },
   {
-    "slug": "obra/test-driven-development",
-    "display_name": "Test-Driven Development",
-    "category": "testing",
-    "tags": [
-      "tdd",
-      "tests"
-    ],
-    "source_type": "github",
-    "source_url": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
-    "source_repo": "obra/superpowers",
-    "source_subpath": "skills/test-driven-development",
-    "description": "Write tests before implementation code for any feature or bugfix.",
-    "tier": "community",
-    "pinned_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99",
-    "skill_path": "skills/test-driven-development/SKILL.md",
-    "content_hash": "sha256:0fd3d15474b5ad58eae097f2c047ab1eb8a0a975caf51c44ddb83cf4111062af",
-    "raw_content_url": "https://raw.githubusercontent.com/obra/superpowers/d884ae04edebef577e82ff7c4e143debd0bbec99/skills/test-driven-development/SKILL.md",
-    "scan_tier": "pending",
-    "signals": {
-      "stars": 249798,
-      "forks": 22163,
-      "installs": null,
-      "pushed_at": "2026-07-06T21:53:36Z"
-    },
-    "score": 53,
-    "provisional": true,
-    "installable": true,
-    "eval": {
-      "success_delta_pct": 0,
-      "token_delta_pct": 41.7,
-      "n_trials": 5,
-      "suite": "spec-parse",
-      "model": "claude-haiku-4-5-20251001",
-      "eval_tier": "self",
-      "tier": "community"
-    }
-  },
-  {
     "slug": "obra/verification-before-completion",
     "display_name": "Verification Before Completion",
     "category": "testing",
@@ -522,6 +484,44 @@
       "suite": "",
       "model": "",
       "eval_tier": "",
+      "tier": "community"
+    }
+  },
+  {
+    "slug": "obra/test-driven-development",
+    "display_name": "Test-Driven Development",
+    "category": "testing",
+    "tags": [
+      "tdd",
+      "tests"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
+    "source_repo": "obra/superpowers",
+    "source_subpath": "skills/test-driven-development",
+    "description": "Write tests before implementation code for any feature or bugfix.",
+    "tier": "community",
+    "pinned_commit": "d884ae04edebef577e82ff7c4e143debd0bbec99",
+    "skill_path": "skills/test-driven-development/SKILL.md",
+    "content_hash": "sha256:0fd3d15474b5ad58eae097f2c047ab1eb8a0a975caf51c44ddb83cf4111062af",
+    "raw_content_url": "https://raw.githubusercontent.com/obra/superpowers/d884ae04edebef577e82ff7c4e143debd0bbec99/skills/test-driven-development/SKILL.md",
+    "scan_tier": "pending",
+    "signals": {
+      "stars": 249798,
+      "forks": 22163,
+      "installs": null,
+      "pushed_at": "2026-07-06T21:53:36Z"
+    },
+    "score": 53,
+    "provisional": true,
+    "installable": true,
+    "eval": {
+      "success_delta_pct": 0,
+      "token_delta_pct": 41.7,
+      "n_trials": 5,
+      "suite": "spec-parse",
+      "model": "claude-haiku-4-5-20251001",
+      "eval_tier": "self",
       "tier": "community"
     }
   },
