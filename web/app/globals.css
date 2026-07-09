@@ -884,6 +884,16 @@ button {
   border-color: color-mix(in srgb, var(--green) 45%, var(--border));
 }
 
+.badge.eval.good {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 55%, var(--border));
+}
+
+.badge.eval.bad {
+  color: var(--red);
+  border-color: color-mix(in srgb, var(--red) 55%, var(--border));
+}
+
 .tagchip {
   color: var(--cyan);
 }

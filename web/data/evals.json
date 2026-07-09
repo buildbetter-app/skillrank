@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "obra/test-driven-development",
+    "suite": "spec-parse",
+    "agent": "claude",
+    "model": "claude-haiku-4-5-20251001",
+    "success_delta_pct": 0,
+    "token_delta_pct": 41.7,
+    "n_trials": 5,
+    "tier": "self",
+    "measured_at": "2026-07-09"
+  }
+]

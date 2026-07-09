@@ -108,14 +108,32 @@ export default async function SkillPage({ params }: PageProps) {
             <a href={skill.source_url}>open on GitHub ▸</a>
           </div>
 
-          <div className="pane pending-pane">
-            <p className="glabel">eval status</p>
-            <p className="pending-title">eval pending</p>
-            <p>
-              Success delta, token delta, and trial count are not available yet. No eval number is shown until this
-              skill has measured results.
-            </p>
-          </div>
+          {skill.eval.token_delta_pct != null ? (
+            <div className="pane">
+              <p className="glabel">eval — measured impact</p>
+              <p className="metric">
+                tokens {skill.eval.token_delta_pct > 0 ? "+" : ""}
+                {skill.eval.token_delta_pct}%
+              </p>
+              <p className="source-path">
+                success {(skill.eval.success_delta_pct ?? 0) > 0 ? "+" : ""}
+                {skill.eval.success_delta_pct}pp · n={skill.eval.n_trials} trials/arm
+              </p>
+              <p>
+                Paired control vs. treatment on a reproducible suite. Negative token delta = the skill saves tokens;
+                positive = it costs more.
+              </p>
+            </div>
+          ) : (
+            <div className="pane pending-pane">
+              <p className="glabel">eval status</p>
+              <p className="pending-title">eval pending</p>
+              <p>
+                Success delta, token delta, and trial count are not available yet. No eval number is shown until this
+                skill has measured results.
+              </p>
+            </div>
+          )}
         </section>
 
         <section className="install-panel" id="install">

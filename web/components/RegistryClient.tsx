@@ -471,7 +471,16 @@ export function RegistryClient({ skills }: RegistryClientProps) {
                                 <span className={`tier ${skill.eval.tier === "official" ? "official" : ""}`}>
                                   {skill.eval.tier}
                                 </span>
-                                <span className="badge">eval pending</span>
+                                {skill.eval.token_delta_pct != null ? (
+                                  <span className={`badge eval ${skill.eval.token_delta_pct <= 0 ? "good" : "bad"}`}>
+                                    tokens {skill.eval.token_delta_pct > 0 ? "+" : ""}
+                                    {skill.eval.token_delta_pct}% · success{" "}
+                                    {(skill.eval.success_delta_pct ?? 0) > 0 ? "+" : ""}
+                                    {skill.eval.success_delta_pct}pp (n={skill.eval.n_trials})
+                                  </span>
+                                ) : (
+                                  <span className="badge">eval pending</span>
+                                )}
                                 <Link href={skillPath(skill.slug)}>view page ▸</Link>
                               </p>
                             </div>
