@@ -1,0 +1,54 @@
+name: Catalog
+
+# When the approved source catalog changes on main (i.e. a review PR is merged),
+# regenerate the website catalog + registry ingest so search + install pick up the
+# new skills automatically. Ingest is incremental, so only newly-added skills are
+# fetched — a normal merge is a handful of API calls.
+#
+# NOTE: a very large batch (hundreds+ of new skills) can exceed the GITHUB_TOKEN
+# hourly limit; for those, run `node registry/ingest/ingest.mjs` locally and
+# include the regenerated data in the PR. This job then no-ops on merge.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/data/sources.seed.json"
+      - "web/data/build-catalog.mjs"
+      - "registry/ingest/ingest.mjs"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-regen
+  cancel-in-progress: false
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build website catalog
+        run: node web/data/build-catalog.mjs
+
+      - name: Ingest new skills (incremental)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node registry/ingest/ingest.mjs
+
+      - name: Commit regenerated data
+        run: |
+          git config user.name "skillrank-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add web/data/catalog.json registry/data/ingested.json registry/data/enriched.json registry/api/ingested.json registry/api/enriched.json
+          if git diff --cached --quiet; then
+            echo "catalog already up to date"
+          else
+            git commit -m "chore(catalog): regenerate from sources [skip ci]"
+            git push
+          fi

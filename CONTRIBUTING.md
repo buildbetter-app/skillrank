@@ -43,3 +43,15 @@ are computed at serve time, and `install` verifies against them.
 
 By contributing you agree that your contributions are licensed under the MIT
 License (see [LICENSE](LICENSE)).
+
+## Submitting a skill
+
+Two ways, both reviewed before anything goes live:
+
+1. **Open a submission** — click **"submit a skill"** on [skillrank.dev](https://skillrank.dev)
+   (or press `s`), which opens a pre-filled GitHub issue. We vet it and add it.
+2. **Open a PR** — add your skill to `web/data/sources.seed.json` and open a PR.
+   On merge, CI regenerates the catalog and wires up `skillrank install`.
+
+Skills must ship a real `SKILL.md`. Ranking blends community stars, real usage, and
+(once evaluated) measured eval lift — popularity alone can't reach the top tier.

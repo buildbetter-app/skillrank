@@ -1,0 +1,61 @@
+name: Submit a skill
+description: Propose an agent skill (or a repo of skills) for the SkillRank registry.
+title: "[skill] owner/name"
+labels: ["skill-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting! SkillRank indexes agent skills that ship a `SKILL.md`.
+        Submissions are reviewed and approved ones are added to the registry (ranked by
+        community stars, real usage, and — once evaluated — measured eval lift).
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repo
+      description: The repo containing the skill(s).
+      placeholder: owner/repo
+    validations:
+      required: true
+  - type: input
+    id: skill_path
+    attributes:
+      label: Path to SKILL.md (optional)
+      description: If you're submitting one specific skill inside a larger repo.
+      placeholder: skills/my-skill/SKILL.md
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - frontend
+        - backend
+        - testing
+        - performance
+        - devops
+        - data
+        - ai
+        - document
+        - styling
+        - security
+        - accessibility
+        - meta
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What does it do, and why is it good?
+      description: One or two sentences. Reproducible eval evidence (token/speed/success deltas) is very welcome.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: The repo contains a valid `SKILL.md`.
+          required: true
+        - label: It's publicly available and I have the right to submit it.
+          required: true
