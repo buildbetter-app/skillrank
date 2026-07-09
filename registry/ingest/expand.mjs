@@ -75,6 +75,10 @@ const sources = JSON.parse(readFileSync(path.join(ROOT, "web/data/sources.seed.j
 
 // dedup baselines
 const seenSlugs = new Set(sources.map((s) => s.slug.toLowerCase()));
+// repos already represented in the catalog — skip them in later batches (their
+// skills are already in), unless --include-done.
+const INCLUDE_DONE = process.argv.includes("--include-done");
+const doneRepos = new Set(sources.map((s) => s.source_repo));
 const seenHashes = new Set();
 try {
   for (const e of JSON.parse(readFileSync(path.join(ROOT, "registry/data/ingested.json"), "utf8"))) {
@@ -89,6 +93,7 @@ let dupContent = 0,
 
 for (const repo of discovered) {
   if (budgetLeft <= 0) break;
+  if (!INCLUDE_DONE && doneRepos.has(repo.source_repo)) continue; // already cataloged
   if ((repo.skill_count || 0) > SKIP_OVER) continue; // defer mega-dumps
   const meta = gh([`repos/${repo.source_repo}`]);
   if (!meta || meta.message) continue;
