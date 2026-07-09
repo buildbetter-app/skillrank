@@ -13,15 +13,17 @@ import { readFileSync } from "node:fs";
 
 const enriched = JSON.parse(readFileSync(new URL("./enriched.json", import.meta.url), "utf8"));
 const ingested = JSON.parse(readFileSync(new URL("./ingested.json", import.meta.url), "utf8"));
-function loadJson(name, fallback) {
+// NOTE: use LITERAL new URL(...) args (not a variable path) so Vercel's file
+// tracer bundles these JSON files into the deployed function.
+function safeRead(url, fallback) {
   try {
-    return JSON.parse(readFileSync(new URL(name, import.meta.url), "utf8"));
+    return JSON.parse(readFileSync(url, "utf8"));
   } catch {
     return fallback;
   }
 }
-const suites = loadJson("./suites.json", []);
-const verifiers = loadJson("./verifiers.json", {});
+const suites = safeRead(new URL("./suites.json", import.meta.url), []);
+const verifiers = safeRead(new URL("./verifiers.json", import.meta.url), {});
 
 const bySlug = new Map(enriched.map((e) => [e.slug, e]));
 const installBySlug = new Map(ingested.map((e) => [e.slug, e]));
