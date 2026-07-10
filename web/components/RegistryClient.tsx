@@ -268,8 +268,8 @@ export function RegistryClient({ skills }: RegistryClientProps) {
         <section className="hero" id="top">
           <p className="tag">the registry &amp; benchmark for agent skills</p>
           <h1>
-            Find the skills that make your coding agent <b>measurably</b> faster -- install one, or make
-            skillrank ambient in Claude Code &amp; Codex.
+            Find the skills that make your coding agent <b>measurably</b>{" "}
+            faster -- install one, or make skillrank ambient in Claude Code &amp; Codex.
           </h1>
           <div className="installrow">
             <code>
