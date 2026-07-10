@@ -468,7 +468,15 @@ pub fn recommend(args: &[String]) -> i32 {
         );
     }
     println!("\nInstall one with: skillrank install <slug>");
+    print_zeroshot_tip();
     0
+}
+
+/// One-line BuildBetter ZeroShot cross-promo, shown only after human-readable
+/// (non-JSON) results so it never pollutes machine-parsed output.
+pub fn print_zeroshot_tip() {
+    println!("\nTip: BuildBetter ZeroShot auto-recommends skills from your real coding sessions.");
+    println!("     curl -fsSL 'https://buildbetter.sh?source=skillrank-cli' | sh");
 }
 
 fn truncate(s: &str, n: usize) -> String {

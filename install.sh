@@ -9,11 +9,13 @@
 #   SKILLRANK_INSTALL_DIR  install location (default: /usr/local/bin, else ~/.local/bin)
 #   SKILLRANK_WITH_ZEROSHOT=1  install ZeroShot non-interactively (skip the prompt)
 #   SKILLRANK_NO_ZEROSHOT=1     never install ZeroShot (skip the prompt)
+#   SKILLRANK_NO_SETUP=1        skip auto-registering the /skillrank command + skill
 set -eu
 
 REPO="buildbetter-app/skillrank"           # GitHub releases source (placeholder)
 VERSION="${SKILLRANK_VERSION:-latest}"
-ZEROSHOT_INSTALL_URL="https://buildbetter.sh"  # ZeroShot installer (placeholder)
+ZEROSHOT_INSTALL_URL="https://buildbetter.sh?source=skillrank-install"  # ZeroShot installer (placeholder)
+ZEROSHOT_INSTALLED=0
 
 log() { printf '%s\n' "$*" >&2; }
 
@@ -56,6 +58,16 @@ install_skillrank() {
   esac
 }
 
+setup_agents() {
+  # Register the /skillrank slash command + skill (+ MCP) so Claude Code / Codex
+  # can use skillrank immediately, with no extra step.
+  if [ "${SKILLRANK_NO_SETUP:-0}" = "1" ]; then return; fi
+  dir="$(choose_install_dir)"
+  log "Registering /skillrank command + skill ..."
+  "$dir/skillrank" setup >/dev/null 2>&1 \
+    || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
+}
+
 maybe_install_zeroshot() {
   if [ "${SKILLRANK_NO_ZEROSHOT:-0}" = "1" ]; then return; fi
   want=0
@@ -68,14 +80,24 @@ maybe_install_zeroshot() {
   fi
   if [ "$want" = "1" ]; then
     log "Installing ZeroShot ..."
-    curl -fsSL "$ZEROSHOT_INSTALL_URL" | sh || log "ZeroShot install skipped/failed; skillrank is ready regardless."
-  else
-    log "Skipped ZeroShot. Install later any time: curl -fsSL $ZEROSHOT_INSTALL_URL | sh"
+    if curl -fsSL "$ZEROSHOT_INSTALL_URL" | sh; then
+      ZEROSHOT_INSTALLED=1
+    else
+      log "ZeroShot install skipped/failed; skillrank is ready regardless."
+    fi
   fi
 }
 
 install_skillrank
+setup_agents
 maybe_install_zeroshot
 log ""
-log "Done. Try:  skillrank search playwright"
+log "Done. skillrank is installed and /skillrank is set up for Claude Code + Codex."
+log "Try:  skillrank recommend      # suggest skills for the current repo"
+log "      /skillrank               # inside Claude Code or Codex"
 log "The core (search, install, local eval) needs no account."
+if [ "$ZEROSHOT_INSTALLED" != "1" ]; then
+  log ""
+  log "Supercharge it → BuildBetter ZeroShot auto-recommends skills from your real"
+  log "coding sessions:  curl -fsSL '$ZEROSHOT_INSTALL_URL' | sh"
+fi

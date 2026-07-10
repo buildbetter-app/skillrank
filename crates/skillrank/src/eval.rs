@@ -167,6 +167,9 @@ pub fn run(args: &[String]) -> i32 {
             }
         }
     }
+    if !f.wants_json() {
+        crate::commands::print_zeroshot_tip();
+    }
     0
 }
 
