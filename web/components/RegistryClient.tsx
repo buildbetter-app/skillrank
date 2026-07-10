@@ -374,7 +374,8 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             </div>
 
             <p className="legend-note">
-              <b>SkillRank score</b> {SCORE_EXPLAINER.replace("SkillRank score ", "")}
+              <b>SkillRank score</b> {SCORE_EXPLAINER.replace("SkillRank score ", "")}{" "}
+              <Link href="/how-it-works">how it works ▸</Link>
             </p>
           </aside>
 
@@ -509,6 +510,9 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             <b>skillrank</b> -- MIT
           </span>
           <span>github.com/buildbetter-app/skillrank</span>
+          <span>
+            <Link href="/how-it-works">how evals work ▸</Link>
+          </span>
           <span>
             <a href={SUBMIT_URL}>submit a skill ▸</a>
           </span>

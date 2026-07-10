@@ -894,6 +894,36 @@ button {
   border-color: color-mix(in srgb, var(--red) 55%, var(--border));
 }
 
+.how-list {
+  margin: 4px 0 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 12px;
+  color: var(--ink);
+  max-width: 78ch;
+}
+
+.how-list li {
+  line-height: 1.55;
+}
+
+.how-list li b {
+  color: var(--amber-hi);
+}
+
+.how-list li em {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+.pos {
+  color: var(--green);
+}
+
+.neg {
+  color: var(--red);
+}
+
 .tagchip {
   color: var(--cyan);
 }
