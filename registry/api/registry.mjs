@@ -10,6 +10,7 @@
 // client (skillrank-core::hash), so `skillrank install` hash-verification passes.
 
 import { readFileSync } from "node:fs";
+import { Redis } from "@upstash/redis";
 
 const enriched = JSON.parse(readFileSync(new URL("./enriched.json", import.meta.url), "utf8"));
 const ingested = JSON.parse(readFileSync(new URL("./ingested.json", import.meta.url), "utf8"));
@@ -60,17 +61,102 @@ function matchesQuery(e, q) {
   return words.length > 0 && words.every((w) => hay.includes(w));
 }
 
-function json(res, status, body) {
+function json(res, status, body, cache = "public, s-maxage=60, stale-while-revalidate=600") {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=600");
+  res.setHeader("Cache-Control", cache);
   res.end(JSON.stringify(body));
 }
 
-export default function handler(req, res) {
+// ---- optional datastore (Upstash Redis) ---------------------------------
+// Everything below degrades to a NO-OP when the store is not provisioned, so
+// the read-side registry keeps working with zero env vars. We only ever store
+// aggregate counters and emails the user explicitly typed — never IPs or PII.
+let _redis;
+let _redisInit = false;
+function redis() {
+  if (_redisInit) return _redis;
+  _redisInit = true;
+  try {
+    const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+    const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+    if (url && token) _redis = new Redis({ url, token });
+  } catch {
+    _redis = undefined;
+  }
+  return _redis;
+}
+
+async function bumpInstall(slug) {
+  const r = redis();
+  if (!r) return;
+  try {
+    await r.zincrby("installs", 1, slug);
+  } catch {
+    /* telemetry must never break a resolve */
+  }
+}
+
+function readBody(req) {
+  return new Promise((resolve) => {
+    let data = "";
+    req.on("data", (c) => {
+      data += c;
+      if (data.length > 8192) req.destroy(); // cap body size
+    });
+    req.on("end", () => resolve(data));
+    req.on("error", () => resolve(""));
+  });
+}
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export default async function handler(req, res) {
   const url = new URL(req.url, "http://x");
   const path = url.searchParams.get("path") || "";
   const parts = path.split("/").filter(Boolean);
+
+  // ---- email capture: POST /subscribe { email } ----
+  if (parts[0] === "subscribe") {
+    if (req.method !== "POST") return json(res, 405, { error: "method not allowed" }, "no-store");
+    const raw = await readBody(req);
+    let email = "";
+    try {
+      email = String(JSON.parse(raw || "{}").email || "").trim().toLowerCase();
+    } catch {
+      email = "";
+    }
+    if (!EMAIL_RE.test(email) || email.length > 254) {
+      return json(res, 400, { ok: false, error: "invalid email" }, "no-store");
+    }
+    const r = redis();
+    let stored = false;
+    if (r) {
+      try {
+        await r.sadd("emails", email);
+        stored = true;
+      } catch {
+        stored = false;
+      }
+    }
+    return json(res, 200, { ok: stored, stored }, "no-store");
+  }
+
+  // ---- popularity: GET /installs?limit=N -> top slugs by install-intent ----
+  if (parts[0] === "installs") {
+    const limit = Math.max(1, Math.min(100, parseInt(url.searchParams.get("limit") || "20", 10) || 20));
+    const r = redis();
+    let items = [];
+    if (r) {
+      try {
+        const raw = await r.zrange("installs", 0, limit - 1, { rev: true, withScores: true });
+        for (let i = 0; i < raw.length; i += 2) items.push({ slug: raw[i], count: Number(raw[i + 1]) });
+      } catch {
+        items = [];
+      }
+    }
+    return json(res, 200, { items }, "public, s-maxage=30");
+  }
 
   // ---- eval suites: /eval-suites/:id  and  /eval-suites/:id/verifiers ----
   if (parts[0] === "eval-suites") {
@@ -124,19 +210,28 @@ export default function handler(req, res) {
         tombstone_reason: `"${e.slug}" is a skill collection, not a single SKILL.md. Browse and install from the source repo: ${e.source_url}`,
       });
     }
-    return json(res, 200, {
-      slug: inst.slug,
-      version: inst.content_hash,
-      source_type: "github",
-      source_url: inst.source_url || "",
-      source_subpath: inst.skill_path || inst.source_subpath || "",
-      pinned_commit: inst.pinned_commit || "",
-      content_hash: inst.content_hash,
-      scan_tier: "pending",
-      signals_score: typeof inst.score === "number" ? inst.score : null,
-      raw_content_url: inst.raw_content_url || "",
-      tombstoned: false,
-    });
+    // The CLI calls resolve immediately before every install, so this is our
+    // best server-side install-intent signal. Count it (best-effort) and skip
+    // CDN caching on this response so counts aren't hidden behind the edge cache.
+    await bumpInstall(slug);
+    return json(
+      res,
+      200,
+      {
+        slug: inst.slug,
+        version: inst.content_hash,
+        source_type: "github",
+        source_url: inst.source_url || "",
+        source_subpath: inst.skill_path || inst.source_subpath || "",
+        pinned_commit: inst.pinned_commit || "",
+        content_hash: inst.content_hash,
+        scan_tier: "pending",
+        signals_score: typeof inst.score === "number" ? inst.score : null,
+        raw_content_url: inst.raw_content_url || "",
+        tombstoned: false,
+      },
+      "no-store",
+    );
   }
 
   // show

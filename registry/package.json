@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "description": "api.skillrank.dev \u2014 hosted read-side registry serving /v3/rest/skill-registry from the seed catalog",
-  "license": "Elastic-2.0"
+  "license": "Elastic-2.0",
+  "dependencies": {
+    "@upstash/redis": "^1.34.3"
+  }
 }
