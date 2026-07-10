@@ -14,6 +14,8 @@ const SORT_NAMES = {
 const SUBMIT_URL =
   "https://github.com/buildbetter-app/skillrank/issues/new?template=skill-submission.yml";
 
+const ZEROSHOT_URL = "https://buildbetter.sh?source=skillrank-web";
+
 type SortKey = keyof typeof SORT_NAMES;
 
 type RegistryClientProps = {
@@ -290,7 +292,7 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             <span>
               <span className="c"># just find one →</span> <code>skillrank recommend</code>
             </span>
-            <span className="c">no account to browse · no telemetry</span>
+            <span className="c">no account to browse · aggregate-only analytics</span>
           </p>
         </section>
 
@@ -516,7 +518,9 @@ export function RegistryClient({ skills }: RegistryClientProps) {
           <span>
             <a href={SUBMIT_URL}>submit a skill ▸</a>
           </span>
-          <span>part of the BuildBetter universe</span>
+          <span>
+            <a href={ZEROSHOT_URL}>ZeroShot — auto-recommends skills from your sessions ▸</a>
+          </span>
         </footer>
       </main>
 
