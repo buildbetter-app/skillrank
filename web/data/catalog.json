@@ -61626,6 +61626,36 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "buildbetter-app/bb-implement",
+    "display_name": "bb-implement",
+    "category": "meta",
+    "tags": [
+      "spec-workflow",
+      "buildbetter"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-implement",
+    "source_repo": "buildbetter-app/skills",
+    "source_subpath": "skills/spec-workflow/bb-implement",
+    "description": "Execute the implementation plan by processing and executing all tasks defined in tasks.md",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": 0,
+      "token_delta_pct": -1.8,
+      "n_trials": 5,
+      "suite": "spec-parse",
+      "model": "claude-haiku-4-5-20251001",
+      "eval_tier": "self",
+      "tier": "community"
+    },
+    "score": 20,
+    "provisional": false,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "1NickPappas/move-code-quality-skill",
     "display_name": "Move Code Quality",
     "category": "backend",
@@ -61788,36 +61818,6 @@
     "source_repo": "buildbetter-app/skills",
     "source_subpath": "skills/spec-workflow/bb-constitution",
     "description": "Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync.",
-    "signals": {
-      "stars": 22,
-      "installs": null
-    },
-    "eval": {
-      "success_delta_pct": null,
-      "token_delta_pct": null,
-      "n_trials": null,
-      "suite": "",
-      "model": "",
-      "eval_tier": "",
-      "tier": "community"
-    },
-    "score": 19,
-    "provisional": true,
-    "added_at": "2026-07-07"
-  },
-  {
-    "slug": "buildbetter-app/bb-implement",
-    "display_name": "bb-implement",
-    "category": "meta",
-    "tags": [
-      "spec-workflow",
-      "buildbetter"
-    ],
-    "source_type": "github",
-    "source_url": "https://github.com/buildbetter-app/skills/tree/main/skills/spec-workflow/bb-implement",
-    "source_repo": "buildbetter-app/skills",
-    "source_subpath": "skills/spec-workflow/bb-implement",
-    "description": "Execute the implementation plan by processing and executing all tasks defined in tasks.md",
     "signals": {
       "stars": 22,
       "installs": null

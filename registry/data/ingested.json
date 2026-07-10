@@ -76604,16 +76604,16 @@
       "installs": null,
       "pushed_at": "2026-06-08T16:59:01Z"
     },
-    "score": 19,
+    "score": 20,
     "provisional": true,
     "installable": true,
     "eval": {
-      "success_delta_pct": null,
-      "token_delta_pct": null,
-      "n_trials": null,
-      "suite": "",
-      "model": "",
-      "eval_tier": "",
+      "success_delta_pct": 0,
+      "token_delta_pct": -1.8,
+      "n_trials": 5,
+      "suite": "spec-parse",
+      "model": "claude-haiku-4-5-20251001",
+      "eval_tier": "self",
       "tier": "community"
     }
   },
