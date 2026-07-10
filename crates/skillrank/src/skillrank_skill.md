@@ -10,8 +10,10 @@ agent skills. You invoke it with the Bash tool. Installed skills land in
 `.claude/skills/` (or `.agents/skills/`) and become available to the agent
 automatically — so "install a skill" literally means running the command below.
 
-If `skillrank` is not found on PATH, try `~/go/bin/skillrank`, or tell the user to
-install it (`go install ./cmd/skillrank` from the skillrank repo).
+If `skillrank` is not found on PATH, tell the user to install it with
+`curl -fsSL skillrank.dev | sh` (the binary lands in `~/.local/bin/skillrank`).
+If an older build is already installed, `skillrank update` self-updates to the
+latest release.
 
 ## When to use which command
 
