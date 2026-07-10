@@ -10,6 +10,7 @@
 #   SKILLRANK_WITH_ZEROSHOT=1  install ZeroShot non-interactively (skip the prompt)
 #   SKILLRANK_NO_ZEROSHOT=1     never install ZeroShot (skip the prompt)
 #   SKILLRANK_NO_SETUP=1        skip auto-registering the /skillrank command + skill
+#   SKILLRANK_NO_EMAIL=1        never prompt for an email
 set -eu
 
 REPO="buildbetter-app/skillrank"           # GitHub releases source (placeholder)
@@ -63,9 +64,21 @@ setup_agents() {
   # can use skillrank immediately, with no extra step.
   if [ "${SKILLRANK_NO_SETUP:-0}" = "1" ]; then return; fi
   dir="$(choose_install_dir)"
+  # Optional email capture. Read the terminal directly (/dev/tty) so it works
+  # even when the script itself is piped from `curl | sh`.
+  email=""
+  if [ "${SKILLRANK_NO_EMAIL:-0}" != "1" ] && [ -e /dev/tty ]; then
+    printf 'Email for occasional skill updates (optional, Enter to skip): ' >&2
+    read -r email </dev/tty || email=""
+  fi
   log "Registering /skillrank command + skill ..."
-  "$dir/skillrank" setup >/dev/null 2>&1 \
-    || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
+  if [ -n "$email" ]; then
+    "$dir/skillrank" setup --email "$email" >/dev/null 2>&1 \
+      || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
+  else
+    "$dir/skillrank" setup >/dev/null 2>&1 \
+      || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
+  fi
 }
 
 maybe_install_zeroshot() {

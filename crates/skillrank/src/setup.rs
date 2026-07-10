@@ -148,8 +148,45 @@ pub fn run(args: &[String]) -> i32 {
         print_success(parts);
         println!("(Claude Code prompts once to approve the tools; approve them.)");
         println!("To skip the prompt, add to ~/.claude/settings.json: {{\"permissions\":{{\"allow\":[\"mcp__skillrank\"]}}}}");
+        maybe_capture_email(&f, &api_url);
     }
     rc
+}
+
+/// Optionally record an email for occasional skill updates. Uses `--email` when
+/// given; otherwise prompts ONLY when stdin is an interactive terminal, so a
+/// piped `curl | sh` install never blocks. Fully skippable via `--no-email` or
+/// SKILLRANK_NO_EMAIL. Best-effort: a failure never fails setup.
+fn maybe_capture_email(f: &Flags, api_url: &str) {
+    use std::io::{IsTerminal, Write};
+    if f.bool("no-email") || std::env::var_os("SKILLRANK_NO_EMAIL").is_some() {
+        return;
+    }
+    let mut email = f.value("email").trim().to_string();
+    if email.is_empty() {
+        if !std::io::stdin().is_terminal() {
+            return;
+        }
+        print!("\nEmail for occasional skill updates (optional, Enter to skip): ");
+        let _ = std::io::stdout().flush();
+        let mut line = String::new();
+        if std::io::stdin().read_line(&mut line).is_err() {
+            return;
+        }
+        email = line.trim().to_string();
+    }
+    if email.is_empty() {
+        return;
+    }
+    if !(email.contains('@') && email.contains('.')) {
+        println!("Skipped: '{email}' doesn't look like an email.");
+        return;
+    }
+    let client = skillrank_core::Client::new(if api_url.is_empty() { None } else { Some(api_url) });
+    match client.subscribe_email(&email) {
+        Ok(()) => println!("Thanks — occasional skill updates will go to {email}."),
+        Err(e) => println!("(Couldn't record your email right now: {e}. skillrank works fine regardless.)"),
+    }
 }
 
 fn self_path() -> String {

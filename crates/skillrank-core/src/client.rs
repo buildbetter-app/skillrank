@@ -163,6 +163,23 @@ impl Client {
         self.post_authenticated(&format!("{PATH_PREFIX}/eval-results"), bundle)
     }
 
+    /// Subscribe an email to occasional skill updates (unauthenticated,
+    /// best-effort). The registry stores only the address; no account is created.
+    pub fn subscribe_email(&self, email: &str) -> Result<(), ClientError> {
+        let url = format!("{}{PATH_PREFIX}/subscribe", self.base_url);
+        match ureq::post(&url)
+            .set("Content-Type", "application/json")
+            .send_json(serde_json::json!({ "email": email }))
+        {
+            Ok(_) => Ok(()),
+            Err(ureq::Error::Status(code, resp)) => Err(ClientError::Http {
+                status: code,
+                body: resp.into_string().unwrap_or_default(),
+            }),
+            Err(ureq::Error::Transport(t)) => Err(ClientError::Unreachable(t.to_string())),
+        }
+    }
+
     fn get_authenticated<T: DeserializeOwned>(
         &self,
         path: &str,
