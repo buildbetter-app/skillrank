@@ -22,7 +22,14 @@ pub struct LockEntry {
     pub skill_path: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub surface: String,
+    /// Hash of the pristine registry content (used to compare against the
+    /// registry for `outdated`/`upgrade` — never re-derived from disk).
     pub computed_hash: String,
+    /// Hash of the actual on-disk content, which may differ from `computed_hash`
+    /// when the install applied a local transform (e.g. the `skillrank-` name
+    /// prefix). Used by `list` to detect user edits. Empty = same as content.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub local_hash: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub pinned_commit: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]

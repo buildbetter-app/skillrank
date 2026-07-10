@@ -126,7 +126,7 @@ pub fn show(args: &[String]) -> i32 {
 pub fn install(args: &[String]) -> i32 {
     let f = Flags::parse(args);
     let Some(reference) = f.positionals.first().cloned() else {
-        eprintln!("usage: install <ref> [--surface DIR] [--yes]");
+        eprintln!("usage: install <ref> [--surface DIR] [--yes] [--no-prefix]");
         return 2;
     };
     let client = new_client(&f);
@@ -166,6 +166,7 @@ pub fn install(args: &[String]) -> i32 {
         reference,
         repo_root,
         surface_override: f.value("surface").to_string(),
+        prefix: !f.bool("no-prefix"),
         now_rfc3339: None,
     }) {
         Ok(r) => r,
@@ -364,10 +365,23 @@ pub fn upgrade(args: &[String]) -> i32 {
                 continue;
             }
         }
+        // Preserve the skill's original layout: if it was installed with the
+        // skillrank- prefix, keep it; if the user opted out, don't re-prefix.
+        let was_prefixed = lock
+            .find_by_slug(slug)
+            .map(|e| {
+                e.skill_path
+                    .rsplit('/')
+                    .nth(1)
+                    .map(|d| d.starts_with("skillrank-"))
+                    .unwrap_or(true)
+            })
+            .unwrap_or(true);
         match client.install(&core::InstallOptions {
             reference: slug.clone(),
             repo_root: repo_root.clone(),
             surface_override: f.value("surface").to_string(),
+            prefix: was_prefixed,
             now_rfc3339: None,
         }) {
             Ok(r) if r.already_exact => println!("{} already up to date.", r.slug),

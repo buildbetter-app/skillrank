@@ -213,6 +213,7 @@ impl McpServer {
             reference,
             repo_root,
             surface_override: str_arg(args, "surface"),
+            prefix: true,
             now_rfc3339: None,
         }) {
             Ok(result) if result.already_exact => tool_text(
