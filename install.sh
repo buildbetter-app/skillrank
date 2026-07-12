@@ -11,6 +11,7 @@
 #   SKILLRANK_NO_ZEROSHOT=1     never install ZeroShot (skip the prompt)
 #   SKILLRANK_NO_SETUP=1        skip auto-registering the /skillrank command + skill
 #   SKILLRANK_NO_EMAIL=1        never prompt for an email
+#   SKILLRANK_NO_RECOMMEND=1    skip the post-install "relevant skills" scan
 set -eu
 
 REPO="buildbetter-app/skillrank"           # GitHub releases source (placeholder)
@@ -101,13 +102,25 @@ maybe_install_zeroshot() {
   fi
 }
 
+prove_value() {
+  # Prove skillrank's worth immediately: scan the directory the user installed
+  # from and surface skills relevant to this project. Best-effort and
+  # network-tolerant; SKILLRANK_NO_RECOMMEND=1 skips it. `recommend` prints its
+  # own "Detected stack…" + list, or a friendly hint when there's no project here.
+  if [ "${SKILLRANK_NO_RECOMMEND:-0}" = "1" ]; then return; fi
+  dir="$(choose_install_dir)"
+  log ""
+  log "── Scanning this project for skills you can use right now ──"
+  "$dir/skillrank" recommend 2>/dev/null || true
+}
+
 install_skillrank
 setup_agents
+prove_value
 maybe_install_zeroshot
 log ""
 log "Done. skillrank is installed and /skillrank is set up for Claude Code + Codex."
-log "Try:  skillrank recommend      # suggest skills for the current repo"
-log "      /skillrank               # inside Claude Code or Codex"
+log "Next:  skillrank install <slug>   ·   skillrank search <query>   ·   /skillrank (in Claude Code / Codex)"
 log "The core (search, install, local eval) needs no account."
 if [ "$ZEROSHOT_INSTALLED" != "1" ]; then
   log ""
