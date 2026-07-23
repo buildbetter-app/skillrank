@@ -90,7 +90,14 @@ jobs:
         if: always() && runner.os == 'macOS'
         run: security delete-keychain build.keychain || true
 
+      # Must run after code signing — codesign rewrites the binary, so hashing
+      # any earlier would publish a checksum that never matches what users get.
+      - name: Publish SHA-256 checksum
+        run: shasum -a 256 ${{ matrix.artifact }} | awk '{print $1}' > ${{ matrix.artifact }}.sha256
+
       - name: Upload to release
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ matrix.artifact }}
+          files: |
+            ${{ matrix.artifact }}
+            ${{ matrix.artifact }}.sha256

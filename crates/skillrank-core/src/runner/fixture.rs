@@ -43,8 +43,28 @@ impl GitFixtureProvider {
         std::fs::create_dir_all(&root).map_err(|e| e.to_string())?;
         let checkout = root.join("base");
 
+        if !is_safe_git_url(&self.git_url) {
+            return Err(format!(
+                "refusing to clone unsafe fixture URL {:?}: only https/ssh remotes are allowed \
+                 (git's ext:: transport executes arbitrary commands)",
+                self.git_url
+            ));
+        }
+
+        // `-c protocol.*.allow=never` blocks git's command-executing transports
+        // (ext::, and local file:// clones); `--` stops a `-`-leading URL from
+        // being parsed as an option. The URL is suite-supplied, i.e. untrusted.
         let out = Command::new("git")
-            .args(["clone", "--no-checkout", &self.git_url])
+            .args([
+                "-c",
+                "protocol.ext.allow=never",
+                "-c",
+                "protocol.file.allow=never",
+                "clone",
+                "--no-checkout",
+                "--",
+            ])
+            .arg(&self.git_url)
             .arg(&checkout)
             .output()
             .map_err(|e| format!("clone fixture {}: {e}", self.git_url))?;
@@ -115,6 +135,20 @@ impl Drop for GitFixtureProvider {
             let _ = std::fs::remove_dir_all(root);
         }
     }
+}
+
+/// True when a suite-supplied fixture remote is safe to hand to `git clone`.
+///
+/// Fixture URLs come from the registry, so they are untrusted input. Git's
+/// `ext::` transport executes arbitrary shell, `file://`/local paths can point
+/// anywhere on disk, and a leading `-` would be parsed as a command-line
+/// option. Only plain https/ssh remotes are accepted.
+pub fn is_safe_git_url(url: &str) -> bool {
+    let u = url.trim();
+    if u.is_empty() || u.starts_with('-') || u.contains(char::is_whitespace) {
+        return false;
+    }
+    u.starts_with("https://") || u.starts_with("ssh://") || u.starts_with("git@")
 }
 
 /// Whether a docker binary is on PATH.
@@ -210,5 +244,31 @@ impl Verifier for ScriptVerifier {
             }),
             Err(e) => Err(e.to_string()),
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::is_safe_git_url;
+
+    #[test]
+    fn accepts_normal_remotes() {
+        assert!(is_safe_git_url("https://github.com/owner/repo.git"));
+        assert!(is_safe_git_url("ssh://git@github.com/owner/repo.git"));
+        assert!(is_safe_git_url("git@github.com:owner/repo.git"));
+    }
+
+    #[test]
+    fn rejects_command_executing_and_option_like_urls() {
+        // git's ext:: transport runs arbitrary shell.
+        assert!(!is_safe_git_url("ext::sh -c 'touch /tmp/pwned'"));
+        assert!(!is_safe_git_url("file:///etc"));
+        assert!(!is_safe_git_url("/etc/passwd"));
+        // A leading '-' would be parsed by git as an option.
+        assert!(!is_safe_git_url("--upload-pack=touch /tmp/pwned"));
+        assert!(!is_safe_git_url("-x"));
+        assert!(!is_safe_git_url(""));
+        assert!(!is_safe_git_url("   "));
+        assert!(!is_safe_git_url("https://example.com/a repo"));
     }
 }

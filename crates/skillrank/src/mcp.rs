@@ -11,6 +11,23 @@ use serde_json::{json, Value};
 use skillrank_core as core;
 use std::io::{BufRead, Write};
 
+/// How long an idle stdio server waits before exiting on its own.
+///
+/// MCP clients routinely abandon a stdio server without closing its stdin, so
+/// the process blocks on read forever and leaks (observed in the wild: dozens
+/// of orphaned `skillrank mcp` processes, one alive for 8+ hours). Any incoming
+/// message — including `ping` — resets the timer, so genuinely live sessions
+/// stay up. Tune with `SKILLRANK_MCP_IDLE_SECS`; `0` disables the timeout.
+const DEFAULT_MCP_IDLE_SECS: u64 = 7200;
+
+fn idle_timeout() -> Option<std::time::Duration> {
+    let secs = std::env::var("SKILLRANK_MCP_IDLE_SECS")
+        .ok()
+        .and_then(|v| v.trim().parse::<u64>().ok())
+        .unwrap_or(DEFAULT_MCP_IDLE_SECS);
+    (secs > 0).then(|| std::time::Duration::from_secs(secs))
+}
+
 pub fn run(args: &[String]) -> i32 {
     let f = Flags::parse(args);
     let override_url = f.value("api-base-url");
@@ -21,17 +38,45 @@ pub fn run(args: &[String]) -> i32 {
     });
     let server = McpServer { client };
 
-    let stdin = std::io::stdin();
+    // Read stdin on its own thread so the main loop can apply an idle timeout.
+    // Dropping the sender on EOF/read-error signals a clean shutdown.
+    let (tx, rx) = std::sync::mpsc::channel::<String>();
+    std::thread::spawn(move || {
+        let stdin = std::io::stdin();
+        for line in stdin.lock().lines() {
+            let Ok(line) = line else { break };
+            if tx.send(line).is_err() {
+                break;
+            }
+        }
+    });
+
+    let idle = idle_timeout();
     let stdout = std::io::stdout();
     let mut out = stdout.lock();
-    for line in stdin.lock().lines() {
-        let Ok(line) = line else { break };
+    loop {
+        let line = match idle {
+            Some(d) => match rx.recv_timeout(d) {
+                Ok(line) => line,
+                Err(std::sync::mpsc::RecvTimeoutError::Timeout) => {
+                    eprintln!(
+                        "skillrank mcp: no requests for {}s; exiting so the process does not leak",
+                        d.as_secs()
+                    );
+                    return 0;
+                }
+                Err(std::sync::mpsc::RecvTimeoutError::Disconnected) => return 0,
+            },
+            None => match rx.recv() {
+                Ok(line) => line,
+                Err(_) => return 0,
+            },
+        };
         if line.trim().is_empty() {
             continue;
         }
         server.handle_line(&line, &mut out);
     }
-    0
 }
 
 pub struct McpServer {

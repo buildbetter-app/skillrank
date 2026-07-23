@@ -182,10 +182,16 @@ fn maybe_capture_email(f: &Flags, api_url: &str) {
         println!("Skipped: '{email}' doesn't look like an email.");
         return;
     }
-    let client = skillrank_core::Client::new(if api_url.is_empty() { None } else { Some(api_url) });
+    let client = skillrank_core::Client::new(if api_url.is_empty() {
+        None
+    } else {
+        Some(api_url)
+    });
     match client.subscribe_email(&email) {
         Ok(()) => println!("Thanks — occasional skill updates will go to {email}."),
-        Err(e) => println!("(Couldn't record your email right now: {e}. skillrank works fine regardless.)"),
+        Err(e) => println!(
+            "(Couldn't record your email right now: {e}. skillrank works fine regardless.)"
+        ),
     }
 }
 

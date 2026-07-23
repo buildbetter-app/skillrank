@@ -16,6 +16,7 @@ pub fn run(args: &[String]) -> i32 {
     let f = Flags::parse(args);
     let Some(reference) = f.positionals.first().cloned() else {
         eprintln!("usage: eval <ref> --suite <id> [--trials N] [--agent claude|codex] [--model M] [--publish]");
+        eprintln!("       --allow-verifier-exec   consent to running the suite's verifier scripts on this machine");
         return 2;
     };
     let suite_id = f.value("suite");
@@ -79,6 +80,30 @@ pub fn run(args: &[String]) -> i32 {
             return 1;
         }
     };
+
+    // Registry-supplied code gate. The suite's verifier scripts and fixture
+    // remote come from whoever published the suite, and running them executes
+    // their code on this machine — there is no sandbox today (Docker presence
+    // only labels the trust tier). This consent is deliberately separate from
+    // the cost prompt below: `--yes` approves spend, never code execution.
+    if !f.bool("allow-verifier-exec") {
+        eprintln!(
+            "⚠  Suite {}@{} ships verifier scripts that will execute on THIS machine.",
+            suite.id, suite.version
+        );
+        eprintln!("   fixture repo: {}", suite.fixture.git_url);
+        eprintln!("   verifier scripts: {}", verifiers.len());
+        eprintln!("   These run directly on your host — there is no sandbox.");
+        eprintln!("   Only continue for suites you trust.");
+        if f.wants_json() || f.bool("yes") || f.bool("y") {
+            eprintln!("Aborted: a non-interactive run must pass --allow-verifier-exec explicitly.");
+            return 1;
+        }
+        if !crate::commands::confirm("Execute this suite's code on this machine?") {
+            eprintln!("Aborted. Re-run with --allow-verifier-exec to skip this prompt.");
+            return 1;
+        }
+    }
 
     let cfg = Config {
         trials,

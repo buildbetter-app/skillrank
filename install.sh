@@ -41,6 +41,45 @@ choose_install_dir() {
   echo "$HOME/.local/bin"
 }
 
+sha256_of() {
+  if command -v shasum >/dev/null 2>&1; then
+    shasum -a 256 "$1" | awk '{print $1}'
+  elif command -v sha256sum >/dev/null 2>&1; then
+    sha256sum "$1" | awk '{print $1}'
+  else
+    echo ""
+  fi
+}
+
+# Verify the downloaded binary against the SHA-256 published alongside the
+# release. Fails closed: a tampered or truncated download must never be
+# installed. Set SKILLRANK_SKIP_CHECKSUM=1 only if you know what you are doing.
+verify_checksum() {
+  file="$1"; sum_url="$2"
+  if [ "${SKILLRANK_SKIP_CHECKSUM:-0}" = "1" ]; then
+    log "Warning: checksum verification skipped (SKILLRANK_SKIP_CHECKSUM=1)."
+    return 0
+  fi
+  expected="$(curl -fsSL "$sum_url" 2>/dev/null | tr -d '[:space:]')" || expected=""
+  if [ -z "$expected" ]; then
+    log "Error: could not fetch checksum from $sum_url"
+    log "Refusing to install an unverified binary. Set SKILLRANK_SKIP_CHECKSUM=1 to override."
+    return 1
+  fi
+  actual="$(sha256_of "$file")"
+  if [ -z "$actual" ]; then
+    log "Error: no sha256 tool (shasum/sha256sum) available to verify the download."
+    log "Refusing to install an unverified binary. Set SKILLRANK_SKIP_CHECKSUM=1 to override."
+    return 1
+  fi
+  if [ "$expected" != "$actual" ]; then
+    log "Error: checksum mismatch — refusing to install."
+    log "  expected: $expected"
+    log "  actual:   $actual"
+    return 1
+  fi
+}
+
 install_skillrank() {
   target="$(detect_target)"
   dir="$(choose_install_dir)"
@@ -51,8 +90,15 @@ install_skillrank() {
     url="https://github.com/${REPO}/releases/download/${VERSION}/${target}"
   fi
   log "Installing skillrank ($target) to $dir ..."
-  curl -fsSL "$url" -o "$dir/skillrank"
-  chmod +x "$dir/skillrank"
+  # Download to a temp file, verify, then move into place, so a failed or
+  # tampered download never lands on an executable path.
+  tmp="$(mktemp "${TMPDIR:-/tmp}/skillrank.XXXXXX")" || { log "Error: mktemp failed"; exit 1; }
+  trap 'rm -f "$tmp"' EXIT INT TERM
+  curl -fsSL "$url" -o "$tmp"
+  verify_checksum "$tmp" "${url}.sha256" || { rm -f "$tmp"; exit 1; }
+  chmod +x "$tmp"
+  mv -f "$tmp" "$dir/skillrank"
+  trap - EXIT INT TERM
   log "Installed: $dir/skillrank"
   case ":$PATH:" in
     *":$dir:"*) : ;;
