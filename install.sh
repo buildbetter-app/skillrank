@@ -96,7 +96,7 @@ install_skillrank() {
   trap 'rm -f "$tmp"' EXIT INT TERM
   curl -fsSL "$url" -o "$tmp"
   verify_checksum "$tmp" "${url}.sha256" || { rm -f "$tmp"; exit 1; }
-  chmod +x "$tmp"
+  chmod 755 "$tmp"
   mv -f "$tmp" "$dir/skillrank"
   trap - EXIT INT TERM
   log "Installed: $dir/skillrank"
