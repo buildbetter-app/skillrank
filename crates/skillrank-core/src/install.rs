@@ -321,7 +321,11 @@ fn choose_prefixed_dir(
         })
         .unwrap_or(false);
     if taken_by_other {
-        let owner = slug.split('/').next().map(sanitize_name).unwrap_or_default();
+        let owner = slug
+            .split('/')
+            .next()
+            .map(sanitize_name)
+            .unwrap_or_default();
         if !owner.is_empty() {
             return format!("skillrank-{owner}-{base}");
         }
@@ -480,7 +484,10 @@ mod tests {
 
     #[test]
     fn sanitizes_names() {
-        assert_eq!(sanitize_name("Test Driven_Development!"), "test-driven-development");
+        assert_eq!(
+            sanitize_name("Test Driven_Development!"),
+            "test-driven-development"
+        );
         assert_eq!(sanitize_name("  --Weird__Name.. "), "weird-name");
     }
 

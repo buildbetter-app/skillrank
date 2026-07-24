@@ -11,6 +11,22 @@ jobs:
   build:
     name: build ${{ matrix.artifact }}
     runs-on: ${{ matrix.os }}
+    # Developer ID signing is OPTIONAL and must never block a release.
+    #
+    # Two independent guards, because both failure modes have bitten us:
+    #   * secrets absent      -> the `if:` below skips the steps entirely;
+    #   * secrets present but WRONG -> `continue-on-error: true` on each signing
+    #     step. In v0.1.2 the cert imported with a mismatched password
+    #     ("MAC verification failed during PKCS12 import"), which failed the
+    #     whole macOS job, so NO macOS assets were published and every
+    #     `curl | sh` install on a Mac 404'd until this was fixed.
+    #
+    # Degrading to the ad-hoc signature the Rust linker already applies is safe
+    # for a `curl | sh` CLI: curl never sets the com.apple.quarantine xattr, so
+    # Gatekeeper does not gate it. Developer ID + notarization only matter for
+    # browser downloads or .dmg/.pkg distribution.
+    env:
+      HAS_MACOS_SIGNING: ${{ secrets.MACOS_CERTIFICATE_P12 != '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -40,7 +56,8 @@ jobs:
         run: cp target/${{ matrix.target }}/release/skillrank ${{ matrix.artifact }}
 
       - name: Import Developer ID certificate
-        if: runner.os == 'macOS'
+        if: runner.os == 'macOS' && env.HAS_MACOS_SIGNING == 'true'
+        continue-on-error: true
         env:
           MACOS_CERTIFICATE_P12: ${{ secrets.MACOS_CERTIFICATE_P12 }}
           MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
@@ -57,7 +74,8 @@ jobs:
           rm -f cert.p12
 
       - name: Code sign binary
-        if: runner.os == 'macOS'
+        if: runner.os == 'macOS' && env.HAS_MACOS_SIGNING == 'true'
+        continue-on-error: true
         env:
           MACOS_SIGNING_IDENTITY: ${{ secrets.MACOS_SIGNING_IDENTITY }}
         run: |
@@ -66,7 +84,8 @@ jobs:
           codesign -dv --verbose=4 ${{ matrix.artifact }}
 
       - name: Notarize binary
-        if: runner.os == 'macOS'
+        if: runner.os == 'macOS' && env.HAS_MACOS_SIGNING == 'true'
+        continue-on-error: true
         env:
           APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
           APPLE_API_ISSUER_ID: ${{ secrets.APPLE_API_ISSUER_ID }}
@@ -87,10 +106,17 @@ jobs:
           # by CDHash on first run instead, so notarization alone is sufficient.
 
       - name: Delete signing keychain
-        if: always() && runner.os == 'macOS'
+        if: always() && runner.os == 'macOS' && env.HAS_MACOS_SIGNING == 'true'
         run: security delete-keychain build.keychain || true
+
+      # Must run after code signing — codesign rewrites the binary, so hashing
+      # any earlier would publish a checksum that never matches what users get.
+      - name: Publish SHA-256 checksum
+        run: shasum -a 256 ${{ matrix.artifact }} | awk '{print $1}' > ${{ matrix.artifact }}.sha256
 
       - name: Upload to release
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ matrix.artifact }}
+          files: |
+            ${{ matrix.artifact }}
+            ${{ matrix.artifact }}.sha256
