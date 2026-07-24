@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "next": "16.2.10",
+    "next": "16.2.11",
     "react": "19.2.7",
     "react-dom": "19.2.7"
   },
@@ -18,6 +18,15 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "typescript": "latest"
+  },
+  "//overrides": "postcss and sharp reach us only transitively through next. next 16.2.11 still pins postcss 8.4.31 and sharp ^0.34.5, both of which carry advisories, so force the patched versions. sharp is next's OPTIONAL image-optimization dep and this app never uses next/image (no next/image import, no images block in next.config.mjs), so the out-of-range bump is inert here.",
+  "overrides": {
+    "postcss": "^8.5.12",
+    "sharp": "^0.35.3"
+  },
+  "//engines": "sharp >=0.35 requires Node >=20.9.0; pin the floor so the Vercel project's Node version cannot silently drop below it.",
+  "engines": {
+    "node": ">=20.9.0"
   },
   "license": "Elastic-2.0"
 }
