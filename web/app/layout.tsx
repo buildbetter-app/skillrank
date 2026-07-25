@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL } from "../lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skillrank.dev"),
+  // www, not the apex — the apex 308s to www, so emitting apex URLs in the
+  // canonical and OG tags would point every crawler at a redirect.
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "skillrank -- the registry & benchmark for agent skills",
     template: "%s | skillrank"
