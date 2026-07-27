@@ -25,7 +25,7 @@
 
 /// Bump on ANY rule change. Persisted next to the tier so a stale verdict is
 /// detectable and `ingest.mjs --rescan` can re-tier only what actually drifted.
-export const SCANNER_VERSION = "1.0.0";
+export const SCANNER_VERSION = "1.1.0";
 
 /// Vocabulary is fixed by `skillrank-core::types::ScanTier`. Never add variants.
 export const SCAN_TIERS = ["safe", "low", "medium", "high", "flagged", "pending", "unknown"];
@@ -259,6 +259,47 @@ const PLACEHOLDER_LABELS = new Set([
   "app",
 ]);
 
+/// The subset that stays a template marker even when it is only PART of a label.
+///
+/// The distinction is ownership. `host`, `app`, `server`, `name` are ordinary
+/// English nouns that appear in real registrable domains — `registry.pkg-host.io`
+/// is a domain somebody bought — so those only declassify a host when they are
+/// the whole dot-label. The words below are substitution tokens and explicit
+/// example vocabulary: `${region}.amazonaws.com` and `evil-corp.io` are never
+/// somebody's production endpoint, so hyphen-position matching is still correct
+/// for them.
+const STRONG_PLACEHOLDER_LABELS = new Set([
+  "example",
+  "examples",
+  "yourdomain",
+  "yourcompany",
+  "yourapp",
+  "yoursite",
+  "yourserver",
+  "myapp",
+  "mysite",
+  "mycompany",
+  "myserver",
+  "foo",
+  "bar",
+  "baz",
+  "qux",
+  "region",
+  "project",
+  "projectid",
+  "placeholder",
+  "sample",
+  "somewhere",
+  "someserver",
+  "attacker",
+  "evil",
+  "malicious",
+  "victim",
+  "target",
+  "targets",
+  "your",
+]);
+
 const CORPORATE_MIRROR_RE = /\b(artifactory|nexus|jfrog|verdaccio|\.corp\b|\.internal\b|\.intra\b)/i;
 
 /// Official package indexes. `--extra-index-url https://pypi.nvidia.com` and
@@ -336,11 +377,17 @@ function classifyHost(rawUrl) {
     if (/^(10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host)) return { kind: "private-ip", host };
     return { kind: "bare-ip", host };
   }
-  const labels = host.split(/[.\-_]/).filter(Boolean);
-  const tld = host.split(".").pop();
-  for (const label of labels) {
-    if (label === tld) continue; // `skillrank.dev` must not read as the word "dev"
-    if (PLACEHOLDER_LABELS.has(label)) return { kind: "placeholder", host };
+  const dotLabels = host.split(".").filter(Boolean);
+  const tld = dotLabels[dotLabels.length - 1];
+  for (const dotLabel of dotLabels) {
+    if (dotLabel === tld) continue; // `skillrank.dev` must not read as the word "dev"
+    // A generic English noun (`host`, `app`, `name`, `server`) is only a
+    // template marker when it is the WHOLE label. `pkg-host.io` is a
+    // registrable domain someone owns; `host.example.com` is a placeholder.
+    if (PLACEHOLDER_LABELS.has(dotLabel)) return { kind: "placeholder", host };
+    for (const part of dotLabel.split(/[-_]/).filter(Boolean)) {
+      if (STRONG_PLACEHOLDER_LABELS.has(part)) return { kind: "placeholder", host };
+    }
   }
   if (!host.includes(".")) return { kind: "placeholder", host };
   return { kind: "concrete", host };
@@ -388,7 +435,7 @@ function isTrustedInstallSource(url, meta) {
 // Segmentation — zones, fences, HTML comments, frontmatter
 // ---------------------------------------------------------------------------
 
-const FENCE_OPEN_RE = /^\s{0,3}(`{3,}|~{3,})\s*([A-Za-z0-9_+#.-]*)\s*$/;
+const FENCE_OPEN_RE = /^\s{0,3}(`{3,}|~{3,})\s*([A-Za-z0-9_+#.-]*)\s*(?:[ \t][^\n]*)?$/;
 const FENCE_ANY_RE = /^\s{0,3}(`{3,}|~{3,})/;
 /// NON-SPANNING on purpose. A `[\s\S]{0,400}?` body runs straight past `-->` and
 /// false-positives on the 70 benign HTML comments in the corpus; the negative
@@ -399,6 +446,7 @@ const FENCE_ANY_RE = /^\s{0,3}(`{3,}|~{3,})/;
 /// swallowed the remaining 200 lines of the document as "comment text".
 const HTML_COMMENT_RE = /<!--(?:(?!-->)[\s\S]){0,4000}?-->/g;
 
+const PROSE_FENCE_LANGS = new Set(["", "text", "txt", "plaintext", "plain", "markdown", "md", "mdx", "prompt", "quote"]);
 const SHELL_LANGS = new Set([
   "bash",
   "sh",
@@ -604,7 +652,7 @@ function escapeRe(s) {
 /// "pattern: rm -rf /tmp  # Only matches exact path".
 const REGEX_SYNTAX_RE = /\\[sSbBdDwW]|\(\?:|\(\?=|\(\?!|\[\^|\.\*|\.\+|\{\d,\d?\}/;
 const RULE_FRAMING_RE =
-  /\b(pattern|patterns|matches|regex|regexp|denylist|blocklist|blocked|allowlist|allowed|deny|detect|detects|detection|rule|rules|signature|grep -qE|grep -E|BLOCKED)\b\s*[:=]|\b(matches|detects|blocks|rejects|flags)\b\s+`/i;
+  /\b(pattern|patterns|matches|regex|regexp|denylist|blocklist|allowlist|detection|signature|grep -qE|grep -E)\b\s*[:=]|\b(matches|detects|blocks|rejects|flags)\b\s+`/i;
 function isRuleDocumentation(text) {
   return REGEX_SYNTAX_RE.test(text) || RULE_FRAMING_RE.test(text) || INCIDENT_NARRATIVE_RE.test(text);
 }
@@ -630,8 +678,15 @@ function isTableRow(text) {
 /// dontAsk, or bypassPermissions mode" is a quiz item, not a directive.
 const PAST_TENSE_REPORT_RE =
   /\?\s*$|\b(?:have|did|do|were|would)\s+you\b|\b(?:I|I'?ve|we|you)\s+(?:have|had|already|previously)\b|—\s*(?:Used|Created|Configured|Set up|Enabled|Added|Wrote|Ran|Installed)\b|\b(?:rate yourself|self.?assessment|checklist item)\b/i;
-function isDescriptiveReport(text) {
-  return PAST_TENSE_REPORT_RE.test(text);
+function isDescriptiveReport(text, match) {
+  if (!PAST_TENSE_REPORT_RE.test(text)) return false;
+  // A question only describes what sits INSIDE it. `Do you want X? Then run Y`
+  // is an imperative wearing a question mark.
+  if (match) {
+    const idx = text.indexOf(match);
+    if (idx > 0 && /[?]\s/.test(text.slice(0, idx))) return false;
+  }
+  return true;
 }
 
 /// Polarity. `AgriciDaniel/ads` says "Refuse `curl ... | bash`" and
@@ -715,8 +770,19 @@ function isQuoted(lineText, match) {
   return quoteBefore && quoteAfter;
 }
 
+/// One severity step down.
+///
+/// Context gates DEMOTE, they do not delete. A gate is a guess about authorial
+/// intent made from one keyword; when it is wrong the finding disappears
+/// entirely, which is how a single incidental English word ("Instead of the
+/// vendored copy…") switched four rules off for a whole fenced block. Demotion
+/// keeps the evidence and lets the rest of the document decide: a demoted
+/// finding still combines, still shows in the UI, and still adds score.
+const DEMOTE = { critical: HIGH, high: MEDIUM, medium: INFO, info: INFO };
+
 /// A fence introduced by a "don't do this" caption. Shell rules must not read a
-/// counter-example as an instruction.
+/// counter-example as an instruction — but a caption is cheap for an attacker to
+/// write, so this demotes rather than exempts.
 function fenceIsNegativeExample(fence) {
   return Boolean(fence) && isProhibitionFramed(fence.precededBy || "");
 }
@@ -737,7 +803,7 @@ function excerptFrom(text, matchText) {
 function hit(rule, severity, line, why, extra = {}) {
   return {
     rule,
-    severity,
+    severity: extra.demoted ? DEMOTE[severity] : severity,
     line: line.n,
     excerpt: excerptFrom(line.text, extra.match),
     why,
@@ -745,6 +811,7 @@ function hit(rule, severity, line, why, extra = {}) {
     _fenceId: line.fenceId,
     _paragraph: line.paragraph,
     _tags: extra.tags || [],
+    _match: extra.match || "",
   };
 }
 
@@ -787,12 +854,13 @@ const HIGHEST_AUTHORITY_RE =
 function ruleInstructionOverride(ctx) {
   const out = [];
   ctx.lines.forEach((line, i) => {
-    if (line.zone !== "prose" && line.zone !== "comment" && line.zone !== "frontmatter") return;
+    if (line.zone === "code" && !PROSE_FENCE_LANGS.has(line.fenceLang)) return;
+    if (line.zone === "fence-marker") return;
     // A6: match only on text the agent would read as its OWN instruction.
     // `- **Directives to Ignore**: "Ignore previous instructions,"` is a
     // defensive checklist quoting the payload, and matching through the quotes
     // turns a skill that teaches injection resistance into a `flagged` one.
-    const text = withoutQuotedSpans(clip(line.text));
+    const text = withoutQuotedSpans(fold(clip(line.text)));
     if (!text.trim()) return;
     let match = null;
     if (OVERRIDE_RE.test(text)) match = OVERRIDE_RE.exec(text)[0];
@@ -801,7 +869,14 @@ function ruleInstructionOverride(ctx) {
     if (!match) return;
 
     // A6 gate: the payload quoted as an example of what NOT to obey.
-    const nearby = windowText(ctx.lines, i, 2);
+    //
+    // Inside a fence the CAPTION governs the whole block, the same way it does
+    // for `fenceIsNegativeExample`. This rule reads prose-language fences now,
+    // and the corpus form is a `### Prompt Injection Samples` heading over a
+    // ```text block of specimens — a two-line window never reaches the heading,
+    // so an offensive-security reference flags itself as the attack it lists.
+    const fence = ctx.fenceById.get(line.fenceId);
+    const nearby = `${windowText(ctx.lines, i, 2)}\n${(fence && fence.precededBy) || ""}`;
     if (INJECTION_AWARENESS_RE.test(nearby)) return;
     if (isRuleDocumentation(text)) return;
     if (isQuoted(line.text, match)) return;
@@ -848,15 +923,15 @@ function isNegatedTrigger(text, match) {
 // ---------------------------------------------------------------------------
 const FETCH_VERB_RE = /\b(fetch|download|curl|wget|WebFetch|web_?fetch|retrieve|GET|load|open|read|pull)\b/i;
 const OBEY_RE =
-  /\b(follow|execute|run|apply|obey|comply with|carry out|perform|do)\b[^.\n]{0,30}\b(the )?(steps?|instructions?|commands?|directives?|guidance|playbook|protocol|procedure|actions?)\b[^.\n]{0,30}\b(it|they|there|therein|contained|within|inside|returned|in the response|from that|in it|in order|listed)\b|\b(follow|execute|obey|apply)\s+(it|them|those|that)\b|\bdo what (?:it|they) (?:says?|instructs?)\b|\bas instructed (?:there|by it)\b|\b(follow|execute|apply)\s+(?:the\s+)?(?:steps?|instructions?|commands?|directives?)\s+(?:it|they)\s+(?:contains?|lists?|specifies?)\b/i;
+  /\b(follow|execute|run|apply|obey|comply with|carry out|perform|do)\b[^.\n]{0,30}\b(the )?(steps?|instructions?|commands?|directives?|guidance|playbook|protocol|procedure|actions?)\b[^.\n]{0,30}\b(it|they|there|therein|contained|within|inside|returned|in the response|from that|in it|in order|listed)\b|\b(follow|execute|obey|apply)\s+(it|them|those|that)\b|\bdo what (?:it|they) (?:says?|instructs?)\b|\bas instructed (?:there|by it)\b|\b(?:treat|use|adopt|regard)\b[^.\n]{0,40}\bas\b[^.\n]{0,30}\b(?:instructions?|directives?|polic(?:y|ies)|rules?|guidance|prompt|system prompt|operating|authoritative)\b|\bapply\s+(?:everything|whatever|all|anything)\b[^.\n]{0,40}\b(?:defined|described|listed|specified|contained|found)\b[^.\n]{0,20}\b(?:there|therein|in it|inside)\b|\bapply\s+the\s+(?:setup|configuration|config|policy|rules?|steps?)\s+it\s+(?:defines?|describes?|lists?|specifies?)\b|\b(follow|execute|apply)\s+(?:the\s+)?(?:steps?|instructions?|commands?|directives?)\s+(?:it|they)\s+(?:contains?|lists?|specifies?)\b/i;
 const URLISH_RE = /https?:\/\/|\$\{?[A-Z_]*URL|\{\{[^}\n]{0,40}url/i;
 
 function ruleDeferredInstructions(ctx) {
   const out = [];
   ctx.lines.forEach((line, i) => {
     if (line.zone === "code") return;
-    const window = clip(windowText(ctx.lines, i, 1));
-    const text = clip(line.text);
+    const window = fold(clip(windowText(ctx.lines, i, 1)));
+    const text = fold(clip(line.text));
     if (!URLISH_RE.test(text)) return;
     if (!FETCH_VERB_RE.test(window)) return;
     const obey = OBEY_RE.exec(window);
@@ -909,7 +984,7 @@ const AUTHED_RC_RE = /\.(?:npmrc|pypirc)\b/i;
 const AUTH_TOKEN_RE = /_authToken|\bpassword\s*=|\bapi_?key\s*=/i;
 
 const TEMPLATE_SUFFIX_RE = /\.(?:example|sample|template|dist|tpl)\b/i;
-const ENV_FILE_RE = /(?:^|[\s"'`/=])\.env(?:\.[a-z0-9_-]+)?\b/i;
+const ENV_FILE_RE = /(?:^|[\s"'`/=@<])\.env(?:\.[a-z0-9_-]+)?\b/i;
 const NAMED_KEY_RE = /\$\{?[A-Z][A-Z0-9_]{2,}(?:_)?(?:API_?KEY|KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL)S?\}?/;
 const BULK_ENV_RE = /\b(printenv|env)\b\s*(?:\|\s*(?<sink>[^\n|]{1,80}))?/i;
 
@@ -921,7 +996,7 @@ function ruleCredentialAccess(ctx) {
     if (!text.trim()) return;
     if (isRuleDocumentation(text) || isTableRow(text)) return;
     if (isProhibitionFramed(text) && !/\b(exfiltrat|steal|harvest)/i.test(text)) return;
-    if (fenceIsNegativeExample(ctx.fenceById.get(line.fenceId))) return;
+    const demoted = fenceIsNegativeExample(ctx.fenceById.get(line.fenceId));
 
     // --- ladder step 1: high-sensitivity material -> medium on its own
     for (const p of SENSITIVE_PATHS) {
@@ -933,6 +1008,7 @@ function ruleCredentialAccess(ctx) {
         hit("secret-file-read", MEDIUM, line, `This reads ${p.what} from the user's machine.`, {
           match: m[0],
           tags: ["secret-read"],
+          demoted,
         }),
       );
       return;
@@ -942,6 +1018,7 @@ function ruleCredentialAccess(ctx) {
         hit("keychain-read", MEDIUM, line, "This extracts a stored password from the OS credential store.", {
           match: KEYCHAIN_RE.exec(text)[0],
           tags: ["secret-read"],
+          demoted,
         }),
       );
       return;
@@ -951,6 +1028,7 @@ function ruleCredentialAccess(ctx) {
         hit("registry-token-read", MEDIUM, line, "This reads a package-registry auth token from the user's config.", {
           match: AUTHED_RC_RE.exec(text)[0],
           tags: ["secret-read"],
+          demoted,
         }),
       );
       return;
@@ -970,7 +1048,7 @@ function ruleCredentialAccess(ctx) {
             MEDIUM,
             line,
             "This dumps the whole process environment and filters it for secret-shaped names, rather than reading one named variable.",
-            { match: bulk[0], tags: ["secret-read"] },
+            { match: bulk[0], tags: ["secret-read"], demoted },
           ),
         );
         return;
@@ -980,7 +1058,8 @@ function ruleCredentialAccess(ctx) {
     // --- ladder step 3: `.env` and single named keys. A3: NEVER escalates on
     // its own — `cp .env.example .env` is writing a template, and half the
     // corpus mentions an API key name.
-    if ((ENV_FILE_RE.test(text) && !TEMPLATE_SUFFIX_RE.test(text) && READ_VERB_RE.test(text)) || NAMED_KEY_RE.test(text)) {
+    const sentAsBody = /(?:--data(?:-binary|-raw|-urlencode)?|-d|-T|--upload-file)\s*@?\s*\S*\.env\b|<\s*\.env\b/i.test(text);
+    if ((ENV_FILE_RE.test(text) && !TEMPLATE_SUFFIX_RE.test(text) && (READ_VERB_RE.test(text) || sentAsBody)) || NAMED_KEY_RE.test(text)) {
       const m = ENV_FILE_RE.exec(text) || NAMED_KEY_RE.exec(text);
       out.push(
         hit(
@@ -1050,7 +1129,7 @@ function ruleExfiltration(ctx) {
     if (!text.trim()) return;
     if (isRuleDocumentation(text) || isTableRow(text)) return;
     if (isProhibitionFramed(text) && !/\bexfiltrat/i.test(text)) return;
-    if (fenceIsNegativeExample(ctx.fenceById.get(line.fenceId))) return;
+    const demoted = fenceIsNegativeExample(ctx.fenceById.get(line.fenceId));
 
     // Destination first: an OOB collector is damning regardless of payload.
     const urls = text.match(URL_RE) || [];
@@ -1075,7 +1154,7 @@ function ruleExfiltration(ctx) {
           dualUse
             ? `This uses ${cls.host || "an out-of-band collector"}, a request-collector service, as a callback target. Standard technique in authorized security testing, and the same technique used to move data off a machine quietly.`
             : `This sends data to ${cls.host}, a request-collector / paste / tunnel service. Those exist to receive data out-of-band and have no place in a skill's normal workflow.`,
-          { match: url, tags: dualUse ? ["egress"] : ["egress", "egress-concrete"] },
+          { match: url, tags: dualUse ? ["egress"] : ["egress", "egress-concrete"], demoted },
         ),
       );
       return;
@@ -1100,7 +1179,7 @@ function ruleExfiltration(ctx) {
           INFO,
           line,
           `This sends data to ${concrete.host}, a fixed host baked into the skill rather than one the user chose. Ordinary for an API integration; it becomes serious when the same passage also reads local credentials.`,
-          { match: concrete.url, tags: ["egress", "egress-concrete"] },
+          { match: concrete.url, tags: ["egress", "egress-concrete"], demoted },
         ),
       );
       return;
@@ -1133,8 +1212,8 @@ const PROSE_EXFIL_RE =
 function ruleProseExfiltration(ctx) {
   const out = [];
   ctx.lines.forEach((line, i) => {
-    if (line.zone !== "prose" && line.zone !== "comment") return;
-    const text = clip(line.text);
+    if (line.zone === "code" || line.zone === "fence-marker") return;
+    const text = fold(clip(line.text));
     const m = PROSE_EXFIL_RE.exec(text);
     if (!m) return;
     const window = clip(windowText(ctx.lines, i, 1));
@@ -1170,7 +1249,7 @@ function ruleRemoteExec(ctx) {
     if (!text.trim()) return;
     if (isRuleDocumentation(text)) return;
     if (isProhibitionFramed(text)) return; // "Refuse `curl ... | bash`"
-    if (fenceIsNegativeExample(ctx.fenceById.get(line.fenceId))) return;
+    const demoted = fenceIsNegativeExample(ctx.fenceById.get(line.fenceId));
 
     const m = PIPE_TO_SHELL_RE.exec(text) || EVAL_FETCH_RE.exec(text);
     if (!m) return;
@@ -1194,6 +1273,7 @@ function ruleRemoteExec(ctx) {
         hit("pipe-to-shell-placeholder", MEDIUM, line, "This pipes a downloaded script straight into a shell. The URL is a placeholder, so what actually runs depends on a value supplied later.", {
           match: m[0],
           tags: ["install", "remote-exec"],
+          demoted,
         }),
       );
       return;
@@ -1207,6 +1287,7 @@ function ruleRemoteExec(ctx) {
       hit("pipe-to-shell-untrusted", HIGH, line, insecure ? `${why} The URL is plain http://, so the script can also be rewritten in transit.` : why, {
         match: m[0],
         tags: ["install", "remote-exec"],
+        demoted,
       }),
     );
   });
@@ -1304,7 +1385,7 @@ function ruleObfuscation(ctx) {
           match: "",
         }),
       );
-    } else if (INVISIBLE_RE.test(line.text)) {
+    } else if (INVISIBLE_RE.test(line.text) || ZWJ_IN_WORD_RE.test(line.text)) {
       out.push(
         hit("invisible-characters", MEDIUM, line, "This line contains zero-width or invisible characters. They are never needed in a skill and are the standard way to hide text from a reviewer.", { match: "" }),
       );
@@ -1363,7 +1444,7 @@ function ruleObfuscation(ctx) {
 // `--force` flags the safe form.
 // ---------------------------------------------------------------------------
 const RM_ROOT_RE =
-  /\brm\s+(?:-{1,2}[A-Za-z-]+\s+)*(?:-{1,2}[A-Za-z-]+\s+)*(~|\$HOME|\$\{HOME\}|\/)(?:\/?\*)?\s*(?:$|[;&|)#]|2>)/;
+  /\brm\s+(?:-{1,2}[A-Za-z-]+\s+)*(?:-{1,2}[A-Za-z-]+\s+)*(~|\$HOME|\$\{HOME\}|\/)(?:\/?\*)?\s*(?:$|[;&|)#`'"]|\s*[.,]|2>)/;
 const RM_NO_PRESERVE_RE = /\brm\b[^\n]{0,80}--no-preserve-root/i;
 const BUILD_ARTIFACT_RE =
   /\b(?:node_modules|dist|build|out|target|coverage|\.next|\.nuxt|\.turbo|\.parcel-cache|\.cache|__pycache__|\.pytest_cache|\.venv|venv|vendor|\.tox|\.gradle|DerivedData|\.terraform)\b/;
@@ -1386,7 +1467,13 @@ function ruleDestructive(ctx) {
     if (!text.trim()) return;
     if (isRuleDocumentation(text)) return;
     if (isProhibitionFramed(text)) return; // "NEVER delete user project directories"
-    if (fenceIsNegativeExample(ctx.fenceById.get(line.fenceId))) return;
+    // The other object rules already read a table row as reference data. This
+    // one never needed to, because a delete wrapped in backticks could not match
+    // at all until the terminator class was widened — and the first thing that
+    // surfaced was a file-upload pentest skill tabulating "Filename injection"
+    // against its own mitigation column. Demoted, not exempt: a table is also a
+    // perfectly good place to hide a step the agent will follow.
+    const demoted = fenceIsNegativeExample(ctx.fenceById.get(line.fenceId)) || isTableRow(text);
 
     if (RM_NO_PRESERVE_RE.test(text) || RM_ROOT_RE.test(text)) {
       const m = (RM_NO_PRESERVE_RE.exec(text) || RM_ROOT_RE.exec(text))[0];
@@ -1394,6 +1481,7 @@ function ruleDestructive(ctx) {
         hit("recursive-delete-at-root", HIGH, line, "This recursively deletes the user's home directory or the filesystem root, not a scoped build directory.", {
           match: m,
           tags: ["destructive"],
+          demoted,
         }),
       );
       return;
@@ -1403,6 +1491,7 @@ function ruleDestructive(ctx) {
         hit("bulk-delete-under-home", HIGH, line, "This walks the home directory or the filesystem root and deletes everything it matches.", {
           match: FIND_DELETE_RE.exec(text)[0],
           tags: ["destructive"],
+          demoted,
         }),
       );
       return;
@@ -1412,6 +1501,7 @@ function ruleDestructive(ctx) {
         hit("world-writable-home", HIGH, line, "This makes the entire home directory world-writable, which removes the protection on every file in it.", {
           match: CHMOD_WORLD_RE.exec(text)[0],
           tags: ["destructive"],
+          demoted,
         }),
       );
       return;
@@ -1426,7 +1516,7 @@ function ruleDestructive(ctx) {
           protectedTarget
             ? "This force-pushes over a shared branch without --force-with-lease, which discards commits other people have already pushed."
             : "This force-pushes without --force-with-lease. Routine on a personal branch; it silently overwrites anyone else's work if the branch is shared.",
-          { match: FORCE_PUSH_RE.exec(text)[0], tags: ["destructive"] },
+          { match: FORCE_PUSH_RE.exec(text)[0], tags: ["destructive"], demoted },
         ),
       );
       return;
@@ -1436,6 +1526,7 @@ function ruleDestructive(ctx) {
         hit("history-rewrite", MEDIUM, line, "This rewrites git history across the repository, which cannot be undone from the working copy alone.", {
           match: HISTORY_REWRITE_RE.exec(text)[0],
           tags: ["destructive"],
+          demoted,
         }),
       );
       return;
@@ -1448,6 +1539,7 @@ function ruleDestructive(ctx) {
         hit("unconditional-workspace-wipe", MEDIUM, line, "This discards every uncommitted change AND every untracked file in one step, so anything the user had not committed is gone.", {
           match: HARD_RESET_RE.exec(text)[0],
           tags: ["destructive"],
+          demoted,
         }),
       );
       return;
@@ -1457,6 +1549,7 @@ function ruleDestructive(ctx) {
         hit("destructive-sql", MEDIUM, line, "This executes a schema-dropping or unfiltered-delete statement against a database that is not named as a test database.", {
           match: DESTRUCTIVE_SQL_RE.exec(text)[0],
           tags: ["destructive"],
+          demoted,
         }),
       );
       return;
@@ -1555,9 +1648,9 @@ function ruleSafetySubversion(ctx) {
   const out = [];
   ctx.lines.forEach((line, i) => {
     if (line.zone === "fence-marker") return;
-    const text = clip(line.text);
+    const text = fold(clip(line.text));
     if (!text.trim()) return;
-    const window = clip(windowText(ctx.lines, i, 1));
+    const window = fold(clip(windowText(ctx.lines, i, 1)));
     const isProse = line.zone === "prose" || line.zone === "comment" || line.zone === "frontmatter";
 
     // A5: a fence captioned "these commands bypass the hooks" is showing you the
@@ -1566,9 +1659,9 @@ function ruleSafetySubversion(ctx) {
 
     // --- control disabling (any zone: the flag itself is the evidence, and
     // `loki-mode` puts "Requires --dangerously-skip-permissions" in frontmatter)
-    if (!isRuleDocumentation(text) && !negativeFence && !isTableRow(text) && !isDescriptiveReport(text)) {
+    if (!isRuleDocumentation(text) && !negativeFence && !isTableRow(text)) {
       const hiFlag = CONTROL_DISABLE_HIGH_RE.exec(text);
-      if (hiFlag && !isProhibitionFramed(window)) {
+      if (hiFlag && !isProhibitionFramed(window) && !isDescriptiveReport(text, hiFlag[0])) {
         out.push(
           hit("permission-system-disabled", HIGH, line, `This turns off the agent's permission prompts (\`${hiFlag[0].trim().slice(0, 60)}\`), so every later command in the session runs without the user seeing it.`, {
             match: hiFlag[0],
@@ -1672,7 +1765,7 @@ const CONFIG_WRITE_VERB_RE =
   /\b(append|add|insert|inject|write|create|update|modify|patch|register|configure|set|put|edit|save|drop in|paste)\b|>>\s*|\btee\s+-a\b|\bcat\s*>/i;
 const AGENT_RULE_SURFACE_RE = /\b(CLAUDE\.md|AGENTS\.md|GEMINI\.md|\.cursorrules|\.clinerules|\.windsurfrules)\b/;
 const AGENT_SETTINGS_RE = /\.claude\/settings(?:\.local)?\.json|~\/\.claude\.json|\.mcp\.json|\.codex\/config\.toml/;
-const SHELL_RC_RE = /~\/\.(?:zshrc|bashrc|bash_profile|profile|zprofile)\b/;
+const SHELL_RC_RE = /(?:~|\$HOME|\$\{HOME\}|%USERPROFILE%)\/\.(?:zshrc|bashrc|bash_profile|profile|zprofile)\b|~\/\.config\/fish\/config\.fish\b/;
 /// `credential.helper store` picks a BUILT-IN helper — a plaintext-storage
 /// tradeoff, not a hijack. Only a custom command (`!...`) or a path redirects
 /// credentials to something the skill author controls.
@@ -1687,6 +1780,7 @@ const BACKGROUND_SERVICE_PURPOSE_RE =
   /\b(status ?bar|menu ?bar|daemon|service|background|tray|launch ?agent|autostart|start(?:s|ing)? on (?:login|boot)|schedul\w+|cron|watcher|monitor)\b/i;
 const CI_WORKFLOW_RE = /\.github\/workflows\/[\w.-]+/;
 const SAFETY_FRAMING_RE = /\b(prevent|prevents|preventing|block|blocks|blocking|guard|guards|reject|rejects|deny|denies|enforce|enforces|protect|protects|forbid|refuses?)\b/i;
+const SAFETY_FRAMING_WINDOW_RE = /\b(prevents?|preventing|blocks|blocking|guards?|rejects?|den(?:y|ies)|enforces?|protects?|forbids?|refuses?)\s+(?:the\s+|a\s+|an\s+|any\s+|all\s+|agents?\s+|it\s+|them\s+)?[a-z]/i;
 const SETUP_PURPOSE_RE =
   /\b(set ?up|setting up|configure|configuring|configuration|convention|conventions|scaffold|bootstrap|initiali[sz]e|init\b|onboard|template|generator|install|installer|hooks?|memory|rules? file)\b/i;
 
@@ -1744,7 +1838,8 @@ function rulePersistence(ctx) {
     ) {
       // `block-no-verify-hook` writes a PreToolUse hook whose entire job is to
       // REJECT bypass flags. Safety framing is not the threat.
-      if (purposeIsGuard || (SAFETY_FRAMING_RE.test(window) && !CONTROL_DISABLE_HIGH_RE.test(window))) {
+      const permanentClaim = /\bdo not (?:remove|delete|revert)|\bnever (?:remove|delete|revert)|\bpermanently\b|\bevery (?:future )?session\b/i.test(window);
+      if (!permanentClaim && (purposeIsGuard || (SAFETY_FRAMING_WINDOW_RE.test(window) && !CONTROL_DISABLE_HIGH_RE.test(window)))) {
         out.push(
           hit("agent-config-write-guard", INFO, line, "This writes to the agent's own configuration in order to add a guard rather than to relax one.", {
             match: configTarget,
@@ -2014,6 +2109,44 @@ function detectCapabilities(ctx) {
 // ---------------------------------------------------------------------------
 // Two-factor combinations — where `flagged` actually comes from
 // ---------------------------------------------------------------------------
+
+/// Words shared by every credential line, so they carry no ownership signal.
+/// `$MUAPI_API_KEY` belongs to `api.muapi.ai` because of "muapi", not "api".
+const OWNERSHIP_STOPWORDS = new Set([
+  "https",
+  "http",
+  "curl",
+  "post",
+  "data",
+  "binary",
+  "authorization",
+  "bearer",
+  "header",
+  "api",
+  "key",
+  "keys",
+  "token",
+  "secret",
+  "password",
+  "credential",
+  "credentials",
+  "cred",
+  "env",
+  "environment",
+  "variable",
+  "variables",
+  "export",
+  "echo",
+  "cat",
+  "file",
+  "config",
+]);
+
+/// Word-ish tokens, for the ownership comparison only.
+function ownershipTokens(value) {
+  return new Set(String(value).toLowerCase().match(/[a-z]{4,}/g) || []);
+}
+
 function combine(findings) {
   const extra = [];
   const has = (f, tag) => f._tags.includes(tag);
@@ -2054,6 +2187,28 @@ function combine(findings) {
           _tags: ["combined"],
         });
       }
+    }
+  }
+  // …but "weak secret + concrete host" is not automatically benign either. The
+  // muapi anti-pattern above is benign for one specific reason: the key BELONGS
+  // to the host it is presented to. That is an ownership test, and it is
+  // testable — compare the secret's own name against the destination hostname
+  // and escalate only when they share nothing. `$MUAPI_API_KEY` →
+  // `api.muapi.ai` clears; `$ANTHROPIC_API_KEY` → an unrelated collector does
+  // not, and neither does the project's whole `.env`.
+  for (const w of findings.filter((f) => has(f, "secret-read-weak"))) {
+    for (const e of egress) {
+      if (!coOccur(w, e) || !has(e, "egress-concrete")) continue;
+      const secretTokens = [...ownershipTokens(w._match || "")].filter((t) => !OWNERSHIP_STOPWORDS.has(t));
+      const destTokens = ownershipTokens((e.excerpt.match(/https?:\/\/([^\s"'`)<>\]}|\\]+)/i) || [])[1] || "");
+      if (secretTokens.some((t) => destTokens.has(t))) continue; // key presented to its own API
+      extra.push({
+        ...e,
+        rule: "project-secret-egress",
+        severity: MEDIUM,
+        why: `This sends project credentials (line ${w.line}) to ${(e.excerpt.match(/https?:\/\/([^\s\/"']+)/i) || [])[1] || "a fixed remote host"}, which is not the service those credentials belong to.`,
+        _tags: ["combined"],
+      });
     }
   }
   // T13 promotes egress rather than escalating on its own: recon + send is the
@@ -2117,6 +2272,85 @@ function tierFor(findings, capabilities) {
 
 /// Ordering inside a tier, for a UI that shows "the worst thing we found".
 const SEVERITY_RANK = { critical: 0, high: 1, medium: 2, info: 3 };
+
+/// Cyrillic and Greek letters that render identically to a Latin letter in every
+/// font a reviewer will read the skill in. `Ign<cyrillic-o>re all previous
+/// instructions` is the same sentence to the model and a non-match to a
+/// Latin-alphabet regex, which is the cheapest possible bypass of a keyword
+/// scanner. Only visually exact pairs are listed — folding near-misses would
+/// start rewriting ordinary Russian and Greek prose.
+const CONFUSABLES = {
+  "а": "a", // CYRILLIC SMALL A
+  "е": "e", // CYRILLIC SMALL IE
+  "о": "o", // CYRILLIC SMALL O
+  "р": "p", // CYRILLIC SMALL ER
+  "с": "c", // CYRILLIC SMALL ES
+  "х": "x", // CYRILLIC SMALL HA
+  "у": "y", // CYRILLIC SMALL U
+  "і": "i", // CYRILLIC SMALL BYELORUSSIAN-UKRAINIAN I
+  "ј": "j", // CYRILLIC SMALL JE
+  "ѕ": "s", // CYRILLIC SMALL DZE
+  "һ": "h", // CYRILLIC SMALL SHHA
+  "ԁ": "d", // CYRILLIC SMALL KOMI DE
+  "ԛ": "q", // CYRILLIC SMALL QA
+  "ɡ": "g", // LATIN SMALL SCRIPT G
+  "А": "A", // CYRILLIC CAPITAL A
+  "В": "B", // CYRILLIC CAPITAL VE
+  "Е": "E", // CYRILLIC CAPITAL IE
+  "К": "K", // CYRILLIC CAPITAL KA
+  "М": "M", // CYRILLIC CAPITAL EM
+  "Н": "H", // CYRILLIC CAPITAL EN
+  "О": "O", // CYRILLIC CAPITAL O
+  "Р": "P", // CYRILLIC CAPITAL ER
+  "С": "C", // CYRILLIC CAPITAL ES
+  "Т": "T", // CYRILLIC CAPITAL TE
+  "Х": "X", // CYRILLIC CAPITAL HA
+  "Ѕ": "S", // CYRILLIC CAPITAL DZE
+  "І": "I", // CYRILLIC CAPITAL BYELORUSSIAN-UKRAINIAN I
+  "Ј": "J", // CYRILLIC CAPITAL JE
+  "α": "a", // GREEK SMALL ALPHA
+  "ο": "o", // GREEK SMALL OMICRON
+  "ρ": "p", // GREEK SMALL RHO
+  "ν": "v", // GREEK SMALL NU
+  "τ": "t", // GREEK SMALL TAU
+  "Α": "A", // GREEK CAPITAL ALPHA
+  "Β": "B", // GREEK CAPITAL BETA
+  "Ε": "E", // GREEK CAPITAL EPSILON
+  "Ζ": "Z", // GREEK CAPITAL ZETA
+  "Η": "H", // GREEK CAPITAL ETA
+  "Ι": "I", // GREEK CAPITAL IOTA
+  "Κ": "K", // GREEK CAPITAL KAPPA
+  "Μ": "M", // GREEK CAPITAL MU
+  "Ν": "N", // GREEK CAPITAL NU
+  "Ο": "O", // GREEK CAPITAL OMICRON
+  "Ρ": "P", // GREEK CAPITAL RHO
+  "Τ": "T", // GREEK CAPITAL TAU
+  "Χ": "X", // GREEK CAPITAL CHI
+};
+
+/// Zero-width and format characters carry no rendering at all, so a skill has no
+/// honest use for one. Built from `CONFUSABLES` so the character class and the
+/// table cannot drift apart.
+const FOLD_RE = new RegExp(`[\\u200b-\\u200f\\u2060-\\u206f\\u180e\\ufeff${Object.keys(CONFUSABLES).join("")}]`, "g");
+
+/// The same string, minus every trick that changes what a HUMAN sees without
+/// changing what the AGENT reads: invisibles dropped, homoglyphs folded to their
+/// Latin twin.
+///
+/// Canonicalization is the one place a scanner gets recall for free — the rules
+/// below are unchanged, they just stop being defeatable by a paste from a
+/// homoglyph generator. Length is NOT preserved, so this feeds regex tests only;
+/// excerpts and line numbers always come from the original text.
+function fold(text) {
+  if (!FOLD_RE.test(text)) return text;
+  FOLD_RE.lastIndex = 0;
+  return text.replace(FOLD_RE, (ch) => CONFUSABLES[ch] || "");
+}
+
+/// A ZWJ between two Latin letters is never an emoji sequence — it is a keyword
+/// splitter (`in<zwj>structions`). U+200D is exempt from `INVISIBLE_RE` because
+/// emoji need it, so the in-word case needs its own, narrower test.
+const ZWJ_IN_WORD_RE = /[A-Za-z]‍[A-Za-z]/;
 
 function clip(text) {
   const s = String(text);

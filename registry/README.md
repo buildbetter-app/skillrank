@@ -74,6 +74,13 @@ Current distribution over the 2,002 installable entries: **94% `safe`/`low`**,
 build if that drops below 90% — a scanner that prompts on most of the catalog
 trains people to click through, which is the failure this replaced.
 
+That threshold only measures over-blocking, so it is paired with the opposite
+gate. `test/scan-adversarial.test.mjs` runs 25 inert probe documents that each
+evade one named rule or context gate, and fails if fewer than 18 of them prompt.
+Scanner v1.0.0 caught 2 of the 25; v1.1.0 catches 18. The seven still missed are
+kept in the table with their technique named — an unmeasured gap becomes an
+invisible one.
+
 `GET /skills/<slug>` and `GET /skills/<slug>/resolve` additionally carry
 `scan: { tier, score, scanner_version, findings: [{rule, severity, line, excerpt,
 why}] }` so a confirmation dialog can name the exact line that caused the verdict
@@ -125,6 +132,9 @@ npm test        # node --test test/ — zero dependencies beyond the runtime
 `lib/scan.mjs` has no third-party imports, so the tiering tests run without
 `node_modules`; `test/scan-api.test.mjs` and `test/discovery.test.mjs` boot the
 real function behind `node:http` to cover routing, headers, and payload shape.
+`test/scan.test.mjs` and `test/scan-adversarial.test.mjs` bound the scanner from
+both sides — the first fails when a legitimate skill starts prompting, the second
+when a hostile one stops.
 
 ```sh
 BASE=https://<deployment>.vercel.app
