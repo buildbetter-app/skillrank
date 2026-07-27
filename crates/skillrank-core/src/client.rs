@@ -186,6 +186,22 @@ impl Client {
         self.post_authenticated(&format!("{PATH_PREFIX}/eval-results"), bundle)
     }
 
+    /// Provision an anonymous registry account and return its token.
+    ///
+    /// No identity is involved: the registry mints an opaque token so a client
+    /// can publish without a signup flow. Anonymous results are always
+    /// Self-reported — only verified accounts count toward the independent
+    /// corroboration behind Community-reported — so this is a convenience, not a
+    /// way to earn trust. Callers store the token like `login` does.
+    pub fn provision_anonymous_token(&self) -> Result<crate::types::TokenGrant, ClientError> {
+        let url = format!("{}{PATH_PREFIX}/auth/tokens", self.base_url);
+        do_json(
+            ureq::post(&url)
+                .set("Accept", "application/json")
+                .send_json(serde_json::json!({ "kind": "anonymous" })),
+        )
+    }
+
     /// Subscribe an email to occasional skill updates (unauthenticated,
     /// best-effort). The registry stores only the address; no account is created.
     pub fn subscribe_email(&self, email: &str) -> Result<(), ClientError> {

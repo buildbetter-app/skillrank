@@ -2,7 +2,7 @@
   "name": "skillrank-registry",
   "version": "0.1.0",
   "private": true,
-  "description": "api.skillrank.dev — hosted read-side registry serving /v3/rest/skill-registry from the ingested public-skill catalog",
+  "description": "api.skillrank.dev — hosted registry serving /v3/rest/skill-registry: catalog reads plus account-gated eval-result ingest",
   "license": "Elastic-2.0",
   "scripts": {
     "test": "node --test test/*.test.mjs"

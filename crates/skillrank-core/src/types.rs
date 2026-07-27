@@ -383,6 +383,25 @@ pub struct SuiteListResponse {
     pub total: i64,
 }
 
+/// A newly minted registry token. The plaintext `token` is returned exactly
+/// once — store it (see `config::auth_path`) or it is gone.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct TokenGrant {
+    pub token: String,
+    /// "anonymous", or the identity provider that vouched for the account.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub kind: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub account_id: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub created_at: String,
+    /// Only verified accounts count toward Community-reported corroboration.
+    #[serde(default)]
+    pub verified: bool,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub note: String,
+}
+
 /// Returned when a bundle is submitted.
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IngestResponse {
