@@ -3,7 +3,7 @@
 
 use crate::config;
 use crate::hash::split_ref;
-use crate::types::{ResolveResponse, SearchResponse, SkillDetail};
+use crate::types::{ResolveResponse, SearchResponse, SkillDetail, SkillFacets, SuiteListResponse};
 use serde::de::DeserializeOwned;
 
 /// The registry's REST namespace, distinct from any tenant `/v3/rest/skills` routes.
@@ -53,6 +53,9 @@ pub struct SearchOptions {
     pub stack: String,
     pub agent: String,
     pub category: String,
+    /// One of the `scan_tiers` values from [`Client::skill_facets`], e.g. `"safe"`.
+    /// Empty means every tier.
+    pub scan_tier: String,
     pub sort: String,
     pub limit: u32,
     pub cursor: String,
@@ -106,6 +109,9 @@ impl Client {
         if !opts.category.is_empty() {
             query.push(("category", &opts.category));
         }
+        if !opts.scan_tier.is_empty() {
+            query.push(("scan_tier", &opts.scan_tier));
+        }
         if !opts.sort.is_empty() {
             query.push(("sort", &opts.sort));
         }
@@ -127,6 +133,23 @@ impl Client {
         } else {
             self.get_json(&path, &[("version", version.as_str())])
         }
+    }
+
+    /// Fetch the catalog's real filter vocabulary — the categories, stacks, and
+    /// scan tiers that exist, with the number of skills behind each.
+    ///
+    /// Filter UIs should be built from this rather than from a hardcoded option
+    /// list: every value here matches at least one skill, and its `count` is the
+    /// `total` the equivalent [`Client::search`] returns.
+    pub fn skill_facets(&self) -> Result<SkillFacets, ClientError> {
+        self.get_json(&format!("{PATH_PREFIX}/skills/facets"), &[])
+    }
+
+    /// List the registry's eval suites: ids, versions, task counts, and reference
+    /// environments, without the task bodies. This is how a caller discovers a
+    /// suite id instead of being asked to type one.
+    pub fn list_eval_suites(&self) -> Result<SuiteListResponse, ClientError> {
+        self.get_json(&format!("{PATH_PREFIX}/eval-suites"), &[])
     }
 
     /// Fetch an eval suite's public definition.

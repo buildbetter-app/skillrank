@@ -16,6 +16,9 @@ on:
       - "web/data/sources.seed.json"
       - "web/data/build-catalog.mjs"
       - "registry/ingest/ingest.mjs"
+      # A scanner-rules change re-tiers the catalog, so it regenerates too.
+      - "registry/lib/scan.mjs"
+      - "registry/ingest/rescan.mjs"
 
 permissions:
   contents: write
@@ -40,6 +43,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: node registry/ingest/ingest.mjs
+
+      # New skills are scanned during ingest above. This picks up the other case:
+      # the scanner's own rules changed, so every already-pinned verdict is stale.
+      # No token needed — it reads the raw URLs ingest already pinned.
+      - name: Re-tier anything whose scan predates the current rules
+        run: node registry/ingest/rescan.mjs
+
+      - name: Fail if the catalog stopped being mostly safe
+        working-directory: registry
+        run: node --test test/scan-calibration.test.mjs
 
       - name: Commit regenerated data
         run: |

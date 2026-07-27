@@ -27,3 +27,19 @@ jobs:
         run: cargo build --workspace --verbose
       - name: Test
         run: cargo test --workspace --verbose
+
+  registry:
+    name: registry · node test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: registry
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: registry/package-lock.json
+      - run: npm ci
+      - run: npm test
