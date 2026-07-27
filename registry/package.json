@@ -2,8 +2,11 @@
   "name": "skillrank-registry",
   "version": "0.1.0",
   "private": true,
-  "description": "api.skillrank.dev \u2014 hosted read-side registry serving /v3/rest/skill-registry from the seed catalog",
+  "description": "api.skillrank.dev — hosted read-side registry serving /v3/rest/skill-registry from the ingested public-skill catalog",
   "license": "Elastic-2.0",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
   "dependencies": {
     "@upstash/redis": "^1.34.3"
   }

@@ -180,6 +180,9 @@ impl ServerState {
                 ..Default::default()
             }],
             eval_cells: vec![],
+            // The local dev registry serves a seed catalog it never scans, so
+            // there is no report to attach.
+            scan: None,
         };
         (200, serde_json::to_string(&detail).unwrap())
     }

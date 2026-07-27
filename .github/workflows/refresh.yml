@@ -30,6 +30,23 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: node registry/ingest/ingest.mjs --refresh
 
+      # A scan tier is derived from CONTENT, and content is deliberately not
+      # persisted (the registry is index-only and never rehosts). So a rules bump
+      # cannot re-score anything from local state — the pinned bytes have to come
+      # back. This re-fetches only the entries whose stored verdict did not come
+      # from the current scanner, and needs no token: it reads already-pinned raw
+      # URLs. Without it, every tier would freeze at whatever the scanner said
+      # the day the skill was first pinned.
+      - name: Re-tier anything whose scan predates the current rules
+        run: node registry/ingest/rescan.mjs
+
+      # The scanner exists so legitimate skills stop triggering a confirmation
+      # prompt. If a rules change quietly reverses that, this fails before the
+      # regenerated catalog is committed.
+      - name: Fail if the catalog stopped being mostly safe
+        working-directory: registry
+        run: node --test test/scan-calibration.test.mjs
+
       - name: Commit if anything changed
         run: |
           git config user.name "skillrank-bot"

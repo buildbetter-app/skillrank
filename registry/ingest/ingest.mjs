@@ -8,7 +8,12 @@
 // Scales to thousands later; for now it attempts every catalog entry and reports
 // which are directly installable (single SKILL.md) vs. collections (skip).
 //
-//   node registry/ingest/ingest.mjs [--limit N]
+// Each skill's content is also SCANNED here (registry/lib/scan.mjs) and the
+// resulting `ScanTier` stored next to the hash — this is the only point in the
+// pipeline where the content exists, since the registry is index-only and never
+// persists or rehosts it.
+//
+//   node registry/ingest/ingest.mjs [--limit N] [--force|--refresh|--rescan]
 //
 // Output: registry/data/ingested.json  (installable, with content_hash+content)
 //         registry/data/enriched.json  (all attempts, with signals + status)
@@ -19,6 +24,8 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
+import { SCANNER_VERSION, scanIsCurrent, scanSkillContent } from "../lib/scan.mjs";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "../..");
 const catalog = JSON.parse(readFileSync(path.join(REPO_ROOT, "web/data/catalog.json"), "utf8"));
@@ -28,6 +35,12 @@ const limitFlag = args.indexOf("--limit");
 const LIMIT = limitFlag >= 0 ? parseInt(args[limitFlag + 1], 10) : Infinity;
 const FORCE = args.includes("--force"); // re-fetch everything; default is incremental
 const REFRESH = args.includes("--refresh"); // re-pin only skills whose source repo advanced
+// Re-fetch and re-tier anything whose stored verdict came from an older
+// scanner. The tier is derived from CONTENT, and content is deliberately not
+// persisted (index-only, we never rehost), so a rules bump means a re-fetch —
+// there is nothing local to re-score. Without this, the incremental branch below
+// would freeze every tier at whatever the scanner said the day it was pinned.
+const RESCAN = args.includes("--rescan");
 
 // Incremental: reuse already-ingested skills (by slug) so CI only fetches new
 // ones. `--force` re-does the whole catalog.
@@ -107,19 +120,26 @@ const ordered = [...catalog].sort((a, b) => (b.signals?.stars || 0) - (a.signals
 
 const installable = [];
 const enriched = [];
+/// Cap what lands in `ingested.json`. The tier is decided by the worst few
+/// findings, and a confirmation dialog cannot use twenty; this keeps the served
+/// JSON from growing by megabytes for skills that repeat one pattern.
+const MAX_PERSISTED_FINDINGS = 8;
+const tierCounts = {};
 let ok = 0,
   collection = 0,
   failed = 0;
 
 let reused = 0;
 let repinned = 0;
+let rescanned = 0;
 for (const skill of ordered) {
   // incremental: keep prior result, skip network.
   if (prevEnriched.has(skill.slug)) {
+    const prev = prevIngested.get(skill.slug);
+    const staleScan = RESCAN && prev && !scanIsCurrent(prev);
     // --refresh: re-ingest installable skills whose source repo advanced past
     // the commit we pinned; otherwise reuse (cheap: one HEAD check per repo).
-    if (REFRESH && prevIngested.has(skill.slug)) {
-      const prev = prevIngested.get(skill.slug);
+    if (REFRESH && prev && !staleScan) {
       const info = repoInfo(skill.source_repo);
       if (info && info.head_sha && prev.pinned_commit && info.head_sha === prev.pinned_commit) {
         enriched.push(prevEnriched.get(skill.slug));
@@ -128,9 +148,11 @@ for (const skill of ordered) {
         continue;
       }
       repinned++; // source advanced → fall through and re-fetch/re-pin
+    } else if (staleScan) {
+      rescanned++; // verdict predates the current rules → fall through and re-tier
     } else {
       enriched.push(prevEnriched.get(skill.slug));
-      if (prevIngested.has(skill.slug)) installable.push(prevIngested.get(skill.slug));
+      if (prev) installable.push(prev);
       reused++;
       continue;
     }
@@ -177,6 +199,15 @@ for (const skill of ordered) {
 
   const hash = contentHash(found.content);
   const rawUrl = `https://raw.githubusercontent.com/${skill.source_repo}/${info.head_sha}/${found.path}`;
+  // The content is in hand exactly here and nowhere else — it is deliberately
+  // not persisted — so the tier has to be computed now and stored as a scalar
+  // next to the hash it belongs to.
+  const scan = scanSkillContent(found.content, {
+    slug: skill.slug,
+    sourceUrl: skill.source_url,
+    sourceRepo: skill.source_repo,
+  });
+  tierCounts[scan.tier] = (tierCounts[scan.tier] || 0) + 1;
   ok++;
   const entry = {
     ...base,
@@ -184,7 +215,17 @@ for (const skill of ordered) {
     skill_path: found.path,
     content_hash: hash,
     raw_content_url: rawUrl,
-    scan_tier: "pending",
+    scan_tier: scan.tier,
+    // `content_hash` inside the report is what makes the verdict auditable: it
+    // says WHICH bytes were scanned, so a tier can never silently outlive the
+    // content it describes.
+    scan: {
+      tier: scan.tier,
+      score: scan.score,
+      scanner_version: scan.scannerVersion,
+      content_hash: hash,
+      findings: scan.findings.slice(0, MAX_PERSISTED_FINDINGS),
+    },
     signals,
     score,
     provisional: true,
@@ -193,7 +234,10 @@ for (const skill of ordered) {
   // index-only: resolve serves raw_content_url + hash, never rehosts content.
   installable.push(entry);
   enriched.push({ ...entry, status: "installable" });
-  console.log(`  ✓ ${skill.slug} — ${found.path} @ ${info.head_sha.slice(0, 7)} (${hash.slice(0, 14)}…)`);
+  const worst = scan.findings[0];
+  console.log(
+    `  ✓ ${skill.slug} — ${found.path} @ ${info.head_sha.slice(0, 7)} (${hash.slice(0, 14)}…) [${scan.tier}${worst ? ` · ${worst.rule}` : ""}]`,
+  );
 }
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -206,6 +250,20 @@ for (const dir of [OUT_DIR, API_DIR]) {
 }
 
 console.log(
-  `\nattempted ${ordered.length}: ${reused} reused, ${repinned} re-pinned, ${ok} newly ingested, ${collection} collections, ${failed} failed`
+  `\nattempted ${ordered.length}: ${reused} reused, ${repinned} re-pinned, ${rescanned} re-scanned, ${ok} newly ingested, ${collection} collections, ${failed} failed`
 );
 console.log(`wrote registry/{data,api}/ingested.json (${installable.length}) + enriched.json (${enriched.length})`);
+
+// Scan-tier distribution over EVERY installable entry, reused ones included.
+// The whole point of the scanner is that legitimate skills come back safe/low,
+// so print the ratio that proves it (or does not) on every run.
+const overall = {};
+for (const e of installable) overall[e.scan_tier || "pending"] = (overall[e.scan_tier || "pending"] || 0) + 1;
+const safeShare = ((100 * ((overall.safe || 0) + (overall.low || 0))) / Math.max(1, installable.length)).toFixed(1);
+console.log(
+  `scan v${SCANNER_VERSION}: ${Object.entries(overall)
+    .sort((a, b) => b[1] - a[1])
+    .map(([t, n]) => `${t} ${n}`)
+    .join(", ")} — ${safeShare}% install without a confirmation prompt` +
+    (Object.keys(tierCounts).length ? ` (${ok} scanned this run)` : ""),
+);

@@ -1,16 +1,21 @@
 // Hosted SkillRank registry (read side) — serves the /v3/rest/skill-registry
 // contract from the ingested public-skill catalog.
 //
-//   search / show  -> over ALL catalog entries (enriched.json, ~87)
+//   search / show  -> over ALL catalog entries (enriched.json)
 //   resolve        -> installable entries carry pinned commit + content + hash
-//                     (ingested.json, ~41); collections resolve to a tombstone
+//                     (ingested.json); collections resolve to a tombstone
 //                     pointing at the source repo.
+//
+// Every route here is anonymous and edge-cacheable, and answers identically
+// whether or not a token is presented.
 //
 // Content hashes were computed by the ingestion pipeline the SAME way as the Rust
 // client (skillrank-core::hash), so `skillrank install` hash-verification passes.
 
 import { readFileSync } from "node:fs";
 import { Redis } from "@upstash/redis";
+
+import { normalizeTier } from "../lib/scan.mjs";
 
 const enriched = JSON.parse(readFileSync(new URL("./enriched.json", import.meta.url), "utf8"));
 const ingested = JSON.parse(readFileSync(new URL("./ingested.json", import.meta.url), "utf8"));
@@ -30,8 +35,50 @@ const bySlug = new Map(enriched.map((e) => [e.slug, e]));
 const installBySlug = new Map(ingested.map((e) => [e.slug, e]));
 const sorted = [...enriched].sort((a, b) => (b.score || 0) - (a.score || 0));
 
+/// The tier the ingestion pipeline computed from the pinned content.
+///
+/// This used to return a hardcoded `"pending"` for everything installable, which
+/// meant nothing the pipeline wrote was ever served: 188 of 200 skills came back
+/// `pending` and 12 `unknown`, so the client treated 100% of the catalog as
+/// unverified and prompted on every install.
+///
+/// Entries with no `scan_tier` are ones whose content was never fetched
+/// (collections, unreachable repos) or that were pinned before the scanner
+/// existed — `unknown` and `pending` respectively, which is the truth in both
+/// cases. The value is normalized because `scan_tier` deserializes into a Rust
+/// enum on the client: an unrecognized string would fail the whole response, so
+/// a bad value degrades to `unknown` instead of breaking the caller.
 function scanTier(e) {
-  return e.status === "installable" ? "pending" : "unknown";
+  if (!e) return "unknown";
+  // `enriched.json` marks this with `status`; `ingested.json` rows carry
+  // `installable` instead, and both flow through here.
+  const fallback = e.status === "installable" || e.installable === true ? "pending" : "unknown";
+  if (typeof e.scan_tier === "string" && e.scan_tier) return normalizeTier(e.scan_tier, fallback);
+  return fallback;
+}
+
+/// Findings behind a non-safe tier, shaped for a confirmation dialog.
+///
+/// ADDITIVE ONLY. The compiled Rust `SkillDetail` / `ResolveResponse` must keep
+/// deserializing, so this is a new optional object under a new key and no
+/// existing field changes shape. Omitted entirely when there is nothing to say,
+/// so `safe` responses do not grow.
+function scanReport(e) {
+  const scan = e && e.scan;
+  if (!scan || typeof scan !== "object") return null;
+  const findings = Array.isArray(scan.findings) ? scan.findings : [];
+  return {
+    tier: scanTier(e),
+    score: typeof scan.score === "number" ? scan.score : 0,
+    scanner_version: typeof scan.scanner_version === "string" ? scan.scanner_version : "",
+    findings: findings.slice(0, 16).map((f) => ({
+      rule: String(f.rule || ""),
+      severity: String(f.severity || ""),
+      line: Number.isFinite(f.line) ? f.line : 0,
+      excerpt: String(f.excerpt || ""),
+      why: String(f.why || ""),
+    })),
+  };
 }
 
 function summary(e) {
@@ -49,6 +96,55 @@ function summary(e) {
     summary: e.description || "",
   };
 }
+
+/// One row of the eval-suite index. Task INSTRUCTIONS are the bulk of a suite and
+/// a caller choosing between suites cannot use them, so the list carries only what
+/// a picker needs — id, version, size, and the reference env a run must match —
+/// and `GET /eval-suites/:id` still serves the full definition.
+function suiteSummary(s) {
+  const out = {
+    id: s.id || "",
+    version: s.version || "",
+    task_count: Array.isArray(s.tasks) ? s.tasks.length : 0,
+  };
+  // Omitted rather than blanked when a suite has no title/description, so a
+  // client can tell "not provided" from "provided and empty".
+  if (s.title) out.title = String(s.title);
+  if (s.description) out.description = String(s.description);
+  if (s.reference_env) out.reference_env = s.reference_env;
+  return out;
+}
+
+/// Count how many catalog entries carry each value of one facet.
+///
+/// Values are normalized exactly the way the `/skills` filters compare them
+/// (trimmed, lowercased) and de-duplicated per entry, so a `count` here is
+/// precisely the `total` that filtering on that value returns — a client that
+/// renders these as filter options can never offer one that matches nothing.
+/// Ties break alphabetically so the order is stable across deploys.
+function countFacet(pick) {
+  const counts = new Map();
+  for (const e of enriched) {
+    const seen = new Set();
+    for (const raw of pick(e)) {
+      const value = String(raw ?? "").trim().toLowerCase();
+      if (!value || seen.has(value)) continue;
+      seen.add(value);
+      counts.set(value, (counts.get(value) || 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .map(([value, count]) => ({ value, count }))
+    .sort((a, b) => b.count - a.count || (a.value < b.value ? -1 : 1));
+}
+
+// The catalog is a static import, so the taxonomy is a constant: compute it once
+// at module load and let the route just serialize it.
+const facets = {
+  categories: countFacet((e) => [e.category]),
+  stacks: countFacet((e) => e.tags || []),
+  scan_tiers: countFacet((e) => [scanTier(e)]),
+};
 
 const stripSep = (s) => s.replace(/[\s\-_/]/g, "");
 function matchesQuery(e, q) {
@@ -158,9 +254,13 @@ export default async function handler(req, res) {
     return json(res, 200, { items }, "public, s-maxage=30");
   }
 
-  // ---- eval suites: /eval-suites/:id  and  /eval-suites/:id/verifiers ----
+  // ---- eval suites: /eval-suites, /eval-suites/:id, /eval-suites/:id/verifiers ----
   if (parts[0] === "eval-suites") {
     const id = parts[1] || "";
+    // The index. Without it a suite id can only be typed from memory, which is
+    // not a discoverable contract; it is a plain anonymous read like its
+    // neighbours, and deliberately omits task bodies.
+    if (!id) return json(res, 200, { items: suites.map(suiteSummary), total: suites.length });
     const suite = suites.find((s) => s.id === id);
     if (!suite) return json(res, 404, { error: "suite not found" });
     if (parts[2] === "verifiers") {
@@ -189,6 +289,16 @@ export default async function handler(req, res) {
     return json(res, 200, { items, total });
   }
 
+  // /skills/facets -> the catalog's real filter vocabulary, with counts.
+  //
+  // Must be answered BEFORE the slug parse below, which joins every remaining
+  // segment into a slug: `facets` would otherwise be looked up as a skill and
+  // 404. Reserving it costs nothing — catalog slugs are always `owner/name`, so
+  // no single-segment path can ever name one.
+  if (rest.length === 1 && rest[0] === "facets") {
+    return json(res, 200, facets);
+  }
+
   // /skills/<slug...>/resolve  or  /skills/<slug...>
   const isResolve = rest[rest.length - 1] === "resolve";
   const slug = (isResolve ? rest.slice(0, -1) : rest).join("/");
@@ -205,7 +315,8 @@ export default async function handler(req, res) {
         source_type: "github",
         source_url: e.source_url || "",
         content_hash: "",
-        scan_tier: "unknown",
+        // No SKILL.md exists to scan, so there is genuinely no verdict.
+        scan_tier: scanTier(e),
         tombstoned: true,
         tombstone_reason: `"${e.slug}" is a skill collection, not a single SKILL.md. Browse and install from the source repo: ${e.source_url}`,
       });
@@ -214,6 +325,10 @@ export default async function handler(req, res) {
     // best server-side install-intent signal. Count it (best-effort) and skip
     // CDN caching on this response so counts aren't hidden behind the edge cache.
     await bumpInstall(slug);
+    // `install` is the one place a tier changes what the user sees, so resolve
+    // carries the evidence too: the CLI/ZeroShot prompt can name the exact line
+    // that made a skill `medium` instead of saying "unverified".
+    const report = scanReport(inst);
     return json(
       res,
       200,
@@ -225,10 +340,11 @@ export default async function handler(req, res) {
         source_subpath: inst.skill_path || inst.source_subpath || "",
         pinned_commit: inst.pinned_commit || "",
         content_hash: inst.content_hash,
-        scan_tier: "pending",
+        scan_tier: scanTier(inst),
         signals_score: typeof inst.score === "number" ? inst.score : null,
         raw_content_url: inst.raw_content_url || "",
         tombstoned: false,
+        ...(report ? { scan: report } : {}),
       },
       "no-store",
     );
@@ -236,11 +352,20 @@ export default async function handler(req, res) {
 
   // show
   const inst = installBySlug.get(slug);
+  const report = scanReport(inst);
   return json(res, 200, {
     ...summary(e),
     versions: inst
-      ? [{ content_hash: inst.content_hash, pinned_commit: inst.pinned_commit || "", scan_tier: "pending", published_at: e.signals?.pushed_at || "" }]
+      ? [
+          {
+            content_hash: inst.content_hash,
+            pinned_commit: inst.pinned_commit || "",
+            scan_tier: scanTier(inst),
+            published_at: e.signals?.pushed_at || "",
+          },
+        ]
       : [],
     eval_cells: [],
+    ...(report ? { scan: report } : {}),
   });
 }
