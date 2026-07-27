@@ -277,10 +277,17 @@ export default async function handler(req, res) {
     const q = (url.searchParams.get("q") || "").toLowerCase();
     const stack = (url.searchParams.get("stack") || "").toLowerCase();
     const category = (url.searchParams.get("category") || "").toLowerCase();
+    // `/skills/facets` advertises scan tiers as a filter vocabulary, so this has
+    // to honour them: without it, picking a tier facet silently returned the
+    // whole catalog instead of the count the facet promised. Compared through
+    // `scanTier` rather than the raw field so the same normalization (and the
+    // pending/unknown fallback) applies on both sides.
+    const scan = (url.searchParams.get("scan_tier") || "").toLowerCase();
     const limit = Math.max(1, parseInt(url.searchParams.get("limit") || "20", 10) || 20);
     let items = sorted.filter((e) => {
       if (stack && !(e.tags || []).some((s) => s.toLowerCase() === stack)) return false;
       if (category && (e.category || "").toLowerCase() !== category) return false;
+      if (scan && scanTier(e) !== scan) return false;
       if (q && !matchesQuery(e, q)) return false;
       return true;
     });

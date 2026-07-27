@@ -53,6 +53,9 @@ pub struct SearchOptions {
     pub stack: String,
     pub agent: String,
     pub category: String,
+    /// One of the `scan_tiers` values from [`Client::skill_facets`], e.g. `"safe"`.
+    /// Empty means every tier.
+    pub scan_tier: String,
     pub sort: String,
     pub limit: u32,
     pub cursor: String,
@@ -105,6 +108,9 @@ impl Client {
         }
         if !opts.category.is_empty() {
             query.push(("category", &opts.category));
+        }
+        if !opts.scan_tier.is_empty() {
+            query.push(("scan_tier", &opts.scan_tier));
         }
         if !opts.sort.is_empty() {
             query.push(("sort", &opts.sort));

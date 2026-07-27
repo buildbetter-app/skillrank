@@ -113,6 +113,27 @@ test("every facet count is the total that filtering on it actually returns", asy
     const search = await call("skills", { stack: row.value, limit: "1" });
     assert.equal(search.body.total, row.count, `stack=${row.value}`);
   }
+  // Scan tiers are advertised as a facet too, so they have to filter like one.
+  // They shipped un-filterable at first: search ignored the parameter and handed
+  // back the entire catalog, so a tier filter looked like it did nothing.
+  for (const row of facets.scan_tiers) {
+    const search = await call("skills", { scan_tier: row.value, limit: "1" });
+    assert.equal(search.body.total, row.count, `scan_tier=${row.value}`);
+  }
+});
+
+test("a scan-tier filter actually narrows, and only to that tier", async () => {
+  const all = await call("skills", { limit: "1" });
+  const safe = await call("skills", { scan_tier: "safe", limit: "50" });
+  assert.ok(safe.body.total > 0, "the catalog has safe skills");
+  assert.ok(safe.body.total < all.body.total, "filtering must narrow the result set");
+  for (const item of safe.body.items) {
+    assert.equal(item.scan_tier, "safe", `${item.slug} leaked into scan_tier=safe`);
+  }
+  // Unknown tiers match nothing rather than being ignored (which would silently
+  // return everything).
+  const bogus = await call("skills", { scan_tier: "not-a-tier", limit: "1" });
+  assert.equal(bogus.body.total, 0);
 });
 
 test("the taxonomy is the real one: a value it omits matches nothing", async () => {
