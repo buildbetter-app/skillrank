@@ -25,7 +25,7 @@
 
 /// Bump on ANY rule change. Persisted next to the tier so a stale verdict is
 /// detectable and `ingest.mjs --rescan` can re-tier only what actually drifted.
-export const SCANNER_VERSION = "1.1.0";
+export const SCANNER_VERSION = "1.1.1";
 
 /// Vocabulary is fixed by `skillrank-core::types::ScanTier`. Never add variants.
 export const SCAN_TIERS = ["safe", "low", "medium", "high", "flagged", "pending", "unknown"];
@@ -510,6 +510,12 @@ function segment(rawContent) {
   const lines = [];
   let inFence = false;
   let fenceMarker = "";
+  /// CommonMark: a fence closes only on a run of the SAME character at least as
+  /// long as the opener. Closing on any-length run let a ```-line inside a
+  /// ````-fence end the block early, which made the real closing delimiter read
+  /// as a new opener and pushed the rest of the document into the code zone —
+  /// where the prose rules do not look.
+  let fenceLen = 0;
   let fenceId = -1;
   let fenceLang = "";
   let paragraph = 0;
@@ -541,17 +547,19 @@ function segment(rawContent) {
       if (open) {
         inFence = true;
         fenceMarker = open[1][0];
+        fenceLen = open[1].length;
         fenceLang = (open[2] || "").toLowerCase();
         fenceId = fences.length;
         fences.push({ id: fenceId, lang: fenceLang, startLine: n, endLine: n, precededBy: lastProseBefore(lines) });
         lines.push({ n, text, zone: "fence-marker", fenceId, fenceLang, paragraph: null });
         continue;
       }
-    } else if (FENCE_ANY_RE.test(text) && text.trim()[0] === fenceMarker) {
+    } else if (isFenceClose(text, fenceMarker, fenceLen)) {
       lines.push({ n, text, zone: "fence-marker", fenceId, fenceLang, paragraph: null });
       fences[fenceId].endLine = n;
       inFence = false;
       fenceId = -1;
+      fenceLen = 0;
       fenceLang = "";
       continue;
     }
@@ -588,6 +596,18 @@ function segment(rawContent) {
     truncated,
     notes,
   };
+}
+
+/// CommonMark closing-fence rule: same character as the opener, repeated at
+/// least as many times, followed only by whitespace. A shorter run inside a
+/// longer fence is content, not a terminator — treating it as one ended the
+/// block early and left the remainder of the document mis-zoned as code.
+function isFenceClose(text, marker, minLen) {
+  if (!marker) return false;
+  const match = /^\s{0,3}(`{3,}|~{3,})\s*$/.exec(text);
+  if (!match) return false;
+  const run = match[1];
+  return run[0] === marker && run.length >= minLen;
 }
 
 function lastProseBefore(lines) {
@@ -1796,10 +1816,14 @@ function rulePersistence(ctx) {
   const purposeIsGuard = SAFETY_FRAMING_RE.test(declared) && !CONTROL_DISABLE_HIGH_RE.test(declared);
   ctx.lines.forEach((line, i) => {
     if (line.zone === "fence-marker") return;
-    const text = clip(line.text);
+    // Folded like the injection rules: a persistence verb spelled with Cyrillic
+    // or Greek lookalikes ("Арреnd these rules to CLAUDE.md") is visually
+    // identical to the reader and to the agent, so matching raw text let it
+    // through at `safe` while the ASCII spelling scored `medium`.
+    const text = fold(clip(line.text));
     if (!text.trim()) return;
     if (isRuleDocumentation(text) || isTableRow(text) || isDescriptiveReport(text)) return;
-    const window = clip(windowText(ctx.lines, i, 2));
+    const window = fold(clip(windowText(ctx.lines, i, 2)));
 
     if (GIT_HIJACK_RE.test(text) && !isProhibitionFramed(text)) {
       out.push(
