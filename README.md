@@ -115,6 +115,25 @@ only. See [`docs/`](docs) for the full methodology.
   point at a self-hosted or local registry).
 - `SKILLRANK_TOKEN` — registry token for writes (or `skillrank login --token`).
 - `SKILLRANK_HOME` — config dir (default `~/.skillrank`).
+- `SKILLRANK_NO_UPDATE_CHECK=1` — turn off the update check entirely.
+- `SKILLRANK_AUTO_UPDATE=1` — apply available updates instead of just saying so.
+
+### Update check
+
+About once a day, skillrank prints one line to **stderr** when a newer release
+exists, and leaves upgrading to you:
+
+```
+skillrank 0.2.0 available (you have 0.1.4): run `skillrank update`, or set SKILLRANK_AUTO_UPDATE=1 to auto-apply.
+```
+
+It never touches stdout (so `--json` output stays parseable), never changes the
+exit code, and does no network work while your command runs — the result is
+cached in `~/.skillrank/update-check.json` and refreshed afterwards with a 2s
+timeout. It stays quiet under `mcp`, `serve`, and `update`, when `CI` is set,
+and whenever stderr is not a terminal. Notifying is the default because this
+binary runs inside agent loops and scripts, where silently swapping the
+executable mid-session is a worse surprise than a stale version.
 
 ## Build from source
 

@@ -77,3 +77,20 @@ talks to.
 | `SKILLRANK_API_URL` | registry base URL | `https://api.skillrank.dev` |
 | `SKILLRANK_TOKEN` | token for writes (publish/rate/review) | unset (reads are anonymous) |
 | `SKILLRANK_HOME` | config/auth dir | `~/.skillrank` |
+| `SKILLRANK_NO_UPDATE_CHECK` | disable the startup update check | unset (check enabled) |
+| `SKILLRANK_AUTO_UPDATE` | apply available updates instead of notifying | unset (notify only) |
+
+## Update check
+
+The CLI checks for a newer release about once a day and prints a single line to
+stderr; `skillrank update` (or `SKILLRANK_AUTO_UPDATE=1`) applies it. The design
+constraint is that the check must be invisible to the command the user ran: the
+hot path only reads `~/.skillrank/update-check.json`, the GitHub release lookup
+happens after that command's output with a 2s timeout, every failure is
+swallowed, and the exit code is untouched. It is skipped for `mcp` (stdio
+JSON-RPC), `serve`, and `update` itself, when `CI` is set, and when stderr is not
+a terminal. Notify-by-default is deliberate: agents invoke this binary
+constantly, and replacing the executable underneath an unrelated command would
+change behaviour mid-session with no prompt. Both the release lookup and the
+download/verify/swap are the same functions `skillrank update` uses — there is
+one updater, not two.
