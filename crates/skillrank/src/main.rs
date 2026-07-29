@@ -4,6 +4,7 @@
 mod commands;
 mod eval;
 mod flags;
+mod managed;
 mod mcp;
 mod selfskill;
 mod serve;
@@ -153,8 +154,11 @@ Commands:
   skill [--install]  Print, or install into .claude/skills, the SKILL.md that
                      teaches your agent (Claude Code/Codex) to use skillrank.
   setup              Register skillrank MCP, Skill, and /skillrank command with
-                     Claude Code and Codex (one-time).
-  update             Update this skillrank binary from the latest GitHub release.
+                     Claude Code and Codex (one-time). --triggers=user-only
+                     makes the Skill fire only when you ask about skills;
+                     --force replaces files you have edited or deleted.
+  update             Update this skillrank binary from the latest GitHub release
+                     and refresh the installed Skill and command.
   mcp                Run as an MCP stdio server (invoked by the agent; not by you).
   serve [--port N]   Run a local registry server (seed catalog) so search/install
                      work with no hosted backend. Set SKILLRANK_API_URL to it.

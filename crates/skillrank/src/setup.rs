@@ -2,14 +2,23 @@
 //! Claude Code and Codex so the agent uses skillrank automatically. Writes
 //! directly to the config files and global user skill/command paths
 //! (idempotent, backed up) so it works even if the agent CLIs are not on PATH.
+//!
+//! The Skill and command files follow the ownership rules in [`crate::managed`]:
+//! never clobber a hand edit, always back up before replacing, and never
+//! re-create something the user deleted. `--force` overrides both refusals.
 
 use crate::flags::Flags;
+use crate::managed::{self, backup, Kind, Outcome, Policy, State, Triggers};
 use serde_json::{json, Map, Value};
 use skillrank_core::config;
 use std::path::{Path, PathBuf};
 
-const SKILL_MD: &str = include_str!("skillrank_skill.md");
-const COMMAND_MD: &str = include_str!("skillrank_command.md");
+/// Labels shared by `setup` and `update` so the two never describe the same
+/// file differently.
+const CLAUDE_SKILL_LABEL: &str = "skillrank Skill for Claude Code";
+const CLAUDE_COMMAND_LABEL: &str = "/skillrank command for Claude Code";
+const CODEX_SKILL_LABEL: &str = "skillrank Skill for Codex";
+const CODEX_COMMAND_LABEL: &str = "/skillrank command for Codex";
 
 #[derive(Clone, Copy)]
 struct SetupParts {
@@ -27,6 +36,32 @@ struct AgentPaths {
 pub fn run(args: &[String]) -> i32 {
     let f = Flags::parse(args);
     let self_path = self_path();
+
+    // The trigger preference is sticky: an explicit `--triggers` is recorded so
+    // every later `setup` and `update` honours it, which is the only way an off
+    // switch is worth having.
+    let mut state = managed::load_default_state();
+    let requested = f.value("triggers").trim().to_string();
+    let requested = if requested.is_empty() {
+        // A bare `--triggers` is a typo, and silently ignoring it would leave
+        // someone believing they had turned the agent-initiated trigger off.
+        if f.bool("triggers") {
+            eprintln!("--triggers needs a value (expected: default | user-only)");
+            return 2;
+        }
+        None
+    } else {
+        match Triggers::parse(&requested) {
+            Some(t) => Some(t),
+            None => {
+                eprintln!("unknown --triggers value {requested:?} (expected: default | user-only)");
+                return 2;
+            }
+        }
+    };
+    let triggers = state.resolve_triggers(requested);
+    state.triggers = triggers;
+    let force = f.bool("force");
 
     let claude_config = if !f.value("claude-config").is_empty() {
         PathBuf::from(f.value("claude-config"))
@@ -58,6 +93,9 @@ pub fn run(args: &[String]) -> i32 {
     };
 
     if f.bool("print") {
+        if parts.skill {
+            println!("Skill trigger variant: {}\n", triggers.describe());
+        }
         if !f.bool("no-claude") {
             print_claude_plan(parts, &claude_paths, &self_path, &api_url);
         }
@@ -68,6 +106,11 @@ pub fn run(args: &[String]) -> i32 {
     }
 
     let mut rc = 0;
+    let mut ctx = InstallCtx {
+        triggers,
+        force,
+        state: &mut state,
+    };
     if !f.bool("no-claude") {
         if parts.mcp {
             match ensure_claude_mcp(&claude_paths.config, &self_path, &api_url) {
@@ -82,28 +125,20 @@ pub fn run(args: &[String]) -> i32 {
             }
         }
         if parts.skill {
-            match ensure_skill(&claude_paths.skill) {
-                Ok(_) => println!(
-                    "✓ Installed skillrank Skill for Claude Code ({})",
-                    claude_paths.skill.display()
-                ),
-                Err(e) => {
-                    eprintln!("Claude Code Skill: {e}");
-                    rc = 1;
-                }
-            }
+            rc |= install_managed(
+                &claude_paths.skill,
+                Kind::Skill,
+                CLAUDE_SKILL_LABEL,
+                &mut ctx,
+            );
         }
         if parts.command {
-            match ensure_command(&claude_paths.command) {
-                Ok(_) => println!(
-                    "✓ Installed /skillrank command for Claude Code ({})",
-                    claude_paths.command.display()
-                ),
-                Err(e) => {
-                    eprintln!("Claude Code command: {e}");
-                    rc = 1;
-                }
-            }
+            rc |= install_managed(
+                &claude_paths.command,
+                Kind::Command,
+                CLAUDE_COMMAND_LABEL,
+                &mut ctx,
+            );
         }
     }
     if !f.bool("no-codex") {
@@ -120,37 +155,121 @@ pub fn run(args: &[String]) -> i32 {
             }
         }
         if parts.skill {
-            match ensure_skill(&codex_paths.skill) {
-                Ok(_) => println!(
-                    "✓ Installed skillrank Skill for Codex ({})",
-                    codex_paths.skill.display()
-                ),
-                Err(e) => {
-                    eprintln!("Codex Skill: {e}");
-                    rc = 1;
-                }
-            }
+            rc |= install_managed(&codex_paths.skill, Kind::Skill, CODEX_SKILL_LABEL, &mut ctx);
         }
         if parts.command {
-            match ensure_command(&codex_paths.command) {
-                Ok(_) => println!(
-                    "✓ Installed /skillrank command for Codex ({})",
-                    codex_paths.command.display()
-                ),
-                Err(e) => {
-                    eprintln!("Codex command: {e}");
-                    rc = 1;
-                }
-            }
+            rc |= install_managed(
+                &codex_paths.command,
+                Kind::Command,
+                CODEX_COMMAND_LABEL,
+                &mut ctx,
+            );
         }
     }
+    // Record what was installed and which variant, even on a partial failure:
+    // the bookkeeping is what makes a later deletion recognisable as deliberate.
+    managed::save_default_state(&state);
     if rc == 0 {
         print_success(parts);
+        if parts.skill {
+            print_trigger_note(triggers);
+        }
         println!("(Claude Code prompts once to approve the tools; approve them.)");
         println!("To skip the prompt, add to ~/.claude/settings.json: {{\"permissions\":{{\"allow\":[\"mcp__skillrank\"]}}}}");
         maybe_capture_email(&f, &api_url);
     }
     rc
+}
+
+/// Everything the Skill/command writes need, threaded through so the per-agent
+/// call sites stay one line each.
+struct InstallCtx<'a> {
+    triggers: Triggers,
+    force: bool,
+    state: &'a mut State,
+}
+
+/// Install one managed file and say what happened. Only an I/O failure is an
+/// error: declining to overwrite a hand edit, or to resurrect a file the user
+/// deleted, is the feature working — reporting either as a failure would train
+/// people to reach for `--force` by reflex.
+fn install_managed(path: &Path, kind: Kind, label: &str, ctx: &mut InstallCtx) -> i32 {
+    match managed::write_managed(
+        path,
+        kind,
+        ctx.triggers,
+        Policy::install(ctx.force),
+        ctx.state,
+    ) {
+        Ok(outcome) => {
+            println!("{}", install_line(outcome, label, path));
+            0
+        }
+        Err(e) => {
+            eprintln!("{label}: {e}");
+            1
+        }
+    }
+}
+
+fn install_line(outcome: Outcome, label: &str, path: &Path) -> String {
+    let path = path.display();
+    match outcome {
+        Outcome::Created => format!("✓ Installed {label} ({path})"),
+        Outcome::Updated => format!("✓ Updated {label} ({path})"),
+        Outcome::Unchanged => format!("✓ {label} already up to date ({path})"),
+        Outcome::UserEdited => format!(
+            "• Kept your edited {label} ({path}). Re-run with --force to replace it (the old copy is saved as {path}.skillrank-bak)."
+        ),
+        Outcome::UserRemoved => format!(
+            "• You removed {label}, so it stays removed ({path}). Re-run with --force to reinstall it."
+        ),
+        // Unreachable with an install policy, which always creates; spelled out
+        // rather than panicked on so a future policy change degrades quietly.
+        Outcome::Absent => format!("• Skipped {label} ({path})"),
+    }
+}
+
+/// Name the trigger variant and its off switch at the moment the user just
+/// installed it — the only moment they are reliably reading this output.
+fn print_trigger_note(triggers: Triggers) {
+    match triggers {
+        Triggers::Situational => println!(
+            "The agent may now also check skillrank on its own — before working with a tool it has no approach for, or after failing twice at the same thing. It suggests, it never installs without your yes. Turn that off for good with `skillrank setup --triggers=user-only`."
+        ),
+        Triggers::UserOnly => println!(
+            "Trigger variant: user-only — the agent only reaches for skillrank when you ask. `skillrank setup --triggers=default` turns the agent-initiated trigger back on."
+        ),
+    }
+}
+
+/// Every Skill/command file this machine has, in install order. `update` reuses
+/// it so a post-update refresh can never drift from what `setup` wrote.
+pub fn managed_targets() -> Vec<managed::Target> {
+    let claude = default_claude_base_path();
+    let codex = default_codex_base_path();
+    vec![
+        managed::Target {
+            label: CLAUDE_SKILL_LABEL.to_string(),
+            path: claude_skill_path(&claude),
+            kind: Kind::Skill,
+        },
+        managed::Target {
+            label: CLAUDE_COMMAND_LABEL.to_string(),
+            path: claude_command_path(&claude),
+            kind: Kind::Command,
+        },
+        managed::Target {
+            label: CODEX_SKILL_LABEL.to_string(),
+            path: codex_skill_path(&codex),
+            kind: Kind::Skill,
+        },
+        managed::Target {
+            label: CODEX_COMMAND_LABEL.to_string(),
+            path: codex_command_path(&codex),
+            kind: Kind::Command,
+        },
+    ]
 }
 
 /// Optionally record an email for occasional skill updates. Uses `--email` when
@@ -315,21 +434,6 @@ fn print_success(parts: SetupParts) {
     }
 }
 
-pub fn ensure_skill(path: &Path) -> std::io::Result<()> {
-    write_owned_file(path, SKILL_MD)
-}
-
-pub fn ensure_command(path: &Path) -> std::io::Result<()> {
-    write_owned_file(path, COMMAND_MD)
-}
-
-fn write_owned_file(path: &Path, contents: &str) -> std::io::Result<()> {
-    if let Some(parent) = path.parent() {
-        std::fs::create_dir_all(parent)?;
-    }
-    std::fs::write(path, contents)
-}
-
 pub fn claude_entry(self_path: &str, api_url: &str) -> Value {
     let mut entry = json!({
         "type": "stdio",
@@ -422,11 +526,6 @@ fn strip_codex_skillrank_block(s: &str) -> String {
     out.join("\n")
 }
 
-fn backup(path: &Path, data: &[u8]) -> std::io::Result<()> {
-    let bak = format!("{}.skillrank-bak", path.display());
-    std::fs::write(bak, data)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -489,6 +588,19 @@ mod tests {
         std::fs::remove_dir_all(&dir).ok();
     }
 
+    /// Install the Skill + command the way `run` does, twice, and report the
+    /// second run's outcomes so idempotency is observable.
+    fn install_twice(skill: &Path, command: &Path, triggers: Triggers) -> (Outcome, Outcome) {
+        let mut state = State::default();
+        let mut install = |path: &Path, kind| {
+            managed::write_managed(path, kind, triggers, Policy::install(false), &mut state)
+                .unwrap()
+        };
+        install(skill, Kind::Skill);
+        install(command, Kind::Command);
+        (install(skill, Kind::Skill), install(command, Kind::Command))
+    }
+
     #[test]
     fn installs_claude_skill_and_command_under_user_home() {
         let home = tmp("claude-assets");
@@ -496,15 +608,22 @@ mod tests {
         let skill_path = claude_skill_path(&base);
         let command_path = claude_command_path(&base);
 
-        ensure_skill(&skill_path).unwrap();
-        ensure_command(&command_path).unwrap();
-        ensure_skill(&skill_path).unwrap();
-        ensure_command(&command_path).unwrap();
+        let (skill, command) = install_twice(&skill_path, &command_path, Triggers::Situational);
+        assert_eq!(skill, Outcome::Unchanged);
+        assert_eq!(command, Outcome::Unchanged);
 
         assert_eq!(skill_path, home.join(".claude/skills/skillrank/SKILL.md"));
         assert_eq!(command_path, home.join(".claude/commands/skillrank.md"));
-        assert_eq!(std::fs::read_to_string(&skill_path).unwrap(), SKILL_MD);
-        assert_eq!(std::fs::read_to_string(&command_path).unwrap(), COMMAND_MD);
+        assert_eq!(
+            std::fs::read_to_string(&skill_path).unwrap(),
+            managed::SKILL_MD
+        );
+        assert_eq!(
+            std::fs::read_to_string(&command_path).unwrap(),
+            managed::COMMAND_MD
+        );
+        // A second install is a no-op, so nothing extra (least of all a
+        // gratuitous .skillrank-bak) appears next to the files.
         assert_eq!(
             std::fs::read_dir(home.join(".claude/skills/skillrank"))
                 .unwrap()
@@ -527,15 +646,20 @@ mod tests {
         let skill_path = codex_skill_path(&base);
         let command_path = codex_command_path(&base);
 
-        ensure_skill(&skill_path).unwrap();
-        ensure_command(&command_path).unwrap();
-        ensure_skill(&skill_path).unwrap();
-        ensure_command(&command_path).unwrap();
+        let (skill, command) = install_twice(&skill_path, &command_path, Triggers::Situational);
+        assert_eq!(skill, Outcome::Unchanged);
+        assert_eq!(command, Outcome::Unchanged);
 
         assert_eq!(skill_path, home.join(".codex/skills/skillrank/SKILL.md"));
         assert_eq!(command_path, home.join(".codex/prompts/skillrank.md"));
-        assert_eq!(std::fs::read_to_string(&skill_path).unwrap(), SKILL_MD);
-        assert_eq!(std::fs::read_to_string(&command_path).unwrap(), COMMAND_MD);
+        assert_eq!(
+            std::fs::read_to_string(&skill_path).unwrap(),
+            managed::SKILL_MD
+        );
+        assert_eq!(
+            std::fs::read_to_string(&command_path).unwrap(),
+            managed::COMMAND_MD
+        );
         assert_eq!(
             std::fs::read_dir(home.join(".codex/skills/skillrank"))
                 .unwrap()
@@ -549,5 +673,77 @@ mod tests {
             1
         );
         std::fs::remove_dir_all(&home).ok();
+    }
+
+    #[test]
+    fn the_off_switch_writes_the_user_initiated_description() {
+        let home = tmp("user-only");
+        let skill_path = claude_skill_path(&home.join(".claude"));
+
+        let (skill, _) = install_twice(
+            &skill_path,
+            &claude_command_path(&home.join(".claude")),
+            Triggers::UserOnly,
+        );
+
+        assert_eq!(
+            skill,
+            Outcome::Unchanged,
+            "user-only must be idempotent too"
+        );
+        assert_eq!(
+            std::fs::read_to_string(&skill_path).unwrap(),
+            managed::SKILL_MD_USER_ONLY
+        );
+        std::fs::remove_dir_all(&home).ok();
+    }
+
+    #[test]
+    fn managed_targets_cover_both_agents_skill_and_command() {
+        let targets = managed_targets();
+        assert_eq!(targets.len(), 4);
+        assert_eq!(targets.iter().filter(|t| t.kind == Kind::Skill).count(), 2);
+        assert_eq!(
+            targets.iter().filter(|t| t.kind == Kind::Command).count(),
+            2
+        );
+        for target in &targets {
+            assert!(target.path.ends_with("SKILL.md") || target.path.ends_with("skillrank.md"));
+        }
+    }
+
+    /// `setup` with no flags must not touch anything inside a repository — a
+    /// teammate who never installed skillrank should never find its edits in a
+    /// diff. Every file it writes lives under the agent's own home directory.
+    #[test]
+    fn setup_never_writes_inside_a_repository() {
+        let claude = default_claude_base_path();
+        let codex = default_codex_base_path();
+        for target in managed_targets() {
+            assert!(
+                target.path.starts_with(&claude) || target.path.starts_with(&codex),
+                "{} escapes the agent home directories",
+                target.path.display()
+            );
+        }
+        for config in [default_claude_config_path(), default_codex_config_path()] {
+            assert!(
+                config.starts_with(default_home_path()),
+                "{} escapes the user home directory",
+                config.display()
+            );
+        }
+    }
+
+    #[test]
+    fn install_lines_explain_the_refusals() {
+        let path = Path::new("/tmp/SKILL.md");
+        assert!(install_line(Outcome::Created, "x", path).starts_with("✓ Installed"));
+        assert!(install_line(Outcome::Updated, "x", path).starts_with("✓ Updated"));
+        assert!(install_line(Outcome::Unchanged, "x", path).contains("already up to date"));
+        // A refusal is only useful if it says how to override it.
+        assert!(install_line(Outcome::UserEdited, "x", path).contains("--force"));
+        assert!(install_line(Outcome::UserEdited, "x", path).contains(".skillrank-bak"));
+        assert!(install_line(Outcome::UserRemoved, "x", path).contains("--force"));
     }
 }
