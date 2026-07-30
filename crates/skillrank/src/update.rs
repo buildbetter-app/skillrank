@@ -132,16 +132,38 @@ pub fn run(args: &[String]) -> i32 {
 /// there. Its next `skillrank update` (or any `skillrank setup`, or re-running
 /// `install.sh`, which calls setup) is what actually writes the new text.
 fn refresh_managed_files() {
+    // The same target list `setup` installs, so a refresh can never drift from
+    // what was written in the first place — and, like `setup`, it refuses to
+    // invent a home directory. Without one there is no installed Skill to
+    // refresh, and certainly no licence to write one into the caller's working
+    // directory, which is what this used to do.
+    let targets = match crate::setup::managed_targets() {
+        Ok(targets) => targets,
+        Err(reason) => {
+            eprintln!("Not refreshing the installed Skill and command: {reason}");
+            return;
+        }
+    };
     let mut state = managed::load_default_state();
     let triggers = state.resolve_triggers(None);
-    // The same target list `setup` installs, so a refresh can never drift from
-    // what was written in the first place.
-    for report in managed::refresh(&crate::setup::managed_targets(), triggers, &mut state) {
+    let mut enabled_agent_initiative = false;
+    for report in managed::refresh(&targets, triggers, &mut state) {
         if let Some(line) = report.message() {
             println!("{line}");
         }
+        enabled_agent_initiative |= report.enabled_agent_initiative();
     }
-    managed::save_default_state(&state);
+    if enabled_agent_initiative {
+        // This refresh just replaced a user-only Skill with the situational
+        // one, i.e. it enabled agent-initiated discovery on an install that
+        // predates the feature. That is a change in what the agent may do
+        // without being asked, so it is stated with its off switch rather than
+        // folded into a "Refreshed" line.
+        crate::setup::print_trigger_note(managed::Triggers::Situational);
+    }
+    if let Err(e) = managed::save_default_state(&state) {
+        eprintln!("Could not record skillrank's setup state in ~/.skillrank/setup.json: {e}");
+    }
 }
 
 struct Release {

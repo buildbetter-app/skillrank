@@ -137,13 +137,10 @@ over-firing a shared-resource cost, not just a skillrank cost.
   background daemon, no session-state tracking in the CLI. The agent's own judgement is
   the detector. Anything else is a different, larger spec.
 - **No changes to search, install, eval, scan tiers, or the registry API.**
-- **Not porting ZeroShot's friction detection into skillrank.** ZeroShot already has
-  `agent_session_friction_event`, `agent_session_signal_cluster`, and
-  `agent_session_skill_proposal_run` (verified present in
-  `packages/apps/zeroshot-app/src-tauri/src/agent_sessions/`), and it already runs
-  proposal passes with evidence packs. Extending those to propose *registry installs*
-  rather than *new authored skills* is valuable and out of scope here. This spec is the
-  in-session half; ZeroShot is the after-the-fact half.
+- **Not porting ZeroShot's friction detection into skillrank.** ZeroShot already
+  analyses local coding sessions and proposes skills after the fact. Extending that to
+  propose *registry installs* rather than *new authored skills* is valuable and out of
+  scope here. This spec is the in-session half; ZeroShot is the after-the-fact half.
 - **No telemetry.** No phone-home on skill invocation. Measurement is local-only.
 - **Not making the agent install skills autonomously.** Explicitly excluded; see R5.
 - **Not rewriting the slash command** (`skillrank_command.md`). It is explicitly
@@ -492,12 +489,12 @@ Contracts 1, 2, and 4 are testable against transcripts. Contract 3 is advisory.
 6. **Single-machine dataset.** All 3,285 sessions are one user on one machine with an
    unusually large skill surface (51 global skills). Rates on a machine with 5 skills
    would likely be higher. The 0.5–1.5% band may not generalise.
-7. **Should the ZeroShot side propose registry installs?** ZeroShot's
-   `agent_session_skill_proposal_run` already produces proposals with evidence packs but
-   only for authoring new skills. Extending it to recommend registry installs would
-   catch exactly the cases the in-session trigger misses, after the fact, with better
-   evidence and zero mid-task interruption cost. Deliberately out of scope; likely the
-   stronger of the two halves and worth its own spec.
+7. **Should the ZeroShot side propose registry installs?** ZeroShot already proposes
+   skills from real coding sessions, but only for authoring new ones. Extending it to
+   recommend registry installs would catch exactly the cases the in-session trigger
+   misses, after the fact, with better evidence and zero mid-task interruption cost.
+   Deliberately out of scope; likely the stronger of the two halves and worth its own
+   spec.
 8. **Migrating `find-skills`.** The user's surface holds a second, redundant
    user-initiated skill-discovery skill. Whether skillrank should detect and mention it
    during `setup` is unresolved and arguably not skillrank's business.
