@@ -10,12 +10,17 @@ mod selfskill;
 mod serve;
 mod setup;
 mod update;
+mod update_check;
 
 use flags::Flags;
 
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
-    std::process::exit(run(args));
+    let code = run(args.clone());
+    // Runs after the command's own output, and cannot influence the exit code:
+    // a stale-version notice is never worth failing an install over.
+    update_check::run(&args);
+    std::process::exit(code);
 }
 
 fn run(mut args: Vec<String>) -> i32 {
