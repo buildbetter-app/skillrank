@@ -281,8 +281,12 @@ fn human_ms(ms: f64) -> String {
     } else if ms < 60_000.0 {
         format!("{:.1}s", ms / 1000.0)
     } else {
-        let secs = ms / 1000.0;
-        format!("{:.0}m{:02.0}s", (secs / 60.0).floor(), secs % 60.0)
+        // Round to whole seconds *before* splitting: formatting the remainder
+        // with `{:.0}` let a value like 119.6s render as "1m60s", because the
+        // minute was floored from the unrounded value while the seconds
+        // rounded up past 60.
+        let total_secs = (ms / 1000.0).round() as i64;
+        format!("{}m{:02}s", total_secs / 60, total_secs % 60)
     }
 }
 
@@ -487,6 +491,12 @@ mod tests {
         assert_eq!(human_ms(940.0), "940ms");
         assert_eq!(human_ms(41_200.0), "41.2s");
         assert_eq!(human_ms(123_000.0), "2m03s");
+        // A remainder that rounds up to 60 must carry into the minute rather
+        // than printing an impossible clock reading.
+        assert_eq!(human_ms(119_600.0), "2m00s");
+        assert_eq!(human_ms(59_999.0), "60.0s");
+        assert_eq!(human_ms(60_000.0), "1m00s");
+        assert_eq!(human_ms(3_599_600.0), "60m00s");
         assert_eq!(human_usd(0.0412), "$0.0412");
         assert_eq!(human_usd(1.5), "$1.50");
     }
