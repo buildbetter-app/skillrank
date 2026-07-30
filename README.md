@@ -20,6 +20,11 @@ curl -fsSL skillrank.dev | sh
 The installer offers to also install ZeroShot — optional, and you can add it any
 time. ZeroShot bundles SkillRank; SkillRank does not require ZeroShot.
 
+Already installed? `skillrank update` upgrades in place, and since v0.1.5 the CLI
+tells you when a newer release is out. [CHANGELOG.md](CHANGELOG.md) — also at
+[skillrank.dev/changelog](https://skillrank.dev/changelog) — covers what each
+release changed.
+
 ## Quick start
 
 ```sh
