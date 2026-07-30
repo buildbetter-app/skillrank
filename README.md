@@ -141,6 +141,38 @@ only. See [`docs/`](docs) for the full methodology.
   point at a self-hosted or local registry).
 - `SKILLRANK_TOKEN` — registry token for writes (or `skillrank login --token`).
 - `SKILLRANK_HOME` — config dir (default `~/.skillrank`).
+- `SKILLRANK_NO_UPDATE_CHECK=1` — turn off the update check entirely.
+- `SKILLRANK_AUTO_UPDATE=1` — apply available updates instead of just saying so.
+
+### Update check
+
+About once a day, skillrank prints one line to **stderr** when a newer release
+exists, and leaves upgrading to you:
+
+```
+skillrank 0.2.0 available (you have 0.1.4): run `skillrank update`, or set SKILLRANK_AUTO_UPDATE=1 to auto-apply.
+```
+
+It never touches stdout (so `--json` output stays parseable), never changes the
+exit code, and does no network work while your command runs — the result is
+cached in `~/.skillrank/update-check.json` and refreshed afterwards. Both the
+line and the lookup are rate-limited by the same daily TTL, so this is one line
+a day, not one line per command. The refresh bounds connect and transfer at 2s
+(DNS resolution is the exception — the OS resolver has no cancellation API), and
+a failed lookup is remembered too, so an offline machine backs off for an hour
+instead of retrying on every invocation. It stays quiet under `mcp`, `serve`,
+and `update`, when `CI` is set, and whenever stderr is not a terminal. Notifying
+is the default because this binary runs inside agent loops and scripts, where
+silently swapping the executable mid-session is a worse surprise than a stale
+version.
+
+With `SKILLRANK_AUTO_UPDATE=1`, the same daily check applies the update instead
+of printing. The downloaded binary is verified against the SHA-256 published
+with the release before it replaces anything — the same fail-closed check
+`install.sh` does, and exactly what `skillrank update` does. If applying fails
+(a root-owned install directory is the usual reason) the error is printed rather
+than swallowed, that version is not retried, and you get the ordinary notice
+until you upgrade by hand.
 
 ## Build from source
 

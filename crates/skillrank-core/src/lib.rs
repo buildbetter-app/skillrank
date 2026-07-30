@@ -15,7 +15,7 @@ pub mod stack;
 pub mod types;
 
 pub use client::{Client, ClientError, SearchOptions, PATH_PREFIX};
-pub use hash::{compute_content_hash, hashes_equal, split_ref};
+pub use hash::{compute_content_hash, hashes_equal, sha256_hex, split_ref};
 pub use install::{
     list_installed, safe_scan_tier, uninstall, InstallOptions, InstallResult, InstalledSkill,
 };
