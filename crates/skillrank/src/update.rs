@@ -4,16 +4,42 @@
 //! The release lookup ([`latest_release`]) and the download+verify+swap
 //! ([`apply`]) are also what the startup update check in [`crate::update_check`]
 //! uses, so there is exactly one updater in this binary.
+//!
+//! "Verify" is load-bearing and means one specific thing: every release
+//! publishes `<asset>.sha256` next to the binary
+//! (`.github/workflows/release.yml`), and nothing is written over the running
+//! executable until the downloaded bytes hash to exactly that digest. Failure
+//! to *fetch* the checksum is a refusal too, not a warning — the same
+//! fail-closed rule `install.sh` applies, and the promise `SECURITY.md` makes.
 
 use crate::flags::Flags;
 use serde_json::Value;
+use skillrank_core::hash::sha256_hex;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 const LATEST_RELEASE_URL: &str =
     "https://api.github.com/repos/buildbetter-app/skillrank/releases/latest";
+/// The only prefix an update may ever be downloaded from. Asserted against the
+/// formatted URL, so no release tag can move the download somewhere else.
+const RELEASE_DOWNLOAD_PREFIX: &str =
+    "https://github.com/buildbetter-app/skillrank/releases/download/";
+const USER_AGENT: &str = "skillrank";
 const DOWNLOAD_MIN_BYTES: usize = 100 * 1024;
+/// Hard cap on a downloaded asset. Release binaries are a few MB; this leaves
+/// room to grow while keeping a hostile or misconfigured endpoint from
+/// streaming the process out of memory.
+const MAX_ASSET_BYTES: u64 = 64 * 1024 * 1024;
+/// A `.sha256` file is 64 hex characters and maybe a filename. Anything larger
+/// is not a checksum.
+const MAX_CHECKSUM_BYTES: u64 = 4 * 1024;
+/// Longest release tag we will accept. Real tags are `v0.1.4`.
+const MAX_TAG_LEN: usize = 64;
+/// Ceiling on the download half of an update. Generous — a few MB over a slow
+/// link — but finite, so a stalled transfer cannot wedge the process. Bounds
+/// both `skillrank update` and the auto-apply path.
+pub(crate) const DOWNLOAD_TIMEOUT: Duration = Duration::from_secs(120);
 
 pub fn run(args: &[String]) -> i32 {
     let f = Flags::parse(args);
@@ -43,7 +69,7 @@ pub fn run(args: &[String]) -> i32 {
     }
 
     let latest = latest.to_string();
-    match apply(&release) {
+    match apply(&release, DOWNLOAD_TIMEOUT) {
         Ok(()) => {
             println!("Updated skillrank {current} -> {latest}");
             0
@@ -55,6 +81,9 @@ pub fn run(args: &[String]) -> i32 {
     }
 }
 
+/// A release GitHub reported. `tag_name` is remote input that ends up in a
+/// download path, so it is validated ([`is_safe_tag`]) before a `Release` is
+/// handed out and again in [`asset_url`].
 pub(crate) struct Release {
     tag_name: String,
 }
@@ -66,9 +95,11 @@ impl Release {
     }
 }
 
-/// Download this platform's asset for `release` and swap it over the running
-/// binary. `Err` carries a message that is ready to print as-is.
-pub(crate) fn apply(release: &Release) -> Result<(), String> {
+/// Download this platform's asset for `release`, verify it against the SHA-256
+/// published beside it, and swap it over the running binary. `timeout` bounds
+/// the transfer. `Err` carries a message that is ready to print as-is, and
+/// means nothing was written.
+pub(crate) fn apply(release: &Release, timeout: Duration) -> Result<(), String> {
     let asset = asset_name(std::env::consts::OS, std::env::consts::ARCH).ok_or_else(|| {
         format!(
             "error: unsupported platform: {} {}",
@@ -76,17 +107,16 @@ pub(crate) fn apply(release: &Release) -> Result<(), String> {
             std::env::consts::ARCH
         )
     })?;
-    let url = format!(
-        "https://github.com/buildbetter-app/skillrank/releases/download/{}/{}",
-        release.tag_name, asset
-    );
-    let bytes = download_asset(&url).map_err(|e| format!("error: {e}"))?;
+    let url = asset_url(&release.tag_name, asset)?;
+    let agent = agent(Some(timeout));
+    let bytes = download(&agent, &url, MAX_ASSET_BYTES).map_err(|e| format!("error: {e}"))?;
     if bytes.len() < DOWNLOAD_MIN_BYTES {
         return Err(format!(
             "error: downloaded asset is suspiciously small ({} bytes)",
             bytes.len()
         ));
     }
+    verify_asset(&bytes, download_text(&agent, &format!("{url}.sha256")))?;
 
     let exe = std::env::current_exe()
         .map_err(|e| format!("error: could not resolve current executable: {e}"))?;
@@ -102,40 +132,162 @@ pub(crate) fn apply(release: &Release) -> Result<(), String> {
     })
 }
 
-/// Look up the latest GitHub release. `timeout` bounds the whole request; the
-/// startup check passes one so a dead network can never hang the CLI, while
-/// `skillrank update` (which the user is waiting on deliberately) passes none.
+/// Look up the latest GitHub release. `timeout` bounds the request; the startup
+/// check passes one so a dead network can never hang the CLI, while `skillrank
+/// update` (which the user is waiting on deliberately) passes none.
 pub(crate) fn latest_release(timeout: Option<Duration>) -> Result<Release, String> {
-    let mut request = ureq::get(LATEST_RELEASE_URL)
-        .set("User-Agent", "skillrank")
-        .set("Accept", "application/vnd.github+json");
-    if let Some(timeout) = timeout {
-        request = request.timeout(timeout);
-    }
-    let resp = request.call().map_err(http_error)?;
+    let resp = agent(timeout)
+        .get(LATEST_RELEASE_URL)
+        .set("Accept", "application/vnd.github+json")
+        .call()
+        .map_err(http_error)?;
     let value = resp
         .into_json::<Value>()
         .map_err(|e| format!("could not parse GitHub release response: {e}"))?;
     let tag_name = value
         .get("tag_name")
         .and_then(Value::as_str)
-        .filter(|s| !s.trim().is_empty())
+        .map(str::trim)
+        .filter(|s| !s.is_empty())
         .ok_or_else(|| "GitHub release response did not include tag_name".to_string())?
         .to_string();
+    // Reject an implausible tag here as well as at the URL, so a hostile or
+    // broken response cannot even be cached or printed as a version.
+    if !is_safe_tag(&tag_name) {
+        return Err(format!(
+            "GitHub returned an implausible release tag {tag_name:?}"
+        ));
+    }
     Ok(Release { tag_name })
 }
 
-fn download_asset(url: &str) -> Result<Vec<u8>, String> {
-    let resp = ureq::get(url)
-        .set("User-Agent", "skillrank")
-        .call()
-        .map_err(http_error)?;
-    let mut reader = resp.into_reader();
+/// A request agent with *both* timeouts pinned. `.timeout()` on its own is not
+/// a ceiling: ureq's default agent sets `timeout_connect` to 30s, and that
+/// takes precedence, so a network that black-holes packets rather than
+/// refusing them used to hang for 30s+ no matter what the caller asked for.
+///
+/// One gap remains, documented rather than papered over: DNS resolution runs
+/// through the blocking std resolver, which has no cancellation API (ureq's own
+/// `stream.rs` carries a `TODO: apply deadline to DNS lookup`). Connect, TLS,
+/// and every read after them are bounded; a resolver that never answers is not.
+fn agent(timeout: Option<Duration>) -> ureq::Agent {
+    let mut builder = ureq::builder().user_agent(USER_AGENT);
+    if let Some(timeout) = timeout {
+        builder = builder.timeout_connect(timeout).timeout(timeout);
+    }
+    builder.build()
+}
+
+/// Read at most `max_bytes`, and fail rather than truncate. A plain
+/// `read_to_end` on a response body is unbounded: whatever is on the other end
+/// decides how much memory this process uses.
+fn download(agent: &ureq::Agent, url: &str, max_bytes: u64) -> Result<Vec<u8>, String> {
+    let resp = agent.get(url).call().map_err(http_error)?;
     let mut bytes = Vec::new();
-    reader
+    resp.into_reader()
+        // One byte past the cap, so hitting it is detectable instead of
+        // silently producing a truncated file.
+        .take(max_bytes.saturating_add(1))
         .read_to_end(&mut bytes)
-        .map_err(|e| format!("could not read downloaded asset: {e}"))?;
+        .map_err(|e| format!("could not read {url}: {e}"))?;
+    if bytes.len() as u64 > max_bytes {
+        return Err(format!("{url} is larger than the {max_bytes} byte limit"));
+    }
     Ok(bytes)
+}
+
+fn download_text(agent: &ureq::Agent, url: &str) -> Result<String, String> {
+    let bytes = download(agent, url, MAX_CHECKSUM_BYTES)?;
+    String::from_utf8(bytes).map_err(|_| format!("{url} is not valid UTF-8"))
+}
+
+/// Fail closed, exactly like `install.sh`: an asset whose published checksum
+/// does not match — or could not be fetched at all — is not installed.
+///
+/// `published` is the *result* of fetching `<asset>.sha256`, so the "no
+/// checksum" case is a refusal rather than a silent skip. That is the whole
+/// point: without it, `apply` trusts whatever bytes the network returned and
+/// chmods them over the running binary, which is precisely the guarantee
+/// `SECURITY.md` says SkillRank keeps.
+fn verify_asset(bytes: &[u8], published: Result<String, String>) -> Result<(), String> {
+    let published = published.map_err(|e| {
+        format!(
+            "error: could not fetch the release checksum: {e}\n\
+             Refusing to install an unverified binary."
+        )
+    })?;
+    let expected = parse_sha256(&published).ok_or_else(|| {
+        "error: the published checksum is not a SHA-256 digest.\n\
+         Refusing to install an unverified binary."
+            .to_string()
+    })?;
+    let actual = sha256_hex(bytes);
+    if actual != expected {
+        return Err(format!(
+            "error: checksum mismatch — refusing to install.\n  expected: {expected}\n  actual:   {actual}"
+        ));
+    }
+    Ok(())
+}
+
+/// The published `.sha256` is a bare lowercase digest (see
+/// `.github/workflows/release.yml`), but accept the `<digest>  <filename>` form
+/// `shasum` prints by default so a hand-published checksum still verifies.
+fn parse_sha256(published: &str) -> Option<String> {
+    let token = published.split_whitespace().next()?;
+    let is_digest = token.len() == 64 && token.bytes().all(|b| b.is_ascii_hexdigit());
+    is_digest.then(|| token.to_ascii_lowercase())
+}
+
+/// Build the download URL for `tag`, refusing anything that is not a plain
+/// release tag and re-checking the formatted result.
+///
+/// The tag comes from GitHub's JSON, and interpolating an unvalidated one is
+/// enough to move the download to a different repository: a tag of
+/// `../../../../attacker/evil/releases/download/v9` normalizes to
+/// `https://github.com/attacker/evil/…`, served under a genuine github.com
+/// certificate. Registry slugs get the same treatment before they are joined
+/// onto a path (`skillrank_core::install::is_safe_slug`); this is that
+/// discipline applied to the one other piece of remote input that becomes a
+/// path.
+fn asset_url(tag: &str, asset: &str) -> Result<String, String> {
+    if !is_safe_tag(tag) {
+        return Err(format!(
+            "error: refusing to download an update from an implausible release tag {tag:?}"
+        ));
+    }
+    let url = format!("{RELEASE_DOWNLOAD_PREFIX}{tag}/{asset}");
+    // Belt and braces: whatever the tag was, the URL actually fetched has to
+    // still be this repo's release-download path plus exactly two segments.
+    let path = url
+        .strip_prefix(RELEASE_DOWNLOAD_PREFIX)
+        .unwrap_or_default();
+    let mut segments = path.split('/');
+    let plain = segments.clone().count() == 2
+        && segments.all(|seg| !seg.is_empty() && seg != "." && seg != "..");
+    if !plain {
+        return Err(format!("error: refusing to download an update from {url}"));
+    }
+    Ok(url)
+}
+
+/// `^v?[0-9A-Za-z][0-9A-Za-z.+_-]*$`, with `..` rejected outright and a length
+/// cap. Hand-rolled to keep the CLI dependency-light.
+fn is_safe_tag(tag: &str) -> bool {
+    if tag.is_empty() || tag.len() > MAX_TAG_LEN || tag.contains("..") {
+        return false;
+    }
+    // `v?` only consumes the prefix when something follows it, mirroring the
+    // regex's backtracking: a tag of exactly "v" is still just a first char.
+    let body = tag
+        .strip_prefix('v')
+        .filter(|rest| !rest.is_empty())
+        .unwrap_or(tag);
+    let mut chars = body.chars();
+    chars
+        .next()
+        .is_some_and(|first| first.is_ascii_alphanumeric())
+        && chars.all(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '+' | '_' | '-'))
 }
 
 fn replace_exe(exe: &Path, bytes: &[u8]) -> std::io::Result<()> {
@@ -169,15 +321,27 @@ fn temp_path(dir: &Path) -> PathBuf {
 fn http_error(err: ureq::Error) -> String {
     match err {
         ureq::Error::Status(code, resp) => {
-            let body = resp.into_string().unwrap_or_default();
-            if body.trim().is_empty() {
+            let body = summarize_body(&resp.into_string().unwrap_or_default());
+            if body.is_empty() {
                 format!("HTTP {code}")
             } else {
-                format!("HTTP {code}: {}", body.trim())
+                format!("HTTP {code}: {body}")
             }
         }
         ureq::Error::Transport(t) => t.to_string(),
     }
+}
+
+/// One short line. Bodies here are either a JSON error from the GitHub API or a
+/// CDN's HTML error page, and pasting a whole page under an already-actionable
+/// message ("Refusing to install an unverified binary") buries it.
+fn summarize_body(body: &str) -> String {
+    const MAX_CHARS: usize = 200;
+    let collapsed = body.split_whitespace().collect::<Vec<_>>().join(" ");
+    if collapsed.chars().count() <= MAX_CHARS {
+        return collapsed;
+    }
+    collapsed.chars().take(MAX_CHARS).chain(['…']).collect()
 }
 
 fn asset_name(os: &str, arch: &str) -> Option<&'static str> {
@@ -277,6 +441,137 @@ mod tests {
         assert!(is_newer("0.2.0-rc.1", "0.2.0"));
         assert!(!is_newer("0.2.0-rc", "0.2.0"));
         assert!(!is_newer("0.1.9-rc.1", "0.2.0"));
+    }
+
+    #[test]
+    fn verify_asset_accepts_the_published_digest() {
+        let bytes = b"skillrank-release-asset";
+        let digest = "82ad0a9afa35be95063abf382870b906c94d1fcae64ce66d91ad577a5088a21f";
+        assert_eq!(verify_asset(bytes, Ok(format!("{digest}\n"))), Ok(()));
+        // The `shasum`-style "<digest>  <filename>" form and upper case both
+        // verify, so a hand-published checksum is not a false alarm.
+        assert_eq!(
+            verify_asset(bytes, Ok(format!("{digest}  skillrank-macos-aarch64\n"))),
+            Ok(())
+        );
+        assert_eq!(verify_asset(bytes, Ok(digest.to_ascii_uppercase())), Ok(()));
+    }
+
+    #[test]
+    fn verify_asset_rejects_a_checksum_mismatch() {
+        // The whole point: bytes that are not the release's bytes never reach
+        // `replace_exe`.
+        let err = verify_asset(
+            b"tampered",
+            Ok("82ad0a9afa35be95063abf382870b906c94d1fcae64ce66d91ad577a5088a21f".into()),
+        )
+        .expect_err("a mismatched digest must be rejected");
+        assert!(err.contains("checksum mismatch"), "{err}");
+        assert!(err.contains("refusing to install"), "{err}");
+    }
+
+    #[test]
+    fn verify_asset_fails_closed_without_a_usable_checksum() {
+        // Mirrors install.sh: could not fetch it, or what came back is not a
+        // digest -> refuse. Never "verified nothing, install anyway".
+        let unfetchable = verify_asset(b"payload", Err("HTTP 404".into()))
+            .expect_err("a missing checksum must be rejected");
+        assert!(unfetchable.contains("Refusing to install an unverified binary"));
+        assert!(unfetchable.contains("HTTP 404"), "{unfetchable}");
+
+        for body in [
+            "",
+            "   \n",
+            "not-a-digest",
+            "<html>404</html>",
+            // 63 and 65 hex characters, and 64 non-hex characters.
+            "82ad0a9afa35be95063abf382870b906c94d1fcae64ce66d91ad577a5088a21",
+            "82ad0a9afa35be95063abf382870b906c94d1fcae64ce66d91ad577a5088a21ff",
+            "zzad0a9afa35be95063abf382870b906c94d1fcae64ce66d91ad577a5088a21f",
+        ] {
+            let err = verify_asset(b"payload", Ok(body.to_string()))
+                .expect_err("a checksum that is not a digest must be rejected");
+            assert!(
+                err.contains("Refusing to install an unverified binary"),
+                "{body:?}: {err}"
+            );
+        }
+    }
+
+    #[test]
+    fn http_error_bodies_are_summarized_to_one_short_line() {
+        // A GitHub 404 for a missing `.sha256` is served as a full HTML page;
+        // it must not bury the "Refusing to install an unverified binary" line
+        // underneath it.
+        let html =
+            "<!DOCTYPE HTML>\n<html>\n  <body>\n    <h1>Error response</h1>\n  </body>\n</html>";
+        assert_eq!(
+            summarize_body(html),
+            "<!DOCTYPE HTML> <html> <body> <h1>Error response</h1> </body> </html>"
+        );
+        assert_eq!(summarize_body("  \n\t "), "");
+        let long = summarize_body(&"x".repeat(500));
+        assert_eq!(long.chars().count(), 201);
+        assert!(long.ends_with('…'));
+    }
+
+    #[test]
+    fn asset_url_builds_this_repos_release_path() {
+        assert_eq!(
+            asset_url("v0.2.0", "skillrank-macos-aarch64").as_deref(),
+            Ok("https://github.com/buildbetter-app/skillrank/releases/download/v0.2.0/skillrank-macos-aarch64")
+        );
+    }
+
+    #[test]
+    fn asset_url_rejects_a_traversal_tag() {
+        // Verified against the real binary before this check existed: the tag
+        // below normalizes to https://github.com/attacker/evil/… and downloads
+        // under a genuine github.com certificate.
+        for tag in [
+            "../../../../attacker/evil/releases/download/v9",
+            "..",
+            "v0.2.0/../../../../attacker/evil/releases/download/v9",
+            "v0.2.0/..",
+        ] {
+            let err = asset_url(tag, "skillrank-macos-aarch64")
+                .expect_err("a traversal tag must never become a download URL");
+            assert!(err.contains("refusing to download"), "{tag:?}: {err}");
+        }
+    }
+
+    #[test]
+    fn safe_tags_are_plain_release_tags() {
+        for tag in [
+            "v0.1.4",
+            "0.1.4",
+            "v1.2.3-rc.1",
+            "v1.2.3+build_7",
+            "v",
+            "v10",
+        ] {
+            assert!(is_safe_tag(tag), "expected {tag:?} to be accepted");
+        }
+        for tag in [
+            "",
+            " ",
+            "..",
+            "../evil",
+            "v../evil",
+            "v0.2.0/asset",
+            "/v0.2.0",
+            "-v0.2.0",
+            ".0.2.0",
+            "v0.2.0 ",
+            "v0.2.0?x=1",
+            "v0.2.0#frag",
+            "v0.2.0%2f..",
+            "https://attacker.example/v1",
+            "v0.2.0\\..",
+            &"v".repeat(MAX_TAG_LEN + 1),
+        ] {
+            assert!(!is_safe_tag(tag), "expected {tag:?} to be refused");
+        }
     }
 
     #[test]

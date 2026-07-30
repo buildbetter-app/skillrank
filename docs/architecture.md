@@ -86,11 +86,27 @@ The CLI checks for a newer release about once a day and prints a single line to
 stderr; `skillrank update` (or `SKILLRANK_AUTO_UPDATE=1`) applies it. The design
 constraint is that the check must be invisible to the command the user ran: the
 hot path only reads `~/.skillrank/update-check.json`, the GitHub release lookup
-happens after that command's output with a 2s timeout, every failure is
-swallowed, and the exit code is untouched. It is skipped for `mcp` (stdio
-JSON-RPC), `serve`, and `update` itself, when `CI` is set, and when stderr is not
-a terminal. Notify-by-default is deliberate: agents invoke this binary
-constantly, and replacing the executable underneath an unrelated command would
-change behaviour mid-session with no prompt. Both the release lookup and the
-download/verify/swap are the same functions `skillrank update` uses — there is
-one updater, not two.
+happens after that command's output, and the exit code is untouched. It is
+skipped for `mcp` (stdio JSON-RPC), `serve`, and `update` itself, when `CI` is
+set, and when stderr is not a terminal. Notify-by-default is deliberate: agents
+invoke this binary constantly, and replacing the executable underneath an
+unrelated command would change behaviour mid-session with no prompt.
+
+One daily TTL governs both halves. It rate-limits the *print* as well as the
+lookup — agent harnesses allocate a PTY, so the not-a-terminal skip does not
+spare them, and without it the notice lands in every tool result. Auto mode gets
+no exemption: it reads the same cache and goes to the network on the same
+schedule. A failed lookup is cached too (`last_attempt_at`, one-hour backoff),
+so an offline or rate-limited machine stops paying the request timeout on every
+invocation. That timeout pins connect *and* transfer — `.timeout()` alone is not
+a ceiling in ureq, because its default 30s `timeout_connect` takes precedence —
+with DNS the one unbounded step, since the std resolver cannot be cancelled.
+
+Both the release lookup and the download/verify/swap are the same functions
+`skillrank update` uses — there is one updater, not two. "Verify" means the
+downloaded bytes are hashed and compared against the `<asset>.sha256` published
+with the release, and a checksum that is missing, unfetchable, or different is a
+refusal, not a warning; failing open here would contradict the guarantee
+`SECURITY.md` makes and the check `install.sh` already performs. Errors are
+otherwise swallowed, with one exception: a failed auto-apply is printed, and the
+version that failed is recorded so it is not retried on every subsequent run.

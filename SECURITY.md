@@ -40,8 +40,12 @@ about anything that crosses one of these boundaries:
   Anything that exposes it more widely without the operator asking is a
   vulnerability.
 - **Supply chain.** Release binaries are code-signed, notarized on macOS, and
-  published with a SHA-256 checksum that `install.sh` verifies before
-  installing. Report anything that lets an unverified binary be installed.
+  published with a SHA-256 checksum. Every path that installs one verifies that
+  checksum and fails closed when it cannot fetch it: `install.sh`, `skillrank
+  update`, and the opt-in `SKILLRANK_AUTO_UPDATE=1` auto-apply. The release tag
+  is validated before it is used to build a download URL, the same way registry
+  slugs are validated before they are joined onto a path. Report anything that
+  lets an unverified binary be installed.
 
 ## Known and intentional: `skillrank eval` runs untrusted code
 

@@ -5,13 +5,20 @@
 //!
 //! * **No network on the hot path.** The check reads a small JSON cache under
 //!   `~/.skillrank` and prints at most one line. The HTTP lookup that refreshes
-//!   that cache runs *after* the command has produced its output, at most once
-//!   per [`CACHE_TTL_SECS`], and with a hard [`REFRESH_TIMEOUT`] — so a slow,
-//!   captive, or dead network can add at most a couple of seconds to a
-//!   once-a-day invocation, and nothing at all to the rest.
-//! * **Never changes the exit code, never fails the command.** Every error here
-//!   — offline, DNS, rate limit, unwritable home, corrupt cache — is swallowed.
-//!   A broken update check must not be able to break `skillrank install`.
+//!   that cache runs *after* the command has produced its output and at most
+//!   once per [`CACHE_TTL_SECS`] — including in auto mode, which is not a
+//!   licence to hit the API on every run — with [`REFRESH_TIMEOUT`] bounding
+//!   connect and transfer. A *failed* attempt is remembered too
+//!   ([`RETRY_BACKOFF_SECS`]), so an offline machine stops paying that timeout
+//!   on every single invocation.
+//! * **One line per TTL, not one line per run.** The same TTL rate-limits the
+//!   print. Agent harnesses allocate a PTY, so the not-a-terminal skip does not
+//!   spare them; without this the notice lands in every tool result.
+//! * **Never changes the exit code, never fails the command.** Errors here —
+//!   offline, DNS, rate limit, unwritable home, corrupt cache — are swallowed.
+//!   A broken update check must not be able to break `skillrank install`. The
+//!   deliberate exception is a failed *auto-apply*, which is printed: see
+//!   [`refresh`].
 //! * **stderr only.** stdout carries `--json` payloads that callers parse.
 //! * **Notify by default; auto-apply is opt-in** via `SKILLRANK_AUTO_UPDATE=1`.
 //!   This binary is invoked constantly inside agent loops and scripts. Swapping
@@ -27,10 +34,16 @@ use std::io::IsTerminal;
 use std::path::PathBuf;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
-/// Check about once a day. Often enough that a client-side security fix reaches
-/// people quickly; rare enough that it is not a per-invocation cost.
+/// Check, and say something, about once a day. Often enough that a client-side
+/// security fix reaches people quickly; rare enough that it is neither a
+/// per-invocation cost nor a per-invocation line of output.
 const CACHE_TTL_SECS: u64 = 24 * 60 * 60;
-/// Hard ceiling on the refresh request. The user is not waiting on this.
+/// After a failed lookup, wait this long before spending another
+/// [`REFRESH_TIMEOUT`]. Shorter than the TTL because the answer is still
+/// unknown; long enough that a laptop in a tunnel is not retrying constantly.
+const RETRY_BACKOFF_SECS: u64 = 60 * 60;
+/// Ceiling on the refresh request — connect *and* transfer, with the DNS caveat
+/// documented on `update`'s agent. The user is not waiting on this.
 const REFRESH_TIMEOUT: Duration = Duration::from_secs(2);
 const CACHE_FILE: &str = "update-check.json";
 /// Protocol- or long-lived commands, plus the updater itself. `mcp` speaks
@@ -103,58 +116,113 @@ fn check(ctx: &Context, current: &str) {
     let Some(path) = cache_path() else {
         return;
     };
-    let cached = read_cache(&path);
+    let before = read_cache(&path);
+    let mut entry = before.clone().unwrap_or_default();
     let now = unix_now();
-    let cached_newer = cached
-        .as_ref()
-        .map(|entry| entry.latest_version.as_str())
-        .filter(|latest| update::is_newer(latest, current));
 
-    // Hot path: everything up to here is one small file read, no network.
-    if let Some(latest) = cached_newer {
-        if !ctx.auto_update {
-            eprintln!("{}", notice(current, latest));
-        }
+    // Hot path: one small file read and at most one line. No network.
+    maybe_notify(&mut entry, ctx, current, now);
+    if needs_refresh(&entry, now) {
+        refresh(&mut entry, ctx, current, now);
     }
-    let cached_is_newer = cached_newer.is_some();
+    // One write, and only when something actually changed — including when the
+    // only news is that the lookup failed.
+    if before.as_ref() != Some(&entry) {
+        write_cache(&path, &entry);
+    }
+}
 
-    let stale = cached
-        .as_ref()
-        .is_none_or(|entry| !is_fresh(entry.checked_at, now, CACHE_TTL_SECS));
-    // In auto mode a known-newer version is confirmed against the registry
-    // before anything is swapped, so a stale or yanked cache entry can never be
-    // what drives a binary replacement.
-    let needs_network = stale || (ctx.auto_update && cached_is_newer);
-    if !needs_network {
+/// Whether the cached answer has aged out *and* we are not inside the backoff
+/// from a failed attempt.
+///
+/// The second half is the whole negative cache: a failure never writes a fresh
+/// `checked_at`, so without it an offline machine, a rate-limited one, or one
+/// behind a captive portal re-attempts — and re-pays [`REFRESH_TIMEOUT`] — on
+/// every invocation, forever. The first half is unconditional: auto mode has no
+/// business hitting the API more often than notify mode does.
+fn needs_refresh(entry: &Entry, now: u64) -> bool {
+    !is_fresh(entry.checked_at, now, CACHE_TTL_SECS)
+        && !is_fresh(entry.last_attempt_at, now, RETRY_BACKOFF_SECS)
+}
+
+/// Whether to print the notice now. Separate from the printing so the policy is
+/// testable without capturing stderr.
+fn should_notify(entry: &Entry, ctx: &Context, current: &str, now: u64) -> bool {
+    if !update::is_newer(&entry.latest_version, current) {
+        return false;
+    }
+    // Auto mode speaks for itself — unless applying this exact version already
+    // failed on this machine, in which case it will never be retried and the
+    // user needs the manual instruction like everyone else.
+    if ctx.auto_update && entry.failed_version != entry.latest_version {
+        return false;
+    }
+    // Rate-limited by the same TTL as the network refresh: this line prints on
+    // top of whatever the user was actually reading.
+    !is_fresh(entry.notified_at, now, CACHE_TTL_SECS)
+}
+
+fn maybe_notify(entry: &mut Entry, ctx: &Context, current: &str, now: u64) {
+    if !should_notify(entry, ctx, current, now) {
         return;
     }
+    eprintln!("{}", notice(current, &entry.latest_version));
+    entry.notified_at = now;
+}
 
+/// Whether auto mode should replace the binary with `latest`. A version whose
+/// apply already failed here is never retried: the usual cause is a
+/// root-owned install directory, which fails identically every time.
+fn should_auto_apply(entry: &Entry, ctx: &Context, latest: &str, current: &str) -> bool {
+    ctx.auto_update && update::is_newer(latest, current) && entry.failed_version != latest
+}
+
+/// The network half: look up the latest release, fold the result into `entry`,
+/// and either apply it (auto mode) or say it exists.
+///
+/// The attempt is recorded before it can fail, and an auto-apply failure is
+/// *printed* rather than swallowed. That is the one error in this file the user
+/// has to see: auto mode exists because they stopped watching, so a silent
+/// failure means an unattended machine sits on an old binary indefinitely.
+fn refresh(entry: &mut Entry, ctx: &Context, current: &str, now: u64) {
+    entry.last_attempt_at = now;
     let Ok(release) = update::latest_release(Some(REFRESH_TIMEOUT)) else {
         return;
     };
     let latest = release.version().to_string();
-    write_cache(
-        &path,
-        &Entry {
-            checked_at: now,
-            latest_version: latest.clone(),
-        },
-    );
-    if !update::is_newer(&latest, current) {
+    record_lookup(entry, &latest, now);
+
+    if should_auto_apply(entry, ctx, &latest, current) {
+        // Reuses `skillrank update`'s download, checksum verification, and
+        // atomic swap — there is one updater, not two.
+        match update::apply(&release, update::DOWNLOAD_TIMEOUT) {
+            Ok(()) => {
+                eprintln!("skillrank updated {current} -> {latest} (SKILLRANK_AUTO_UPDATE=1).")
+            }
+            Err(message) => {
+                eprintln!("{message}");
+                eprintln!(
+                    "skillrank {latest} was not applied and will not be retried automatically; run `skillrank update`."
+                );
+                entry.failed_version = latest;
+            }
+        }
         return;
     }
-    if ctx.auto_update {
-        // Reuses `skillrank update`'s download, size-check, and atomic swap.
-        // A failure is silent by design: the command the user ran already
-        // succeeded, and the next invocation will simply try again.
-        if update::apply(&release).is_ok() {
-            eprintln!("skillrank updated {current} -> {latest} (SKILLRANK_AUTO_UPDATE=1).");
-        }
-    } else if !cached_is_newer {
-        // We learned about this release just now, after paying for the request
-        // anyway — say so immediately rather than staying quiet until the next
-        // invocation reads the cache.
-        eprintln!("{}", notice(current, &latest));
+    // We learned about this release just now, having paid for the request
+    // anyway — say so immediately rather than staying quiet until tomorrow.
+    // (A no-op when the hot path above already printed it this run.)
+    maybe_notify(entry, ctx, current, now);
+}
+
+/// Fold a successful lookup into the cache.
+fn record_lookup(entry: &mut Entry, latest: &str, now: u64) {
+    entry.checked_at = now;
+    entry.latest_version = latest.to_string();
+    if entry.failed_version != latest {
+        // A different release is different bytes; an earlier failure says
+        // nothing about it.
+        entry.failed_version.clear();
     }
 }
 
@@ -190,10 +258,20 @@ fn env_flag(name: &str) -> bool {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+/// The cache is this feature's entire memory: what we last learned, when we
+/// last managed to ask, when we last said anything, and what we already failed
+/// to apply.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
 struct Entry {
+    /// Last *successful* lookup. 0 when there has never been one.
     checked_at: u64,
     latest_version: String,
+    /// Last lookup *attempt*, successful or not — the negative cache.
+    last_attempt_at: u64,
+    /// A version whose auto-apply already failed here. Not retried.
+    failed_version: String,
+    /// When the notice was last printed.
+    notified_at: u64,
 }
 
 /// Fresh means "written in the past, within the TTL". A timestamp in the future
@@ -204,16 +282,50 @@ fn is_fresh(checked_at: u64, now: u64, ttl: u64) -> bool {
 }
 
 /// Tolerant on purpose: a cache we cannot understand is treated as no cache.
+/// Missing fields default (an older cache has no `notified_at`), but a field
+/// that is *present and the wrong type* invalidates the whole entry — rechecking
+/// costs one request, while trusting a corrupt "nothing new here" hides a
+/// release for a day.
 fn parse_cache(body: &str) -> Option<Entry> {
     let value: serde_json::Value = serde_json::from_str(body).ok()?;
-    let checked_at = value.get("checked_at")?.as_u64()?;
-    let latest_version = value.get("latest_version")?.as_str()?.trim();
-    if latest_version.is_empty() {
+    let object = value.as_object()?;
+    let number = |key: &str| match object.get(key) {
+        None | Some(serde_json::Value::Null) => Some(0),
+        Some(value) => value.as_u64(),
+    };
+    let text = |key: &str| match object.get(key) {
+        None | Some(serde_json::Value::Null) => Some(String::new()),
+        Some(value) => value.as_str().map(|s| s.trim().to_string()),
+    };
+
+    let checked_at = number("checked_at")?;
+    let notified_at = number("notified_at")?;
+    let latest_version = text("latest_version")?;
+    let failed_version = text("failed_version")?;
+    // Caches written before the negative cache existed only have `checked_at`,
+    // and a successful check is also an attempt.
+    let last_attempt_at = match object.get("last_attempt_at") {
+        None | Some(serde_json::Value::Null) => checked_at,
+        Some(value) => value.as_u64()?,
+    };
+
+    let completed_a_check = checked_at > 0;
+    let knows_a_version = !latest_version.is_empty();
+    if completed_a_check != knows_a_version {
+        // Half a record: a completed check with nothing to show for it, or a
+        // version with no timestamp to age it out.
+        return None;
+    }
+    if !completed_a_check && last_attempt_at == 0 && notified_at == 0 {
+        // No timestamps at all — nothing worth remembering.
         return None;
     }
     Some(Entry {
         checked_at,
-        latest_version: latest_version.to_string(),
+        latest_version,
+        last_attempt_at,
+        failed_version,
+        notified_at,
     })
 }
 
@@ -234,6 +346,9 @@ fn write_cache(path: &std::path::Path, entry: &Entry) {
     let body = serde_json::json!({
         "checked_at": entry.checked_at,
         "latest_version": entry.latest_version,
+        "last_attempt_at": entry.last_attempt_at,
+        "failed_version": entry.failed_version,
+        "notified_at": entry.notified_at,
     })
     .to_string();
     let tmp = path.with_extension(format!("tmp-{}", std::process::id()));
@@ -404,6 +519,9 @@ mod tests {
         let entry = Entry {
             checked_at: 1_730_000_000,
             latest_version: "0.9.1".to_string(),
+            last_attempt_at: 1_730_000_500,
+            failed_version: "0.9.1".to_string(),
+            notified_at: 1_730_000_100,
         };
         write_cache(&path, &entry);
         assert_eq!(read_cache(&path), Some(entry));
@@ -420,6 +538,7 @@ mod tests {
             &Entry {
                 checked_at: 1,
                 latest_version: "0.2.0".to_string(),
+                ..Entry::default()
             },
         );
         assert_eq!(read_cache(&path), None);
@@ -432,5 +551,203 @@ mod tests {
         assert!(line.contains("0.2.0") && line.contains("0.1.4"));
         assert!(line.contains("skillrank update"));
         assert!(line.contains("SKILLRANK_AUTO_UPDATE=1"));
+    }
+
+    const NOW: u64 = 1_730_000_000;
+
+    fn known(latest: &str, checked_at: u64) -> Entry {
+        Entry {
+            checked_at,
+            latest_version: latest.to_string(),
+            last_attempt_at: checked_at,
+            ..Entry::default()
+        }
+    }
+
+    fn auto(subcommand: Option<&str>) -> Context {
+        Context {
+            auto_update: true,
+            ..ctx(subcommand)
+        }
+    }
+
+    #[test]
+    fn auto_mode_respects_the_cache_ttl() {
+        // Regression: `needs_network` used to be
+        // `stale || (auto_update && cached_is_newer)`, so a ten-second-old
+        // cache plus SKILLRANK_AUTO_UPDATE=1 hit the GitHub API on every single
+        // invocation.
+        // The mode is no longer an input to the decision at all — see the
+        // signature — so the tempting case proves it: auto mode would apply
+        // this exact cached version, and still does not go to the network.
+        let fresh = known("0.2.0", NOW - 10);
+        assert!(!needs_refresh(&fresh, NOW), "a fresh cache needs no lookup");
+        assert!(should_auto_apply(
+            &fresh,
+            &auto(Some("list")),
+            "0.2.0",
+            "0.1.4"
+        ));
+
+        // The TTL still expires, and no cache still means look it up.
+        let stale = known("0.2.0", NOW - CACHE_TTL_SECS);
+        assert!(needs_refresh(&stale, NOW));
+        assert!(needs_refresh(&Entry::default(), NOW), "no cache -> look up");
+    }
+
+    #[test]
+    fn a_failed_lookup_is_cached_and_backed_off() {
+        // Regression: the cache was only written on success, so every
+        // invocation on an offline machine re-attempted and re-paid the
+        // refresh timeout.
+        let mut entry = Entry::default();
+        assert!(needs_refresh(&entry, NOW));
+
+        // What `refresh` records before the request can fail.
+        entry.last_attempt_at = NOW;
+        assert!(
+            !needs_refresh(&entry, NOW + 1),
+            "a failed attempt must not be retried immediately"
+        );
+        assert!(!needs_refresh(&entry, NOW + RETRY_BACKOFF_SECS - 1));
+        assert!(
+            needs_refresh(&entry, NOW + RETRY_BACKOFF_SECS),
+            "the backoff has to expire"
+        );
+
+        // And it survives a round trip: a failure-only entry is a valid cache.
+        let path = std::env::temp_dir().join(format!(
+            "skillrank-update-check-failure-{}-{:?}.json",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        write_cache(&path, &entry);
+        assert_eq!(read_cache(&path), Some(entry));
+        let _ = std::fs::remove_file(&path);
+    }
+
+    #[test]
+    fn a_successful_lookup_clears_the_backoff() {
+        let mut entry = Entry {
+            last_attempt_at: NOW - 60,
+            ..Entry::default()
+        };
+        record_lookup(&mut entry, "0.2.0", NOW);
+        assert_eq!(entry.checked_at, NOW);
+        assert_eq!(entry.latest_version, "0.2.0");
+        assert!(!needs_refresh(&entry, NOW + CACHE_TTL_SECS - 1));
+        assert!(needs_refresh(&entry, NOW + CACHE_TTL_SECS));
+    }
+
+    #[test]
+    fn the_notice_respects_its_own_ttl() {
+        // Regression: the TTL rate-limited the network refresh but not the
+        // print, so the line appeared above every command's output — and agent
+        // harnesses allocate a PTY, so the not-a-terminal skip does not save
+        // them from it.
+        let mut entry = known("0.2.0", NOW);
+        let ctx = ctx(Some("list"));
+        assert!(should_notify(&entry, &ctx, "0.1.4", NOW));
+
+        maybe_notify(&mut entry, &ctx, "0.1.4", NOW);
+        assert_eq!(entry.notified_at, NOW);
+        assert!(
+            !should_notify(&entry, &ctx, "0.1.4", NOW + 1),
+            "the second invocation of the day stays quiet"
+        );
+        assert!(!should_notify(
+            &entry,
+            &ctx,
+            "0.1.4",
+            NOW + CACHE_TTL_SECS - 1
+        ));
+        assert!(
+            should_notify(&entry, &ctx, "0.1.4", NOW + CACHE_TTL_SECS),
+            "a day later it is worth saying again"
+        );
+        // Nothing to say when the cached version is not newer.
+        assert!(!should_notify(&entry, &ctx, "0.2.0", NOW + CACHE_TTL_SECS));
+    }
+
+    #[test]
+    fn auto_mode_stays_quiet_until_it_cannot_apply() {
+        let entry = known("0.2.0", NOW);
+        assert!(
+            !should_notify(&entry, &auto(Some("list")), "0.1.4", NOW),
+            "auto mode applies instead of narrating"
+        );
+
+        // Once applying 0.2.0 has failed here it will never be retried, so the
+        // user gets the manual instruction like everyone else — rather than the
+        // silence that let an unattended machine sit on an old binary forever.
+        let failed = Entry {
+            failed_version: "0.2.0".to_string(),
+            ..entry
+        };
+        assert!(should_notify(&failed, &auto(Some("list")), "0.1.4", NOW));
+    }
+
+    #[test]
+    fn a_failed_auto_apply_is_not_retried() {
+        let mut entry = known("0.2.0", NOW);
+        let auto = auto(Some("list"));
+        assert!(should_auto_apply(&entry, &auto, "0.2.0", "0.1.4"));
+
+        // What `refresh` records when `update::apply` returns Err.
+        entry.failed_version = "0.2.0".to_string();
+        assert!(
+            !should_auto_apply(&entry, &auto, "0.2.0", "0.1.4"),
+            "the same failure must not repeat every day"
+        );
+
+        // A newer release is different bytes, so the old failure is discarded.
+        record_lookup(&mut entry, "0.3.0", NOW + CACHE_TTL_SECS);
+        assert_eq!(entry.failed_version, "");
+        assert!(should_auto_apply(&entry, &auto, "0.3.0", "0.1.4"));
+
+        // Notify mode never applies, whatever the cache says.
+        assert!(!should_auto_apply(
+            &entry,
+            &ctx(Some("list")),
+            "0.3.0",
+            "0.1.4"
+        ));
+        // Neither does auto mode when there is nothing newer.
+        assert!(!should_auto_apply(&entry, &auto, "0.1.4", "0.1.4"));
+    }
+
+    #[test]
+    fn parses_the_negative_and_notified_fields() {
+        let entry = parse_cache(
+            r#"{"checked_at":1730000000,"latest_version":"0.2.0","last_attempt_at":1730000600,"failed_version":"0.2.0","notified_at":1730000300}"#,
+        )
+        .expect("parsed");
+        assert_eq!(entry.last_attempt_at, 1_730_000_600);
+        assert_eq!(entry.failed_version, "0.2.0");
+        assert_eq!(entry.notified_at, 1_730_000_300);
+
+        // A failure-only entry: no successful check yet, just an attempt.
+        let attempt_only = parse_cache(r#"{"last_attempt_at":1730000000}"#).expect("parsed");
+        assert_eq!(attempt_only.last_attempt_at, 1_730_000_000);
+        assert_eq!(attempt_only.checked_at, 0);
+        assert_eq!(attempt_only.latest_version, "");
+
+        // A cache written by an older build has neither field; a successful
+        // check is also an attempt.
+        let legacy =
+            parse_cache(r#"{"checked_at":1730000000,"latest_version":"0.2.0"}"#).expect("parsed");
+        assert_eq!(legacy.last_attempt_at, 1_730_000_000);
+        assert_eq!(legacy.notified_at, 0);
+    }
+
+    #[test]
+    fn treats_wrongly_typed_new_fields_as_absent_cache() {
+        for body in [
+            r#"{"checked_at":1730000000,"latest_version":"0.2.0","last_attempt_at":"soon"}"#,
+            r#"{"checked_at":1730000000,"latest_version":"0.2.0","notified_at":-1}"#,
+            r#"{"checked_at":1730000000,"latest_version":"0.2.0","failed_version":7}"#,
+        ] {
+            assert_eq!(parse_cache(body), None, "expected {body:?} to be ignored");
+        }
     }
 }
