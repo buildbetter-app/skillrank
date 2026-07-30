@@ -1154,6 +1154,106 @@ button {
   margin-top: 10px;
 }
 
+/* changelog: one stacked panel per release, rendered from the repo's own
+   CHANGELOG.md. Prose caps near 78ch to match .how-list — overlong measure is
+   the main thing that makes a full-width changelog unreadable. */
+.cl-release p,
+.cl-release .cl-list {
+  max-width: 78ch;
+}
+
+.cl-release p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.cl-release p:last-child {
+  margin-bottom: 0;
+}
+
+.cl-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--amber-hi);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin: 0 0 16px;
+}
+
+.cl-head a {
+  color: var(--amber-hi);
+}
+
+.cl-date {
+  color: var(--ink-faint);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+/* Scoped under .cl-release so it beats `.cl-release p`'s colour without
+   !important; the two selectors would otherwise tie on specificity. */
+.cl-release .cl-sub {
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  max-width: 70ch;
+  margin: 22px 0 10px;
+}
+
+/* Only collapse the gap when a section heading opens the release body — a
+   heading that follows an intro paragraph still needs its full space above. */
+.cl-head + .cl-sub {
+  margin-top: 0;
+}
+
+.cl-list {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.cl-release b {
+  color: var(--amber-hi);
+}
+
+/* The site never leans on italics — the mono face renders them poorly — so
+   emphasis reads as a colour shift, matching .how-list li em. */
+.cl-release em {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+.cl-foot {
+  margin: 18px 0 0;
+  font-size: 12px;
+  color: var(--ink-dim);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.cl-release code {
+  color: var(--ink);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1px 5px;
+  font-size: 0.92em;
+  /* Long inline commands wrap rather than widening the panel. */
+  overflow-wrap: anywhere;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .crt-flicker,
   .cur,

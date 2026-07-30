@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "daily", priority: 1.0 },
     { url: `${SITE_URL}/how-it-works/`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/changelog/`, changeFrequency: "monthly", priority: 0.5 },
   ];
 
   const skillEntries: MetadataRoute.Sitemap = skills.map((s) => ({
