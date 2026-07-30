@@ -119,13 +119,19 @@ setup_agents() {
     read -r email </dev/tty || email=""
   fi
   log "Registering /skillrank command + skill ..."
+  # The email was already asked for above; tell setup so it does not ask again.
   if [ -n "$email" ]; then
-    "$dir/skillrank" setup --email "$email" >/dev/null 2>&1 \
-      || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
+    set -- --email "$email"
   else
-    "$dir/skillrank" setup >/dev/null 2>&1 \
-      || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
+    set -- --no-email
   fi
+  # Show setup's output instead of discarding it. That output is where the
+  # installed Skill's trigger — and the single command that turns it off — is
+  # disclosed. Hiding it meant the documented primary install path switched on a
+  # Skill that lets the agent query a third-party registry on its own
+  # initiative, and never told the person who ran it.
+  "$dir/skillrank" setup "$@" >&2 \
+    || log "Note: run 'skillrank setup' manually to enable the /skillrank command."
 }
 
 maybe_install_zeroshot() {

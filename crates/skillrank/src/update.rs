@@ -1,5 +1,13 @@
 //! `skillrank update` — replace the current binary with the latest GitHub
-//! release asset for this platform.
+//! release asset for this platform, then bring the files that binary owns on
+//! this machine (the agent Skill and the `/skillrank` command) up to the text
+//! it ships.
+//!
+//! The refresh exists because `setup` runs exactly once, from `install.sh`.
+//! Without it, an install made in October keeps October's Skill description
+//! forever no matter how many times the binary is updated — which means a
+//! change to that description reaches nobody who already has skillrank. See
+//! `docs/agent-initiated-skill-discovery-spec.md` (R7).
 //!
 //! The release lookup ([`latest_release`]) and the download+verify+swap
 //! ([`apply`]) are also what the startup update check in [`crate::update_check`]
@@ -13,6 +21,7 @@
 //! fail-closed rule `install.sh` applies, and the promise `SECURITY.md` makes.
 
 use crate::flags::Flags;
+use crate::managed;
 use serde_json::Value;
 use skillrank_core::hash::sha256_hex;
 use std::io::Read;
@@ -56,9 +65,18 @@ pub fn run(args: &[String]) -> i32 {
 
     if !is_newer(latest, current) {
         if f.bool("check") {
+            // `--check` answers a question; it does not change anything.
             println!("up to date");
         } else {
             println!("skillrank {current} is already up to date.");
+            // Refresh here too, and not only after a swap. A swap replaces the
+            // binary underneath a process that is still running the *old*
+            // code, so the refresh it performs writes the old text — an
+            // install upgrading into this feature would otherwise need a
+            // manual `setup` to ever see the new Skill. Refreshing on the
+            // already-current path means one more ordinary `skillrank update`
+            // converges it, with no new command to learn.
+            refresh_managed_files();
         }
         return 0;
     }
@@ -72,12 +90,67 @@ pub fn run(args: &[String]) -> i32 {
     match apply(&release, DOWNLOAD_TIMEOUT) {
         Ok(()) => {
             println!("Updated skillrank {current} -> {latest}");
+            refresh_managed_files();
             0
         }
         Err(message) => {
             eprintln!("{message}");
             1
         }
+    }
+}
+
+/// Bring the installed Skill and `/skillrank` command up to the text this
+/// running binary embeds.
+///
+/// Three things it deliberately does not do, because by the time this runs the
+/// user's actual request has already succeeded and none of them is worth
+/// turning that into a failure:
+///
+/// * **It never fails.** Every error is reported on its own line and swallowed;
+///   the caller's exit code is decided by the update itself.
+/// * **It never installs.** Only files that already exist are refreshed. A
+///   machine that opted out of `setup` (or deleted the Skill) does not grow one
+///   because it updated the binary — see [`managed::Policy::refresh`].
+/// * **It never overwrites a hand edit.** Content that matches no text
+///   skillrank has ever shipped belongs to the user; it is named and left.
+///
+/// One honest limitation: a release that predates this function cannot call it,
+/// so an install upgrading *into* this feature swaps the binary and stops
+/// there. Its next `skillrank update` (or any `skillrank setup`, or re-running
+/// `install.sh`, which calls setup) is what actually writes the new text.
+fn refresh_managed_files() {
+    // The same target list `setup` installs, so a refresh can never drift from
+    // what was written in the first place — and, like `setup`, it refuses to
+    // invent a home directory. Without one there is no installed Skill to
+    // refresh, and certainly no licence to write one into the caller's working
+    // directory, which is what this used to do.
+    let targets = match crate::setup::managed_targets() {
+        Ok(targets) => targets,
+        Err(reason) => {
+            eprintln!("Not refreshing the installed Skill and command: {reason}");
+            return;
+        }
+    };
+    let mut state = managed::load_default_state();
+    let triggers = state.resolve_triggers(None);
+    let mut enabled_agent_initiative = false;
+    for report in managed::refresh(&targets, triggers, &mut state) {
+        if let Some(line) = report.message() {
+            println!("{line}");
+        }
+        enabled_agent_initiative |= report.enabled_agent_initiative();
+    }
+    if enabled_agent_initiative {
+        // This refresh just replaced a user-only Skill with the situational
+        // one, i.e. it enabled agent-initiated discovery on an install that
+        // predates the feature. That is a change in what the agent may do
+        // without being asked, so it is stated with its off switch rather than
+        // folded into a "Refreshed" line.
+        crate::setup::print_trigger_note(managed::Triggers::Situational);
+    }
+    if let Err(e) = managed::save_default_state(&state) {
+        eprintln!("Could not record skillrank's setup state in ~/.skillrank/setup.json: {e}");
     }
 }
 

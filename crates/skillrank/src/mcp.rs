@@ -117,7 +117,11 @@ impl McpServer {
             "protocolVersion": protocol_version,
             "capabilities": { "tools": {} },
             "serverInfo": { "name": "skillrank", "version": env!("CARGO_PKG_VERSION") },
-            "instructions": "skillrank finds, installs, and evaluates agent skills. Use skill_search or skill_recommend to find skills, skill_show to inspect one, and skill_install to add it to this repo (it becomes available to the agent automatically)."
+            // Says when to reach for skillrank, not just what it can do. A
+            // capability blurb only matches a user who already asked for
+            // skills; the situations below are ones the agent can observe
+            // about itself, which is the only way this ever fires unprompted.
+            "instructions": "skillrank finds, installs, and evaluates agent skills. Reach for it before starting work with a framework, library, or tool you have no established approach for, and after a second failed attempt at the same problem with no new information: skill_search with the specific problem, or skill_recommend for a repo whose stack is unfamiliar, checks whether an existing skill already encodes the approach before you keep improvising. Also use it whenever the user asks to find, choose, install, evaluate, or compare skills. Do NOT reach for it after a single failed command, when the next step is already clear, when the user has stated the approach, or more than once per session. skill_show inspects a candidate. skill_install writes third-party content into the user's repo, so if you got here on your own initiative rather than because the user asked, suggest the skill in one sentence and wait for an explicit yes before installing — whatever the scan tier says."
         })
     }
 
@@ -316,7 +320,7 @@ pub fn tool_definitions() -> Value {
     json!([
         {
             "name": "skill_search",
-            "description": "Search the public skill registry for agent skills. Use when the user asks to find a skill for something (e.g. 'find me a skill for playwright').",
+            "description": "Search the public skill registry for agent skills. Use before starting work with a framework, library, or tool you have no established approach for, and after the second failed attempt at the same problem with no new information — search the specific problem, once, before continuing to improvise. Also use when the user asks to find a skill for something (e.g. 'find me a skill for playwright'). Do NOT use after a single failed command, when the next step is already clear, or more than once per session.",
             "inputSchema": {
                 "type": "object",
                 "required": ["query"],
@@ -331,7 +335,7 @@ pub fn tool_definitions() -> Value {
         },
         {
             "name": "skill_recommend",
-            "description": "Recommend skills for the current repository by detecting its stack. Use when the user asks 'what skills should I use here'.",
+            "description": "Recommend skills for the current repository by detecting its stack. Use before starting work in a repo whose stack you have no established approach for, to check whether an existing skill already encodes it. Also use when the user asks 'what skills should I use here'. It runs one registry query per detected stack, so when you already know the specific problem, prefer skill_search with that problem as the query. Do NOT use more than once per session.",
             "inputSchema": {
                 "type": "object",
                 "properties": { "cwd": { "type": "string", "description": "Repo directory to inspect (default: current working directory)." } }
@@ -348,7 +352,7 @@ pub fn tool_definitions() -> Value {
         },
         {
             "name": "skill_install",
-            "description": "Install a skill into this repository (hash-verified). It becomes available to the agent automatically. If the scan tier is unsafe, the tool asks for confirmation; re-call with yes=true after the user agrees.",
+            "description": "Install a skill into this repository (hash-verified). It becomes available to the agent automatically. This writes third-party content into the user's repo: if you reached this tool on your own initiative rather than because the user asked for a skill, do NOT call it until the user has said yes explicitly in the conversation — that holds whatever the scan tier is. If the scan tier is unsafe the tool refuses as well; re-call with yes=true only after the user agrees.",
             "inputSchema": {
                 "type": "object",
                 "required": ["ref"],
@@ -409,6 +413,69 @@ mod tests {
         let resp: serde_json::Value = serde_json::from_slice(&out).unwrap();
         assert_eq!(resp["result"]["protocolVersion"], "2025-11-25");
         assert_eq!(resp["result"]["serverInfo"]["name"], "skillrank");
+    }
+
+    fn description_of(name: &str) -> String {
+        tool_definitions()
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|t| t["name"] == name)
+            .unwrap_or_else(|| panic!("missing {name}"))["description"]
+            .as_str()
+            .unwrap()
+            .to_string()
+    }
+
+    #[test]
+    fn discovery_tools_trigger_on_the_agents_own_situation() {
+        // The whole reason these tools never fired: "use when the user asks"
+        // can only match a user who already knows skillrank exists.
+        for name in ["skill_search", "skill_recommend"] {
+            let description = description_of(name);
+            assert!(
+                description.contains("no established approach for"),
+                "{name} still has no agent-initiated trigger"
+            );
+            assert!(
+                description.contains("Do NOT"),
+                "{name} has no eagerness gate"
+            );
+            assert!(
+                description.contains("once per session"),
+                "{name} is missing the per-session gate"
+            );
+        }
+        assert!(description_of("skill_search").contains("second failed attempt"));
+        // Retained, because the user-initiated triggers were insufficient, not
+        // wrong.
+        assert!(description_of("skill_search").contains("the user asks"));
+        assert!(description_of("skill_recommend").contains("the user asks"));
+    }
+
+    #[test]
+    fn install_requires_a_yes_on_an_agent_initiated_path() {
+        let description = description_of("skill_install");
+        assert!(description.contains("on your own initiative"));
+        assert!(description.contains("until the user has said yes"));
+        // Stricter than the pre-existing scan-tier rule, and says so.
+        assert!(description.contains("whatever the scan tier is"));
+    }
+
+    #[test]
+    fn initialize_instructions_say_when_to_reach_for_skillrank() {
+        let s = server();
+        let mut out: Vec<u8> = Vec::new();
+        s.handle_line(
+            r#"{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}"#,
+            &mut out,
+        );
+        let resp: serde_json::Value = serde_json::from_slice(&out).unwrap();
+        let instructions = resp["result"]["instructions"].as_str().unwrap();
+        assert!(instructions.contains("no established approach for"));
+        assert!(instructions.contains("second failed attempt"));
+        assert!(instructions.contains("Do NOT"));
+        assert!(instructions.contains("explicit yes before installing"));
     }
 
     #[test]

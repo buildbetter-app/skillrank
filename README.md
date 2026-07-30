@@ -63,6 +63,13 @@ prompts once to approve the tools — approve them (or pre-allow with
 guess unrelated tools and doesn't depend on skill-activation heuristics. It's the
 one mechanism that works the same in Claude Code and Codex.
 
+`setup` also installs a Skill (`~/.claude/skills/skillrank/SKILL.md`,
+`~/.codex/skills/skillrank/SKILL.md`) and the `/skillrank` slash command.
+`skillrank update` refreshes both, so an improvement to the Skill reaches an
+existing install without re-running `setup`. If you have edited either file by
+hand, or deleted it, skillrank leaves it that way and says so; `--force`
+overrides, keeping the previous bytes in `<file>.skillrank-bak`.
+
 *Alternative / complement — a skill file.* You can also drop a `SKILL.md` that
 teaches the agent about skillrank into a repo:
 
@@ -72,6 +79,30 @@ skillrank skill --install     # writes .claude/skills/skillrank/SKILL.md
 
 Either way, skills you `install` land in `.claude/skills/` (or `.agents/skills/`)
 and the agent discovers them automatically — no restart needed.
+
+### When the agent reaches for skillrank on its own
+
+The Skill's trigger is situational, not only "when the user asks": the agent may
+consult skillrank *before* starting work with a framework, library, or tool it
+has no established approach for, and *after* a second failed attempt at the same
+problem with no new information — to check whether an existing skill already
+encodes the approach before it keeps improvising.
+
+That path is deliberately bounded: read-only commands only, at most one
+suggestion per session, one sentence, never blocking your task — and it will not
+install anything without an explicit yes from you, whatever the skill's scan tier
+says. `setup` never writes to any file inside a repository.
+
+If you would rather it only spoke up when asked:
+
+```sh
+skillrank setup --triggers=user-only   # permanent: survives later setup + update
+skillrank setup --triggers=default     # turn the agent-initiated trigger back on
+skillrank setup --print                # show which variant would be written
+```
+
+Rationale and the measured baseline it is tuned against:
+[docs/agent-initiated-skill-discovery-spec.md](docs/agent-initiated-skill-discovery-spec.md).
 
 ## Run a registry locally (make search work with no hosted service)
 
