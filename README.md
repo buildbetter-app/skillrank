@@ -39,7 +39,7 @@ skillrank publish https://github.com/... # index a public skill (needs login)
 | `install <ref>` | no | Verify content hash and write into the repo's skill surface; records a lockfile entry. Refuses on hash mismatch or takedown. |
 | `list` / `uninstall <slug>` | no | Manage installed skills; `list` reports drift. |
 | `recommend` | no | Detect this repo's stack and suggest matching skills. |
-| `eval <ref> --suite <id>` | no | Run forced-mode paired trials (skill vs no-skill) on your own agent, print per-task token/success deltas, write a result bundle. `--publish` to contribute it. |
+| `eval <ref> --suite <id>` | no | Run forced-mode paired trials (skill vs no-skill) on your own agent, print per-task success, token, turn, wall-clock, and cost deltas, write a result bundle. `--publish` to contribute it. |
 | `rate` / `review` / `publish` | yes | Contribute back. `login` stores a token; the core never needs one. |
 
 ## Using it inside Claude Code and Codex
@@ -101,10 +101,36 @@ skillrank setup --api-url http://localhost:8899          # wires both agents
 For each task in a suite, SkillRank runs your agent twice — once with the skill
 installed (treatment) and once without (control) — against a pinned fixture repo,
 then applies a **verifier that the agent never sees during the run** (verifier
-isolation). It reports per-task pass-rate and token deltas locally and, if you
-publish, submits a signed-attributed result bundle. Results are shown under honest
-trust tiers — **Official** (reproduced by us), **Community-reported** (≥3
-independent accounts, not yet reproduced), **Self-reported** — and are never mixed.
+isolation). It reports per-task deltas locally and, if you publish, submits a
+signed-attributed result bundle. Results are shown under honest trust tiers —
+**Official** (reproduced by us), **Community-reported** (≥3 independent accounts,
+not yet reproduced), **Self-reported** — and are never mixed.
+
+### What it reports
+
+Pass rate is not the main event. Most skills do not make an agent *correct* — on a
+small suite the honest outcome is usually "both arms pass, no delta". What a skill
+changes is **effort**, so each task gets pass rate and tokens on one line, then
+turns, wall-clock, and cost on the next:
+
+```
+Results (3 trials/arm, docker isolation):
+  build-a-feature          pass 100%→100% (+0 pp), tokens +50.0%
+                           turns 6.0→3.0 (-50.0%), time 30.0s→15.0s (-50.0%), cost $0.2000→$0.1200 (-40.0%)
+  (low N: <5 trials/arm — treat deltas as directional, not significant)
+```
+
+That skill spends 50% more tokens and is still worth installing: half the turns,
+half the wall-clock, 40% less money. Reading `tokens` alone would have called it a
+regression.
+
+Cost is the one metric an agent may not report (`codex` reports none at all; a
+timed-out trial reports none either). A missing cost is **never** averaged in as
+`$0`, which would make a run look cheaper than it was: cost means cover only the
+trials that reported a price, the run states how many trials went unpriced, and an
+arm nothing priced prints `n/a` instead of a number. `--json` carries the same
+rollups per task (`control_avg_turns`, `duration_delta_pct`, `control_cost_trials`,
+…), with `null` for a cost nothing reported.
 
 Non-Docker runs and runs off the reference agent version publish as Self-reported
 only. See [`docs/`](docs) for the full methodology.
