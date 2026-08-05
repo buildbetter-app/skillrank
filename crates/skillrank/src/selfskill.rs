@@ -2,15 +2,19 @@
 //! skillrank. Embedded so the installed binary can write it into any repo.
 
 use crate::flags::Flags;
+use crate::managed;
 use serde_json::json;
 use skillrank_core as core;
 
-const SKILL_MD: &str = include_str!("skillrank_skill.md");
-
 pub fn run(args: &[String]) -> i32 {
     let f = Flags::parse(args);
+    // Honour the recorded trigger preference here too. An off switch that only
+    // covers `setup` is not an off switch.
+    let skill_md = managed::load_default_state()
+        .resolve_triggers(None)
+        .skill_text();
     if !f.bool("install") {
-        print!("{SKILL_MD}");
+        print!("{skill_md}");
         if !f.wants_json() {
             eprintln!("\n(Run `skillrank skill --install` to add this to .claude/skills so your agent uses skillrank automatically.)");
         }
@@ -24,7 +28,7 @@ pub fn run(args: &[String]) -> i32 {
         return 1;
     }
     let path = dir.join("SKILL.md");
-    if let Err(e) = std::fs::write(&path, SKILL_MD) {
+    if let Err(e) = std::fs::write(&path, skill_md) {
         eprintln!("error: {e}");
         return 1;
     }

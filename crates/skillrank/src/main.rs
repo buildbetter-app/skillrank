@@ -4,17 +4,23 @@
 mod commands;
 mod eval;
 mod flags;
+mod managed;
 mod mcp;
 mod selfskill;
 mod serve;
 mod setup;
 mod update;
+mod update_check;
 
 use flags::Flags;
 
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
-    std::process::exit(run(args));
+    let code = run(args.clone());
+    // Runs after the command's own output, and cannot influence the exit code:
+    // a stale-version notice is never worth failing an install over.
+    update_check::run(&args);
+    std::process::exit(code);
 }
 
 fn run(mut args: Vec<String>) -> i32 {
@@ -153,8 +159,11 @@ Commands:
   skill [--install]  Print, or install into .claude/skills, the SKILL.md that
                      teaches your agent (Claude Code/Codex) to use skillrank.
   setup              Register skillrank MCP, Skill, and /skillrank command with
-                     Claude Code and Codex (one-time).
-  update             Update this skillrank binary from the latest GitHub release.
+                     Claude Code and Codex (one-time). --triggers=user-only
+                     makes the Skill fire only when you ask about skills;
+                     --force replaces files you have edited or deleted.
+  update             Update this skillrank binary from the latest GitHub release
+                     and refresh the installed Skill and command.
   mcp                Run as an MCP stdio server (invoked by the agent; not by you).
   serve [--port N]   Run a local registry server (seed catalog) so search/install
                      work with no hosted backend. Set SKILLRANK_API_URL to it.

@@ -5,16 +5,24 @@ use sha2::{Digest, Sha256};
 
 pub const HASH_PREFIX: &str = "sha256:";
 
+/// Raw SHA-256 of arbitrary bytes as lowercase hex, with no algorithm prefix and
+/// no normalization. The one digest primitive in this workspace: skill content
+/// hashing (below) and release-asset verification (`skillrank::update`) both go
+/// through it, so there is a single implementation to audit rather than one per
+/// caller.
+pub fn sha256_hex(bytes: &[u8]) -> String {
+    let mut hasher = Sha256::new();
+    hasher.update(bytes);
+    format!("{:x}", hasher.finalize())
+}
+
 /// Canonical content hash of a skill's SKILL.md bytes. Normalizes CRLF to LF and
 /// strips trailing newlines so the same logical content hashes identically across
 /// platforms and editors.
 pub fn compute_content_hash(content: &str) -> String {
     let normalized = content.replace("\r\n", "\n");
     let normalized = normalized.trim_end_matches('\n');
-    let mut hasher = Sha256::new();
-    hasher.update(normalized.as_bytes());
-    let digest = hasher.finalize();
-    format!("{HASH_PREFIX}{:x}", digest)
+    format!("{HASH_PREFIX}{}", sha256_hex(normalized.as_bytes()))
 }
 
 /// Compare two content hashes, tolerating a missing algorithm prefix on either side.
@@ -40,6 +48,34 @@ pub fn split_ref(reference: &str) -> (String, String) {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn sha256_hex_matches_known_digests() {
+        // Known answers, so this stays a plain SHA-256 of the exact bytes: the
+        // release-asset check compares against a digest produced by `shasum -a
+        // 256`, and anything that normalizes (as `compute_content_hash` does)
+        // would silently stop matching it.
+        assert_eq!(
+            sha256_hex(b"abc"),
+            "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+        );
+        assert_eq!(
+            sha256_hex(b"abc\n"),
+            "edeaaff3f1774ad2888673770c6d64097e391bc362d7d6fb34982ddf0efd18cb"
+        );
+        assert_eq!(
+            sha256_hex(&[]),
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        );
+    }
+
+    #[test]
+    fn content_hash_is_the_prefixed_digest_of_the_normalized_text() {
+        assert_eq!(
+            compute_content_hash("abc\n"),
+            format!("{HASH_PREFIX}{}", sha256_hex(b"abc"))
+        );
+    }
 
     #[test]
     fn normalizes_line_endings_and_trailing_newline() {

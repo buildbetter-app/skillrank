@@ -516,6 +516,9 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             <Link href="/how-it-works">how evals work ▸</Link>
           </span>
           <span>
+            <Link href="/changelog">changelog ▸</Link>
+          </span>
+          <span>
             <a href={SUBMIT_URL}>submit a skill ▸</a>
           </span>
           <span>
