@@ -95,10 +95,17 @@ export function ingestConfig(env = {}) {
     ),
     // `environment_cell` is free-form client text, so cell identity is
     // attacker-chosen and the public read fans out over every cell of a slug in
-    // one unpaginated response. Both a global ceiling and a per-account
-    // creation budget are needed: the ceiling alone would be a lockout lever.
+    // one unpaginated response. Three limits together stop the ceiling from
+    // becoming a lockout lever: the global ceiling, a per-account creation
+    // budget, and a per-IP creation budget. The per-account budget alone is not
+    // enough — anonymous tokens are cheap (20/IP/day), so N Sybil accounts from
+    // one IP would each get their own budget and 20×5 fills the default 100-cell
+    // ceiling in an afternoon. The per-IP budget caps new cells regardless of
+    // how many accounts front them; it is generous relative to any honest rate
+    // because opening a genuinely new environment cell is rare.
     maxCellsPerSkill: intEnv(env.EVAL_MAX_CELLS_PER_SKILL, 100),
     newCellsPerAccountPerDay: intEnv(env.EVAL_NEW_CELLS_PER_ACCOUNT_PER_DAY, 5),
+    newCellsPerIpPerDay: intEnv(env.EVAL_NEW_CELLS_PER_IP_PER_DAY, 8),
     // Every `eval:*` key is written with this lifetime and re-armed on each
     // touch, so an abandoned cell ages out instead of pinning storage forever.
     // Far longer than `maxAgeDays`, so it never rejects a publishable bundle.
@@ -579,7 +586,7 @@ async function admitSummary(store, key, entries, { accountId, incomingField, max
 
 /// Validate, deduplicate, store, and tier one bundle. Throws only if the store
 /// throws — the caller turns that into a loud 503 rather than a silent success.
-export async function ingestBundle({ store, bundle, account, suites, catalog, config, now }) {
+export async function ingestBundle({ store, bundle, account, suites, catalog, config, now, ipBucket }) {
   const shape = validateBundleShape(bundle, { suites, config, now: now.getTime() });
   if (!shape.ok) return reject(shape.reason);
   const { suite, cell, harness, trialsPerArm, totals, conforming, contentHash, configHash, normalized } = shape.value;
@@ -648,6 +655,24 @@ export async function ingestBundle({ store, bundle, account, suites, catalog, co
       return reject(
         `this account has opened ${config.newCellsPerAccountPerDay} new environment cells for ${slug} today; retry in ${budget.retryAfter} seconds`,
       );
+    }
+    // Per-IP creation budget, charged only once the per-account budget has
+    // passed so a caller is never double-charged for a single new cell. This is
+    // what actually stops a same-IP Sybil of cheap anonymous accounts from
+    // multiplying their per-account budgets to squat the whole ceiling. When no
+    // IP is available (never, on the real deployment — the route always passes
+    // one) the per-account budget still applies.
+    if (ipBucket) {
+      const ipBudget = await store.hit(
+        `newcell:ip:${slug}:${ipBucket}`,
+        config.newCellsPerIpPerDay,
+        86_400,
+      );
+      if (!ipBudget.allowed) {
+        return reject(
+          `too many new environment cells opened for ${slug} from this network today; retry in ${ipBudget.retryAfter} seconds`,
+        );
+      }
     }
   }
 

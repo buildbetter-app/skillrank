@@ -285,6 +285,36 @@ test("the per-account new-cell budget stops one account minting the whole ceilin
   assert.equal((await publish(store, fresh({ model: "c" }), account("w", "github"), config)).body.accepted, true);
 });
 
+test("the per-IP budget stops a same-IP Sybil of cheap accounts squatting the ceiling", async () => {
+  const config = ingestConfig({
+    EVAL_MAX_CELLS_PER_SKILL: "100",
+    EVAL_NEW_CELLS_PER_ACCOUNT_PER_DAY: "2",
+    EVAL_NEW_CELLS_PER_IP_PER_DAY: "3",
+  });
+  const { store } = newStore();
+  const fromIp = (ipBucket, bundle, who) =>
+    ingestBundle({ store, bundle, account: who, suites: SUITES, catalog: CATALOG, config, now: NOW, ipBucket });
+
+  // The exploit: anonymous tokens are cheap, so one network mints a fresh
+  // account per cell and every account arrives with its own untouched
+  // per-account budget — that brake never fires. The per-IP budget must.
+  for (let i = 0; i < 3; i += 1) {
+    const res = await fromIp("ip:203.0.113.7", fresh({ model: `m${i}` }), account(`sybil_${i}`, "anonymous"));
+    assert.equal(res.body.accepted, true, res.body.reason);
+  }
+  const denied = await fromIp("ip:203.0.113.7", fresh({ model: "m99" }), account("sybil_99", "anonymous"));
+  assert.equal(denied.body.accepted, false);
+  assert.match(denied.body.reason, /from this network today/);
+
+  // Not a lockout lever: another network still opens new cells, and the
+  // throttled network still publishes into a cell that already exists — the
+  // budget brakes creation, never publishing.
+  const other = await fromIp("ip:198.51.100.9", fresh({ model: "m99" }), account("honest", "github"));
+  assert.equal(other.body.accepted, true, other.body.reason);
+  const existing = await fromIp("ip:203.0.113.7", fresh({ model: "m0" }), account("sybil_100", "anonymous"));
+  assert.equal(existing.body.accepted, true, existing.body.reason);
+});
+
 test("every eval:* key carries a retention TTL, including after a revocation rewrite", async () => {
   const { store, client } = newStore();
   await corroborated(store);

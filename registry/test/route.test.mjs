@@ -29,8 +29,8 @@ before(async () => {
 after(() => server.close());
 
 /// Mirrors `registry/vercel.json`: /v3/rest/skill-registry/:path* -> ?path=:path*
-async function call(path, init = {}) {
-  const res = await fetch(`${base}/api/registry?${new URLSearchParams({ path })}`, init);
+async function call(path, init = {}, params = {}) {
+  const res = await fetch(`${base}/api/registry?${new URLSearchParams({ path, ...params })}`, init);
   return { status: res.status, headers: res.headers, body: await res.json().catch(() => null) };
 }
 
@@ -124,4 +124,41 @@ test("the existing read routes are untouched", async () => {
 
   const missing = await call("nope");
   assert.equal(missing.status, 404);
+});
+
+// The routes hardened after review carry store-backed throttles, and this
+// harness deliberately has no store: each one must degrade to its honest
+// storeless answer rather than throw on the way to the limiter.
+
+test("subscribe still answers without a datastore, and never claims it stored", async () => {
+  const res = await call("subscribe", { method: "POST", body: JSON.stringify({ email: "a@b.co" }) });
+  assert.equal(res.status, 200);
+  assert.deepEqual(res.body, { ok: false, stored: false });
+});
+
+test("token revocation without a datastore is 503, never a fake success", async () => {
+  const res = await call("auth/tokens", {
+    method: "DELETE",
+    headers: { Authorization: "Bearer srk_aaaaaaaaaaaaaaaaaaaaaaaa" },
+  });
+  assert.equal(res.status, 503);
+  assert.match(res.body.reason, /revocation is disabled/);
+});
+
+test("maintainer revocation reports the missing store before judging credentials", async () => {
+  // Storeless, the answer is the same whether or not a maintainer credential is
+  // configured or presented — the route refuses before the compare, so this
+  // holds in any environment.
+  const res = await call("auth/accounts/gh_nobody/revoke", { method: "POST" });
+  assert.equal(res.status, 503);
+  assert.match(res.body.reason, /revocation is disabled/);
+});
+
+test("an absurdly long search q is capped, not an error", async () => {
+  const q = "systematic ".repeat(500);
+  const huge = await call("skills", {}, { q });
+  const capped = await call("skills", {}, { q: q.slice(0, 128) });
+  assert.equal(huge.status, 200);
+  assert.ok(Array.isArray(huge.body.items));
+  assert.deepEqual(huge.body, capped.body, "everything past the cap must be ignored, not judged");
 });

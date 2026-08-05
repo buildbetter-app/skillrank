@@ -396,6 +396,9 @@ async function handleAuth(req, res, parts) {
       const token = parseBearer(req.headers.authorization);
       if (!token) return unauthorized(res, "no token presented");
       if (!s) return storeUnavailable(res, "revocation");
+      // Rate-limited like every other write route: revocation does a store read
+      // even for a garbage token, so an unthrottled endpoint is free Redis load.
+      if (await rateLimited(res, s, `revoke:${ipBucketOf(req)}`, limits.whoamiPerIpPerHour, 3600)) return;
       const revoked = await revokeToken(s, token, nowIso);
       if (!revoked) return unauthorized(res, "token is not valid");
       return json(res, 200, { revoked: true }, "no-store");
@@ -479,6 +482,10 @@ async function handleAuth(req, res, parts) {
   // account's tokens and flags everything it published for review.
   if (route === "accounts" && parts[2] === "revoke") {
     if (req.method !== "POST") return json(res, 405, { error: "method not allowed" }, "no-store");
+    if (!s) return storeUnavailable(res, "revocation");
+    // Throttled before the credential compare so the admin secret cannot be
+    // probed at unbounded rate — even though the compare is already constant-time.
+    if (await rateLimited(res, s, `admin:${ipBucketOf(req)}`, limits.whoamiPerIpPerHour, 3600)) return;
     const adminToken = (process.env.REGISTRY_ADMIN_TOKEN || "").trim();
     if (!adminToken) return json(res, 503, { error: "maintainer actions are not configured" }, "no-store");
     // Compared raw and in constant time. `parseBearer` applies the charset of the
@@ -487,7 +494,6 @@ async function handleAuth(req, res, parts) {
     // wrong secret — during the one incident where revocation is the lever.
     const presented = parseBearerRaw(req.headers.authorization);
     if (!presented || !secretsEqual(presented, adminToken)) return unauthorized(res, "maintainer credential required");
-    if (!s) return storeUnavailable(res, "revocation");
     const accountId = parts[1] || "";
     if (!ACCOUNT_ID_RE.test(accountId)) return json(res, 400, { error: "malformed account id" }, "no-store");
     const account = await revokeAccount(s, accountId, nowIso);
@@ -551,6 +557,7 @@ async function handleEvalResults(req, res) {
     catalog,
     config,
     now: new Date(),
+    ipBucket,
   });
   return json(res, result.status, result.body, "no-store");
 }
@@ -575,6 +582,14 @@ async function route(req, res) {
   // ---- email capture: POST /subscribe { email } ----
   if (parts[0] === "subscribe") {
     if (req.method !== "POST") return json(res, 405, { error: "method not allowed" }, "no-store");
+    // Unauthenticated write, so it needs an IP throttle of its own: without one,
+    // a caller SADDs unbounded distinct addresses — list-stuffing third parties'
+    // emails and growing the set without limit. Best-effort: if the limiter store
+    // is down the capture still proceeds (email capture is not load-bearing).
+    const sub = store();
+    const limits = rateLimits(process.env);
+    if (sub && (await rateLimited(res, sub, `subscribe:${ipBucketOf(req)}`, limits.whoamiPerIpPerHour, 3600)))
+      return;
     const raw = await readBody(req);
     let email = "";
     try {
@@ -638,7 +653,12 @@ async function route(req, res) {
 
   // /skills -> search
   if (rest.length === 0) {
-    const q = (url.searchParams.get("q") || "").toLowerCase();
+    // Capped before it reaches `matchesQuery`, which runs `words.every(...)`
+    // over every catalog entry: an uncapped `q` of thousands of short terms is
+    // an O(q·catalog) CPU sink, and a unique `q` misses the edge cache, so an
+    // unrated route would let one request burn seconds of serverless time. 128
+    // chars is far past any real search; extra terms are dropped, not an error.
+    const q = (url.searchParams.get("q") || "").toLowerCase().slice(0, 128);
     const stack = (url.searchParams.get("stack") || "").toLowerCase();
     const category = (url.searchParams.get("category") || "").toLowerCase();
     // `/skills/facets` advertises scan tiers as a filter vocabulary, so this has
