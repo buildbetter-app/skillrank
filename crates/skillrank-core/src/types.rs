@@ -426,7 +426,9 @@ pub struct DeviceAuthorization {
 pub enum DevicePoll {
     /// Nobody has approved yet. `interval` is the registry's current pacing ask,
     /// which rises when it answers `slow_down`.
-    Pending { interval: u64 },
+    Pending {
+        interval: u64,
+    },
     Granted(Box<TokenGrant>),
 }
 

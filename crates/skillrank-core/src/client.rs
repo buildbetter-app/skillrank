@@ -212,11 +212,7 @@ impl Client {
         &self,
     ) -> Result<crate::types::DeviceAuthorization, ClientError> {
         let url = format!("{}{PATH_PREFIX}/auth/device", self.base_url);
-        do_json(
-            ureq::post(&url)
-                .set("Accept", "application/json")
-                .call(),
-        )
+        do_json(ureq::post(&url).set("Accept", "application/json").call())
     }
 
     /// Poll a device authorization once.
