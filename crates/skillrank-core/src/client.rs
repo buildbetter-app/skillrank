@@ -202,6 +202,63 @@ impl Client {
         )
     }
 
+    /// Begin a GitHub device authorization.
+    ///
+    /// This is the only way to earn a *verified* account, which is what makes a
+    /// published result count toward independent corroboration. It exists so no
+    /// client ever asks a human to paste a token: show `user_code`, open
+    /// `verification_uri`, then poll [`Client::poll_device_token`].
+    pub fn start_device_authorization(
+        &self,
+    ) -> Result<crate::types::DeviceAuthorization, ClientError> {
+        let url = format!("{}{PATH_PREFIX}/auth/device", self.base_url);
+        do_json(
+            ureq::post(&url)
+                .set("Accept", "application/json")
+                .call(),
+        )
+    }
+
+    /// Poll a device authorization once.
+    ///
+    /// The registry answers 202 while the human has not finished in the browser
+    /// and 201 with the token once they have, so "still waiting" is a normal
+    /// return rather than an error. Honour the returned `interval` — it is the
+    /// registry relaying GitHub's `slow_down`, and ignoring it gets the poll
+    /// rate-limited.
+    pub fn poll_device_token(
+        &self,
+        device_code: &str,
+    ) -> Result<crate::types::DevicePoll, ClientError> {
+        let url = format!("{}{PATH_PREFIX}/auth/tokens", self.base_url);
+        let response = ureq::post(&url)
+            .set("Accept", "application/json")
+            .send_json(serde_json::json!({ "kind": "github", "device_code": device_code }));
+        match response {
+            Ok(resp) if resp.status() == 202 => {
+                #[derive(serde::Deserialize)]
+                struct Waiting {
+                    #[serde(default)]
+                    interval: u64,
+                }
+                let waiting: Waiting = resp
+                    .into_json()
+                    .map_err(|e| ClientError::Parse(e.to_string()))?;
+                Ok(crate::types::DevicePoll::Pending {
+                    interval: waiting.interval,
+                })
+            }
+            Ok(resp) => resp
+                .into_json::<crate::types::TokenGrant>()
+                .map(|grant| crate::types::DevicePoll::Granted(Box::new(grant)))
+                .map_err(|e| ClientError::Parse(e.to_string())),
+            // Only `Err` reaches here; `do_json` turns it into the right
+            // ClientError (401/404/429/transport) rather than duplicating that.
+            failed => do_json::<crate::types::TokenGrant>(failed)
+                .map(|grant| crate::types::DevicePoll::Granted(Box::new(grant))),
+        }
+    }
+
     /// Subscribe an email to occasional skill updates (unauthenticated,
     /// best-effort). The registry stores only the address; no account is created.
     pub fn subscribe_email(&self, email: &str) -> Result<(), ClientError> {
@@ -316,4 +373,108 @@ fn resolve_token() -> Option<String> {
         .and_then(|t| t.as_str())
         .map(|s| s.trim().to_string())
         .filter(|s| !s.is_empty())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::types::DevicePoll;
+    use std::io::{Read, Write};
+    use std::net::TcpListener;
+
+    /// Answer the first request with one canned response and hand back a base
+    /// URL to point a `Client` at. Stdlib only — the device poll's whole
+    /// subtlety is that a 202 and a 201 are both success statuses meaning
+    /// opposite things, which no type check can catch and no amount of mocking
+    /// the parse layer would exercise.
+    fn serve_once(status: &str, body: &'static str) -> String {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let address = listener.local_addr().unwrap();
+        let response = format!(
+            "HTTP/1.1 {status}\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+            body.len()
+        );
+        std::thread::spawn(move || {
+            if let Ok((mut stream, _)) = listener.accept() {
+                let mut scratch = [0u8; 4096];
+                let _ = stream.read(&mut scratch);
+                let _ = stream.write_all(response.as_bytes());
+                let _ = stream.flush();
+            }
+        });
+        format!("http://{address}")
+    }
+
+    fn client_at(base_url: String) -> Client {
+        Client { base_url }
+    }
+
+    #[test]
+    fn a_waiting_device_poll_is_an_outcome_rather_than_an_error() {
+        // 202 means the human simply has not finished in the browser yet.
+        // Treating it as an error would abort a flow that is working.
+        let base = serve_once("202 Accepted", r#"{"status":"pending","interval":5}"#);
+        match client_at(base).poll_device_token("dev-code").unwrap() {
+            DevicePoll::Pending { interval } => assert_eq!(interval, 5),
+            DevicePoll::Granted(_) => panic!("a pending poll must not report a token"),
+        }
+    }
+
+    #[test]
+    fn slow_down_raises_the_interval_the_caller_must_honour() {
+        // The registry relays GitHub's slow_down as a bigger interval; a client
+        // that ignores it gets rate-limited out of its own sign-in.
+        let base = serve_once("202 Accepted", r#"{"status":"slow_down","interval":10}"#);
+        match client_at(base).poll_device_token("dev-code").unwrap() {
+            DevicePoll::Pending { interval } => assert_eq!(interval, 10),
+            DevicePoll::Granted(_) => panic!("slow_down is still waiting"),
+        }
+    }
+
+    #[test]
+    fn an_approved_device_poll_yields_the_verified_grant() {
+        let base = serve_once(
+            "201 Created",
+            r#"{"token":"srk_abc","kind":"github","account_id":"gh_1","verified":true}"#,
+        );
+        match client_at(base).poll_device_token("dev-code").unwrap() {
+            DevicePoll::Granted(grant) => {
+                assert_eq!(grant.token, "srk_abc");
+                assert_eq!(grant.kind, "github");
+                assert!(grant.verified, "github sign-in is what earns verified");
+            }
+            DevicePoll::Pending { .. } => panic!("an approved poll must return the token"),
+        }
+    }
+
+    #[test]
+    fn a_registry_without_github_configured_says_so_instead_of_hanging() {
+        // 503 must surface as an error, not as another "keep polling" — else the
+        // UI spins forever against a registry that will never grant anything.
+        let base = serve_once(
+            "503 Service Unavailable",
+            r#"{"error":"github sign-in is not configured on this registry"}"#,
+        );
+        let failure = client_at(base).poll_device_token("dev-code").unwrap_err();
+        match failure {
+            ClientError::Http { status, body } => {
+                assert_eq!(status, 503);
+                assert!(body.contains("not configured"));
+            }
+            other => panic!("expected an HTTP error, got {other}"),
+        }
+    }
+
+    #[test]
+    fn starting_a_device_authorization_reads_back_the_user_facing_code() {
+        let base = serve_once(
+            "200 OK",
+            r#"{"device_code":"secret","user_code":"WDJB-MJHT","verification_uri":"https://github.com/login/device","interval":5,"expires_in":900}"#,
+        );
+        let started = client_at(base).start_device_authorization().unwrap();
+        assert_eq!(started.user_code, "WDJB-MJHT");
+        assert_eq!(started.verification_uri, "https://github.com/login/device");
+        assert_eq!(started.interval, 5);
+        assert_eq!(started.device_code, "secret");
+    }
 }

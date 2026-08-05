@@ -402,6 +402,34 @@ pub struct TokenGrant {
     pub note: String,
 }
 
+/// A started GitHub device authorization. The user types `user_code` at
+/// `verification_uri`; the client polls with `device_code`, which is the secret
+/// half and must never be shown.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct DeviceAuthorization {
+    pub device_code: String,
+    /// Short code the user reads off the screen and types into GitHub.
+    pub user_code: String,
+    pub verification_uri: String,
+    /// Seconds the registry asks the client to wait between polls.
+    #[serde(default)]
+    pub interval: u64,
+    #[serde(default)]
+    pub expires_in: u64,
+}
+
+/// One poll of a device authorization: still waiting, or a granted token.
+///
+/// Waiting is an ordinary outcome rather than an error, because the whole flow
+/// is "keep asking until the human finishes in their browser".
+#[derive(Debug, Clone)]
+pub enum DevicePoll {
+    /// Nobody has approved yet. `interval` is the registry's current pacing ask,
+    /// which rises when it answers `slow_down`.
+    Pending { interval: u64 },
+    Granted(Box<TokenGrant>),
+}
+
 /// Returned when a bundle is submitted.
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct IngestResponse {
