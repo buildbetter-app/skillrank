@@ -1,6 +1,7 @@
 // Persistence for the registry's write side (accounts, tokens, eval results).
 //
-// This module deliberately has NO third-party imports. It talks to an injected
+// This module deliberately has NO third-party imports (node builtins only). It
+// talks to an injected
 // client that implements the handful of Redis commands we use, so the deployed
 // function passes the real Upstash client while tests pass `memoryClient()`.
 // That keeps every unit test runnable with zero `node_modules`, and it means
@@ -10,6 +11,8 @@
 // source file under `api/` into its own public endpoint; helper modules must sit
 // outside it. Vercel's file tracer follows the static import from
 // `api/registry.mjs`, so these files still ship with the function.
+
+import { createHash, randomBytes } from "node:crypto";
 
 /// Key layout. Everything the write side owns is namespaced so it can never
 /// collide with the pre-existing `installs` / `emails` keys.
@@ -175,6 +178,47 @@ export function rateLimits(env = {}) {
     publishesPerAccountPerHour: intEnv(env.EVAL_WRITES_PER_ACCOUNT_PER_HOUR, 30),
     publishesPerAccountPerDay: intEnv(env.EVAL_WRITES_PER_ACCOUNT_PER_DAY, 200),
   };
+}
+
+// ---- IP bucketing for the limiters ---------------------------------------
+// These live here, next to `KEYS.rate` and `rateLimits`, rather than in the
+// route file, because the security property is a property of the KEY NAME we
+// persist — so it has to be assertable without booting an HTTP server.
+
+/// Only reachable with no datastore configured, and in that case every write
+/// route answers 503 before a limiter runs, so no digest is ever persisted.
+/// Generated once per process so counters stay stable within an invocation.
+const FALLBACK_IP_SALT = randomBytes(32).toString("base64url");
+
+/// Salt for the rate-limit IP digest. It has to be SECRET, not merely present:
+/// the digest IS the persisted `rl:` key name, and SHA-256 over a publicly known
+/// constant salt is a 2^32 preimage search for IPv4 — so anyone who can read the
+/// keyspace recovers every recent caller's address. A hardcoded default salt
+/// (this used to fall back to the literal `"skillrank"`) therefore provides none
+/// of the "no IPs, no PII" property it appears to.
+///
+/// Set `RATE_LIMIT_IP_SALT` to pin and rotate it. Otherwise it is derived from
+/// the Upstash credential: already a deployment secret, already required for any
+/// deployment that persists these keys at all, and stable across invocations so
+/// the counters keep working.
+export function ipSalt(env = {}) {
+  const configured = String(env.RATE_LIMIT_IP_SALT || "").trim();
+  if (configured) return configured;
+  const derived = env.KV_REST_API_TOKEN || env.UPSTASH_REDIS_REST_TOKEN || "";
+  return derived ? sha256Hex(`skillrank-ip-salt:${derived}`) : FALLBACK_IP_SALT;
+}
+
+/// Rate-limit bucket for the caller's IP. The address itself is never stored —
+/// only a secret-salted digest, under the counter's short TTL.
+export function clientIpBucket(req, env = {}) {
+  const headers = (req && req.headers) || {};
+  const forwarded = headers["x-vercel-forwarded-for"] || headers["x-forwarded-for"] || "";
+  const raw = String(forwarded).split(",")[0].trim() || (req && req.socket && req.socket.remoteAddress) || "";
+  return sha256Hex(`${ipSalt(env)}:${raw}`).slice(0, 32);
+}
+
+function sha256Hex(value) {
+  return createHash("sha256").update(value, "utf8").digest("hex");
 }
 
 /// In-memory stand-in for the Upstash client, used by tests. Implements exactly

@@ -140,8 +140,15 @@ Two token classes, and the difference is the point:
 Tokens are 32 random bytes (`srk_` + base64url), returned in plaintext exactly
 once, and stored only as a SHA-256 hash. Verification compares the recomputed
 digest against the stored one in constant time. Nothing here logs a token, and IP
-addresses are only ever used as a salted digest inside a short-lived rate-limit
-counter.
+addresses are only ever used as a **secret**-salted digest inside a short-lived
+rate-limit counter (see `RATE_LIMIT_IP_SALT` below — a publicly known salt would
+make that digest reversible).
+
+The maintainer credential (`REGISTRY_ADMIN_TOKEN`) is compared raw and in constant
+time, deliberately *not* filtered through the charset of the tokens we mint: a
+password-manager secret like `Xk9#mQ2$vL8@nP4!` would otherwise be reduced to `""`
+and produce a permanent `401` indistinguishable from a wrong secret, during the one
+incident where revocation is the lever.
 
 ## Trust tiers
 
@@ -149,12 +156,42 @@ counter.
 environment cell)` tuple that makes results comparable.
 
 - **Self-reported** — the default for everything.
-- **Community-reported** — requires a *conforming* cell (Docker isolation on the
-  suite's reference agent/model, recomputed server-side, never taken on trust),
-  corroboration from `COMMUNITY_MIN_ACCOUNTS` distinct verified accounts, and
-  their per-account mean pass-rate deltas agreeing within
-  `COMMUNITY_VARIANCE_BAND`.
+- **Community-reported** — requires a *conforming* cell, corroboration from
+  `COMMUNITY_MIN_ACCOUNTS` distinct verified accounts, and their per-account mean
+  pass-rate deltas agreeing within `COMMUNITY_VARIANCE_BAND`.
 - **Official** — maintainer-run only; this endpoint cannot produce it.
+
+The badge and the numbers printed beside it describe the **same population**. A
+corroborated cell reports the verified accounts' rates and says so in
+`metrics_basis: "verified_accounts"`; anonymous contributions are reported beside
+them as their own counts (`n_anonymous_accounts`, `n_anonymous_results`) rather
+than folded into the headline. Without that split, one free auto-provisioned token
+could rewrite evidence it was explicitly excluded from earning. A self-reported
+cell has no split — "self-reported" already means "whoever reported it" — so its
+`metrics_basis` is `all_accounts`.
+
+Corroboration is also per **harness version**: `harness.version` is part of the
+cell id, because the runner bakes it into `config_hash` for the same reason. A
+runner release starts fresh cells rather than inheriting numbers it cannot be
+compared against.
+
+### What `conforming` does and does not prove
+
+`conforming` is **self-attested**. The registry recomputes it from the bundle's
+own `environment_cell` rather than reading a `conforming` flag off the wire, and
+recomputes `config_hash` over those same fields — so a bundle cannot disagree with
+itself, and a *tampered* `config_hash` is rejected. But that proves
+self-consistency, not provenance: a publisher who runs in a worktree, relabels the
+cell as `docker`, and recomputes `config_hash` to match produces an accepted,
+`conforming: true` result. So does simply reporting `pass` for every treatment
+trial. Read `conforming` as *"claims a conforming environment"*.
+
+That is a deliberate boundary, not an oversight: the trial verdicts are equally
+unattested, and R5 puts the anti-gaming burden on the cost of verified accounts and
+on independent corroboration, not on trusting one publisher. Making it verifiable
+needs a signed harness attestation over the *observed* cell, which `EvalBundle` has
+no field for — adding one is a wire-contract change for every installed CLI, and
+therefore future work.
 
 Because no shipped client currently emits `isolation: "docker"`, every bundle in
 the wild publishes as Self-reported today. That is the documented rule, not a gap.
@@ -176,12 +213,19 @@ Writes need Upstash. Everything else has a working default.
 | `EVAL_MAX_FUTURE_SKEW_HOURS` | `24` | Clock-skew tolerance. |
 | `EVAL_MAX_BODY_BYTES` | `262144` | Bundle size cap; over it ⇒ `413`. |
 | `EVAL_MAX_TRIALS_PER_ARM` | `25` | Trial cap per arm. |
-| `EVAL_MAX_RESULTS_PER_CELL` | `500` | Per-result detail retained per cell. |
+| `EVAL_MAX_RESULTS_PER_CELL` | `500` | Per-result summaries retained per cell. At the ceiling a new submission is still stored and the largest holder is *evicted* — never silently dropped behind `accepted: true`. |
+| `EVAL_MAX_RESULTS_PER_ACCOUNT_PER_CELL` | `10` | One account's share of a cell. `created_at` is client-chosen and is the idempotency tuple's only free variable, so this — not the tuple — is what bounds re-registering one physical run. Clamped to `EVAL_MAX_RESULTS_PER_CELL`. |
+| `EVAL_MAX_CELLS_PER_SKILL` | `100` | Ceiling on distinct environment cells per skill. Cell identity derives from client-chosen text, and `/skills/<slug>/eval-results` returns every cell in one response. |
+| `EVAL_NEW_CELLS_PER_ACCOUNT_PER_DAY` | `5` | New-cell budget per account per skill, so the ceiling above cannot be used as a lockout lever. |
+| `EVAL_RETENTION_DAYS` | `400` | Lifetime armed on every `eval:*` key and re-armed on each touch, so abandoned cells age out. Far longer than `EVAL_MAX_AGE_DAYS`, so it never rejects a publishable bundle. |
 | `AUTH_ANON_TOKENS_PER_IP_PER_DAY` | `20` | Anonymous minting budget. |
+| `AUTH_DEVICE_STARTS_PER_IP_PER_HOUR` | `20` | GitHub device-authorization starts per IP. |
+| `AUTH_GITHUB_POLLS_PER_IP_PER_HOUR` | `240` | Device-exchange polls per IP (the flow polls every ~5s for up to 15 minutes). |
+| `AUTH_WHOAMI_PER_IP_PER_HOUR` | `120` | Token-introspection budget per IP. |
 | `EVAL_WRITES_PER_ACCOUNT_PER_HOUR` | `30` | Publish budget per account. |
 | `EVAL_WRITES_PER_ACCOUNT_PER_DAY` | `200` | Publish budget per account. |
 | `EVAL_WRITES_PER_IP_PER_HOUR` | `60` | Publish budget per IP. |
-| `RATE_LIMIT_IP_SALT` | `skillrank` | Salt for the hashed rate-limit buckets. |
+| `RATE_LIMIT_IP_SALT` | derived from the Upstash token | Salt for the hashed rate-limit buckets. **There is no hardcoded default**: the digest *is* the persisted `rl:` key name, and SHA-256 under a publicly known salt is a 2^32 preimage search for IPv4 — i.e. anyone who can read the keyspace recovers every recent caller's address. Unset, it is derived from the Upstash credential (already a deployment secret, already required for any deployment that persists these keys). Set it explicitly to pin and rotate. With no datastore at all it falls back to a per-process random value, and in that case every write route answers `503` before a limiter runs, so nothing is persisted. |
 
 ## Storage layout
 
@@ -190,13 +234,21 @@ auth:token:<sha256(token)>          { account_id, kind, created_at, revoked_at }
 auth:account:<account_id>           { kind, provider, subject_hash, created_at, revoked_at }
 auth:subject:github:<sha256(...)>   { account_id }            # re-login reuses the account
 auth:account:<account_id>:cells     SET of cell ids           # revocation fan-out
-eval:result:<result_id>             the stored result + raw bundle
+eval:result:<result_id>             the result + the VALIDATED bundle projection
 eval:cell:<cell_id>                 the rolled-up cell (tier, rates, counts)
 eval:cell:<cell_id>:summaries       HASH result_id -> per-result totals
 eval:skill:<slug>:cells             SET of cell ids
 eval:skill:<slug>:hashes            SET of content hashes results exist for
 rl:<bucket>                         fixed-window counter, always TTL'd
 ```
+
+Every `eval:*` key carries `EVAL_RETENTION_DAYS` and is re-armed on each touch —
+including when revocation rewrites a cell, since a bare Redis `SET` discards the
+key's expiry. What is stored under `eval:result:*` is the *projection* of the
+bundle onto the fields the contract defines, never the client's own object:
+validation checks named fields but rejects no unknown ones, so persisting the
+request body would pin arbitrary attacker-chosen padding (up to the whole body
+limit) forever.
 
 `result_id` is a pure function of the spec's idempotency tuple
 `(account, content_hash, suite_id, suite_version, config_hash, created_at)`, and

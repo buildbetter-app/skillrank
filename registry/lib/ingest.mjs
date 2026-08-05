@@ -804,6 +804,12 @@ export async function readSkillCells(store, slug) {
 /// and evicts flagged ones first: revocation has to give a cell its capacity back,
 /// or an abuser could saturate a cell and then be revoked into a permanently dead
 /// one.
+///
+/// The rewritten cell keeps its retention TTL. A bare Redis `SET` DISCARDS the
+/// key's expiry, so rewriting `eval:cell:*` without re-arming turned every cell a
+/// revoked account had touched immortal — which is the unbounded `eval:cell:*`
+/// keyspace growth the TTL exists to prevent, reachable by publishing into cells
+/// and then getting revoked.
 export async function flagAccountResults(store, accountId, { config, now }) {
   const cellIds = await store.smembers(KEYS.accountCells(accountId));
   let flagged = 0;
@@ -826,7 +832,11 @@ export async function flagAccountResults(store, accountId, { config, now }) {
       entries.map((e) => e.value),
       { minAccounts: config.minAccounts, varianceBand: config.varianceBand, conforming: meta.conforming },
     );
-    await store.setJson(KEYS.cell(cellId), { ...meta, ...aggregate, updated_at: now.toISOString() });
+    await store.setJson(
+      KEYS.cell(cellId),
+      { ...meta, ...aggregate, updated_at: now.toISOString() },
+      config.retentionSeconds,
+    );
   }
   return { cells: cellIds.length, flagged };
 }

@@ -142,11 +142,44 @@ test("a tampered config_hash is caught", () => {
   assert.match(check(bundle).reason, /config_hash does not describe this run/);
 });
 
-test("claiming a different environment cell invalidates config_hash", () => {
-  // The attack this blocks: run on worktree, relabel as docker to look conforming.
+test("an environment cell that disagrees with config_hash is rejected", () => {
+  // What this catches is INTERNAL INCONSISTENCY: a bundle whose declared cell does
+  // not match the hash it shipped. It is NOT proof that the cell is real — see the
+  // next test for the actual boundary.
   const bundle = fresh({ isolation: "worktree" });
   bundle.environment_cell.isolation = "docker";
   assert.match(check(bundle).reason, /config_hash does not describe this run/);
+});
+
+test("`conforming` is self-attested: a consistently relabelled worktree run passes", () => {
+  // The honest statement of the limit, asserted rather than claimed in prose.
+  // `environment_cell` is the publisher's own description of its run, and
+  // `config_hash` is recomputed over those same fields — so relabelling worktree
+  // as docker AND recomputing the hash produces an accepted, conforming: true
+  // result. Nothing in `EvalBundle` attests the OBSERVED environment, so
+  // `conforming` must be read as "claims a conforming environment".
+  //
+  // This is deliberately paired with the rejection above so neither test can be
+  // mistaken for the other's guarantee. Closing it needs a signed harness
+  // attestation over the observed cell, i.e. a wire-contract change.
+  const honest = check(fresh({ isolation: "worktree" }));
+  assert.equal(honest.ok, true, honest.reason);
+  assert.equal(honest.value.conforming, false);
+
+  const relabelled = check(fresh({ isolation: "docker" })); // same run, docker label + matching hash
+  assert.equal(relabelled.ok, true, relabelled.reason);
+  assert.equal(relabelled.value.conforming, true, "documents the gap; it is not a guarantee");
+
+  // And the reason it is an acceptable boundary: the trial verdicts are equally
+  // unattested, so `conforming` is not the marginal weakness.
+  const perfect = fresh({ isolation: "docker", controlPass: 0, treatmentPass: 3 });
+  const claimed = check(perfect);
+  assert.equal(claimed.ok, true, claimed.reason);
+  assert.deepEqual(
+    [claimed.value.totals.control_pass, claimed.value.totals.treatment_pass],
+    [0, 3],
+    "self-reported verdicts are taken as given; independence, not validation, is the defence",
+  );
 });
 
 test("claiming a different trial count invalidates config_hash", () => {

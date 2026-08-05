@@ -16,7 +16,6 @@
 // Content hashes were computed by the ingestion pipeline the SAME way as the Rust
 // client (skillrank-core::hash), so `skillrank install` hash-verification passes.
 
-import { randomBytes } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { Redis } from "@upstash/redis";
 
@@ -31,13 +30,12 @@ import {
   revokeAccount,
   revokeToken,
   secretsEqual,
-  sha256Hex,
   upsertVerifiedAccount,
   verifyToken,
 } from "../lib/auth.mjs";
 import { flagAccountResults, ingestBundle, ingestConfig, readSkillCells } from "../lib/ingest.mjs";
 import { normalizeTier } from "../lib/scan.mjs";
-import { createStore, rateLimits } from "../lib/store.mjs";
+import { clientIpBucket, createStore, rateLimits } from "../lib/store.mjs";
 
 const enriched = JSON.parse(readFileSync(new URL("./enriched.json", import.meta.url), "utf8"));
 const ingested = JSON.parse(readFileSync(new URL("./ingested.json", import.meta.url), "utf8"));
@@ -301,36 +299,10 @@ function connectionGone(res) {
   return Boolean(res.writableEnded || res.destroyed || (res.socket && res.socket.destroyed));
 }
 
-/// Salt for the rate-limit IP digest. It has to be SECRET, not merely present:
-/// the digest is the persisted `rl:` key NAME, and SHA-256 over a known constant
-/// salt is a 2^32 preimage search for IPv4 — i.e. anyone who can read the
-/// keyspace recovers every recent caller's address, which is the opposite of the
-/// "no IPs, no PII" property this is supposed to provide.
-///
-/// Set `RATE_LIMIT_IP_SALT` to pin (and rotate) it. Otherwise it is derived from
-/// the Upstash credential: already a deployment secret, already required for any
-/// deployment that persists these keys at all, and stable across invocations so
-/// the counters keep working. The random fallback is only reachable with no
-/// datastore configured, and in that case every write route answers 503 before a
-/// limiter runs, so no digest is ever persisted.
-const FALLBACK_IP_SALT = randomBytes(32).toString("base64url");
-let _ipSalt;
-function ipSalt() {
-  if (_ipSalt) return _ipSalt;
-  const configured = (process.env.RATE_LIMIT_IP_SALT || "").trim();
-  const derived = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || "";
-  _ipSalt = configured || (derived ? sha256Hex(`skillrank-ip-salt:${derived}`) : FALLBACK_IP_SALT);
-  return _ipSalt;
-}
-
-/// Rate-limit bucket for the caller's IP. The address itself is never stored —
-/// only a secret-salted digest with the counter's short TTL — so this function
-/// keeps its "no IPs, no PII" property.
-function clientIpBucket(req) {
-  const forwarded = req.headers["x-vercel-forwarded-for"] || req.headers["x-forwarded-for"] || "";
-  const raw = String(forwarded).split(",")[0].trim() || (req.socket && req.socket.remoteAddress) || "";
-  return sha256Hex(`${ipSalt()}:${raw}`).slice(0, 32);
-}
+/// Rate-limit bucket for the caller's IP. `clientIpBucket` (in `lib/store.mjs`,
+/// with the salt policy that makes the persisted key name non-invertible) is a
+/// pure function of the environment, so it is passed `process.env` here.
+const ipBucketOf = (req) => clientIpBucket(req, process.env);
 
 /// Returns true when the request was rejected (and the response already sent).
 async function rateLimited(res, s, bucket, max, windowSeconds) {
@@ -377,7 +349,7 @@ async function handleAuth(req, res, parts) {
     const token = parseBearer(req.headers.authorization);
     if (!token) return json(res, 200, anonymousAnswer, "no-store");
     if (!s) return storeUnavailable(res, "sign-in");
-    if (await rateLimited(res, s, `whoami:${clientIpBucket(req)}`, limits.whoamiPerIpPerHour, 3600)) return;
+    if (await rateLimited(res, s, `whoami:${ipBucketOf(req)}`, limits.whoamiPerIpPerHour, 3600)) return;
     const verified = await verifyToken(s, token);
     if (!verified.ok) return json(res, 200, anonymousAnswer, "no-store");
     return json(
@@ -401,7 +373,7 @@ async function handleAuth(req, res, parts) {
       return json(res, 503, { error: "github sign-in is not configured on this registry" }, "no-store");
     }
     if (!s) return storeUnavailable(res, "sign-in");
-    if (await rateLimited(res, s, `device:${clientIpBucket(req)}`, limits.deviceStartsPerIpPerHour, 3600)) return;
+    if (await rateLimited(res, s, `device:${ipBucketOf(req)}`, limits.deviceStartsPerIpPerHour, 3600)) return;
     const started = await githubDeviceStart(process.env);
     if (!started.ok) return json(res, 502, { error: started.reason }, "no-store");
     return json(
@@ -442,7 +414,7 @@ async function handleAuth(req, res, parts) {
     // copy-paste. They publish, but they are never independent (see R5), which is
     // exactly why minting one freely is safe.
     if (kind === "anonymous") {
-      const bucket = `anon:${clientIpBucket(req)}`;
+      const bucket = `anon:${ipBucketOf(req)}`;
       if (await rateLimited(res, s, bucket, limits.anonTokensPerIpPerDay, 86400)) return;
       const { account, token } = await createAnonymousAccount(s, nowIso);
       return json(
@@ -468,7 +440,7 @@ async function handleAuth(req, res, parts) {
       if (typeof code !== "string" || !code || code.length > 256) {
         return json(res, 400, { error: "device_code is required" }, "no-store");
       }
-      if (await rateLimited(res, s, `ghpoll:${clientIpBucket(req)}`, limits.githubPollsPerIpPerHour, 3600)) return;
+      if (await rateLimited(res, s, `ghpoll:${ipBucketOf(req)}`, limits.githubPollsPerIpPerHour, 3600)) return;
 
       const exchange = await githubExchange(process.env, code);
       if (exchange.state === "pending" || exchange.state === "slow_down") {
@@ -554,7 +526,7 @@ async function handleEvalResults(req, res) {
   const s = store();
   if (!s) return storeUnavailable(res, "publishing");
 
-  const ipBucket = clientIpBucket(req);
+  const ipBucket = ipBucketOf(req);
   if (await rateLimited(res, s, `pub:ip:${ipBucket}`, limits.publishesPerIpPerHour, 3600)) return;
 
   const verified = await verifyToken(s, token);
