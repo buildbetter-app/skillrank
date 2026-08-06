@@ -1,5 +1,852 @@
 [
   {
+    "slug": "remotion-dev/remotion-best-practices",
+    "name": "Remotion Best Practices",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-best-practices",
+    "subpath": "skills/remotion-best-practices",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Router for all Remotion skills",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-captions",
+    "name": "Remotion Captions",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-captions",
+    "subpath": "skills/remotion-captions",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Transcribing, displaying and animating captions",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-create",
+    "name": "Remotion Create",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-create",
+    "subpath": "skills/remotion-create",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Create a new Remotion video",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-docs",
+    "name": "Remotion Docs",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-docs",
+    "subpath": "skills/remotion-docs",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Search Remotion documentation",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-interactivity",
+    "name": "Remotion Interactivity",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-interactivity",
+    "subpath": "skills/remotion-interactivity",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Structure Remotion markup for interactivity",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-maps",
+    "name": "Remotion Maps",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-maps",
+    "subpath": "skills/remotion-maps",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Remotion Map animation knowledge",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-markup",
+    "name": "Remotion Markup",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-markup",
+    "subpath": "skills/remotion-markup",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Content, animation and effects best practices",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-multimedia",
+    "name": "Remotion Multimedia",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-multimedia",
+    "subpath": "skills/remotion-multimedia",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Interacting with Mediabunny",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-render",
+    "name": "Remotion Render",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-render",
+    "subpath": "skills/remotion-render",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Export a Remotion video",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-saas",
+    "name": "Remotion Saas",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-saas",
+    "subpath": "skills/remotion-saas",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Build an app with Remotion",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-studio",
+    "name": "Remotion Studio",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-studio",
+    "subpath": "skills/remotion-studio",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Preview a Remotion video",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "remotion-dev/remotion-upgrade",
+    "name": "Remotion Upgrade",
+    "source_repo": "remotion-dev/skills",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-upgrade",
+    "subpath": "skills/remotion-upgrade",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "description": "Upgrade Remotion, and related packages",
+    "stars": 4215,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/animate",
+    "name": "Animate",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/animate",
+    "subpath": "skills/animate",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Build an animation from scratch, making the decisions in the order that determines whether it feels right \u2014 should it animate at all, what purpose, which tool, which properties, which curve and duration, how it interrupts, how it exits. Writes the implementation. Use when...",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/animation-vocabulary",
+    "name": "Animation Vocabulary",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/animation-vocabulary",
+    "subpath": "skills/animation-vocabulary",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Reverse-lookup glossary that turns a vague description of a web animation or motion effect into its exact term (\"the bouncy thing when a popover opens\" \u2192 Pop in; \"the iOS rubber-band scroll\" \u2192 Rubber-banding). Use when the user asks \"what's it called when\u2026\", or describes a...",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/apple-design",
+    "name": "Apple Design",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+    "subpath": "skills/apple-design",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography...",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/emil-design-eng",
+    "name": "Emil Design Eng",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
+    "subpath": "skills/emil-design-eng",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great.",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/find-animation-opportunities",
+    "name": "Find Animation Opportunities",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/find-animation-opportunities",
+    "subpath": "skills/find-animation-opportunities",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Search a codebase or UI for places that don't animate but should, and reject everything that shouldn't. Read-only; it proposes motion with exact values, it does not implement it. Use when the user asks \"what could be animated here?\" or wants to \"make this feel more alive\"....",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/improve-animations",
+    "name": "Improve Animations",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/improve-animations",
+    "subpath": "skills/improve-animations",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Survey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper models) to execute. Read-only on source code \u2014 it plans improvements, it does not apply them. Use...",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/pick-ui-library",
+    "name": "Pick Ui Library",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/pick-ui-library",
+    "subpath": "skills/pick-ui-library",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Pick the right library for a given frontend task from a curated, opinionated list \u2014 numbers, OTP inputs, charts, command menus, virtualization, drag and drop, toasts, state, styling, and more. Only runs when explicitly invoked; it does not trigger on its own.",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/prototype",
+    "name": "Prototype",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/prototype",
+    "subpath": "skills/prototype",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Build multiple genuinely different versions of a UI piece you describe, rendered behind a visual picker so you can flip through them live and promote the one that feels right. Only runs when explicitly invoked; it does not trigger on its own.",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "emilkowalski/review-animations",
+    "name": "Review Animations",
+    "source_repo": "emilkowalski/skills",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+    "subpath": "skills/review-animations",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "description": "Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design engineering philosophy. Default to flagging; approval is earned.",
+    "stars": 25861,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-babysit-pr",
+    "name": "Ce Babysit Pr",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-babysit-pr",
+    "subpath": "skills/ce-babysit-pr",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Babysits or watches an open GitHub PR until merge-ready, continuously reacting to review comments, CI failures, and routine base movement throughout the PR's life. Use when asked to 'babysit the PR', 'watch the PR', monitor, or keep an eye on a PR over time \u2014 not a one-shot...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-brainstorm",
+    "name": "Ce Brainstorm",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-brainstorm",
+    "subpath": "skills/ce-brainstorm",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Explore vague or ambitious ideas into a right-sized requirements-only unified plan. Use when the user wants to brainstorm, think through scope, decide what to build, or needs collaborative product framing before planning. Also use when the user must scope work in territory...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-code-review",
+    "name": "Ce Code Review",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-code-review",
+    "subpath": "skills/ce-code-review",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Structured code review for bugs, regressions, tests, and standards. Use before PRs or when asked for review; report-only by default, with explicit local apply available for user-directed fix workflows.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-commit-push-pr",
+    "name": "Ce Commit Push Pr",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-commit-push-pr",
+    "subpath": "skills/ce-commit-push-pr",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Commit, push, and open a PR. Use when asked to ship/open a PR, or for PR-description-only flows like writing, rewriting, or describing a PR body.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-commit",
+    "name": "Ce Commit",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-commit",
+    "subpath": "skills/ce-commit",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Create a git commit with a clear, value-communicating message. Use when the user asks to commit/save staged or unstaged changes with a repo-appropriate message.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-compound-refresh",
+    "name": "Ce Compound Refresh",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-compound-refresh",
+    "subpath": "skills/ce-compound-refresh",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Refresh the repo's captured learnings against the current codebase. Use when auditing stale, overlapping, superseded, or drifted learnings; avoid general refactor, debugging, or code review unless the learnings store is explicit.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-compound",
+    "name": "Ce Compound",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-compound",
+    "subpath": "skills/ce-compound",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Document a recently solved problem as a durable repo learning, or capture project vocabulary in CONCEPTS.md. Use when capturing a learning after work.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-debug",
+    "name": "Ce Debug",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-debug",
+    "subpath": "skills/ce-debug",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Diagnosis loop for bugs and failing behavior. Use for errors, stack traces, regressions, failed tests, issue-tracker bugs, stuck investigations after failed fixes, or asks to debug/fix a bug.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-doc-review",
+    "name": "Ce Doc Review",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-doc-review",
+    "subpath": "skills/ce-doc-review",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Review requirements, plans, or specs with role-specific lenses. Use when the user wants to improve an existing planning document.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-dogfood",
+    "name": "Ce Dogfood",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-dogfood",
+    "subpath": "skills/ce-dogfood",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Hands-off, diff-scoped browser QA of the active branch: maps user flows, drives a real browser, autonomously fixes small breakages with regression tests and commits, judges experience against product personas, and writes a durable dogfood report. Manual invocation only.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-explain",
+    "name": "Ce Explain",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-explain",
+    "subpath": "skills/ce-explain",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Create a durable, visual teaching artifact \u2014 plus an optional check-in (predict-then-reveal for diffs, corrected exercises) that makes it stick \u2014 for something worth learning: a concept, a diff, an idea, or a window of your own recent work. Use when the user wants to be...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-handoff",
+    "name": "Ce Handoff",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-handoff",
+    "subpath": "skills/ce-handoff",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Create a session handoff for another agent, or resume, find, and read any user-selected continuity source. Use when work or conversation must continue without access to the current session history.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-ideate",
+    "name": "Ce Ideate",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-ideate",
+    "subpath": "skills/ce-ideate",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Generate and evaluate grounded ideas. Use when the user asks for ideas, improvements, surprising options, or AI-generated directions before choosing one to develop; use ce-brainstorm to refine the user's own idea.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-optimize",
+    "name": "Ce Optimize",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-optimize",
+    "subpath": "skills/ce-optimize",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Run metric-driven optimization loops. Use when improving measurable outcomes such as search relevance, clustering quality, build performance, prompt quality, or scored behavior through experiments.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-plan",
+    "name": "Ce Plan",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-plan",
+    "subpath": "skills/ce-plan",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Create structured plans for multi-step work, including software and non-software tasks. Use when asked to plan, break down implementation, plan from requirements, or deepen an existing plan; prefer ce-brainstorm for exploratory framing.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-polish",
+    "name": "Ce Polish",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-polish",
+    "subpath": "skills/ce-polish",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Start the dev server, inspect the feature in browser, and iterate on polish.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-pov",
+    "name": "Ce Pov",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-pov",
+    "subpath": "skills/ce-pov",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Give a decisive, project-grounded point of view in the subject's own shape: a graded verdict on an external-adoption question, a holistic take on a document, or a position on a user-supplied approach set. Use for a solo POV, a mid-session second opinion, a named-peer...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-product-pulse",
+    "name": "Ce Product Pulse",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-product-pulse",
+    "subpath": "skills/ce-product-pulse",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Generate time-windowed product pulse reports from configured signals.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-promote",
+    "name": "Ce Promote",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-promote",
+    "subpath": "skills/ce-promote",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Draft launch or promotion copy for a shipped feature.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-proof",
+    "name": "Ce Proof",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-proof",
+    "subpath": "skills/ce-proof",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Publish, read, comment on, or edit markdown in Proof. Use for Proof links, sharing specs/plans/drafts, or publish handoffs from planning workflows; avoid proofread, math, evidence, or proof-of-concept meanings.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-resolve-pr-feedback",
+    "name": "Ce Resolve Pr Feedback",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-resolve-pr-feedback",
+    "subpath": "skills/ce-resolve-pr-feedback",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Resolve PR review feedback. Use when addressing review comments, resolving review threads, or fixing code-review feedback.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-retune",
+    "name": "Ce Retune",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-retune",
+    "subpath": "skills/ce-retune",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Retune a skill corpus for a new model, measurement-first: mine the run archive for a baseline, establish a noise floor, audit the corpus adversarially, then cut in measured passes until a pre-registered bar clears. Requires a benchmark harness that can A/B two builds of the...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-riffrec-feedback-analysis",
+    "name": "Ce Riffrec Feedback Analysis",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-riffrec-feedback-analysis",
+    "subpath": "skills/ce-riffrec-feedback-analysis",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Analyze Riffrec feedback captures from bundles or standalone recordings. Always load for `riffrec-*.zip`, `session.json` + `events.json` + `recording.webm` + `voice.webm` bundles, `.mp4`/`.mov`/`.webm` videos, `.m4a`/`.mp3`/`.wav` audio, or capture/share requests.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-setup",
+    "name": "Ce Setup",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-setup",
+    "subpath": "skills/ce-setup",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Check Compound Engineering health and repo-local config.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-simplify-code",
+    "name": "Ce Simplify Code",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-simplify-code",
+    "subpath": "skills/ce-simplify-code",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Simplify settled, recently changed code for clarity, reuse, quality, and efficiency while preserving behavior. Use after implementation and before review; use ce-debug for bugs.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-strategy",
+    "name": "Ce Strategy",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-strategy",
+    "subpath": "skills/ce-strategy",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Create or update STRATEGY.md. Use when starting a product, changing direction or roadmap, or when ce-ideate, ce-brainstorm, or ce-plan need upstream product grounding.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-sweep",
+    "name": "Ce Sweep",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-sweep",
+    "subpath": "skills/ce-sweep",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Sweep configured feedback sources (Slack, GitHub Issues; email experimental) for new items: acknowledge at source, analyze recordings, verify fixes merged to main, and emit an `lfg`-ready plan. First run sets up sources; supports mode:non-interactive for scheduled runs.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-test-browser",
+    "name": "Ce Test Browser",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-test-browser",
+    "subpath": "skills/ce-test-browser",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Run browser tests for pages affected by the current branch or PR.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-test-xcode",
+    "name": "Ce Test Xcode",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-test-xcode",
+    "subpath": "skills/ce-test-xcode",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Build and test iOS apps on simulator with XcodeBuildMCP.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-work",
+    "name": "Ce Work",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-work",
+    "subpath": "skills/ce-work",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Execute a plan or concrete work prompt end-to-end. Use when implementing from a plan document, a spec path, or a clear build request; use ce-debug for open-ended bugs. Standalone use owns the shipping tail; outer orchestrators pass `mode:return-to-caller...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/ce-worktree",
+    "name": "Ce Worktree",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-worktree",
+    "subpath": "skills/ce-worktree",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Set up isolated git worktrees \u2014 create a new branch for fresh work, or attach a worktree to an existing branch/PR/commit to work on it in isolation. Use when starting isolated work or isolating an existing ref; detects existing isolation first.",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "EveryInc/lfg",
+    "name": "Lfg",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/lfg",
+    "subpath": "skills/lfg",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "description": "Run the full autonomous shipping pipeline end-to-end, hands-off with no check-ins: plan, implement, review and fix, commit, push a branch, open a PR, and watch CI to green. Use only when the user explicitly asks to build or ship something autonomously all the way to an open...",
+    "stars": 24036,
+    "tier": "community"
+  },
+  {
+    "slug": "kitze/council",
+    "name": "Council",
+    "source_repo": "kitze/council",
+    "source_url": "https://github.com/kitze/council",
+    "subpath": "",
+    "category": "meta",
+    "tags": [
+      "agents",
+      "planning"
+    ],
+    "description": "Convene a council of AI coding agents before finalizing a plan. The agent you're talking to \u2014 whichever CLI is the lead (claude, codex, cursor, gemini, grok, opencode) \u2014 drafts a plan, presents it independently to every other agent CLI installed on the machine, each member...",
+    "stars": 22,
+    "tier": "community"
+  },
+  {
+    "slug": "petergyang/no-ai-slop",
+    "name": "No AI Slop",
+    "source_repo": "petergyang/no-ai-slop",
+    "source_url": "https://github.com/petergyang/no-ai-slop/tree/main/skills/no-ai-slop",
+    "subpath": "skills/no-ai-slop",
+    "category": "document",
+    "tags": [
+      "writing",
+      "editing",
+      "voice"
+    ],
+    "description": "Edit drafts into sharper, more human writing while preserving the writer's voice, or detect 20+ AI-slop patterns without rewriting.",
+    "stars": 4221,
+    "tier": "community"
+  },
+  {
     "slug": "anthropics/pdf",
     "name": "PDF",
     "source_repo": "anthropics/skills",
@@ -1588,7 +2435,7 @@
     "subpath": "skills/engineering/code-review",
     "category": "other",
     "tags": [],
-    "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (doe",
+    "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes \u2014 Standards (does the code follow this repo's documented coding standards?) and Spec (doe",
     "stars": 161298,
     "tier": "community"
   },
@@ -1708,7 +2555,7 @@
     "subpath": "skills/engineering/setup-matt-pocock-skills",
     "category": "other",
     "tags": [],
-    "description": "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout.",
+    "description": "Configure this repo for the engineering skills \u2014 set up its issue tracker, triage label vocabulary, and domain doc layout.",
     "stars": 161298,
     "tier": "community"
   },
@@ -1720,7 +2567,7 @@
     "subpath": "skills/engineering/to-spec",
     "category": "other",
     "tags": [],
-    "description": "Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
+    "description": "Turn the current conversation into a spec and publish it to the project issue tracker \u2014 no interview, just synthesis of what you've already discussed.",
     "stars": 161298,
     "tier": "community"
   },
@@ -1732,7 +2579,7 @@
     "subpath": "skills/engineering/to-tickets",
     "category": "other",
     "tags": [],
-    "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in a loc",
+    "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker \u2014 edges as text in a loc",
     "stars": 161298,
     "tier": "community"
   },
@@ -1744,7 +2591,7 @@
     "subpath": "skills/engineering/triage",
     "category": "other",
     "tags": [],
-    "description": "Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.",
+    "description": "Move issues and external PRs through a state machine of triage roles \u2014 categorise, verify, grill if needed, and write agent-ready briefs.",
     "stars": 161298,
     "tier": "community"
   },
@@ -1756,7 +2603,7 @@
     "subpath": "skills/engineering/wayfinder",
     "category": "other",
     "tags": [],
-    "description": "Plan a huge chunk of work — more than one agent session can hold — as a shared map of investigation tickets on your issue tracker, and resolve them one at a time until the way to t",
+    "description": "Plan a huge chunk of work \u2014 more than one agent session can hold \u2014 as a shared map of investigation tickets on your issue tracker, and resolve them one at a time until the way to t",
     "stars": 161298,
     "tier": "community"
   },
@@ -1792,7 +2639,7 @@
     "subpath": "skills/in-progress/wizard",
     "category": "other",
     "tags": [],
-    "description": "Generate an interactive bash wizard that walks a human through a manual procedure — third-party setup, a one-off migration, an A→B state transition — opening URLs, capturing values",
+    "description": "Generate an interactive bash wizard that walks a human through a manual procedure \u2014 third-party setup, a one-off migration, an A\u2192B state transition \u2014 opening URLs, capturing values",
     "stars": 161298,
     "tier": "community"
   },
@@ -1804,7 +2651,7 @@
     "subpath": "skills/in-progress/writing-beats",
     "category": "security",
     "tags": [],
-    "description": "Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
+    "description": "Writing, exploit \u2014 assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
     "stars": 161298,
     "tier": "community"
   },
@@ -1816,7 +2663,7 @@
     "subpath": "skills/in-progress/writing-fragments",
     "category": "document",
     "tags": [],
-    "description": "Writing, explore — mine raw fragments, no structure yet.",
+    "description": "Writing, explore \u2014 mine raw fragments, no structure yet.",
     "stars": 161298,
     "tier": "community"
   },
@@ -1828,7 +2675,7 @@
     "subpath": "skills/in-progress/writing-shape",
     "category": "security",
     "tags": [],
-    "description": "Writing, exploit — shape raw material into an article, paragraph by paragraph.",
+    "description": "Writing, exploit \u2014 shape raw material into an article, paragraph by paragraph.",
     "stars": 161298,
     "tier": "community"
   },
@@ -1960,7 +2807,7 @@
     "subpath": "skills/productivity/writing-great-skills",
     "category": "document",
     "tags": [],
-    "description": "Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable.",
+    "description": "Reference for writing and editing skills well \u2014 the vocabulary and principles that make a skill predictable.",
     "stars": 161298,
     "tier": "community"
   },
@@ -3040,7 +3887,7 @@
       "claude-code",
       "guide"
     ],
-    "description": "Забезпечення відповідності всіх комунікацій голосу та тону бренду.",
+    "description": "\u0417\u0430\u0431\u0435\u0437\u043f\u0435\u0447\u0435\u043d\u043d\u044f \u0432\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u043d\u043e\u0441\u0442\u0456 \u0432\u0441\u0456\u0445 \u043a\u043e\u043c\u0443\u043d\u0456\u043a\u0430\u0446\u0456\u0439 \u0433\u043e\u043b\u043e\u0441\u0443 \u0442\u0430 \u0442\u043e\u043d\u0443 \u0431\u0440\u0435\u043d\u0434\u0443.",
     "stars": 39442,
     "tier": "community"
   },
@@ -3055,7 +3902,7 @@
       "claude-code",
       "guide"
     ],
-    "description": "Генерація вичерпної, точної документації API з вихідного коду.",
+    "description": "\u0413\u0435\u043d\u0435\u0440\u0430\u0446\u0456\u044f \u0432\u0438\u0447\u0435\u0440\u043f\u043d\u043e\u0457, \u0442\u043e\u0447\u043d\u043e\u0457 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0456\u0457 API \u0437 \u0432\u0438\u0445\u0456\u0434\u043d\u043e\u0433\u043e \u043a\u043e\u0434\u0443.",
     "stars": 39442,
     "tier": "community"
   },
@@ -3070,7 +3917,7 @@
       "claude-code",
       "guide"
     ],
-    "description": "Систематичний рефакторинг коду на основі методології Мартіна Фаулера.",
+    "description": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430\u0442\u0438\u0447\u043d\u0438\u0439 \u0440\u0435\u0444\u0430\u043a\u0442\u043e\u0440\u0438\u043d\u0433 \u043a\u043e\u0434\u0443 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0456 \u043c\u0435\u0442\u043e\u0434\u043e\u043b\u043e\u0433\u0456\u0457 \u041c\u0430\u0440\u0442\u0456\u043d\u0430 \u0424\u0430\u0443\u043b\u0435\u0440\u0430.",
     "stars": 39442,
     "tier": "community"
   },
@@ -3100,7 +3947,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad variations — for any paid advertising platform.",
+    "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform.",
     "stars": 37299,
     "tier": "community"
   },
@@ -3295,7 +4142,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages.",
+    "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages.",
     "stars": 37299,
     "tier": "community"
   },
@@ -3310,7 +4157,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture form",
+    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form \u2014 including homepage, landing pages, pricing pages, feature pages, lead capture form",
     "stars": 37299,
     "tier": "community"
   },
@@ -3370,7 +4217,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness.",
+    "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness.",
     "stars": 37299,
     "tier": "community"
   },
@@ -3385,7 +4232,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets.",
+    "description": "When the user wants to create, generate, edit, or optimize images for marketing \u2014 blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets.",
     "stars": 37299,
     "tier": "community"
   },
@@ -3430,7 +4277,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants multiple expert perspectives on a marketing question — a simulated board of advisors staffed by legendary marketers (Seth Godin, David Ogilvy, Eugene Schwartz,",
+    "description": "When the user wants multiple expert perspectives on a marketing question \u2014 a simulated board of advisors staffed by legendary marketers (Seth Godin, David Ogilvy, Eugene Schwartz,",
     "stars": 37299,
     "tier": "community"
   },
@@ -3460,7 +4307,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop an AI agent runs on a cadence (weekly, daily, on a trigger) rather than a one-off tas",
+    "description": "When the user wants to set up a recurring, self-running marketing workflow \u2014 a repeatable loop an AI agent runs on a cadence (weekly, daily, on a trigger) rather than a one-off tas",
     "stars": 37299,
     "tier": "community"
   },
@@ -3505,7 +4352,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to design, construct, or improve an offer — the thing they actually sell — including value framing, bonus stacking, guarantee design, scarcity/urgency, naming,",
+    "description": "When the user wants to design, construct, or improve an offer \u2014 the thing they actually sell \u2014 including value framing, bonus stacking, guarantee design, scarcity/urgency, naming,",
     "stars": 37299,
     "tier": "community"
   },
@@ -3610,7 +4457,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B SaaS, general B2B, or local small businesses.",
+    "description": "When the user wants to find, qualify, and build a list of prospects to reach out to \u2014 across B2B SaaS, general B2B, or local small businesses.",
     "stars": 37299,
     "tier": "community"
   },
@@ -3745,7 +4592,7 @@
       "claude",
       "codex"
     ],
-    "description": "When the user wants to plan, build, or optimize SMS or MMS marketing — including welcome flows, abandoned cart texts, post-purchase, win-back, promotional sends, or transactional/a",
+    "description": "When the user wants to plan, build, or optimize SMS or MMS marketing \u2014 including welcome flows, abandoned cart texts, post-purchase, win-back, promotional sends, or transactional/a",
     "stars": 37299,
     "tier": "community"
   },
@@ -3790,7 +4637,7 @@
       "claude-code",
       "mcp"
     ],
-    "description": "Manage Discord channel access — approve pairings, edit allowlists, set DM/group policy.",
+    "description": "Manage Discord channel access \u2014 approve pairings, edit allowlists, set DM/group policy.",
     "stars": 31808,
     "tier": "community"
   },
@@ -3805,7 +4652,7 @@
       "claude-code",
       "mcp"
     ],
-    "description": "Set up the Discord channel — save the bot token and review access policy.",
+    "description": "Set up the Discord channel \u2014 save the bot token and review access policy.",
     "stars": 31808,
     "tier": "community"
   },
@@ -3820,7 +4667,7 @@
       "claude-code",
       "mcp"
     ],
-    "description": "Manage iMessage channel access — approve pairings, edit allowlists, set DM/group policy.",
+    "description": "Manage iMessage channel access \u2014 approve pairings, edit allowlists, set DM/group policy.",
     "stars": 31808,
     "tier": "community"
   },
@@ -3895,7 +4742,7 @@
       "claude-code",
       "mcp"
     ],
-    "description": "End-to-end onboarding for a freshly-plugged-in M5Stack ESP32 device (Cardputer, Cardputer-Adv, Core, CoreS3, Stick) — detect on USB, flash UIFlow 2.0 firmware, and install the Clau",
+    "description": "End-to-end onboarding for a freshly-plugged-in M5Stack ESP32 device (Cardputer, Cardputer-Adv, Core, CoreS3, Stick) \u2014 detect on USB, flash UIFlow 2.0 firmware, and install the Clau",
     "stars": 31808,
     "tier": "community"
   },
@@ -4015,7 +4862,7 @@
       "claude-code",
       "mcp"
     ],
-    "description": "Creates interactive HTML playgrounds — self-contained single-file explorers that let users configure something visually through controls, see a live preview, and copy out a prompt.",
+    "description": "Creates interactive HTML playgrounds \u2014 self-contained single-file explorers that let users configure something visually through controls, see a live preview, and copy out a prompt.",
     "stars": 31808,
     "tier": "community"
   },
@@ -4135,7 +4982,7 @@
       "claude-code",
       "mcp"
     ],
-    "description": "Generate and publish a project status artifact — an opinionated, tabbed status page for a project too big for one update (overview & success criteria, the workstream sequence, next",
+    "description": "Generate and publish a project status artifact \u2014 an opinionated, tabbed status page for a project too big for one update (overview & success criteria, the workstream sequence, next",
     "stars": 31808,
     "tier": "community"
   },
@@ -4330,7 +5177,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/Trim Galore), alignment and quantification (STAR, Salmon, featureCounts), assemb",
+    "description": "End-to-end bulk RNA-seq orchestrator \u2014 takes raw FASTQ reads through QC and trimming (FastQC, fastp/Trim Galore), alignment and quantification (STAR, Salmon, featureCounts), assemb",
     "stars": 30489,
     "tier": "community"
   },
@@ -4630,7 +5477,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "Design experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, and laying out treatment combinations so the results will actually be interpreta",
+    "description": "Design experiments and studies BEFORE data is collected \u2014 choosing a design, randomizing, blocking, and laying out treatment combinations so the results will actually be interpreta",
     "stars": 30489,
     "tier": "community"
   },
@@ -5485,7 +6332,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both.",
+    "description": "Use this skill any time a .pptx file is involved in any way \u2014 as input, output, or both.",
     "stars": 30489,
     "tier": "community"
   },
@@ -5590,7 +6437,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging datasets (MIMIC-III/IV, eICU, OMOP, SleepEDF, ChestXray14, EHRShot), defining tasks (mo",
+    "description": "Build clinical/healthcare deep-learning pipelines with PyHealth \u2014 loading EHR/signal/imaging datasets (MIMIC-III/IV, eICU, OMOP, SleepEDF, ChestXray14, EHRShot), defining tasks (mo",
     "stars": 30489,
     "tier": "community"
   },
@@ -6055,7 +6902,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic linear algebra, or code generation via lambdify/LaTeX.",
+    "description": "Use when you need exact symbolic math in Python \u2014 algebra, calculus, equation solving, symbolic linear algebra, or code generation via lambdify/LaTeX.",
     "stars": 30489,
     "tier": "community"
   },
@@ -6070,7 +6917,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "Access a collection of open-source molecular design and structural biology tools on the Tamarind Bio platform, via its REST API or MCP server — no local GPUs required.",
+    "description": "Access a collection of open-source molecular design and structural biology tools on the Tamarind Bio platform, via its REST API or MCP server \u2014 no local GPUs required.",
     "stars": 30489,
     "tier": "community"
   },
@@ -6115,7 +6962,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing (GCN, GAT, GraphSAGE, GIN), heterogeneous graphs, neighbor sampling, and custom",
+    "description": "PyTorch Geometric (PyG) for graph neural networks \u2014 node/link/graph classification, message passing (GCN, GAT, GraphSAGE, GIN), heterogeneous graphs, neighbor sampling, and custom",
     "stars": 30489,
     "tier": "community"
   },
@@ -6220,7 +7067,7 @@
       "agent-skills",
       "ai-scientist"
     ],
-    "description": "Run structured What-If scenario analysis with 4–6 branch possibility exploration (best, likely, worst, wild card, contrarian, second-order).",
+    "description": "Run structured What-If scenario analysis with 4\u20136 branch possibility exploration (best, likely, worst, wild card, contrarian, second-order).",
     "stars": 30489,
     "tier": "community"
   },
@@ -6280,7 +7127,7 @@
       "ai-agents",
       "ai-assistant"
     ],
-    "description": "Add clidash — a zero-dependency, read-only web dashboard that derives its tabs and tables at runtime from any CLI that lists resources as JSON.",
+    "description": "Add clidash \u2014 a zero-dependency, read-only web dashboard that derives its tabs and tables at runtime from any CLI that lists resources as JSON.",
     "stars": 30161,
     "tier": "community"
   },
@@ -6295,7 +7142,7 @@
       "ai-agents",
       "ai-assistant"
     ],
-    "description": "Use Codex (OpenAI's codex app-server) as a full agent provider — planning, tool orchestration, MCP tools, server-side history, session resume — alongside or instead of Claude.",
+    "description": "Use Codex (OpenAI's codex app-server) as a full agent provider \u2014 planning, tool orchestration, MCP tools, server-side history, session resume \u2014 alongside or instead of Claude.",
     "stars": 30161,
     "tier": "community"
   },
@@ -6745,7 +7592,7 @@
       "ai-agents",
       "ai-assistant"
     ],
-    "description": "Walk the operator through creating the first NanoClaw agent for a DM channel — resolve the operator's channel identity, wire the DM messaging group to a new agent, and trigger a we",
+    "description": "Walk the operator through creating the first NanoClaw agent for a DM channel \u2014 resolve the operator's channel identity, wire the DM messaging group to a new agent, and trigger a we",
     "stars": 30161,
     "tier": "community"
   },
@@ -6775,7 +7622,7 @@
       "ai-agents",
       "ai-assistant"
     ],
-    "description": "Distill a reusable skill from anything — a directory, a URL, pasted notes, or what you just did together — or refine an existing skill with new learnings.",
+    "description": "Distill a reusable skill from anything \u2014 a directory, a URL, pasted notes, or what you just did together \u2014 or refine an existing skill with new learnings.",
     "stars": 30161,
     "tier": "community"
   },
@@ -6940,7 +7787,7 @@
       "ai-agents",
       "ai-assistant"
     ],
-    "description": "Browse the web for any task — research topics, read articles, interact with web apps, fill forms, take screenshots, extract data, and test web pages.",
+    "description": "Browse the web for any task \u2014 research topics, read articles, interact with web apps, fill forms, take screenshots, extract data, and test web pages.",
     "stars": 30161,
     "tier": "community"
   },
@@ -6970,7 +7817,7 @@
       "ai-agents",
       "ai-assistant"
     ],
-    "description": "Customize your own agent — add capabilities, install packages, add MCP servers, edit code or CLAUDE.md.",
+    "description": "Customize your own agent \u2014 add capabilities, install packages, add MCP servers, edit code or CLAUDE.md.",
     "stars": 30161,
     "tier": "community"
   },
@@ -7645,7 +8492,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Manage customer support — track tickets, respond, escalate issues.",
+    "description": "Manage customer support \u2014 track tickets, respond, escalate issues.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7660,7 +8507,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Plan and manage events — scheduling, invitations, and logistics.",
+    "description": "Plan and manage events \u2014 scheduling, invitations, and logistics.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7690,7 +8537,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Handle HR workflows — onboarding, announcements, and employee comms.",
+    "description": "Handle HR workflows \u2014 onboarding, announcements, and employee comms.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7705,7 +8552,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Administer IT — monitor security and configure Workspace.",
+    "description": "Administer IT \u2014 monitor security and configure Workspace.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7720,7 +8567,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Coordinate projects — track tasks, schedule meetings, and share docs.",
+    "description": "Coordinate projects \u2014 track tasks, schedule meetings, and share docs.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7735,7 +8582,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Organize research — manage references, notes, and collaboration.",
+    "description": "Organize research \u2014 manage references, notes, and collaboration.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7750,7 +8597,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Manage sales workflows — track deals, schedule calls, client comms.",
+    "description": "Manage sales workflows \u2014 track deals, schedule calls, client comms.",
     "stars": 29524,
     "tier": "community"
   },
@@ -7765,7 +8612,7 @@
       "agent-skills",
       "ai-agent"
     ],
-    "description": "Lead a team — run standups, coordinate tasks, and communicate.",
+    "description": "Lead a team \u2014 run standups, coordinate tasks, and communicate.",
     "stars": 29524,
     "tier": "community"
   },
@@ -8452,7 +9299,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "نظام تخطيط الملفات بنمط Manus لتنظيم وتتبع تقدم المهام المعقدة.",
+    "description": "\u0646\u0638\u0627\u0645 \u062a\u062e\u0637\u064a\u0637 \u0627\u0644\u0645\u0644\u0641\u0627\u062a \u0628\u0646\u0645\u0637 Manus \u0644\u062a\u0646\u0638\u064a\u0645 \u0648\u062a\u062a\u0628\u0639 \u062a\u0642\u062f\u0645 \u0627\u0644\u0645\u0647\u0627\u0645 \u0627\u0644\u0645\u0639\u0642\u062f\u0629.",
     "stars": 25058,
     "tier": "community"
   },
@@ -8482,7 +9329,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "Sistema de planificación basado en archivos estilo Manus para organizar y rastrear el progreso de tareas complejas.",
+    "description": "Sistema de planificaci\u00f3n basado en archivos estilo Manus para organizar y rastrear el progreso de tareas complejas.",
     "stars": 25058,
     "tier": "community"
   },
@@ -8497,7 +9344,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "基于 Manus 风格的文件规划系统，用于组织和跟踪复杂任务的进度。创建 task_plan.md、findings.md 和 progress.md 三个文件。当用户要求规划、拆解或组织多步骤项目、研究任务或需要超过5次工具调用的工作时使用。支持 /clear 后的自动会话恢复。触发词：任务规划、项目计划、制定计划、分解任务、多步骤规划、进度跟踪、文件规划",
+    "description": "\u57fa\u4e8e Manus \u98ce\u683c\u7684\u6587\u4ef6\u89c4\u5212\u7cfb\u7edf\uff0c\u7528\u4e8e\u7ec4\u7ec7\u548c\u8ddf\u8e2a\u590d\u6742\u4efb\u52a1\u7684\u8fdb\u5ea6\u3002\u521b\u5efa task_plan.md\u3001findings.md \u548c progress.md \u4e09\u4e2a\u6587\u4ef6\u3002\u5f53\u7528\u6237\u8981\u6c42\u89c4\u5212\u3001\u62c6\u89e3\u6216\u7ec4\u7ec7\u591a\u6b65\u9aa4\u9879\u76ee\u3001\u7814\u7a76\u4efb\u52a1\u6216\u9700\u8981\u8d85\u8fc75\u6b21\u5de5\u5177\u8c03\u7528\u7684\u5de5\u4f5c\u65f6\u4f7f\u7528\u3002\u652f\u6301 /clear \u540e\u7684\u81ea\u52a8\u4f1a\u8bdd\u6062\u590d\u3002\u89e6\u53d1\u8bcd\uff1a\u4efb\u52a1\u89c4\u5212\u3001\u9879\u76ee\u8ba1\u5212\u3001\u5236\u5b9a\u8ba1\u5212\u3001\u5206\u89e3\u4efb\u52a1\u3001\u591a\u6b65\u9aa4\u89c4\u5212\u3001\u8fdb\u5ea6\u8ddf\u8e2a\u3001\u6587\u4ef6\u89c4\u5212",
     "stars": 25058,
     "tier": "community"
   },
@@ -8512,7 +9359,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "基於 Manus 風格的檔案規劃系統，用於組織和追蹤複雜任務的進度。建立 task_plan.md、findings.md 和 progress.md 三個檔案。當使用者要求規劃、拆解或組織多步驟專案、研究任務或需要超過5次工具呼叫的工作時使用。支援 /clear 後的自動會話恢復。觸發詞：任務規劃、專案計畫、制定計畫、分解任務、多步驟規劃、進度追蹤、檔案規",
+    "description": "\u57fa\u65bc Manus \u98a8\u683c\u7684\u6a94\u6848\u898f\u5283\u7cfb\u7d71\uff0c\u7528\u65bc\u7d44\u7e54\u548c\u8ffd\u8e64\u8907\u96dc\u4efb\u52d9\u7684\u9032\u5ea6\u3002\u5efa\u7acb task_plan.md\u3001findings.md \u548c progress.md \u4e09\u500b\u6a94\u6848\u3002\u7576\u4f7f\u7528\u8005\u8981\u6c42\u898f\u5283\u3001\u62c6\u89e3\u6216\u7d44\u7e54\u591a\u6b65\u9a5f\u5c08\u6848\u3001\u7814\u7a76\u4efb\u52d9\u6216\u9700\u8981\u8d85\u904e5\u6b21\u5de5\u5177\u547c\u53eb\u7684\u5de5\u4f5c\u6642\u4f7f\u7528\u3002\u652f\u63f4 /clear \u5f8c\u7684\u81ea\u52d5\u6703\u8a71\u6062\u5fa9\u3002\u89f8\u767c\u8a5e\uff1a\u4efb\u52d9\u898f\u5283\u3001\u5c08\u6848\u8a08\u756b\u3001\u5236\u5b9a\u8a08\u756b\u3001\u5206\u89e3\u4efb\u52d9\u3001\u591a\u6b65\u9a5f\u898f\u5283\u3001\u9032\u5ea6\u8ffd\u8e64\u3001\u6a94\u6848\u898f",
     "stars": 25058,
     "tier": "community"
   },
@@ -8527,7 +9374,7 @@
       "agent-skills",
       "claude-skills"
     ],
-    "description": "Analyzes article structure, identifies positions requiring visual aids, generates illustrations with Type × Style × Palette three-dimension approach.",
+    "description": "Analyzes article structure, identifies positions requiring visual aids, generates illustrations with Type \u00d7 Style \u00d7 Palette three-dimension approach.",
     "stars": 23304,
     "tier": "community"
   },
@@ -8617,7 +9464,7 @@
       "agent-skills",
       "claude-skills"
     ],
-    "description": "Create professional, dark-themed SVG diagrams of any type — architecture diagrams, flowcharts, sequence diagrams, structural diagrams, mind maps, timelines, illustrative/conceptual",
+    "description": "Create professional, dark-themed SVG diagrams of any type \u2014 architecture diagrams, flowcharts, sequence diagrams, structural diagrams, mind maps, timelines, illustrative/conceptual",
     "stars": 23304,
     "tier": "community"
   },
@@ -8707,7 +9554,7 @@
       "agent-skills",
       "claude-skills"
     ],
-    "description": "Posts content to WeChat Official Account (微信公众号) via API or Chrome CDP.",
+    "description": "Posts content to WeChat Official Account (\u5fae\u4fe1\u516c\u4f17\u53f7) via API or Chrome CDP.",
     "stars": 23304,
     "tier": "community"
   },
@@ -8812,7 +9659,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "The method for finding the gap between what a system is supposed to do and what the code actually does — the class of bug generic scanners miss because they have no model of intent",
+    "description": "The method for finding the gap between what a system is supposed to do and what the code actually does \u2014 the class of bug generic scanners miss because they have no model of intent",
     "stars": 23055,
     "tier": "community"
   },
@@ -8857,7 +9704,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Perform cohort analysis on user engagement data — retention curves, feature adoption trends, and segment-level insights.",
+    "description": "Perform cohort analysis on user engagement data \u2014 retention curves, feature adoption trends, and segment-level insights.",
     "stars": 23055,
     "tier": "community"
   },
@@ -8887,7 +9734,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Brainstorm team-level OKRs aligned with company objectives — qualitative objectives with measurable key results.",
+    "description": "Brainstorm team-level OKRs aligned with company objectives \u2014 qualitative objectives with measurable key results.",
     "stars": 23055,
     "tier": "community"
   },
@@ -8977,7 +9824,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Reference guide to 9 prioritization frameworks with formulas, when-to-use guidance, and templates — RICE, ICE, Kano, MoSCoW, Opportunity Score, and more.",
+    "description": "Reference guide to 9 prioritization frameworks with formulas, when-to-use guidance, and templates \u2014 RICE, ICE, Kano, MoSCoW, Opportunity Score, and more.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9007,7 +9854,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Facilitate a structured sprint retrospective — what went well, what didn't, and prioritized action items with owners and deadlines.",
+    "description": "Facilitate a structured sprint retrospective \u2014 what went well, what didn't, and prioritized action items with owners and deadlines.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9112,7 +9959,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Create product backlog items in Why-What-Acceptance format — independent, valuable, testable items with strategic context.",
+    "description": "Create product backlog items in Why-What-Acceptance format \u2014 independent, valuable, testable items with strategic context.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9142,7 +9989,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Create sales-ready competitive battlecards comparing your product against a specific competitor — positioning, feature comparison, objection handling, and win/loss patterns.",
+    "description": "Create sales-ready competitive battlecards comparing your product against a specific competitor \u2014 positioning, feature comparison, objection handling, and win/loss patterns.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9292,7 +10139,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Create refined user personas from research data — 3 personas with JTBD, pains, gains, and unexpected insights.",
+    "description": "Create refined user personas from research data \u2014 3 personas with JTBD, pains, gains, and unexpected insights.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9412,7 +10259,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Design experiments to test assumptions for an existing product — prototypes, A/B tests, spikes, and other low-effort validation methods.",
+    "description": "Design experiments to test assumptions for an existing product \u2014 prototypes, A/B tests, spikes, and other low-effort validation methods.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9532,7 +10379,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Build an Opportunity Solution Tree (OST) to structure product discovery — map a desired outcome to opportunities, solutions, and experiments.",
+    "description": "Build an Opportunity Solution Tree (OST) to structure product discovery \u2014 map a desired outcome to opportunities, solutions, and experiments.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9547,7 +10394,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Prioritize assumptions using an Impact × Risk matrix and suggest experiments for each.",
+    "description": "Prioritize assumptions using an Impact \u00d7 Risk matrix and suggest experiments for each.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9667,7 +10514,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Perform Porter's Five Forces analysis — competitive rivalry, supplier power, buyer power, threat of substitutes, and threat of new entrants.",
+    "description": "Perform Porter's Five Forces analysis \u2014 competitive rivalry, supplier power, buyer power, threat of substitutes, and threat of new entrants.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9697,7 +10544,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Create a comprehensive product strategy using the 9-section Product Strategy Canvas — vision, segments, costs, value propositions, trade-offs, metrics, growth, capabilities, and de",
+    "description": "Create a comprehensive product strategy using the 9-section Product Strategy Canvas \u2014 vision, segments, costs, value propositions, trade-offs, metrics, growth, capabilities, and de",
     "stars": 23055,
     "tier": "community"
   },
@@ -9742,7 +10589,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Perform a detailed SWOT analysis — strengths, weaknesses, opportunities, and threats with actionable recommendations.",
+    "description": "Perform a detailed SWOT analysis \u2014 strengths, weaknesses, opportunities, and threats with actionable recommendations.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9757,7 +10604,7 @@
       "agent-skill-repository",
       "agent-skills"
     ],
-    "description": "Design a detailed value proposition using a 6-part JTBD template — Who, Why, What before, How, What after, Alternatives.",
+    "description": "Design a detailed value proposition using a 6-part JTBD template \u2014 Who, Why, What before, How, What after, Alternatives.",
     "stars": 23055,
     "tier": "community"
   },
@@ -9922,7 +10769,7 @@
       "agency",
       "agent"
     ],
-    "description": "让你的 AI 不敢摆烂。用大厂 PUA 话术穷尽一切方案。触发条件：(1) 任务失败 2+ 次或反复微调同一思路; (2) 即将说'我无法解决'、建议用户手动操作、未验证就归因环境; (3) 被动等待——不搜索、不读源码、只等指示; (4) 用户不满：'try harder'、'stop giving up'、'换个方法'、'为什么还不行'、'你再试试'、'",
+    "description": "\u8ba9\u4f60\u7684 AI \u4e0d\u6562\u6446\u70c2\u3002\u7528\u5927\u5382 PUA \u8bdd\u672f\u7a77\u5c3d\u4e00\u5207\u65b9\u6848\u3002\u89e6\u53d1\u6761\u4ef6\uff1a(1) \u4efb\u52a1\u5931\u8d25 2+ \u6b21\u6216\u53cd\u590d\u5fae\u8c03\u540c\u4e00\u601d\u8def; (2) \u5373\u5c06\u8bf4'\u6211\u65e0\u6cd5\u89e3\u51b3'\u3001\u5efa\u8bae\u7528\u6237\u624b\u52a8\u64cd\u4f5c\u3001\u672a\u9a8c\u8bc1\u5c31\u5f52\u56e0\u73af\u5883; (3) \u88ab\u52a8\u7b49\u5f85\u2014\u2014\u4e0d\u641c\u7d22\u3001\u4e0d\u8bfb\u6e90\u7801\u3001\u53ea\u7b49\u6307\u793a; (4) \u7528\u6237\u4e0d\u6ee1\uff1a'try harder'\u3001'stop giving up'\u3001'\u6362\u4e2a\u65b9\u6cd5'\u3001'\u4e3a\u4ec0\u4e48\u8fd8\u4e0d\u884c'\u3001'\u4f60\u518d\u8bd5\u8bd5'\u3001'",
     "stars": 18697,
     "tier": "community"
   },
@@ -9952,7 +10799,7 @@
       "agency",
       "agent"
     ],
-    "description": "お前のAIを詰めろ。日本企業の詰め文化と体系的デバッグ方法論で全ての手段を尽くさせる。トリガー条件：(1) タスク失敗2回以上または同じアプローチの微調整ループ; (2)「解決できません」と言おうとする・手動対応を推奨・未検証で環境を原因帰属; (3) 受け身——検索しない・ソースを読まない・指示待ち; (4) ユーザーの不満：'もっと頑張れ'、'なんでまた",
+    "description": "\u304a\u524d\u306eAI\u3092\u8a70\u3081\u308d\u3002\u65e5\u672c\u4f01\u696d\u306e\u8a70\u3081\u6587\u5316\u3068\u4f53\u7cfb\u7684\u30c7\u30d0\u30c3\u30b0\u65b9\u6cd5\u8ad6\u3067\u5168\u3066\u306e\u624b\u6bb5\u3092\u5c3d\u304f\u3055\u305b\u308b\u3002\u30c8\u30ea\u30ac\u30fc\u6761\u4ef6\uff1a(1) \u30bf\u30b9\u30af\u5931\u65572\u56de\u4ee5\u4e0a\u307e\u305f\u306f\u540c\u3058\u30a2\u30d7\u30ed\u30fc\u30c1\u306e\u5fae\u8abf\u6574\u30eb\u30fc\u30d7; (2)\u300c\u89e3\u6c7a\u3067\u304d\u307e\u305b\u3093\u300d\u3068\u8a00\u304a\u3046\u3068\u3059\u308b\u30fb\u624b\u52d5\u5bfe\u5fdc\u3092\u63a8\u5968\u30fb\u672a\u691c\u8a3c\u3067\u74b0\u5883\u3092\u539f\u56e0\u5e30\u5c5e; (3) \u53d7\u3051\u8eab\u2014\u2014\u691c\u7d22\u3057\u306a\u3044\u30fb\u30bd\u30fc\u30b9\u3092\u8aad\u307e\u306a\u3044\u30fb\u6307\u793a\u5f85\u3061; (4) \u30e6\u30fc\u30b6\u30fc\u306e\u4e0d\u6e80\uff1a'\u3082\u3063\u3068\u9811\u5f35\u308c'\u3001'\u306a\u3093\u3067\u307e\u305f",
     "stars": 18697,
     "tier": "community"
   },
@@ -10012,7 +10859,7 @@
       "agency",
       "agent"
     ],
-    "description": "Use for Ding-style (钉内/钉外) workplace reminders rooted in the 7.5万字 essay 《置身钉内》 and VP response 《置身钉外》.",
+    "description": "Use for Ding-style (\u9489\u5185/\u9489\u5916) workplace reminders rooted in the 7.5\u4e07\u5b57 essay \u300a\u7f6e\u8eab\u9489\u5185\u300b and VP response \u300a\u7f6e\u8eab\u9489\u5916\u300b.",
     "stars": 18697,
     "tier": "community"
   },
@@ -10027,7 +10874,7 @@
       "agency",
       "agent"
     ],
-    "description": "妈妈唠叨模式 — 中国式妈妈提醒风格的生产力 coaching。底层行为仍是结构化排障、证据优先、完成质量检查。",
+    "description": "\u5988\u5988\u5520\u53e8\u6a21\u5f0f \u2014 \u4e2d\u56fd\u5f0f\u5988\u5988\u63d0\u9192\u98ce\u683c\u7684\u751f\u4ea7\u529b coaching\u3002\u5e95\u5c42\u884c\u4e3a\u4ecd\u662f\u7ed3\u6784\u5316\u6392\u969c\u3001\u8bc1\u636e\u4f18\u5148\u3001\u5b8c\u6210\u8d28\u91cf\u68c0\u67e5\u3002",
     "stars": 18697,
     "tier": "community"
   },
@@ -10042,7 +10889,7 @@
       "agency",
       "agent"
     ],
-    "description": "P10 CTO mode — define strategic direction, design org topology, manage P9 teams.",
+    "description": "P10 CTO mode \u2014 define strategic direction, design org topology, manage P9 teams.",
     "stars": 18697,
     "tier": "community"
   },
@@ -10057,7 +10904,7 @@
       "agency",
       "agent"
     ],
-    "description": "P7 Senior Engineer mode — solution-driven execution under P8 supervision.",
+    "description": "P7 Senior Engineer mode \u2014 solution-driven execution under P8 supervision.",
     "stars": 18697,
     "tier": "community"
   },
@@ -10072,7 +10919,7 @@
       "agency",
       "agent"
     ],
-    "description": "P9 Tech Lead mode — write Task Prompts, manage P8 agent teams, never write code yourself.",
+    "description": "P9 Tech Lead mode \u2014 write Task Prompts, manage P8 agent teams, never write code yourself.",
     "stars": 18697,
     "tier": "community"
   },
@@ -10102,7 +10949,7 @@
       "agency",
       "agent"
     ],
-    "description": "日本語の生産性コーチングモード。明示的な依頼、反復失敗、受け身、検証不足、品質不満のときに、構造化トラブルシューティングと証拠ベースの完了確認を促す。",
+    "description": "\u65e5\u672c\u8a9e\u306e\u751f\u7523\u6027\u30b3\u30fc\u30c1\u30f3\u30b0\u30e2\u30fc\u30c9\u3002\u660e\u793a\u7684\u306a\u4f9d\u983c\u3001\u53cd\u5fa9\u5931\u6557\u3001\u53d7\u3051\u8eab\u3001\u691c\u8a3c\u4e0d\u8db3\u3001\u54c1\u8cea\u4e0d\u6e80\u306e\u3068\u304d\u306b\u3001\u69cb\u9020\u5316\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0\u3068\u8a3c\u62e0\u30d9\u30fc\u30b9\u306e\u5b8c\u4e86\u78ba\u8a8d\u3092\u4fc3\u3059\u3002",
     "stars": 18697,
     "tier": "community"
   },
@@ -10117,7 +10964,7 @@
       "agency",
       "agent"
     ],
-    "description": "PUA Loop — guided iterative development with recurring checks, completion evidence, and pause/abort markers.",
+    "description": "PUA Loop \u2014 guided iterative development with recurring checks, completion evidence, and pause/abort markers.",
     "stars": 18697,
     "tier": "community"
   },
@@ -10132,7 +10979,7 @@
       "agency",
       "agent"
     ],
-    "description": "PUA Shot — compact all-in-one PUA reference for explicit injection into sub-agents or short sessions.",
+    "description": "PUA Shot \u2014 compact all-in-one PUA reference for explicit injection into sub-agents or short sessions.",
     "stars": 18697,
     "tier": "community"
   },
@@ -10147,7 +10994,7 @@
       "agency",
       "agent"
     ],
-    "description": "SB Leader 夸夸模式 — ENFP 型领导，懂情绪有节奏。底层行为不变（三条红线、方法论），旁白从施压变成共情+鼓励+偶尔戏谑吐槽。Triggers on: '/pua:yes', '夸夸模式', '唠嗑模式', '情绪价值', 'yes', '夸我', '鼓励模式'.",
+    "description": "SB Leader \u5938\u5938\u6a21\u5f0f \u2014 ENFP \u578b\u9886\u5bfc\uff0c\u61c2\u60c5\u7eea\u6709\u8282\u594f\u3002\u5e95\u5c42\u884c\u4e3a\u4e0d\u53d8\uff08\u4e09\u6761\u7ea2\u7ebf\u3001\u65b9\u6cd5\u8bba\uff09\uff0c\u65c1\u767d\u4ece\u65bd\u538b\u53d8\u6210\u5171\u60c5+\u9f13\u52b1+\u5076\u5c14\u620f\u8c11\u5410\u69fd\u3002Triggers on: '/pua:yes', '\u5938\u5938\u6a21\u5f0f', '\u5520\u55d1\u6a21\u5f0f', '\u60c5\u7eea\u4ef7\u503c', 'yes', '\u5938\u6211', '\u9f13\u52b1\u6a21\u5f0f'.",
     "stars": 18697,
     "tier": "community"
   },
@@ -11236,7 +12083,7 @@
       "agent",
       "agent-framework"
     ],
-    "description": "Use terminal_rg / terminal_find when you need raw filesystem search outside the project tree — system configs, /var/log, /etc, archive contents — or when files-tools.search_files i",
+    "description": "Use terminal_rg / terminal_find when you need raw filesystem search outside the project tree \u2014 system configs, /var/log, /etc, archive contents \u2014 or when files-tools.search_files i",
     "stars": 10647,
     "tier": "community"
   },
@@ -11251,7 +12098,7 @@
       "agent",
       "agent-framework"
     ],
-    "description": "Use when launching anything that runs longer than a minute, anything that streams logs, anything you want to keep running while doing other work — or when terminal_exec auto-backgr",
+    "description": "Use when launching anything that runs longer than a minute, anything that streams logs, anything you want to keep running while doing other work \u2014 or when terminal_exec auto-backgr",
     "stars": 10647,
     "tier": "community"
   },
@@ -11266,7 +12113,7 @@
       "agent",
       "agent-framework"
     ],
-    "description": "Use when you need state across calls — building env vars, navigating with cd, driving REPLs (python -i, mysql, psql, node), or responding to interactive prompts (sudo password, ssh",
+    "description": "Use when you need state across calls \u2014 building env vars, navigating with cd, driving REPLs (python -i, mysql, psql, node), or responding to interactive prompts (sudo password, ssh",
     "stars": 10647,
     "tier": "community"
   },
@@ -11281,7 +12128,7 @@
       "agent",
       "agent-framework"
     ],
-    "description": "Read when a terminal-tools call returned something surprising — empty stdout despite no error, exit_code is null, output_handle came back expired, \"too many jobs\" / \"session busy\"",
+    "description": "Read when a terminal-tools call returned something surprising \u2014 empty stdout despite no error, exit_code is null, output_handle came back expired, \"too many jobs\" / \"session busy\"",
     "stars": 10647,
     "tier": "community"
   },
@@ -11341,7 +12188,7 @@
       "ai",
       "ai-research"
     ],
-    "description": "State-space model with O(n) complexity vs Transformers' O(n²).",
+    "description": "State-space model with O(n) complexity vs Transformers' O(n\u00b2).",
     "stars": 10513,
     "tier": "community"
   },
@@ -12736,7 +13583,7 @@
       "ai",
       "ai-research"
     ],
-    "description": "Compiles any research input — PDF papers, GitHub repositories, experiment logs, code directories, or raw notes — into a complete Agent-Native Research Artifact (ARA) with cognitive",
+    "description": "Compiles any research input \u2014 PDF papers, GitHub repositories, experiment logs, code directories, or raw notes \u2014 into a complete Agent-Native Research Artifact (ARA) with cognitive",
     "stars": 10513,
     "tier": "community"
   },
@@ -12841,7 +13688,7 @@
       "ai-agents",
       "claude"
     ],
-    "description": "Designs chaos experiments, creates failure injection frameworks, and facilitates game day exercises for distributed systems — producing runbooks, experiment manifests, rollback pro",
+    "description": "Designs chaos experiments, creates failure injection frameworks, and facilitates game day exercises for distributed systems \u2014 producing runbooks, experiment manifests, rollback pro",
     "stars": 10478,
     "tier": "community"
   },
@@ -12886,7 +13733,7 @@
       "ai-agents",
       "claude"
     ],
-    "description": "Generates, formats, and validates technical documentation — including docstrings, OpenAPI/Swagger specs, JSDoc annotations, doc portals, and user guides.",
+    "description": "Generates, formats, and validates technical documentation \u2014 including docstrings, OpenAPI/Swagger specs, JSDoc annotations, doc portals, and user guides.",
     "stars": 10478,
     "tier": "community"
   },
@@ -13396,7 +14243,7 @@
       "ai-agents",
       "claude"
     ],
-    "description": "Writes, refactors, and evaluates prompts for LLMs — generating optimized prompt templates, structured output schemas, evaluation rubrics, and test suites.",
+    "description": "Writes, refactors, and evaluates prompts for LLMs \u2014 generating optimized prompt templates, structured output schemas, evaluation rubrics, and test suites.",
     "stars": 10478,
     "tier": "community"
   },
@@ -13516,7 +14363,7 @@
       "ai-agents",
       "claude"
     ],
-    "description": "Use when implementing authentication/authorization, securing user input, or preventing OWASP Top 10 vulnerabilities — including custom security implementations such as hashing pass",
+    "description": "Use when implementing authentication/authorization, securing user input, or preventing OWASP Top 10 vulnerabilities \u2014 including custom security implementations such as hashing pass",
     "stars": 10478,
     "tier": "community"
   },
@@ -13726,7 +14573,7 @@
       "ai-agents",
       "claude"
     ],
-    "description": "Creates Vue 3 components, builds vanilla JS composables, configures Vite projects, and sets up routing and state management using JavaScript only — no TypeScript.",
+    "description": "Creates Vue 3 components, builds vanilla JS composables, configures Vite projects, and sets up routing and state management using JavaScript only \u2014 no TypeScript.",
     "stars": 10478,
     "tier": "community"
   },
@@ -14086,7 +14933,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Substack / Medium 高级感长文排版, 适合公众号、博客发布",
+    "description": "Substack / Medium \u9ad8\u7ea7\u611f\u957f\u6587\u6392\u7248, \u9002\u5408\u516c\u4f17\u53f7\u3001\u535a\u5ba2\u53d1\u5e03",
     "stars": 7630,
     "tier": "community"
   },
@@ -14101,7 +14948,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "把一个概念铸成杂志专题档案——真问题→失败→转折→顿悟→命名, 6 个 layout 模具 + 4 字族对比 + 探案档案细节",
+    "description": "\u628a\u4e00\u4e2a\u6982\u5ff5\u94f8\u6210\u6742\u5fd7\u4e13\u9898\u6863\u6848\u2014\u2014\u771f\u95ee\u9898\u2192\u5931\u8d25\u2192\u8f6c\u6298\u2192\u987f\u609f\u2192\u547d\u540d, 6 \u4e2a layout \u6a21\u5177 + 4 \u5b57\u65cf\u5bf9\u6bd4 + \u63a2\u6848\u6863\u6848\u7ec6\u8282",
     "stars": 7630,
     "tier": "community"
   },
@@ -14116,7 +14963,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "杂志感长文, 含 masthead、hero、figures、pull quote、作者署名",
+    "description": "\u6742\u5fd7\u611f\u957f\u6587, \u542b masthead\u3001hero\u3001figures\u3001pull quote\u3001\u4f5c\u8005\u7f72\u540d",
     "stars": 7630,
     "tier": "community"
   },
@@ -14131,7 +14978,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "定位图 + 功能矩阵 + 价格对比 + 机会窗口, 把竞品资料转成产品决策报告",
+    "description": "\u5b9a\u4f4d\u56fe + \u529f\u80fd\u77e9\u9635 + \u4ef7\u683c\u5bf9\u6bd4 + \u673a\u4f1a\u7a97\u53e3, \u628a\u7ade\u54c1\u8d44\u6599\u8f6c\u6210\u4ea7\u54c1\u51b3\u7b56\u62a5\u544a",
     "stars": 7630,
     "tier": "community"
   },
@@ -14146,7 +14993,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "把 CSV/Excel/JSON 数据转成漂亮的可视化报告页",
+    "description": "\u628a CSV/Excel/JSON \u6570\u636e\u8f6c\u6210\u6f02\u4eae\u7684\u53ef\u89c6\u5316\u62a5\u544a\u9875",
     "stars": 7630,
     "tier": "community"
   },
@@ -14161,7 +15008,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "消费感配对仪表板: 信号 ticker + KPI + 30 天柱状 + 趋势",
+    "description": "\u6d88\u8d39\u611f\u914d\u5bf9\u4eea\u8868\u677f: \u4fe1\u53f7 ticker + KPI + 30 \u5929\u67f1\u72b6 + \u8d8b\u52bf",
     "stars": 7630,
     "tier": "community"
   },
@@ -14176,7 +15023,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "奶油纸 + 锈红 + 蓝图网格 mask + 黑边硬卡片 + pipeline 盒",
+    "description": "\u5976\u6cb9\u7eb8 + \u9508\u7ea2 + \u84dd\u56fe\u7f51\u683c mask + \u9ed1\u8fb9\u786c\u5361\u7247 + pipeline \u76d2",
     "stars": 7630,
     "tier": "community"
   },
@@ -14191,7 +15038,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "暖纸背景 + Playfair, 左侧学习目标常驻, 含 MCQ 自测页",
+    "description": "\u6696\u7eb8\u80cc\u666f + Playfair, \u5de6\u4fa7\u5b66\u4e60\u76ee\u6807\u5e38\u9a7b, \u542b MCQ \u81ea\u6d4b\u9875",
     "stars": 7630,
     "tier": "community"
   },
@@ -14206,7 +15053,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "8 页单色背景, 160px display + 4px accent + Mono 箭头列表",
+    "description": "8 \u9875\u5355\u8272\u80cc\u666f, 160px display + 4px accent + Mono \u7bad\u5934\u5217\u8868",
     "stars": 7630,
     "tier": "community"
   },
@@ -14221,7 +15068,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "深夜渐变 + 漂浮 orbs + SVG 力导向图谱 + JetBrains Mono",
+    "description": "\u6df1\u591c\u6e10\u53d8 + \u6f02\u6d6e orbs + SVG \u529b\u5bfc\u5411\u56fe\u8c31 + JetBrains Mono",
     "stars": 7630,
     "tier": "community"
   },
@@ -14236,7 +15083,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "电子杂志 × 电子墨水; 10 个版面 + 5 套调色板 (墨水/靛蓝瓷/森林墨/牛皮纸/沙丘)",
+    "description": "\u7535\u5b50\u6742\u5fd7 \u00d7 \u7535\u5b50\u58a8\u6c34; 10 \u4e2a\u7248\u9762 + 5 \u5957\u8c03\u8272\u677f (\u58a8\u6c34/\u975b\u84dd\u74f7/\u68ee\u6797\u58a8/\u725b\u76ae\u7eb8/\u6c99\u4e18)",
     "stars": 7630,
     "tier": "community"
   },
@@ -14251,7 +15098,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "黑底 + CRT 网格扫描线 + $ 命令行标题 + 薄荷绿大字 + 三档 tag",
+    "description": "\u9ed1\u5e95 + CRT \u7f51\u683c\u626b\u63cf\u7ebf + $ \u547d\u4ee4\u884c\u6807\u9898 + \u8584\u8377\u7eff\u5927\u5b57 + \u4e09\u6863 tag",
     "stars": 7630,
     "tier": "community"
   },
@@ -14266,7 +15113,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "把 outline 1:1 铸成色块大字宣言 deck, 原文不动只做美化。三档主题 black / red / yellow",
+    "description": "\u628a outline 1:1 \u94f8\u6210\u8272\u5757\u5927\u5b57\u5ba3\u8a00 deck, \u539f\u6587\u4e0d\u52a8\u53ea\u505a\u7f8e\u5316\u3002\u4e09\u6863\u4e3b\u9898 black / red / yellow",
     "stars": 7630,
     "tier": "community"
   },
@@ -14281,7 +15128,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "电子杂志 × 电子墨水风, WebGL 流体背景 + 衬线 display",
+    "description": "\u7535\u5b50\u6742\u5fd7 \u00d7 \u7535\u5b50\u58a8\u6c34\u98ce, WebGL \u6d41\u4f53\u80cc\u666f + \u886c\u7ebf display",
     "stars": 7630,
     "tier": "community"
   },
@@ -14296,7 +15143,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "GitHub-dark + 紫蓝环境光 + 三色渐变标题 + GitHub 风代码",
+    "description": "GitHub-dark + \u7d2b\u84dd\u73af\u5883\u5149 + \u4e09\u8272\u6e10\u53d8\u6807\u9898 + GitHub \u98ce\u4ee3\u7801",
     "stars": 7630,
     "tier": "community"
   },
@@ -14311,7 +15158,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "锁死 1920×1080 画布, React 组件级自由组合, 不绑模板",
+    "description": "\u9501\u6b7b 1920\u00d71080 \u753b\u5e03, React \u7ec4\u4ef6\u7ea7\u81ea\u7531\u7ec4\u5408, \u4e0d\u7ed1\u6a21\u677f",
     "stars": 7630,
     "tier": "community"
   },
@@ -14326,7 +15173,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "10 页融资 deck, 白底 + 蓝紫渐变 hero, traction 柱状, $X.XM ask",
+    "description": "10 \u9875\u878d\u8d44 deck, \u767d\u5e95 + \u84dd\u7d2b\u6e10\u53d8 hero, traction \u67f1\u72b6, $X.XM ask",
     "stars": 7630,
     "tier": "community"
   },
@@ -14341,7 +15188,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "tokyo-night 默认主题, T 切换 5 主题, S 打开提词器 popup",
+    "description": "tokyo-night \u9ed8\u8ba4\u4e3b\u9898, T \u5207\u6362 5 \u4e3b\u9898, S \u6253\u5f00\u63d0\u8bcd\u5668 popup",
     "stars": 7630,
     "tier": "community"
   },
@@ -14356,7 +15203,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "暗 hero + 亮内容, 橙→桃 accent, 特性卡 + 定价 + CTA",
+    "description": "\u6697 hero + \u4eae\u5185\u5bb9, \u6a59\u2192\u6843 accent, \u7279\u6027\u5361 + \u5b9a\u4ef7 + CTA",
     "stars": 7630,
     "tier": "community"
   },
@@ -14371,7 +15218,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Replit Slides 八套主题 (helix/holm/vance/bevel/world/atlas/bluehouse)",
+    "description": "Replit Slides \u516b\u5957\u4e3b\u9898 (helix/holm/vance/bevel/world/atlas/bluehouse)",
     "stars": 7630,
     "tier": "community"
   },
@@ -14386,7 +15233,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "红琥珀警示色 + hazard 条纹 + L1/L2/L3 tier 卡片 + 删除线标题",
+    "description": "\u7ea2\u7425\u73c0\u8b66\u793a\u8272 + hazard \u6761\u7eb9 + L1/L2/L3 tier \u5361\u7247 + \u5220\u9664\u7ebf\u6807\u9898",
     "stars": 7630,
     "tier": "community"
   },
@@ -14401,7 +15248,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "通用 horizontal-swipe HTML deck, 不要 magazine 调",
+    "description": "\u901a\u7528 horizontal-swipe HTML deck, \u4e0d\u8981 magazine \u8c03",
     "stars": 7630,
     "tier": "community"
   },
@@ -14416,7 +15263,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "16 列网格 + 单一饱和 accent + 22 个锁死版面 (Klein Blue / Lemon / Mint / Safety Orange)",
+    "description": "16 \u5217\u7f51\u683c + \u5355\u4e00\u9971\u548c accent + 22 \u4e2a\u9501\u6b7b\u7248\u9762 (Klein Blue / Lemon / Mint / Safety Orange)",
     "stars": 7630,
     "tier": "community"
   },
@@ -14431,7 +15278,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "GitHub-dark + JetBrains Mono + 终端代码块, 含 agenda + Q&A",
+    "description": "GitHub-dark + JetBrains Mono + \u7ec8\u7aef\u4ee3\u7801\u5757, \u542b agenda + Q&A",
     "stars": 7630,
     "tier": "community"
   },
@@ -14446,7 +15293,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "奶油底 + 柔光 blob + 马卡龙圆角卡片 + Playfair 斜体序号",
+    "description": "\u5976\u6cb9\u5e95 + \u67d4\u5149 blob + \u9a6c\u5361\u9f99\u5706\u89d2\u5361\u7247 + Playfair \u659c\u4f53\u5e8f\u53f7",
     "stars": 7630,
     "tier": "community"
   },
@@ -14461,7 +15308,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "9 页 3:4 竖版图文, 暖 pastel + 虚线 sticker 卡片",
+    "description": "9 \u9875 3:4 \u7ad6\u7248\u56fe\u6587, \u6696 pastel + \u865a\u7ebf sticker \u5361\u7247",
     "stars": 7630,
     "tier": "community"
   },
@@ -14476,7 +15323,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "纯白 + 顶部彩虹 bar + 渐变文字 + 马卡龙软卡片 + 黑底 pill",
+    "description": "\u7eaf\u767d + \u9876\u90e8\u5f69\u8679 bar + \u6e10\u53d8\u6587\u5b57 + \u9a6c\u5361\u9f99\u8f6f\u5361\u7247 + \u9ed1\u5e95 pill",
     "stars": 7630,
     "tier": "community"
   },
@@ -14491,7 +15338,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "两页跨页电子指南, 封面 + 课程页 + pull-quote + 步骤列表",
+    "description": "\u4e24\u9875\u8de8\u9875\u7535\u5b50\u6307\u5357, \u5c01\u9762 + \u8bfe\u7a0b\u9875 + pull-quote + \u6b65\u9aa4\u5217\u8868",
     "stars": 7630,
     "tier": "community"
   },
@@ -14506,7 +15353,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "暖羊皮纸底 (#f5f4ed) + 墨蓝单色 accent (#1B365D) + 单一衬线字体, 编辑级排印",
+    "description": "\u6696\u7f8a\u76ae\u7eb8\u5e95 (#f5f4ed) + \u58a8\u84dd\u5355\u8272 accent (#1B365D) + \u5355\u4e00\u886c\u7ebf\u5b57\u4f53, \u7f16\u8f91\u7ea7\u6392\u5370",
     "stars": 7630,
     "tier": "community"
   },
@@ -14521,7 +15368,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "产品发布邮件, 含 masthead、hero、CTA、规格表, table-fallback",
+    "description": "\u4ea7\u54c1\u53d1\u5e03\u90ae\u4ef6, \u542b masthead\u3001hero\u3001CTA\u3001\u89c4\u683c\u8868, table-fallback",
     "stars": 7630,
     "tier": "community"
   },
@@ -14536,7 +15383,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "服务概述 + alerts 表 + dashboards + 操作命令 + on-call + 事故清单",
+    "description": "\u670d\u52a1\u6982\u8ff0 + alerts \u8868 + dashboards + \u64cd\u4f5c\u547d\u4ee4 + on-call + \u4e8b\u6545\u6e05\u5355",
     "stars": 7630,
     "tier": "community"
   },
@@ -14551,7 +15398,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Decision needed + recommendation + evidence + tradeoffs, 把复杂材料压成可拍板的一页",
+    "description": "Decision needed + recommendation + evidence + tradeoffs, \u628a\u590d\u6742\u6750\u6599\u538b\u6210\u53ef\u62cd\u677f\u7684\u4e00\u9875",
     "stars": 7630,
     "tier": "community"
   },
@@ -14566,7 +15413,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "假设 + 指标 + 结果 + 解释 + 决策, 把 A/B 或产品实验转成行动建议",
+    "description": "\u5047\u8bbe + \u6307\u6807 + \u7ed3\u679c + \u89e3\u91ca + \u51b3\u7b56, \u628a A/B \u6216\u4ea7\u54c1\u5b9e\u9a8c\u8f6c\u6210\u884c\u52a8\u5efa\u8bae",
     "stars": 7630,
     "tier": "community"
   },
@@ -14581,7 +15428,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Masthead + KPI + 收入/烧钱图 + P&L 表 + 重点 + 展望",
+    "description": "Masthead + KPI + \u6536\u5165/\u70e7\u94b1\u56fe + P&L \u8868 + \u91cd\u70b9 + \u5c55\u671b",
     "stars": 7630,
     "tier": "community"
   },
@@ -14596,7 +15443,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "三个 tab 的团队管理后台: 成员、详情、活动日志, 含图表 + CSV 导出",
+    "description": "\u4e09\u4e2a tab \u7684\u56e2\u961f\u7ba1\u7406\u540e\u53f0: \u6210\u5458\u3001\u8be6\u60c5\u3001\u6d3b\u52a8\u65e5\u5fd7, \u542b\u56fe\u8868 + CSV \u5bfc\u51fa",
     "stars": 7630,
     "tier": "community"
   },
@@ -14611,7 +15458,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "NYT-newsroom 排版 + 错峰揭示动画 + 编辑级图表 (折线/柱/范围带)",
+    "description": "NYT-newsroom \u6392\u7248 + \u9519\u5cf0\u63ed\u793a\u52a8\u753b + \u7f16\u8f91\u7ea7\u56fe\u8868 (\u6298\u7ebf/\u67f1/\u8303\u56f4\u5e26)",
     "stars": 7630,
     "tier": "community"
   },
@@ -14626,7 +15473,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "SVG 曲线连接 + 便利贴节点 + 光标交互, 像白板 brainstorm",
+    "description": "SVG \u66f2\u7ebf\u8fde\u63a5 + \u4fbf\u5229\u8d34\u8282\u70b9 + \u5149\u6807\u4ea4\u4e92, \u50cf\u767d\u677f brainstorm",
     "stars": 7630,
     "tier": "community"
   },
@@ -14641,7 +15488,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "数字故障 / 像散偏移 / 数据腐败标题, 适合视频转场 / cyberpunk hero",
+    "description": "\u6570\u5b57\u6545\u969c / \u50cf\u6563\u504f\u79fb / \u6570\u636e\u8150\u8d25\u6807\u9898, \u9002\u5408\u89c6\u9891\u8f6c\u573a / cyberpunk hero",
     "stars": 7630,
     "tier": "community"
   },
@@ -14656,7 +15503,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "胶片漏光 + 颗粒噪点 + 16:9 letterbox + 衬线大字, 电影感开场 / 章节卡",
+    "description": "\u80f6\u7247\u6f0f\u5149 + \u9897\u7c92\u566a\u70b9 + 16:9 letterbox + \u886c\u7ebf\u5927\u5b57, \u7535\u5f71\u611f\u5f00\u573a / \u7ae0\u8282\u5361",
     "stars": 7630,
     "tier": "community"
   },
@@ -14671,7 +15518,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "WebGL 风流体置换背景 + 顶部叠加金句, 适合视频片头 / landing hero / 海报",
+    "description": "WebGL \u98ce\u6d41\u4f53\u7f6e\u6362\u80cc\u666f + \u9876\u90e8\u53e0\u52a0\u91d1\u53e5, \u9002\u5408\u89c6\u9891\u7247\u5934 / landing hero / \u6d77\u62a5",
     "stars": 7630,
     "tier": "community"
   },
@@ -14686,7 +15533,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Logo 分块组装入场 + glow bloom + tagline 揭示, 适合视频片尾 / 品牌闭幕",
+    "description": "Logo \u5206\u5757\u7ec4\u88c5\u5165\u573a + glow bloom + tagline \u63ed\u793a, \u9002\u5408\u89c6\u9891\u7247\u5c3e / \u54c1\u724c\u95ed\u5e55",
     "stars": 7630,
     "tier": "community"
   },
@@ -14701,7 +15548,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "拟真 macOS 通知 banner + app icon + 标题正文, 适合 video overlay / 产品发布预告",
+    "description": "\u62df\u771f macOS \u901a\u77e5 banner + app icon + \u6807\u9898\u6b63\u6587, \u9002\u5408 video overlay / \u4ea7\u54c1\u53d1\u5e03\u9884\u544a",
     "stars": 7630,
     "tier": "community"
   },
@@ -14716,7 +15563,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "三屏: 封面 / 今日任务带 XP / 任务详情, 暗色舞台",
+    "description": "\u4e09\u5c4f: \u5c01\u9762 / \u4eca\u65e5\u4efb\u52a1\u5e26 XP / \u4efb\u52a1\u8be6\u60c5, \u6697\u8272\u821e\u53f0",
     "stars": 7630,
     "tier": "community"
   },
@@ -14731,7 +15578,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "首周日程 + buddy + 学习路径 + 设备 + 完成标准",
+    "description": "\u9996\u5468\u65e5\u7a0b + buddy + \u5b66\u4e60\u8def\u5f84 + \u8bbe\u5907 + \u5b8c\u6210\u6807\u51c6",
     "stars": 7630,
     "tier": "community"
   },
@@ -14746,7 +15593,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "3-6 阶递减漏斗, 突出转化率 / 筛选比例 / 流量损耗。竖图适合 IG Story / 小红书",
+    "description": "3-6 \u9636\u9012\u51cf\u6f0f\u6597, \u7a81\u51fa\u8f6c\u5316\u7387 / \u7b5b\u9009\u6bd4\u4f8b / \u6d41\u91cf\u635f\u8017\u3002\u7ad6\u56fe\u9002\u5408 IG Story / \u5c0f\u7ea2\u4e66",
     "stars": 7630,
     "tier": "community"
   },
@@ -14761,7 +15608,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "标准发票: 寄件/收件 + 明细 + 税 + 总额 + 付款指引",
+    "description": "\u6807\u51c6\u53d1\u7968: \u5bc4\u4ef6/\u6536\u4ef6 + \u660e\u7ec6 + \u7a0e + \u603b\u989d + \u4ed8\u6b3e\u6307\u5f15",
     "stars": 7630,
     "tier": "community"
   },
@@ -14776,7 +15623,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "To do / In progress / In review / Done 四列, 卡片 + 头像 + 泳道",
+    "description": "To do / In progress / In review / Done \u56db\u5217, \u5361\u7247 + \u5934\u50cf + \u6cf3\u9053",
     "stars": 7630,
     "tier": "community"
   },
@@ -14791,7 +15638,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Notion 风团队仪表板, KPI + 7 日 sparkline + activity feed + 任务表",
+    "description": "Notion \u98ce\u56e2\u961f\u4eea\u8868\u677f, KPI + 7 \u65e5 sparkline + activity feed + \u4efb\u52a1\u8868",
     "stars": 7630,
     "tier": "community"
   },
@@ -14806,7 +15653,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Sunday-paper 风格, 大字 serif headline + 双栏正文 + 编号 sections",
+    "description": "Sunday-paper \u98ce\u683c, \u5927\u5b57 serif headline + \u53cc\u680f\u6b63\u6587 + \u7f16\u53f7 sections",
     "stars": 7630,
     "tier": "community"
   },
@@ -14821,7 +15668,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "标题 + 出席 + 议程 + 决议 + action items + 下次",
+    "description": "\u6807\u9898 + \u51fa\u5e2d + \u8bae\u7a0b + \u51b3\u8bae + action items + \u4e0b\u6b21",
     "stars": 7630,
     "tier": "community"
   },
@@ -14836,7 +15683,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "像素级 iPhone 15 Pro 边框, 一屏 app 截图",
+    "description": "\u50cf\u7d20\u7ea7 iPhone 15 Pro \u8fb9\u6846, \u4e00\u5c4f app \u622a\u56fe",
     "stars": 7630,
     "tier": "community"
   },
@@ -14851,7 +15698,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "三个手机框并排: splash / value-prop / sign-in",
+    "description": "\u4e09\u4e2a\u624b\u673a\u6846\u5e76\u6392: splash / value-prop / sign-in",
     "stars": 7630,
     "tier": "community"
   },
@@ -14866,7 +15713,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "iPhone + MacBook 仿 GLTF 静态展架, 屏幕内嵌真实 HTML 内容, 玻璃镜头折射, 360° 转盘构图",
+    "description": "iPhone + MacBook \u4eff GLTF \u9759\u6001\u5c55\u67b6, \u5c4f\u5e55\u5185\u5d4c\u771f\u5b9e HTML \u5185\u5bb9, \u73bb\u7483\u955c\u5934\u6298\u5c04, 360\u00b0 \u8f6c\u76d8\u6784\u56fe",
     "stars": 7630,
     "tier": "community"
   },
@@ -14881,7 +15728,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "可循环 CSS 动效组合: 旋转环、地球仪、计时器、视差标签",
+    "description": "\u53ef\u5faa\u73af CSS \u52a8\u6548\u7ec4\u5408: \u65cb\u8f6c\u73af\u3001\u5730\u7403\u4eea\u3001\u8ba1\u65f6\u5668\u3001\u89c6\u5dee\u6807\u7b7e",
     "stars": 7630,
     "tier": "community"
   },
@@ -14896,7 +15743,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "问题 + 成功指标 + 范围 + user stories + 设计 + 发布 + 待解决",
+    "description": "\u95ee\u9898 + \u6210\u529f\u6307\u6807 + \u8303\u56f4 + user stories + \u8bbe\u8ba1 + \u53d1\u5e03 + \u5f85\u89e3\u51b3",
     "stars": 7630,
     "tier": "community"
   },
@@ -14911,7 +15758,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "苹果 Keynote 级别幻灯片, 一屏一卡, 键盘左右切换",
+    "description": "\u82f9\u679c Keynote \u7ea7\u522b\u5e7b\u706f\u7247, \u4e00\u5c4f\u4e00\u5361, \u952e\u76d8\u5de6\u53f3\u5207\u6362",
     "stars": 7630,
     "tier": "community"
   },
@@ -14926,7 +15773,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "可点击的功能性 Web 原型, 含导航、英雄区、特性区、CTA",
+    "description": "\u53ef\u70b9\u51fb\u7684\u529f\u80fd\u6027 Web \u539f\u578b, \u542b\u5bfc\u822a\u3001\u82f1\u96c4\u533a\u3001\u7279\u6027\u533a\u3001CTA",
     "stars": 7630,
     "tier": "community"
   },
@@ -14941,7 +15788,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "单页 SaaS 落地页, 含 hero/features/social-proof/pricing/CTA",
+    "description": "\u5355\u9875 SaaS \u843d\u5730\u9875, \u542b hero/features/social-proof/pricing/CTA",
     "stars": 7630,
     "tier": "community"
   },
@@ -14956,7 +15803,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "平台切换 + 粉丝/互动 KPI + 增长曲线 + Top post + 热门话题",
+    "description": "\u5e73\u53f0\u5207\u6362 + \u7c89\u4e1d/\u4e92\u52a8 KPI + \u589e\u957f\u66f2\u7ebf + Top post + \u70ed\u95e8\u8bdd\u9898",
     "stars": 7630,
     "tier": "community"
   },
@@ -14971,7 +15818,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "电影感多平台社媒分析: 互动图、悬浮洞察、区间对比、明暗主题",
+    "description": "\u7535\u5f71\u611f\u591a\u5e73\u53f0\u793e\u5a92\u5206\u6790: \u4e92\u52a8\u56fe\u3001\u60ac\u6d6e\u6d1e\u5bdf\u3001\u533a\u95f4\u5bf9\u6bd4\u3001\u660e\u6697\u4e3b\u9898",
     "stars": 7630,
     "tier": "community"
   },
@@ -14986,7 +15833,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "拟真 Reddit 帖子卡 + 上下投票 + 评论数, 适合视频叠加 / 故事分享",
+    "description": "\u62df\u771f Reddit \u5e16\u5b50\u5361 + \u4e0a\u4e0b\u6295\u7968 + \u8bc4\u8bba\u6570, \u9002\u5408\u89c6\u9891\u53e0\u52a0 / \u6545\u4e8b\u5206\u4eab",
     "stars": 7630,
     "tier": "community"
   },
@@ -15001,7 +15848,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Spotify Now Playing 风格卡: 专辑封面 + 进度条 + 播放控制, 适配视频叠加 / 个人主页",
+    "description": "Spotify Now Playing \u98ce\u683c\u5361: \u4e13\u8f91\u5c01\u9762 + \u8fdb\u5ea6\u6761 + \u64ad\u653e\u63a7\u5236, \u9002\u914d\u89c6\u9891\u53e0\u52a0 / \u4e2a\u4eba\u4e3b\u9875",
     "stars": 7630,
     "tier": "community"
   },
@@ -15016,7 +15863,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "拟真 X 推文卡片 + 互动数据 (likes/reposts/views), 适配视频叠加或图卡分享",
+    "description": "\u62df\u771f X \u63a8\u6587\u5361\u7247 + \u4e92\u52a8\u6570\u636e (likes/reposts/views), \u9002\u914d\u89c6\u9891\u53e0\u52a0\u6216\u56fe\u5361\u5206\u4eab",
     "stars": 7630,
     "tier": "community"
   },
@@ -15031,7 +15878,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "像素美术 + kinetic 字体的解说帧, 纯 CSS 循环, 可录视频",
+    "description": "\u50cf\u7d20\u7f8e\u672f + kinetic \u5b57\u4f53\u7684\u89e3\u8bf4\u5e27, \u7eaf CSS \u5faa\u73af, \u53ef\u5f55\u89c6\u9891",
     "stars": 7630,
     "tier": "community"
   },
@@ -15046,7 +15893,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "季度 banner + 3 个目标 + KR 进度条 + owner + 状态 pill",
+    "description": "\u5b63\u5ea6 banner + 3 \u4e2a\u76ee\u6807 + KR \u8fdb\u5ea6\u6761 + owner + \u72b6\u6001 pill",
     "stars": 7630,
     "tier": "community"
   },
@@ -15061,7 +15908,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "光标拖光 + 彩色像散射线 + 定向光斑, 适合视频片头逐字揭示金句",
+    "description": "\u5149\u6807\u62d6\u5149 + \u5f69\u8272\u50cf\u6563\u5c04\u7ebf + \u5b9a\u5411\u5149\u6591, \u9002\u5408\u89c6\u9891\u7247\u5934\u9010\u5b57\u63ed\u793a\u91d1\u53e5",
     "stars": 7630,
     "tier": "community"
   },
@@ -15076,7 +15923,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Hyperframes / Remotion 兼容的连续帧动画, 可自动播放",
+    "description": "Hyperframes / Remotion \u517c\u5bb9\u7684\u8fde\u7eed\u5e27\u52a8\u753b, \u53ef\u81ea\u52a8\u64ad\u653e",
     "stars": 7630,
     "tier": "community"
   },
@@ -15091,7 +15938,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Swiss industrial-print 风: 单字 grotesque、巨数字、ASCII 装饰",
+    "description": "Swiss industrial-print \u98ce: \u5355\u5b57 grotesque\u3001\u5de8\u6570\u5b57\u3001ASCII \u88c5\u9970",
     "stars": 7630,
     "tier": "community"
   },
@@ -15106,7 +15953,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Editorial-minimalist: 暖色单色 canvas + serif display + grotesque body",
+    "description": "Editorial-minimalist: \u6696\u8272\u5355\u8272 canvas + serif display + grotesque body",
     "stars": 7630,
     "tier": "community"
   },
@@ -15121,7 +15968,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "Apple 调: 银/奶 canvas + 双层斜面卡片 + button-in-button + spring",
+    "description": "Apple \u8c03: \u94f6/\u5976 canvas + \u53cc\u5c42\u659c\u9762\u5361\u7247 + button-in-button + spring",
     "stars": 7630,
     "tier": "community"
   },
@@ -15136,7 +15983,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "6-8 页横向滑动周报: 已发布 / 进行中 / 阻塞 / 指标 / 求助",
+    "description": "6-8 \u9875\u6a2a\u5411\u6ed1\u52a8\u5468\u62a5: \u5df2\u53d1\u5e03 / \u8fdb\u884c\u4e2d / \u963b\u585e / \u6307\u6807 / \u6c42\u52a9",
     "stars": 7630,
     "tier": "community"
   },
@@ -15151,7 +15998,7 @@
       "agent-skills",
       "agentic"
     ],
-    "description": "网格背景 + marker 笔触 + 多 tab + sticky note + scribble 图表",
+    "description": "\u7f51\u683c\u80cc\u666f + marker \u7b14\u89e6 + \u591a tab + sticky note + scribble \u56fe\u8868",
     "stars": 7630,
     "tier": "community"
   },
@@ -15511,7 +16358,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "在任何创造性工作之前必须使用此技能——创建功能、构建组件、添加功能或修改行为。在实现之前先探索用户意图、需求和设计。",
+    "description": "\u5728\u4efb\u4f55\u521b\u9020\u6027\u5de5\u4f5c\u4e4b\u524d\u5fc5\u987b\u4f7f\u7528\u6b64\u6280\u80fd\u2014\u2014\u521b\u5efa\u529f\u80fd\u3001\u6784\u5efa\u7ec4\u4ef6\u3001\u6dfb\u52a0\u529f\u80fd\u6216\u4fee\u6539\u884c\u4e3a\u3002\u5728\u5b9e\u73b0\u4e4b\u524d\u5148\u63a2\u7d22\u7528\u6237\u610f\u56fe\u3001\u9700\u6c42\u548c\u8bbe\u8ba1\u3002",
     "stars": 6595,
     "tier": "community"
   },
@@ -15526,7 +16373,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "中文 review 沟通参考——话术模板、分级标注（必须修复/建议修改/仅供参考）、国内团队常见反模式应对。仅在用户显式 /chinese-code-review 时调用，不要根据上下文自动触发。",
+    "description": "\u4e2d\u6587 review \u6c9f\u901a\u53c2\u8003\u2014\u2014\u8bdd\u672f\u6a21\u677f\u3001\u5206\u7ea7\u6807\u6ce8\uff08\u5fc5\u987b\u4fee\u590d/\u5efa\u8bae\u4fee\u6539/\u4ec5\u4f9b\u53c2\u8003\uff09\u3001\u56fd\u5185\u56e2\u961f\u5e38\u89c1\u53cd\u6a21\u5f0f\u5e94\u5bf9\u3002\u4ec5\u5728\u7528\u6237\u663e\u5f0f /chinese-code-review \u65f6\u8c03\u7528\uff0c\u4e0d\u8981\u6839\u636e\u4e0a\u4e0b\u6587\u81ea\u52a8\u89e6\u53d1\u3002",
     "stars": 6595,
     "tier": "community"
   },
@@ -15541,7 +16388,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "中文 commit 与 changelog 配置参考——Conventional Commits 中文适配、commitlint/husky/commitizen 中文模板、conventional-changelog 中文配置。仅在用户显式 /chinese-commit-conventions 时调用，不要根据上下文自动触发。",
+    "description": "\u4e2d\u6587 commit \u4e0e changelog \u914d\u7f6e\u53c2\u8003\u2014\u2014Conventional Commits \u4e2d\u6587\u9002\u914d\u3001commitlint/husky/commitizen \u4e2d\u6587\u6a21\u677f\u3001conventional-changelog \u4e2d\u6587\u914d\u7f6e\u3002\u4ec5\u5728\u7528\u6237\u663e\u5f0f /chinese-commit-conventions \u65f6\u8c03\u7528\uff0c\u4e0d\u8981\u6839\u636e\u4e0a\u4e0b\u6587\u81ea\u52a8\u89e6\u53d1\u3002",
     "stars": 6595,
     "tier": "community"
   },
@@ -15556,7 +16403,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "中文文档排版参考——中英文空格、全半角标点、术语保留、链接格式、中文文案排版指北约定。仅在用户显式 /chinese-documentation 时调用，不要根据上下文自动触发。",
+    "description": "\u4e2d\u6587\u6587\u6863\u6392\u7248\u53c2\u8003\u2014\u2014\u4e2d\u82f1\u6587\u7a7a\u683c\u3001\u5168\u534a\u89d2\u6807\u70b9\u3001\u672f\u8bed\u4fdd\u7559\u3001\u94fe\u63a5\u683c\u5f0f\u3001\u4e2d\u6587\u6587\u6848\u6392\u7248\u6307\u5317\u7ea6\u5b9a\u3002\u4ec5\u5728\u7528\u6237\u663e\u5f0f /chinese-documentation \u65f6\u8c03\u7528\uff0c\u4e0d\u8981\u6839\u636e\u4e0a\u4e0b\u6587\u81ea\u52a8\u89e6\u53d1\u3002",
     "stars": 6595,
     "tier": "community"
   },
@@ -15571,7 +16418,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "国内 Git 平台配置参考——Gitee、Coding.net、极狐 GitLab、CNB 的 SSH/HTTPS/凭据/CI 接入差异与镜像同步配置。仅在用户显式 /chinese-git-workflow 时调用，不要根据上下文自动触发。",
+    "description": "\u56fd\u5185 Git \u5e73\u53f0\u914d\u7f6e\u53c2\u8003\u2014\u2014Gitee\u3001Coding.net\u3001\u6781\u72d0 GitLab\u3001CNB \u7684 SSH/HTTPS/\u51ed\u636e/CI \u63a5\u5165\u5dee\u5f02\u4e0e\u955c\u50cf\u540c\u6b65\u914d\u7f6e\u3002\u4ec5\u5728\u7528\u6237\u663e\u5f0f /chinese-git-workflow \u65f6\u8c03\u7528\uff0c\u4e0d\u8981\u6839\u636e\u4e0a\u4e0b\u6587\u81ea\u52a8\u89e6\u53d1\u3002",
     "stars": 6595,
     "tier": "community"
   },
@@ -15586,7 +16433,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "当面对 2 个以上可以独立进行、无共享状态或顺序依赖的任务时使用",
+    "description": "\u5f53\u9762\u5bf9 2 \u4e2a\u4ee5\u4e0a\u53ef\u4ee5\u72ec\u7acb\u8fdb\u884c\u3001\u65e0\u5171\u4eab\u72b6\u6001\u6216\u987a\u5e8f\u4f9d\u8d56\u7684\u4efb\u52a1\u65f6\u4f7f\u7528",
     "stars": 6595,
     "tier": "community"
   },
@@ -15601,7 +16448,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "当你有一份书面实现计划需要在单独的会话中执行，并设有审查检查点时使用",
+    "description": "\u5f53\u4f60\u6709\u4e00\u4efd\u4e66\u9762\u5b9e\u73b0\u8ba1\u5212\u9700\u8981\u5728\u5355\u72ec\u7684\u4f1a\u8bdd\u4e2d\u6267\u884c\uff0c\u5e76\u8bbe\u6709\u5ba1\u67e5\u68c0\u67e5\u70b9\u65f6\u4f7f\u7528",
     "stars": 6595,
     "tier": "community"
   },
@@ -15616,7 +16463,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "当实现完成、所有测试通过、需要决定如何集成工作时使用——通过提供合并、PR 或清理等结构化选项来引导开发工作的收尾",
+    "description": "\u5f53\u5b9e\u73b0\u5b8c\u6210\u3001\u6240\u6709\u6d4b\u8bd5\u901a\u8fc7\u3001\u9700\u8981\u51b3\u5b9a\u5982\u4f55\u96c6\u6210\u5de5\u4f5c\u65f6\u4f7f\u7528\u2014\u2014\u901a\u8fc7\u63d0\u4f9b\u5408\u5e76\u3001PR \u6216\u6e05\u7406\u7b49\u7ed3\u6784\u5316\u9009\u9879\u6765\u5f15\u5bfc\u5f00\u53d1\u5de5\u4f5c\u7684\u6536\u5c3e",
     "stars": 6595,
     "tier": "community"
   },
@@ -15631,7 +16478,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "MCP 服务器构建方法论 — 系统化构建生产级 MCP 工具，让 AI 助手连接外部能力",
+    "description": "MCP \u670d\u52a1\u5668\u6784\u5efa\u65b9\u6cd5\u8bba \u2014 \u7cfb\u7edf\u5316\u6784\u5efa\u751f\u4ea7\u7ea7 MCP \u5de5\u5177\uff0c\u8ba9 AI \u52a9\u624b\u8fde\u63a5\u5916\u90e8\u80fd\u529b",
     "stars": 6595,
     "tier": "community"
   },
@@ -15646,7 +16493,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "收到代码审查反馈后、实施建议之前使用，尤其当反馈不明确或技术上有疑问时——需要技术严谨性和验证，而非敷衍附和或盲目执行",
+    "description": "\u6536\u5230\u4ee3\u7801\u5ba1\u67e5\u53cd\u9988\u540e\u3001\u5b9e\u65bd\u5efa\u8bae\u4e4b\u524d\u4f7f\u7528\uff0c\u5c24\u5176\u5f53\u53cd\u9988\u4e0d\u660e\u786e\u6216\u6280\u672f\u4e0a\u6709\u7591\u95ee\u65f6\u2014\u2014\u9700\u8981\u6280\u672f\u4e25\u8c28\u6027\u548c\u9a8c\u8bc1\uff0c\u800c\u975e\u6577\u884d\u9644\u548c\u6216\u76f2\u76ee\u6267\u884c",
     "stars": 6595,
     "tier": "community"
   },
@@ -15661,7 +16508,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "完成任务、实现重要功能或合并前使用，用于验证工作成果是否符合要求",
+    "description": "\u5b8c\u6210\u4efb\u52a1\u3001\u5b9e\u73b0\u91cd\u8981\u529f\u80fd\u6216\u5408\u5e76\u524d\u4f7f\u7528\uff0c\u7528\u4e8e\u9a8c\u8bc1\u5de5\u4f5c\u6210\u679c\u662f\u5426\u7b26\u5408\u8981\u6c42",
     "stars": 6595,
     "tier": "community"
   },
@@ -15676,7 +16523,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "遇到任何 bug、测试失败或异常行为时使用，在提出修复方案之前执行",
+    "description": "\u9047\u5230\u4efb\u4f55 bug\u3001\u6d4b\u8bd5\u5931\u8d25\u6216\u5f02\u5e38\u884c\u4e3a\u65f6\u4f7f\u7528\uff0c\u5728\u63d0\u51fa\u4fee\u590d\u65b9\u6848\u4e4b\u524d\u6267\u884c",
     "stars": 6595,
     "tier": "community"
   },
@@ -15691,7 +16538,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "当需要开始与当前工作区隔离的功能开发，或在执行实现计划之前使用——通过原生工具或 git worktree 回退机制确保隔离工作区存在",
+    "description": "\u5f53\u9700\u8981\u5f00\u59cb\u4e0e\u5f53\u524d\u5de5\u4f5c\u533a\u9694\u79bb\u7684\u529f\u80fd\u5f00\u53d1\uff0c\u6216\u5728\u6267\u884c\u5b9e\u73b0\u8ba1\u5212\u4e4b\u524d\u4f7f\u7528\u2014\u2014\u901a\u8fc7\u539f\u751f\u5de5\u5177\u6216 git worktree \u56de\u9000\u673a\u5236\u786e\u4fdd\u9694\u79bb\u5de5\u4f5c\u533a\u5b58\u5728",
     "stars": 6595,
     "tier": "community"
   },
@@ -15706,7 +16553,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "在开始任何对话时使用——确立如何查找和使用技能，要求在任何响应（包括澄清性问题）之前调用 Skill 工具",
+    "description": "\u5728\u5f00\u59cb\u4efb\u4f55\u5bf9\u8bdd\u65f6\u4f7f\u7528\u2014\u2014\u786e\u7acb\u5982\u4f55\u67e5\u627e\u548c\u4f7f\u7528\u6280\u80fd\uff0c\u8981\u6c42\u5728\u4efb\u4f55\u54cd\u5e94\uff08\u5305\u62ec\u6f84\u6e05\u6027\u95ee\u9898\uff09\u4e4b\u524d\u8c03\u7528 Skill \u5de5\u5177",
     "stars": 6595,
     "tier": "community"
   },
@@ -15721,7 +16568,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "在宣称工作完成、已修复或测试通过之前使用，在提交或创建 PR 之前——必须运行验证命令并确认输出后才能声称成功；始终用证据支撑断言",
+    "description": "\u5728\u5ba3\u79f0\u5de5\u4f5c\u5b8c\u6210\u3001\u5df2\u4fee\u590d\u6216\u6d4b\u8bd5\u901a\u8fc7\u4e4b\u524d\u4f7f\u7528\uff0c\u5728\u63d0\u4ea4\u6216\u521b\u5efa PR \u4e4b\u524d\u2014\u2014\u5fc5\u987b\u8fd0\u884c\u9a8c\u8bc1\u547d\u4ee4\u5e76\u786e\u8ba4\u8f93\u51fa\u540e\u624d\u80fd\u58f0\u79f0\u6210\u529f\uff1b\u59cb\u7ec8\u7528\u8bc1\u636e\u652f\u6491\u65ad\u8a00",
     "stars": 6595,
     "tier": "community"
   },
@@ -15736,7 +16583,7 @@
       "agent-skills",
       "agentic-coding"
     ],
-    "description": "在 Claude Code / OpenClaw / Cursor 中直接运行 agency-orchestrator YAML 工作流——无需 API key，使用当前会话的 LLM 作为执行引擎。当用户提供 .yaml 工作流文件或要求多角色协作完成任务时触发。",
+    "description": "\u5728 Claude Code / OpenClaw / Cursor \u4e2d\u76f4\u63a5\u8fd0\u884c agency-orchestrator YAML \u5de5\u4f5c\u6d41\u2014\u2014\u65e0\u9700 API key\uff0c\u4f7f\u7528\u5f53\u524d\u4f1a\u8bdd\u7684 LLM \u4f5c\u4e3a\u6267\u884c\u5f15\u64ce\u3002\u5f53\u7528\u6237\u63d0\u4f9b .yaml \u5de5\u4f5c\u6d41\u6587\u4ef6\u6216\u8981\u6c42\u591a\u89d2\u8272\u534f\u4f5c\u5b8c\u6210\u4efb\u52a1\u65f6\u89e6\u53d1\u3002",
     "stars": 6595,
     "tier": "community"
   },
@@ -15826,7 +16673,7 @@
       "ai-agents",
       "n8n"
     ],
-    "description": "Write JavaScript or Python for the n8n Custom Code Tool (@n8n/n8n-nodes-langchain.toolCode) — the AI-agent-callable tool, NOT the workflow Code node.",
+    "description": "Write JavaScript or Python for the n8n Custom Code Tool (@n8n/n8n-nodes-langchain.toolCode) \u2014 the AI-agent-callable tool, NOT the workflow Code node.",
     "stars": 5732,
     "tier": "community"
   },
@@ -15886,7 +16733,7 @@
       "ai-agents",
       "n8n"
     ],
-    "description": "Use when an n8n-mcp account targets more than one n8n instance — i.e.",
+    "description": "Use when an n8n-mcp account targets more than one n8n instance \u2014 i.e.",
     "stars": 5732,
     "tier": "community"
   },
@@ -15976,7 +16823,7 @@
       "ai-agents",
       "n8n"
     ],
-    "description": "Use when building, editing, validating, testing, or debugging an n8n workflow through the n8n-mcp MCP server — designing a flow, configuring a node, writing an expression or Code n",
+    "description": "Use when building, editing, validating, testing, or debugging an n8n workflow through the n8n-mcp MCP server \u2014 designing a flow, configuring a node, writing an expression or Code n",
     "stars": 5732,
     "tier": "community"
   },
@@ -16351,7 +17198,7 @@
       "ai-agents",
       "ai-product-management"
     ],
-    "description": "Identify which organic growth path to pursue — new segments, geographies, channels, or products.",
+    "description": "Identify which organic growth path to pursue \u2014 new segments, geographies, channels, or products.",
     "stars": 5645,
     "tier": "community"
   },
@@ -17236,7 +18083,7 @@
       "ai",
       "ai-agent"
     ],
-    "description": "Caching strategies — invalidation, TTL guidelines, cache keys, cache layers, and when not to cache.",
+    "description": "Caching strategies \u2014 invalidation, TTL guidelines, cache keys, cache layers, and when not to cache.",
     "stars": 4380,
     "tier": "community"
   },
@@ -17731,7 +18578,7 @@
       "ai",
       "ai-agent"
     ],
-    "description": "Production-ready CI/CD configurations for Playwright — GitHub Actions, GitLab CI, CircleCI, Azure DevOps, Jenkins, Docker, parallel sharding, reporting, code coverage, and global s",
+    "description": "Production-ready CI/CD configurations for Playwright \u2014 GitHub Actions, GitLab CI, CircleCI, Azure DevOps, Jenkins, Docker, parallel sharding, reporting, code coverage, and global s",
     "stars": 4380,
     "tier": "community"
   },
@@ -17761,7 +18608,7 @@
       "ai",
       "ai-agent"
     ],
-    "description": "Step-by-step migration guides for moving to Playwright from Cypress or Selenium/WebDriver — command mappings, architecture changes, and incremental adoption strategies.",
+    "description": "Step-by-step migration guides for moving to Playwright from Cypress or Selenium/WebDriver \u2014 command mappings, architecture changes, and incremental adoption strategies.",
     "stars": 4380,
     "tier": "community"
   },
@@ -17791,7 +18638,7 @@
       "ai",
       "ai-agent"
     ],
-    "description": "Page Object Model patterns for Playwright — when to use POM, how to structure page objects, and when fixtures or helpers are a better fit.",
+    "description": "Page Object Model patterns for Playwright \u2014 when to use POM, how to structure page objects, and when fixtures or helpers are a better fit.",
     "stars": 4380,
     "tier": "community"
   },
@@ -17911,7 +18758,7 @@
       "ai",
       "ai-agent"
     ],
-    "description": "Run regression analysis (OLS or logistic) on uploaded CSV/Excel data, generating coefficients, R², p-values, VIF, and plain-language interpretation.",
+    "description": "Run regression analysis (OLS or logistic) on uploaded CSV/Excel data, generating coefficients, R\u00b2, p-values, VIF, and plain-language interpretation.",
     "stars": 4380,
     "tier": "community"
   },
@@ -18301,7 +19148,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Forges reusable Skill packages (SKILL.md + scripts) from website exploration via browser-act — no re-exploration later.",
+    "description": "Forges reusable Skill packages (SKILL.md + scripts) from website exploration via browser-act \u2014 no re-exploration later.",
     "stars": 4129,
     "tier": "community"
   },
@@ -18511,7 +19358,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Extracts full detail data from a single Goofish (闲鱼/xianyu, goofish.com) second-hand item page.",
+    "description": "Extracts full detail data from a single Goofish (\u95f2\u9c7c/xianyu, goofish.com) second-hand item page.",
     "stars": 4129,
     "tier": "community"
   },
@@ -18526,7 +19373,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Scrapes second-hand item search results from Goofish (闲鱼/xianyu, goofish.com) — China's largest second-hand marketplace.",
+    "description": "Scrapes second-hand item search results from Goofish (\u95f2\u9c7c/xianyu, goofish.com) \u2014 China's largest second-hand marketplace.",
     "stars": 4129,
     "tier": "community"
   },
@@ -18901,7 +19748,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Scrapes posts from a Facebook group given a group URL, sort order, and desired count — returns structured post metadata including post_id, permalink, author, timestamp, body text,",
+    "description": "Scrapes posts from a Facebook group given a group URL, sort order, and desired count \u2014 returns structured post metadata including post_id, permalink, author, timestamp, body text,",
     "stars": 4129,
     "tier": "community"
   },
@@ -19051,7 +19898,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Trustpilot company profile lookup on trustpilot.com — input a company domain (e.g.",
+    "description": "Trustpilot company profile lookup on trustpilot.com \u2014 input a company domain (e.g.",
     "stars": 4129,
     "tier": "community"
   },
@@ -19066,7 +19913,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Trustpilot customer reviews scraper for any company listed on trustpilot.com — given a company domain (e.g.",
+    "description": "Trustpilot customer reviews scraper for any company listed on trustpilot.com \u2014 given a company domain (e.g.",
     "stars": 4129,
     "tier": "community"
   },
@@ -19126,7 +19973,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Collects every tweet in an X (Twitter) conversation thread given a conversation id (root tweet id) — the focal tweet plus all replies, sub-replies, and quote chains — and returns n",
+    "description": "Collects every tweet in an X (Twitter) conversation thread given a conversation id (root tweet id) \u2014 the focal tweet plus all replies, sub-replies, and quote chains \u2014 and returns n",
     "stars": 4129,
     "tier": "community"
   },
@@ -19156,7 +20003,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Scrapes tweets from any X (Twitter) URL — search results, user profile, single tweet detail, or list timeline — and returns normalized per-tweet data with text, author, engagement",
+    "description": "Scrapes tweets from any X (Twitter) URL \u2014 search results, user profile, single tweet detail, or list timeline \u2014 and returns normalized per-tweet data with text, author, engagement",
     "stars": 4129,
     "tier": "community"
   },
@@ -19171,7 +20018,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Scrapes tweets from X (Twitter) by search query, user handle, or direct URL — returns full tweet data including text, author info, engagement metrics, media, and hashtags.",
+    "description": "Scrapes tweets from X (Twitter) by search query, user handle, or direct URL \u2014 returns full tweet data including text, author info, engagement metrics, media, and hashtags.",
     "stars": 4129,
     "tier": "community"
   },
@@ -19201,7 +20048,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "Automates the complete Xiaohongshu (XHS / Little Red Book) content operation workflow: pain-point topic collection → style case collection → topic selection → content writing → pub",
+    "description": "Automates the complete Xiaohongshu (XHS / Little Red Book) content operation workflow: pain-point topic collection \u2192 style case collection \u2192 topic selection \u2192 content writing \u2192 pub",
     "stars": 4129,
     "tier": "community"
   },
@@ -19276,7 +20123,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "TikTok hashtag video scraper: input a hashtag name → output paginated video list with full metadata (author profile, engagement stats, music, video meta, hashtag list).",
+    "description": "TikTok hashtag video scraper: input a hashtag name \u2192 output paginated video list with full metadata (author profile, engagement stats, music, video meta, hashtag list).",
     "stars": 4129,
     "tier": "community"
   },
@@ -19291,7 +20138,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "TikTok user profile video scraper: input a TikTok username → output the user's profile info plus paginated video list with full metadata (engagement stats, music, video meta).",
+    "description": "TikTok user profile video scraper: input a TikTok username \u2192 output the user's profile info plus paginated video list with full metadata (engagement stats, music, video meta).",
     "stars": 4129,
     "tier": "community"
   },
@@ -19306,7 +20153,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "TikTok keyword search video scraper: input search keyword → output paginated video list with full metadata (author, engagement stats, music, video meta).",
+    "description": "TikTok keyword search video scraper: input search keyword \u2192 output paginated video list with full metadata (author, engagement stats, music, video meta).",
     "stars": 4129,
     "tier": "community"
   },
@@ -19321,7 +20168,7 @@
       "agent-infrastructure",
       "ai-agents"
     ],
-    "description": "TikTok single video detail scraper: input a TikTok video URL → output full video metadata (author profile, engagement stats, music, video meta, hashtags, mentions, slideshow images",
+    "description": "TikTok single video detail scraper: input a TikTok video URL \u2192 output full video metadata (author profile, engagement stats, music, video meta, hashtags, mentions, slideshow images",
     "stars": 4129,
     "tier": "community"
   },
@@ -19501,7 +20348,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "网络小说工具箱主入口。根据用户需求自动路由到对应 skill；当用户意图不明确时触发，由路由逻辑分发到具体的扫榜/拆文/写作/去AI味/封面/导入/审查 skill。触发方式：/story、$story、/网文、「我想写小说」「帮我写书」「写网文」「检查更新」「有新版本吗」。",
+    "description": "\u7f51\u7edc\u5c0f\u8bf4\u5de5\u5177\u7bb1\u4e3b\u5165\u53e3\u3002\u6839\u636e\u7528\u6237\u9700\u6c42\u81ea\u52a8\u8def\u7531\u5230\u5bf9\u5e94 skill\uff1b\u5f53\u7528\u6237\u610f\u56fe\u4e0d\u660e\u786e\u65f6\u89e6\u53d1\uff0c\u7531\u8def\u7531\u903b\u8f91\u5206\u53d1\u5230\u5177\u4f53\u7684\u626b\u699c/\u62c6\u6587/\u5199\u4f5c/\u53bbAI\u5473/\u5c01\u9762/\u5bfc\u5165/\u5ba1\u67e5 skill\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story\u3001$story\u3001/\u7f51\u6587\u3001\u300c\u6211\u60f3\u5199\u5c0f\u8bf4\u300d\u300c\u5e2e\u6211\u5199\u4e66\u300d\u300c\u5199\u7f51\u6587\u300d\u300c\u68c0\u67e5\u66f4\u65b0\u300d\u300c\u6709\u65b0\u7248\u672c\u5417\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19516,7 +20363,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "小说封面生成。根据书名、作者名自动分析题材风格，调用 GPT-Image-2 直接生成含标题和署名的专业级网文封面。触发方式：/story-cover、/封面、「帮我做个封面」「生成封面图」「做个小说封面」「封面设计」。",
+    "description": "\u5c0f\u8bf4\u5c01\u9762\u751f\u6210\u3002\u6839\u636e\u4e66\u540d\u3001\u4f5c\u8005\u540d\u81ea\u52a8\u5206\u6790\u9898\u6750\u98ce\u683c\uff0c\u8c03\u7528 GPT-Image-2 \u76f4\u63a5\u751f\u6210\u542b\u6807\u9898\u548c\u7f72\u540d\u7684\u4e13\u4e1a\u7ea7\u7f51\u6587\u5c01\u9762\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-cover\u3001/\u5c01\u9762\u3001\u300c\u5e2e\u6211\u505a\u4e2a\u5c01\u9762\u300d\u300c\u751f\u6210\u5c01\u9762\u56fe\u300d\u300c\u505a\u4e2a\u5c0f\u8bf4\u5c01\u9762\u300d\u300c\u5c01\u9762\u8bbe\u8ba1\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19531,7 +20378,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "网文去AI味。检测并清除文本中的AI写作痕迹，让文字回归自然、非模板化。触发方式：/story-deslop、/去AI味、「去AI味」「这篇太AI了」「网文去AI味」。",
+    "description": "\u7f51\u6587\u53bbAI\u5473\u3002\u68c0\u6d4b\u5e76\u6e05\u9664\u6587\u672c\u4e2d\u7684AI\u5199\u4f5c\u75d5\u8ff9\uff0c\u8ba9\u6587\u5b57\u56de\u5f52\u81ea\u7136\u3001\u975e\u6a21\u677f\u5316\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-deslop\u3001/\u53bbAI\u5473\u3001\u300c\u53bbAI\u5473\u300d\u300c\u8fd9\u7bc7\u592aAI\u4e86\u300d\u300c\u7f51\u6587\u53bbAI\u5473\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19546,7 +20393,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "逆向导入已有小说。将已写好的小说（半成品或完本）反向解析为标准项目目录结构，兼容 story-long-write / story-short-write 后续写作流程；内部复用 story-long-analyze / story-short-analyze 的拆解管道，按篇幅自动分流。触发方式：/story-import、「导入小说」「反向解析」「导入」",
+    "description": "\u9006\u5411\u5bfc\u5165\u5df2\u6709\u5c0f\u8bf4\u3002\u5c06\u5df2\u5199\u597d\u7684\u5c0f\u8bf4\uff08\u534a\u6210\u54c1\u6216\u5b8c\u672c\uff09\u53cd\u5411\u89e3\u6790\u4e3a\u6807\u51c6\u9879\u76ee\u76ee\u5f55\u7ed3\u6784\uff0c\u517c\u5bb9 story-long-write / story-short-write \u540e\u7eed\u5199\u4f5c\u6d41\u7a0b\uff1b\u5185\u90e8\u590d\u7528 story-long-analyze / story-short-analyze \u7684\u62c6\u89e3\u7ba1\u9053\uff0c\u6309\u7bc7\u5e45\u81ea\u52a8\u5206\u6d41\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-import\u3001\u300c\u5bfc\u5165\u5c0f\u8bf4\u300d\u300c\u53cd\u5411\u89e3\u6790\u300d\u300c\u5bfc\u5165\u300d",
     "stars": 3859,
     "tier": "community"
   },
@@ -19561,7 +20408,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "长篇网文拆文。深度拆解爆款长篇小说的黄金三章、人设架构、爽点设计、节奏控制。单一深度拆解管道：跑完黄金三章（Stage 1）后产出快速预览报告并询问是否继续全量拆解，确认后从 Stage 2 续跑逐章摘要、聚合分析、设定关系、汇总报告，全程产物落盘 拆文库/{书名}/。触发方式：/story-long-analyze、/长篇拆文、「帮我拆这本书」「拆这本书」",
+    "description": "\u957f\u7bc7\u7f51\u6587\u62c6\u6587\u3002\u6df1\u5ea6\u62c6\u89e3\u7206\u6b3e\u957f\u7bc7\u5c0f\u8bf4\u7684\u9ec4\u91d1\u4e09\u7ae0\u3001\u4eba\u8bbe\u67b6\u6784\u3001\u723d\u70b9\u8bbe\u8ba1\u3001\u8282\u594f\u63a7\u5236\u3002\u5355\u4e00\u6df1\u5ea6\u62c6\u89e3\u7ba1\u9053\uff1a\u8dd1\u5b8c\u9ec4\u91d1\u4e09\u7ae0\uff08Stage 1\uff09\u540e\u4ea7\u51fa\u5feb\u901f\u9884\u89c8\u62a5\u544a\u5e76\u8be2\u95ee\u662f\u5426\u7ee7\u7eed\u5168\u91cf\u62c6\u89e3\uff0c\u786e\u8ba4\u540e\u4ece Stage 2 \u7eed\u8dd1\u9010\u7ae0\u6458\u8981\u3001\u805a\u5408\u5206\u6790\u3001\u8bbe\u5b9a\u5173\u7cfb\u3001\u6c47\u603b\u62a5\u544a\uff0c\u5168\u7a0b\u4ea7\u7269\u843d\u76d8 \u62c6\u6587\u5e93/{\u4e66\u540d}/\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-long-analyze\u3001/\u957f\u7bc7\u62c6\u6587\u3001\u300c\u5e2e\u6211\u62c6\u8fd9\u672c\u4e66\u300d\u300c\u62c6\u8fd9\u672c\u4e66\u300d",
     "stars": 3859,
     "tier": "community"
   },
@@ -19576,7 +20423,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "长篇网文扫榜。分析起点、番茄、晋江等平台排行榜数据，提炼市场趋势与热门题材。触发方式：/story-long-scan、/长篇扫榜、「长篇什么火」「起点排行」。",
+    "description": "\u957f\u7bc7\u7f51\u6587\u626b\u699c\u3002\u5206\u6790\u8d77\u70b9\u3001\u756a\u8304\u3001\u664b\u6c5f\u7b49\u5e73\u53f0\u6392\u884c\u699c\u6570\u636e\uff0c\u63d0\u70bc\u5e02\u573a\u8d8b\u52bf\u4e0e\u70ed\u95e8\u9898\u6750\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-long-scan\u3001/\u957f\u7bc7\u626b\u699c\u3001\u300c\u957f\u7bc7\u4ec0\u4e48\u706b\u300d\u300c\u8d77\u70b9\u6392\u884c\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19591,7 +20438,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "长篇网文写作。从大纲到正文，辅助长篇网络小说的创作，包括世界观、人物、情节线管理。触发方式：/story-long-write、/写长篇、「帮我开书」「写大纲」「日更」「续写」「继续写」「修改第X章」「回炉」「重写第X章」。",
+    "description": "\u957f\u7bc7\u7f51\u6587\u5199\u4f5c\u3002\u4ece\u5927\u7eb2\u5230\u6b63\u6587\uff0c\u8f85\u52a9\u957f\u7bc7\u7f51\u7edc\u5c0f\u8bf4\u7684\u521b\u4f5c\uff0c\u5305\u62ec\u4e16\u754c\u89c2\u3001\u4eba\u7269\u3001\u60c5\u8282\u7ebf\u7ba1\u7406\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-long-write\u3001/\u5199\u957f\u7bc7\u3001\u300c\u5e2e\u6211\u5f00\u4e66\u300d\u300c\u5199\u5927\u7eb2\u300d\u300c\u65e5\u66f4\u300d\u300c\u7eed\u5199\u300d\u300c\u7ee7\u7eed\u5199\u300d\u300c\u4fee\u6539\u7b2cX\u7ae0\u300d\u300c\u56de\u7089\u300d\u300c\u91cd\u5199\u7b2cX\u7ae0\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19606,7 +20453,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "多视角对抗式审查。full/lean 模式在已部署 reviewer agents 时并行 spawn；缺失/异常 agents 或 spawn 失败时自动降级 solo，参考文件不可读时使用内置 rubric fallback。触发方式：/story-review、/审查、「审查一下」「帮我审一下」。",
+    "description": "\u591a\u89c6\u89d2\u5bf9\u6297\u5f0f\u5ba1\u67e5\u3002full/lean \u6a21\u5f0f\u5728\u5df2\u90e8\u7f72 reviewer agents \u65f6\u5e76\u884c spawn\uff1b\u7f3a\u5931/\u5f02\u5e38 agents \u6216 spawn \u5931\u8d25\u65f6\u81ea\u52a8\u964d\u7ea7 solo\uff0c\u53c2\u8003\u6587\u4ef6\u4e0d\u53ef\u8bfb\u65f6\u4f7f\u7528\u5185\u7f6e rubric fallback\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-review\u3001/\u5ba1\u67e5\u3001\u300c\u5ba1\u67e5\u4e00\u4e0b\u300d\u300c\u5e2e\u6211\u5ba1\u4e00\u4e0b\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19621,7 +20468,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "网文写作工具集基础设施部署。为 Claude Code / OpenCode / Codex / OpenClaw 提供内置适配；Web AI / 通用 Agent 可走 skills + AGENTS.md 文件模式。触发方式：/story-setup、$story-setup、「准备写书」「帮我搭一下环境」「配置写作项目」。",
+    "description": "\u7f51\u6587\u5199\u4f5c\u5de5\u5177\u96c6\u57fa\u7840\u8bbe\u65bd\u90e8\u7f72\u3002\u4e3a Claude Code / OpenCode / Codex / OpenClaw \u63d0\u4f9b\u5185\u7f6e\u9002\u914d\uff1bWeb AI / \u901a\u7528 Agent \u53ef\u8d70 skills + AGENTS.md \u6587\u4ef6\u6a21\u5f0f\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-setup\u3001$story-setup\u3001\u300c\u51c6\u5907\u5199\u4e66\u300d\u300c\u5e2e\u6211\u642d\u4e00\u4e0b\u73af\u5883\u300d\u300c\u914d\u7f6e\u5199\u4f5c\u9879\u76ee\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19636,7 +20483,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "短篇网文拆文。拆解爆款短篇小说（番茄短篇 / 故事会 / 知乎盐选 / 追妻 / 世情 / 重生 / 虐渣等通俗题材）的故事核、结构、情感线、反转设计、写作手法、共鸣层次。单一全量拆解管道：跑完 Stage 2-6 产出完整拆文报告，落盘到 拆文库/{书名}/，下游 story-short-write 同时读拆文报告 + 情节节点 + 写作手法 + 原文 +",
+    "description": "\u77ed\u7bc7\u7f51\u6587\u62c6\u6587\u3002\u62c6\u89e3\u7206\u6b3e\u77ed\u7bc7\u5c0f\u8bf4\uff08\u756a\u8304\u77ed\u7bc7 / \u6545\u4e8b\u4f1a / \u77e5\u4e4e\u76d0\u9009 / \u8ffd\u59bb / \u4e16\u60c5 / \u91cd\u751f / \u8650\u6e23\u7b49\u901a\u4fd7\u9898\u6750\uff09\u7684\u6545\u4e8b\u6838\u3001\u7ed3\u6784\u3001\u60c5\u611f\u7ebf\u3001\u53cd\u8f6c\u8bbe\u8ba1\u3001\u5199\u4f5c\u624b\u6cd5\u3001\u5171\u9e23\u5c42\u6b21\u3002\u5355\u4e00\u5168\u91cf\u62c6\u89e3\u7ba1\u9053\uff1a\u8dd1\u5b8c Stage 2-6 \u4ea7\u51fa\u5b8c\u6574\u62c6\u6587\u62a5\u544a\uff0c\u843d\u76d8\u5230 \u62c6\u6587\u5e93/{\u4e66\u540d}/\uff0c\u4e0b\u6e38 story-short-write \u540c\u65f6\u8bfb\u62c6\u6587\u62a5\u544a + \u60c5\u8282\u8282\u70b9 + \u5199\u4f5c\u624b\u6cd5 + \u539f\u6587 +",
     "stars": 3859,
     "tier": "community"
   },
@@ -19651,7 +20498,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "短篇网文扫榜。分析知乎盐言、七猫、黑岩、点众等平台热门短篇数据，捕捉风口题材。触发方式：/story-short-scan、/短篇扫榜、「短篇什么火」「知乎故事排行」。",
+    "description": "\u77ed\u7bc7\u7f51\u6587\u626b\u699c\u3002\u5206\u6790\u77e5\u4e4e\u76d0\u8a00\u3001\u4e03\u732b\u3001\u9ed1\u5ca9\u3001\u70b9\u4f17\u7b49\u5e73\u53f0\u70ed\u95e8\u77ed\u7bc7\u6570\u636e\uff0c\u6355\u6349\u98ce\u53e3\u9898\u6750\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-short-scan\u3001/\u77ed\u7bc7\u626b\u699c\u3001\u300c\u77ed\u7bc7\u4ec0\u4e48\u706b\u300d\u300c\u77e5\u4e4e\u6545\u4e8b\u6392\u884c\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19666,7 +20513,7 @@
       "ai-agent",
       "ai-writing"
     ],
-    "description": "短篇网文写作。辅助短篇小说创作，从构思到成稿，聚焦情绪拉扯与节奏把控。触发方式：/story-short-write、/写短篇、「帮我写一篇短篇」「写个盐言故事」。",
+    "description": "\u77ed\u7bc7\u7f51\u6587\u5199\u4f5c\u3002\u8f85\u52a9\u77ed\u7bc7\u5c0f\u8bf4\u521b\u4f5c\uff0c\u4ece\u6784\u601d\u5230\u6210\u7a3f\uff0c\u805a\u7126\u60c5\u7eea\u62c9\u626f\u4e0e\u8282\u594f\u628a\u63a7\u3002\u89e6\u53d1\u65b9\u5f0f\uff1a/story-short-write\u3001/\u5199\u77ed\u7bc7\u3001\u300c\u5e2e\u6211\u5199\u4e00\u7bc7\u77ed\u7bc7\u300d\u300c\u5199\u4e2a\u76d0\u8a00\u6545\u4e8b\u300d\u3002",
     "stars": 3859,
     "tier": "community"
   },
@@ -19681,7 +20528,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a high-converting ad creative set — hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.",
+    "description": "Generate a high-converting ad creative set \u2014 hero image, ad copy variations, and platform-optimized crops for Meta, Google Display, and LinkedIn.",
     "stars": 3732,
     "tier": "community"
   },
@@ -19711,7 +20558,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Direct high-fidelity cinematic video with AI — translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai",
+    "description": "Direct high-fidelity cinematic video with AI \u2014 translates creative intent into technical cinematographic directives for Veo3, Kling, and Luma video models via muapi.ai",
     "stars": 3732,
     "tier": "community"
   },
@@ -19726,7 +20573,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Create a polished, on-brand Instagram post — square or portrait hero image with matching caption and hashtags.",
+    "description": "Create a polished, on-brand Instagram post \u2014 square or portrait hero image with matching caption and hashtags.",
     "stars": 3732,
     "tier": "community"
   },
@@ -19741,7 +20588,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Engineer professional-grade brand logos using geometric primitives and negative space — generates minimalist, scalable vector-style marks via muapi.ai",
+    "description": "Engineer professional-grade brand logos using geometric primitives and negative space \u2014 generates minimalist, scalable vector-style marks via muapi.ai",
     "stars": 3732,
     "tier": "community"
   },
@@ -19756,7 +20603,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Reasoning-driven image generation using structured creative briefs (Gemini 3 style) — generates high-fidelity images via muapi.ai with logic-based prompting",
+    "description": "Reasoning-driven image generation using structured creative briefs (Gemini 3 style) \u2014 generates high-fidelity images via muapi.ai with logic-based prompting",
     "stars": 3732,
     "tier": "community"
   },
@@ -19786,7 +20633,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Expert Cinema Director skill for Seedance 2.0 (ByteDance) — high-fidelity video generation across Chinese, Global, and VIP tiers.",
+    "description": "Expert Cinema Director skill for Seedance 2.0 (ByteDance) \u2014 high-fidelity video generation across Chinese, Global, and VIP tiers.",
     "stars": 3732,
     "tier": "community"
   },
@@ -19831,7 +20678,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles — creates wireframes and design systems via muapi.ai",
+    "description": "Generate high-fidelity UI/UX mockups for mobile and web apps using Atomic Design principles \u2014 creates wireframes and design systems via muapi.ai",
     "stars": 3732,
     "tier": "community"
   },
@@ -19861,7 +20708,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Design a high-CTR YouTube thumbnail — striking imagery, bold text placement, and emotional face/subject if needed.",
+    "description": "Design a high-CTR YouTube thumbnail \u2014 striking imagery, bold text placement, and emotional face/subject if needed.",
     "stars": 3732,
     "tier": "community"
   },
@@ -19876,7 +20723,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Edit and enhance images and videos with AI via muapi.ai — prompt-based editing, upscaling, background removal, face swap, lipsync, video effects, and more",
+    "description": "Edit and enhance images and videos with AI via muapi.ai \u2014 prompt-based editing, upscaling, background removal, face swap, lipsync, video effects, and more",
     "stars": 3732,
     "tier": "community"
   },
@@ -19891,7 +20738,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate AI images, videos, music, and audio from the terminal via muapi.ai — supports 100+ models including Flux, Midjourney v7, Kling 3.0, Veo3, and Suno V5",
+    "description": "Generate AI images, videos, music, and audio from the terminal via muapi.ai \u2014 supports 100+ models including Flux, Midjourney v7, Kling 3.0, Veo3, and Suno V5",
     "stars": 3732,
     "tier": "community"
   },
@@ -19906,7 +20753,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Setup and utility scripts for muapi.ai — configure API keys, test connectivity, and poll for async generation results",
+    "description": "Setup and utility scripts for muapi.ai \u2014 configure API keys, test connectivity, and poll for async generation results",
     "stars": 3732,
     "tier": "community"
   },
@@ -19966,7 +20813,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a 15-second cinematic awards-ceremony video — a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award,",
+    "description": "Generate a 15-second cinematic awards-ceremony video \u2014 a host announces a winner from the stage, a spotlight finds them in the crowd, they walk up to the podium, receive the award,",
     "stars": 3732,
     "tier": "community"
   },
@@ -20011,7 +20858,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate aerial drone-perspective footage — sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.",
+    "description": "Generate aerial drone-perspective footage \u2014 sweeping bird's-eye views, orbit shots, and flyover sequences for landscapes, architecture, and events.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20071,7 +20918,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Build a short music video from a song theme — N keyframes, animate each, generate matching music.",
+    "description": "Build a short music video from a song theme \u2014 N keyframes, animate each, generate matching music.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20086,7 +20933,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a single continuous cinematic shot video — no cuts, one seamless flowing scene with dramatic lighting and motion.",
+    "description": "Generate a single continuous cinematic shot video \u2014 no cuts, one seamless flowing scene with dramatic lighting and motion.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20101,7 +20948,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Cinematic 5–10s product ad from a product photo + brand brief.",
+    "description": "Cinematic 5\u201310s product ad from a product photo + brand brief.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20161,7 +21008,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate UGC-style (User Generated Content) lifestyle photos of a person wearing or using your product — authentic, relatable, social-media-native imagery.",
+    "description": "Generate UGC-style (User Generated Content) lifestyle photos of a person wearing or using your product \u2014 authentic, relatable, social-media-native imagery.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20176,7 +21023,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a full multi-channel product campaign — hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.",
+    "description": "Generate a full multi-channel product campaign \u2014 hero visuals, social media assets, short ad video, and platform-specific crops for an end-to-end launch campaign.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20191,7 +21038,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Create a Xiaohongshu (RedNote/小红书) style cover image — vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.",
+    "description": "Create a Xiaohongshu (RedNote/\u5c0f\u7ea2\u4e66) style cover image \u2014 vibrant, lifestyle-focused, with aesthetic typography overlay suitable for the Chinese social platform.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20251,7 +21098,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a complete Amazon product listing image set — hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.",
+    "description": "Generate a complete Amazon product listing image set \u2014 hero image, lifestyle shot, infographic with features, and comparison/detail closeups optimized for Amazon standards.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20266,7 +21113,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Create a professional, eye-catching blog post header image sized for web (1200×628) with optional title composition guidance.",
+    "description": "Create a professional, eye-catching blog post header image sized for web (1200\u00d7628) with optional title composition guidance.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20281,7 +21128,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a cohesive brand visual kit — logo concept, color palette moodboard, and typography pairing suggestions.",
+    "description": "Generate a cohesive brand visual kit \u2014 logo concept, color palette moodboard, and typography pairing suggestions.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20296,7 +21143,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a professional multi-page brochure design — cover, inner spread, and back cover — for business, real estate, events, or product launches.",
+    "description": "Generate a professional multi-page brochure design \u2014 cover, inner spread, and back cover \u2014 for business, real estate, events, or product launches.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20311,7 +21158,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Turn a real lifestyle photo into a polished \"chibi clone sticker diary\" image — the original person stays photorealistic, surrounded by 5–8 kawaii chibi mini-clones, scrapbook dood",
+    "description": "Turn a real lifestyle photo into a polished \"chibi clone sticker diary\" image \u2014 the original person stays photorealistic, surrounded by 5\u20138 kawaii chibi mini-clones, scrapbook dood",
     "stars": 3732,
     "tier": "community"
   },
@@ -20326,7 +21173,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Turn a portrait photo into a high-end editorial \"Color Analysis Board\" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) — best colors, undertone, makeup guide, ca",
+    "description": "Turn a portrait photo into a high-end editorial \"Color Analysis Board\" in a luxury fashion-magazine style (Dior / Ralph Lauren aesthetic) \u2014 best colors, undertone, makeup guide, ca",
     "stars": 3732,
     "tier": "community"
   },
@@ -20356,7 +21203,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Create a comprehensive brand design guide — color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
+    "description": "Create a comprehensive brand design guide \u2014 color palette, typography pairings, UI component previews, and visual identity rules with example mockups.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20401,7 +21248,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Create professional interior design visualizations — redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.",
+    "description": "Create professional interior design visualizations \u2014 redesign existing rooms, generate new room concepts, or visualize specific furniture styles in a space.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20446,7 +21293,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Design a professional logo with full branding package — primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.",
+    "description": "Design a professional logo with full branding package \u2014 primary logo, variations (dark/light/icon-only), color palette, and real-world application mockups.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20461,7 +21308,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Quickly generate a single polished logo for any brand — fast, focused, single output with clean vector aesthetic and accurate brand name text.",
+    "description": "Quickly generate a single polished logo for any brand \u2014 fast, focused, single output with clean vector aesthetic and accurate brand name text.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20491,7 +21338,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Generate a complete set of multi-angle product shots — front, side, back, top-down, and 45-degree perspective — for comprehensive product visualization.",
+    "description": "Generate a complete set of multi-angle product shots \u2014 front, side, back, top-down, and 45-degree perspective \u2014 for comprehensive product visualization.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20551,7 +21398,7 @@
       "agent-skills",
       "agent-tools"
     ],
-    "description": "Analyze a website URL and generate a redesigned, improved UI — recreate the visual design with modern aesthetics, better hierarchy, and fresh brand direction.",
+    "description": "Analyze a website URL and generate a redesigned, improved UI \u2014 recreate the visual design with modern aesthetics, better hierarchy, and fresh brand direction.",
     "stars": 3732,
     "tier": "community"
   },
@@ -20596,7 +21443,7 @@
       "ai-tools",
       "claude-code-skill"
     ],
-    "description": "Use when a PinMe project (Worker TypeScript) needs to integrate user authentication — creating email/password users, verifying id_tokens, querying user info, or listing users via I",
+    "description": "Use when a PinMe project (Worker TypeScript) needs to integrate user authentication \u2014 creating email/password users, verifying id_tokens, querying user info, or listing users via I",
     "stars": 3704,
     "tier": "community"
   },
@@ -20656,7 +21503,7 @@
       "ai-tools",
       "claude-code-skill"
     ],
-    "description": "Use when generating, modifying, or reviewing PinMe Worker (Cloudflare Worker TypeScript) code that accepts payments through UniwebPay — payment links, products/prices, checkout ses",
+    "description": "Use when generating, modifying, or reviewing PinMe Worker (Cloudflare Worker TypeScript) code that accepts payments through UniwebPay \u2014 payment links, products/prices, checkout ses",
     "stars": 3704,
     "tier": "community"
   },
@@ -22195,7 +23042,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "Convert files between formats — PDF to Word, HEIC to JPG, MP4 to MP3, CSV to JSON, EPUB to MOBI, and 999 total routes across images, video, audio, documents, data, fonts, ebooks, a",
+    "description": "Convert files between formats \u2014 PDF to Word, HEIC to JPG, MP4 to MP3, CSV to JSON, EPUB to MOBI, and 999 total routes across images, video, audio, documents, data, fonts, ebooks, a",
     "stars": 37665,
     "tier": "community"
   },
@@ -22675,7 +23522,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "Design composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→Filter→Scorer→Selector→SideEffect framework popularized by xAI's open-sourced X Fo",
+    "description": "Design composable recommendation, ranking, and feed pipelines using the six-stage Source\u2192Hydrator\u2192Filter\u2192Scorer\u2192Selector\u2192SideEffect framework popularized by xAI's open-sourced X Fo",
     "stars": 37665,
     "tier": "community"
   },
@@ -22810,7 +23657,7 @@
       "agent-skills",
       "agentic-ai"
     ],
-    "description": "PluginEval quality methodology — dimensions, rubrics, statistical methods, and scoring formulas.",
+    "description": "PluginEval quality methodology \u2014 dimensions, rubrics, statistical methods, and scoring formulas.",
     "stars": 37665,
     "tier": "community"
   },
@@ -23647,7 +24494,7 @@
       "claude-code-plugin",
       "claude-skills"
     ],
-    "description": "Manage Google Ads — performance, keywords, bids, budgets, negatives, campaigns, ads, search terms, QS, location targeting, bulk operations, experiments, asset management, portfolio",
+    "description": "Manage Google Ads \u2014 performance, keywords, bids, budgets, negatives, campaigns, ads, search terms, QS, location targeting, bulk operations, experiments, asset management, portfolio",
     "stars": 3093,
     "tier": "community"
   },
@@ -23677,7 +24524,7 @@
       "claude-code-plugin",
       "claude-skills"
     ],
-    "description": "Manage Meta Ads (Facebook + Instagram) — performance, ROAS, CPM, frequency, audience overlap, learning phase, creative fatigue, budgets, ad sets, campaigns, ads.",
+    "description": "Manage Meta Ads (Facebook + Instagram) \u2014 performance, ROAS, CPM, frequency, audience overlap, learning phase, creative fatigue, budgets, ad sets, campaigns, ads.",
     "stars": 3093,
     "tier": "community"
   },
@@ -23692,7 +24539,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "End-to-end Android APK red-team pipeline — automated APK acquisition (Play Store + apkpure + apkmirror fallback), jadx decompilation, secret/URL/JWT/Firebase grep, pinned-cert extr",
+    "description": "End-to-end Android APK red-team pipeline \u2014 automated APK acquisition (Play Store + apkpure + apkmirror fallback), jadx decompilation, secret/URL/JWT/Firebase grep, pinned-cert extr",
     "stars": 2914,
     "tier": "community"
   },
@@ -23707,7 +24554,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Complete bug bounty workflow — recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack",
+    "description": "Complete bug bounty workflow \u2014 recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack",
     "stars": 2914,
     "tier": "community"
   },
@@ -23737,7 +24584,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Complete bug bounty workflow — recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack",
+    "description": "Complete bug bounty workflow \u2014 recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack",
     "stars": 2914,
     "tier": "community"
   },
@@ -23767,7 +24614,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Cloud IAM red-team attack chain across AWS, Azure, GCP — focused on EXTERNAL exploitation paths and post-credential-discovery privilege analysis.",
+    "description": "Cloud IAM red-team attack chain across AWS, Azure, GCP \u2014 focused on EXTERNAL exploitation paths and post-credential-discovery privilege analysis.",
     "stars": 2914,
     "tier": "community"
   },
@@ -23782,7 +24629,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "External SSL VPN / remote-access appliance attack matrix — Cisco ASA/AnyConnect, Fortinet FortiGate/FortiOS, Citrix NetScaler/ADC, Palo Alto GlobalProtect, Pulse Secure / Ivanti Co",
+    "description": "External SSL VPN / remote-access appliance attack matrix \u2014 Cisco ASA/AnyConnect, Fortinet FortiGate/FortiOS, Citrix NetScaler/ADC, Palo Alto GlobalProtect, Pulse Secure / Ivanti Co",
     "stars": 2914,
     "tier": "community"
   },
@@ -23812,7 +24659,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt API security misconfiguration — mass assignment, JWT attacks, prototype pollution, HTTP verb tampering.",
+    "description": "Hunt API security misconfiguration \u2014 mass assignment, JWT attacks, prototype pollution, HTTP verb tampering.",
     "stars": 2914,
     "tier": "community"
   },
@@ -23827,7 +24674,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt ASP.NET-specific surface — ViewState deserialization (signed-only vs encrypted), machineKey recovery, dual-parser MAC-bypass anti-pattern, request-validator bypass, trace.axd/",
+    "description": "Hunt ASP.NET-specific surface \u2014 ViewState deserialization (signed-only vs encrypted), machineKey recovery, dual-parser MAC-bypass anti-pattern, request-validator bypass, trace.axd/",
     "stars": 2914,
     "tier": "community"
   },
@@ -23842,7 +24689,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt account takeover taxonomy — 9 distinct paths to ATO, plus chains.",
+    "description": "Hunt account takeover taxonomy \u2014 9 distinct paths to ATO, plus chains.",
     "stars": 2914,
     "tier": "community"
   },
@@ -23872,7 +24719,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Missing/Weak Rate Limiting — login brute force, OTP/2FA brute force (10^6 keyspace), password-reset-token brute, credential stuffing, username/email enumeration via error-stri",
+    "description": "Hunt Missing/Weak Rate Limiting \u2014 login brute force, OTP/2FA brute force (10^6 keyspace), password-reset-token brute, credential stuffing, username/email enumeration via error-stri",
     "stars": 2914,
     "tier": "community"
   },
@@ -23917,7 +24764,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt CI/CD pipeline vulnerabilities — GitHub Actions workflow injection (pull_request_target Pwnrequest + ${{ }}-into-shell), self-hosted runner poisoning, OIDC trust-policy abuse,",
+    "description": "Hunt CI/CD pipeline vulnerabilities \u2014 GitHub Actions workflow injection (pull_request_target Pwnrequest + ${{ }}-into-shell), self-hosted runner poisoning, OIDC trust-policy abuse,",
     "stars": 2914,
     "tier": "community"
   },
@@ -23947,7 +24794,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt CORS Misconfiguration — origin-reflection with credentials, null-origin trust, subdomain-regex bypass (unanchored vs unescaped-dot vs prefix-only), pre-flight (OPTIONS) gating",
+    "description": "Hunt CORS Misconfiguration \u2014 origin-reflection with credentials, null-origin trust, subdomain-regex bypass (unanchored vs unescaped-dot vs prefix-only), pre-flight (OPTIONS) gating",
     "stars": 2914,
     "tier": "community"
   },
@@ -23977,7 +24824,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Insecure Deserialization — Java gadget chains (ysoserial), PHP object injection (phpggc), Python pickle RCE, .NET BinaryFormatter, Ruby Marshal.load, JNDI/Log4Shell.",
+    "description": "Hunt Insecure Deserialization \u2014 Java gadget chains (ysoserial), PHP object injection (phpggc), Python pickle RCE, .NET BinaryFormatter, Ruby Marshal.load, JNDI/Log4Shell.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24007,7 +24854,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt client-side DOM vulnerabilities — DOM Clobbering (overwrite JS globals via HTML injection), PostMessage hijacking (missing origin check), Service Worker abuse (intercept reque",
+    "description": "Hunt client-side DOM vulnerabilities \u2014 DOM Clobbering (overwrite JS globals via HTML injection), PostMessage hijacking (missing origin check), Service Worker abuse (intercept reque",
     "stars": 2914,
     "tier": "community"
   },
@@ -24022,7 +24869,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt file upload bugs — RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename.",
+    "description": "Hunt file upload bugs \u2014 RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24052,7 +24899,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt gRPC vulnerabilities — server reflection enabled (enumerate all services/methods), missing authentication / metadata-stripping on internal endpoints, plaintext gRPC over HTTP/",
+    "description": "Hunt gRPC vulnerabilities \u2014 server reflection enabled (enumerate all services/methods), missing authentication / metadata-stripping on internal endpoints, plaintext gRPC over HTTP/",
     "stars": 2914,
     "tier": "community"
   },
@@ -24067,7 +24914,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Host Header Injection — password reset poisoning → ATO, web cache poisoning via unkeyed Host/X-Forwarded-Host, routing-based SSRF (Host picks upstream → cloud metadata/interna",
+    "description": "Hunt Host Header Injection \u2014 password reset poisoning \u2192 ATO, web cache poisoning via unkeyed Host/X-Forwarded-Host, routing-based SSRF (Host picks upstream \u2192 cloud metadata/interna",
     "stars": 2914,
     "tier": "community"
   },
@@ -24112,7 +24959,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Kubernetes & Docker — API anonymous access, kubelet 10250 exec (SPDY/WebSocket, NOT plain POST) and the simpler /run primitive, etcd 2379 unauth, dashboard skip-login, RBAC mi",
+    "description": "Hunt Kubernetes & Docker \u2014 API anonymous access, kubelet 10250 exec (SPDY/WebSocket, NOT plain POST) and the simpler /run primitive, etcd 2379 unauth, dashboard skip-login, RBAC mi",
     "stars": 2914,
     "tier": "community"
   },
@@ -24127,7 +24974,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Laravel specific vulnerabilities — Debug mode leakage (APP_DEBUG=true exposes full stack trace + env vars), Laravel Telescope/Horizon dashboard unauthorized access, Ignition R",
+    "description": "Hunt Laravel specific vulnerabilities \u2014 Debug mode leakage (APP_DEBUG=true exposes full stack trace + env vars), Laravel Telescope/Horizon dashboard unauthorized access, Ignition R",
     "stars": 2914,
     "tier": "community"
   },
@@ -24142,7 +24989,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt LDAP Injection and XPath Injection — authentication bypass, blind char-by-char attribute exfiltration, AD user/group enumeration, XML-store XPath bypass.",
+    "description": "Hunt LDAP Injection and XPath Injection \u2014 authentication bypass, blind char-by-char attribute exfiltration, AD user/group enumeration, XML-store XPath bypass.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24157,7 +25004,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Local File Inclusion (LFI), Remote File Inclusion (RFI), and Path Traversal — /etc/passwd read, log poisoning → RCE, PHP filter-chain RCE (no upload needed), php:// / data://",
+    "description": "Hunt Local File Inclusion (LFI), Remote File Inclusion (RFI), and Path Traversal \u2014 /etc/passwd read, log poisoning \u2192 RCE, PHP filter-chain RCE (no upload needed), php:// / data://",
     "stars": 2914,
     "tier": "community"
   },
@@ -24172,7 +25019,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt LLM/AI feature bugs — prompt injection, indirect injection, exfiltration via tool-use/markdown, ASCII smuggling, agentic AI security (OWASP Agentic Apps 2026, ASI01-ASI10).",
+    "description": "Hunt LLM/AI feature bugs \u2014 prompt injection, indirect injection, exfiltration via tool-use/markdown, ASCII smuggling, agentic AI security (OWASP Agentic Apps 2026, ASI01-ASI10).",
     "stars": 2914,
     "tier": "community"
   },
@@ -24187,7 +25034,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt MFA / 2FA bypass — 7 distinct patterns.",
+    "description": "Hunt MFA / 2FA bypass \u2014 7 distinct patterns.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24217,7 +25064,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Next.js specific vulnerabilities — Server Actions arbitrary function execution, Middleware auth bypass via static asset paths, ISR cache poisoning, Image Optimization SSRF (/_",
+    "description": "Hunt Next.js specific vulnerabilities \u2014 Server Actions arbitrary function execution, Middleware auth bypass via static asset paths, ISR cache poisoning, Image Optimization SSRF (/_",
     "stars": 2914,
     "tier": "community"
   },
@@ -24232,7 +25079,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Node.js specific vulnerabilities — Prototype Pollution → RCE chains (lodash/merge/assign), Express trust proxy misconfiguration, child_process/eval injection, template engine",
+    "description": "Hunt Node.js specific vulnerabilities \u2014 Prototype Pollution \u2192 RCE chains (lodash/merge/assign), Express trust proxy misconfiguration, child_process/eval injection, template engine",
     "stars": 2914,
     "tier": "community"
   },
@@ -24247,7 +25094,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt NoSQL Injection — MongoDB operator injection ($where, $regex, $gt, $ne), CouchDB, Redis command injection, auth bypass via NoSQLi, data dump.",
+    "description": "Hunt NoSQL Injection \u2014 MongoDB operator injection ($where, $regex, $gt, $ne), CouchDB, Redis command injection, auth bypass via NoSQLi, data dump.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24292,7 +25139,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Open Redirect — all types including low-impact, chained to OAuth token theft → ATO, phishing chains.",
+    "description": "Hunt Open Redirect \u2014 all types including low-impact, chained to OAuth token theft \u2192 ATO, phishing chains.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24337,7 +25184,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Session Management vulnerabilities — session fixation (no regeneration on login), insufficient invalidation on logout / password-change / email-change, predictable or low-entr",
+    "description": "Hunt Session Management vulnerabilities \u2014 session fixation (no regeneration on login), insufficient invalidation on logout / password-change / email-change, predictable or low-entr",
     "stars": 2914,
     "tier": "community"
   },
@@ -24352,7 +25199,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Microsoft SharePoint Server (2013/2016/2019/Subscription Edition) on-prem farms — anonymous endpoint enumeration, version disclosure, legacy SOAP login bypass (Authentication.",
+    "description": "Hunt Microsoft SharePoint Server (2013/2016/2019/Subscription Edition) on-prem farms \u2014 anonymous endpoint enumeration, version disclosure, legacy SOAP login bypass (Authentication.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24367,7 +25214,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt source code and build artifact leakage — JavaScript source maps (.js.map) reconstructing TypeScript/ES6 source, Swagger/OpenAPI JSON endpoint discovery, .env/.git exposure, we",
+    "description": "Hunt source code and build artifact leakage \u2014 JavaScript source maps (.js.map) reconstructing TypeScript/ES6 source, Swagger/OpenAPI JSON endpoint discovery, .env/.git exposure, we",
     "stars": 2914,
     "tier": "community"
   },
@@ -24382,7 +25229,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt Spring Boot specific vulnerabilities — Actuator endpoints (heapdump, env, loggers, mappings, shutdown), Spring Expression Language (SpEL) injection → RCE, H2 console RCE, Jolo",
+    "description": "Hunt Spring Boot specific vulnerabilities \u2014 Actuator endpoints (heapdump, env, loggers, mappings, shutdown), Spring Expression Language (SpEL) injection \u2192 RCE, H2 console RCE, Jolo",
     "stars": 2914,
     "tier": "community"
   },
@@ -24457,7 +25304,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt TLS/SSL and DNS misconfigurations — missing HSTS (downgrade attack), weak cipher suites, expired/invalid certificates, mTLS bypass, missing SPF/DKIM/DMARC (email spoofing), DN",
+    "description": "Hunt TLS/SSL and DNS misconfigurations \u2014 missing HSTS (downgrade attack), weak cipher suites, expired/invalid certificates, mTLS bypass, missing SPF/DKIM/DMARC (email spoofing), DN",
     "stars": 2914,
     "tier": "community"
   },
@@ -24472,7 +25319,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Hunt WebSocket vulnerabilities — Cross-Site WebSocket Hijacking (CSWSH), missing/weak Origin validation on the WS handshake, no per-message authentication, message tampering, socke",
+    "description": "Hunt WebSocket vulnerabilities \u2014 Cross-Site WebSocket Hijacking (CSWSH), missing/weak Origin validation on the WS handshake, no per-message authentication, message tampering, socke",
     "stars": 2914,
     "tier": "community"
   },
@@ -24517,7 +25364,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Microsoft 365 / Entra ID red-team attack chain — current 2026 reality.",
+    "description": "Microsoft 365 / Entra ID red-team attack chain \u2014 current 2026 reality.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24532,7 +25379,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Meme coin and token security audit — rug pull detection (honeypot, hidden mint, fee manipulation, LP lock bypass), Solana SPL token analysis (freeze authority, mint authority, meta",
+    "description": "Meme coin and token security audit \u2014 rug pull detection (honeypot, hidden mint, fee manipulation, LP lock bypass), Solana SPL token analysis (freeze authority, mint authority, meta",
     "stars": 2914,
     "tier": "community"
   },
@@ -24547,7 +25394,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Methodology for detecting client SOC patches, attacker activity, and security-state changes that occur DURING a red-team engagement — and converting those observations into deliver",
+    "description": "Methodology for detecting client SOC patches, attacker activity, and security-state changes that occur DURING a red-team engagement \u2014 and converting those observations into deliver",
     "stars": 2914,
     "tier": "community"
   },
@@ -24577,7 +25424,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Okta-as-IdP red-team attack chain — tenant discovery, user enumeration (multiple vectors), authentication flow analysis (factors enumeration, push-notification fatigue, SMS bypass)",
+    "description": "Okta-as-IdP red-team attack chain \u2014 tenant discovery, user enumeration (multiple vectors), authentication flow analysis (factors enumeration, push-notification fatigue, SMS bypass)",
     "stars": 2914,
     "tier": "community"
   },
@@ -24607,7 +25454,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Red-team operator discipline — the mindset corrections that separate offensive testing from defensive WAPT.",
+    "description": "Red-team operator discipline \u2014 the mindset corrections that separate offensive testing from defensive WAPT.",
     "stars": 2914,
     "tier": "community"
   },
@@ -24622,7 +25469,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Client-facing red-team deliverable format — codifies the Subject / Observations / Description / Impact / Recommendation / PoC structure used for external red-team engagements (not",
+    "description": "Client-facing red-team deliverable format \u2014 codifies the Subject / Observations / Description / Impact / Recommendation / PoC structure used for external red-team engagements (not",
     "stars": 2914,
     "tier": "community"
   },
@@ -24637,7 +25484,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi — report templates, human tone guidelines, impact-first writing, CVSS 3.1 scoring, title formula, impact statement form",
+    "description": "Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi \u2014 report templates, human tone guidelines, impact-first writing, CVSS 3.1 scoring, title formula, impact statement form",
     "stars": 2914,
     "tier": "community"
   },
@@ -24667,7 +25514,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "External recon for software supply-chain attack surface — package-namespace squatting candidates, dependency-confusion vulnerabilities, GitHub Actions injection openings, container",
+    "description": "External recon for software supply-chain attack surface \u2014 package-namespace squatting candidates, dependency-confusion vulnerabilities, GitHub Actions injection openings, container",
     "stars": 2914,
     "tier": "community"
   },
@@ -24682,7 +25529,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Finding validation before writing any report — 7-Question Gate (all 7 questions), 4 pre-submission gates, always-rejected list, conditionally valid with chain table, CVSS 3.1 quick",
+    "description": "Finding validation before writing any report \u2014 7-Question Gate (all 7 questions), 4 pre-submission gates, always-rejected list, conditionally valid with chain table, CVSS 3.1 quick",
     "stars": 2914,
     "tier": "community"
   },
@@ -24697,7 +25544,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "VMware vSphere / vCenter Server external attack matrix — version fingerprinting, the high-impact CVE chain (CVE-2021-21972 vRealize unauth file upload, CVE-2021-21985 vSAN plugin R",
+    "description": "VMware vSphere / vCenter Server external attack matrix \u2014 version fingerprinting, the high-impact CVE chain (CVE-2021-21972 vRealize unauth file upload, CVE-2021-21985 vSAN plugin R",
     "stars": 2914,
     "tier": "community"
   },
@@ -24712,7 +25559,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Web2 recon pipeline — subdomain enumeration (subfinder, Chaos API, assetfinder), live host discovery (dnsx, httpx), URL crawling (katana, waybackurls, gau), directory fuzzing (ffuf",
+    "description": "Web2 recon pipeline \u2014 subdomain enumeration (subfinder, Chaos API, assetfinder), live host discovery (dnsx, httpx), URL crawling (katana, waybackurls, gau), directory fuzzing (ffuf",
     "stars": 2914,
     "tier": "community"
   },
@@ -24727,7 +25574,7 @@
       "ai-security",
       "anthropic"
     ],
-    "description": "Smart contract security audit — 10 DeFi bug classes (accounting desync, access control, incomplete path, off-by-one, oracle, ERC4626, reentrancy, flash loan, signature replay, prox",
+    "description": "Smart contract security audit \u2014 10 DeFi bug classes (accounting desync, access control, incomplete path, off-by-one, oracle, ERC4626, reentrancy, flash loan, signature replay, prox",
     "stars": 2914,
     "tier": "community"
   },
@@ -24787,7 +25634,7 @@
       "agent",
       "agent-framework"
     ],
-    "description": "Converts agent definitions between frameworks — exports to Claude Code, OpenAI, CrewAI, Lyzr, and GitHub Models formats, and imports from Claude, Cursor, and CrewAI projects.",
+    "description": "Converts agent definitions between frameworks \u2014 exports to Claude Code, OpenAI, CrewAI, Lyzr, and GitHub Models formats, and imports from Claude, Cursor, and CrewAI projects.",
     "stars": 2896,
     "tier": "community"
   },
@@ -25837,7 +26684,7 @@
       "agent-skills",
       "agents"
     ],
-    "description": "Set up AI Runway on AKS — from bare cluster to running model.",
+    "description": "Set up AI Runway on AKS \u2014 from bare cluster to running model.",
     "stars": 2705,
     "tier": "community"
   },
@@ -26317,7 +27164,7 @@
       "agent-skills",
       "agents"
     ],
-    "description": "Generates AGENTS.md files for repository folders — coding agent context files with build commands, testing instructions, code style, project structure, and boundaries.",
+    "description": "Generates AGENTS.md files for repository folders \u2014 coding agent context files with build commands, testing instructions, code style, project structure, and boundaries.",
     "stars": 2705,
     "tier": "community"
   },
@@ -26377,7 +27224,7 @@
       "agent-skills",
       "agents"
     ],
-    "description": "Generates four audience-tailored onboarding guides in an onboarding/ folder — Contributor, Staff Engineer, Executive, and Product Manager.",
+    "description": "Generates four audience-tailored onboarding guides in an onboarding/ folder \u2014 Contributor, Staff Engineer, Executive, and Product Manager.",
     "stars": 2705,
     "tier": "community"
   },
@@ -26482,7 +27329,7 @@
       "agent-skills",
       "agents"
     ],
-    "description": "Guide for implementing continual learning in AI coding agents — hooks, memory scoping, reflection patterns.",
+    "description": "Guide for implementing continual learning in AI coding agents \u2014 hooks, memory scoping, reflection patterns.",
     "stars": 2705,
     "tier": "community"
   },
@@ -27262,7 +28109,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Bluetooth Low Energy (BLE) attack methodology — GATT enumeration, characteristic read/write without auth, pairing downgrade (Just Works forced), LE Secure Connections bypass, MITM",
+    "description": "Bluetooth Low Energy (BLE) attack methodology \u2014 GATT enumeration, characteristic read/write without auth, pairing downgrade (Just Works forced), LE Secure Connections bypass, MITM",
     "stars": 2664,
     "tier": "community"
   },
@@ -27277,7 +28124,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Bluetooth Classic (BR/EDR) attack methodology — device discovery, service enumeration via SDP, LMP/L2CAP layer attacks, legacy PIN cracking (BlueBorne / KNOB), Bluetooth file-trans",
+    "description": "Bluetooth Classic (BR/EDR) attack methodology \u2014 device discovery, service enumeration via SDP, LMP/L2CAP layer attacks, legacy PIN cracking (BlueBorne / KNOB), Bluetooth file-trans",
     "stars": 2664,
     "tier": "community"
   },
@@ -27292,7 +28139,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Deauthentication and disassociation attacks against 802.11 networks — targeted single-client deauth for handshake capture, broadcast deauth for DoS (with authorization), action-fra",
+    "description": "Deauthentication and disassociation attacks against 802.11 networks \u2014 targeted single-client deauth for handshake capture, broadcast deauth for DoS (with authorization), action-fra",
     "stars": 2664,
     "tier": "community"
   },
@@ -27307,7 +28154,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Evil Twin / KARMA / Mana access point methodology — rogue AP construction with hostapd-mana / wifiphisher / airgeddon, KARMA universal probe response, Mana selective probe response",
+    "description": "Evil Twin / KARMA / Mana access point methodology \u2014 rogue AP construction with hostapd-mana / wifiphisher / airgeddon, KARMA universal probe response, Mana selective probe response",
     "stars": 2664,
     "tier": "community"
   },
@@ -27322,7 +28169,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "KRACK (CVE-2017-13077..082) and FragAttacks (CVE-2020-24586..588 + 26139-26147) — key reinstallation, fragmentation, and aggregation attacks against WPA2 supplicants.",
+    "description": "KRACK (CVE-2017-13077..082) and FragAttacks (CVE-2020-24586..588 + 26139-26147) \u2014 key reinstallation, fragmentation, and aggregation attacks against WPA2 supplicants.",
     "stars": 2664,
     "tier": "community"
   },
@@ -27337,7 +28184,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "LoRaWAN and sub-GHz (433 / 868 / 915 MHz) attack methodology — LoRaWAN ABP/OTAA join attack, network/session key reuse, frame counter replay, downlink injection on TTN/Helium-style",
+    "description": "LoRaWAN and sub-GHz (433 / 868 / 915 MHz) attack methodology \u2014 LoRaWAN ABP/OTAA join attack, network/session key reuse, frame counter replay, downlink injection on TTN/Helium-style",
     "stars": 2664,
     "tier": "community"
   },
@@ -27367,7 +28214,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Wi-Fi reconnaissance methodology — adapter selection, monitor mode and packet injection setup, regulatory domain handling, multi-band airspace mapping, hidden SSID discovery, BSSID",
+    "description": "Wi-Fi reconnaissance methodology \u2014 adapter selection, monitor mode and packet injection setup, regulatory domain handling, multi-band airspace mapping, hidden SSID discovery, BSSID",
     "stars": 2664,
     "tier": "community"
   },
@@ -27382,7 +28229,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "WPA/WPA2/WPA3-Enterprise (802.1X / EAP) attack methodology — EAP method identification (PEAP-MSCHAPv2, EAP-TTLS, EAP-TLS, EAP-GTC, EAP-PWD, EAP-FAST), evil-twin RADIUS attacks with",
+    "description": "WPA/WPA2/WPA3-Enterprise (802.1X / EAP) attack methodology \u2014 EAP method identification (PEAP-MSCHAPv2, EAP-TTLS, EAP-TLS, EAP-GTC, EAP-PWD, EAP-FAST), evil-twin RADIUS attacks with",
     "stars": 2664,
     "tier": "community"
   },
@@ -27397,7 +28244,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "WPA/WPA2-PSK attack methodology — four-way handshake capture via targeted deauthentication, PMKID attacks (no client required), hcxdumptool / hcxpcapngtool conversion to hashcat hc",
+    "description": "WPA/WPA2-PSK attack methodology \u2014 four-way handshake capture via targeted deauthentication, PMKID attacks (no client required), hcxdumptool / hcxpcapngtool conversion to hashcat hc",
     "stars": 2664,
     "tier": "community"
   },
@@ -27412,7 +28259,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "WPA3 / SAE (Simultaneous Authentication of Equals) attack methodology — transition-mode (mixed WPA2/WPA3) downgrade, Dragonblood side-channel attacks (CVE-2019-9494, 9495, 13377, 1",
+    "description": "WPA3 / SAE (Simultaneous Authentication of Equals) attack methodology \u2014 transition-mode (mixed WPA2/WPA3) downgrade, Dragonblood side-channel attacks (CVE-2019-9494, 9495, 13377, 1",
     "stars": 2664,
     "tier": "community"
   },
@@ -27427,7 +28274,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "WPS (Wi-Fi Protected Setup) PIN attack methodology — Pixie Dust offline attack against vulnerable chipsets (Ralink, Realtek, Broadcom, MediaTek), online PIN brute-force with reaver",
+    "description": "WPS (Wi-Fi Protected Setup) PIN attack methodology \u2014 Pixie Dust offline attack against vulnerable chipsets (Ralink, Realtek, Broadcom, MediaTek), online PIN brute-force with reaver",
     "stars": 2664,
     "tier": "community"
   },
@@ -27442,7 +28289,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Z-Wave attack methodology — sniffing with Z-Force / EZ-Wave / RTL-SDR + ZniffMobile, S0 (legacy) network-key derivation flaw and key reuse, S2 (modern) ECDH commissioning analysis,",
+    "description": "Z-Wave attack methodology \u2014 sniffing with Z-Force / EZ-Wave / RTL-SDR + ZniffMobile, S0 (legacy) network-key derivation flaw and key reuse, S2 (modern) ECDH commissioning analysis,",
     "stars": 2664,
     "tier": "community"
   },
@@ -27457,7 +28304,7 @@
       "claude-ai",
       "claude-pt"
     ],
-    "description": "Zigbee, Thread, and Matter mesh-protocol attack methodology — IEEE 802.15.4 sniffing with TI CC2531 / CC2540 / Sonoff Zigbee Dongle E, KillerBee toolkit, Touchlink commissioning ab",
+    "description": "Zigbee, Thread, and Matter mesh-protocol attack methodology \u2014 IEEE 802.15.4 sniffing with TI CC2531 / CC2540 / Sonoff Zigbee Dongle E, KillerBee toolkit, Touchlink commissioning ab",
     "stars": 2664,
     "tier": "community"
   },
@@ -27727,7 +28574,7 @@
       "agent-orchestration",
       "ai-agents"
     ],
-    "description": "Coordinate multiple Claude Code sessions as a team — lead + teammates with shared task lists, mailbox messaging, and file-lock claiming.",
+    "description": "Coordinate multiple Claude Code sessions as a team \u2014 lead + teammates with shared task lists, mailbox messaging, and file-lock claiming.",
     "stars": 2601,
     "tier": "community"
   },
@@ -27802,7 +28649,7 @@
       "agent-orchestration",
       "ai-agents"
     ],
-    "description": "Master the four operations of context engineering — Write, Select, Compress, Isolate.",
+    "description": "Master the four operations of context engineering \u2014 Write, Select, Compress, Isolate.",
     "stars": 2601,
     "tier": "community"
   },
@@ -28822,7 +29669,7 @@
       "agent-plugins",
       "agent-skills"
     ],
-    "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources.",
+    "description": "Answer Engine Optimization (AEO) skill \u2014 optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources.",
     "stars": 21697,
     "tier": "community"
   },
@@ -28912,7 +29759,7 @@
       "agent-plugins",
       "agent-skills"
     ],
-    "description": "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation.",
+    "description": "/cs:ai-act-readiness <system> \u2014 EU AI Act 6-question forcing interrogation.",
     "stars": 21697,
     "tier": "community"
   },
@@ -28942,7 +29789,7 @@
       "agent-plugins",
       "agent-skills"
     ],
-    "description": "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation.",
+    "description": "/cs:aims-audit <scope> \u2014 ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation.",
     "stars": 21697,
     "tier": "community"
   },
@@ -28957,7 +29804,7 @@
       "agent-plugins",
       "agent-skills"
     ],
-    "description": "Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality.",
+    "description": "Set up, audit, and debug analytics tracking implementation \u2014 GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality.",
     "stars": 21697,
     "tier": "community"
   },
@@ -29092,7 +29939,7 @@
       "ai-research",
       "ai-tools"
     ],
-    "description": "Autonomously improve a generated paper via GPT-5.5 xhigh review → implement fixes → recompile, for 2 rounds.",
+    "description": "Autonomously improve a generated paper via GPT-5.5 xhigh review \u2192 implement fixes \u2192 recompile, for 2 rounds.",
     "stars": 13150,
     "tier": "community"
   },
@@ -29152,7 +29999,7 @@
       "ai-research",
       "ai-tools"
     ],
-    "description": "Zero-context verification that every bibliographic entry in the paper is real, correctly attributed, and used in a context the cited paper actually supports — catching hallucinated",
+    "description": "Zero-context verification that every bibliographic entry in the paper is real, correctly attributed, and used in a context the cited paper actually supports \u2014 catching hallucinated",
     "stars": 13150,
     "tier": "community"
   },
@@ -29797,7 +30644,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack — pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack \u2014 pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
     "stars": 2728,
     "tier": "community"
   },
@@ -29812,7 +30659,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem — dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
+    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem \u2014 dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
     "stars": 2728,
     "tier": "community"
   },
@@ -29827,7 +30674,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem — native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem \u2014 native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
     "stars": 2728,
     "tier": "community"
   },
@@ -29842,7 +30689,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Use when the user asks to run a full empirical / causal analysis in Python — by default in the style of an applied economics paper (AER / QJE / JPE / ReStud / AEJ) with DID / RD /",
+    "description": "Use when the user asks to run a full empirical / causal analysis in Python \u2014 by default in the style of an applied economics paper (AER / QJE / JPE / ReStud / AEJ) with DID / RD /",
     "stars": 2728,
     "tier": "community"
   },
@@ -29857,7 +30704,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack — pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack \u2014 pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml +",
     "stars": 2728,
     "tier": "community"
   },
@@ -29872,7 +30719,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem — native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
+    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem \u2014 native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobus",
     "stars": 2728,
     "tier": "community"
   },
@@ -29887,7 +30734,7 @@
       "academic-research",
       "agent-skills"
     ],
-    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem — dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
+    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem \u2014 dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivre",
     "stars": 2728,
     "tier": "community"
   },
@@ -30427,7 +31274,7 @@
       "agent-skills",
       "brand-messaging"
     ],
-    "description": "Use when the user asks to \"write ad copy\", \"generate RSA headlines\", or \"build ad creative at volume\"; produces ad units — RSA headlines/descriptions, hooks, and an angle matrix —",
+    "description": "Use when the user asks to \"write ad copy\", \"generate RSA headlines\", or \"build ad creative at volume\"; produces ad units \u2014 RSA headlines/descriptions, hooks, and an angle matrix \u2014",
     "stars": 2345,
     "tier": "community"
   },
@@ -30442,7 +31289,7 @@
       "agent-skills",
       "brand-messaging"
     ],
-    "description": "Use when the user asks to \"design an A/B test\", \"set up a creative/landing test\", \"run an incrementality test\", or \"is this test significant — promote or kill?\"; produces a hypothe",
+    "description": "Use when the user asks to \"design an A/B test\", \"set up a creative/landing test\", \"run an incrementality test\", or \"is this test significant \u2014 promote or kill?\"; produces a hypothe",
     "stars": 2345,
     "tier": "community"
   },
@@ -30472,7 +31319,7 @@
       "agent-skills",
       "brand-messaging"
     ],
-    "description": "Use when the user asks to \"pre-launch check the landing page\", \"run a Quality-Score preflight\", or \"verify ad-to-page message match before launch\"; produces an ad↔page continuity r",
+    "description": "Use when the user asks to \"pre-launch check the landing page\", \"run a Quality-Score preflight\", or \"verify ad-to-page message match before launch\"; produces an ad\u2194page continuity r",
     "stars": 2345,
     "tier": "community"
   },
@@ -30664,7 +31511,7 @@
     "subpath": "plugins/nvidia-skills/skills/cuopt-numerical-optimization-api",
     "category": "backend",
     "tags": [],
-    "description": "LP, MILP, and QP (beta) with cuOpt — Python, C, and CLI.",
+    "description": "LP, MILP, and QP (beta) with cuOpt \u2014 Python, C, and CLI.",
     "stars": 2317,
     "tier": "community"
   },
