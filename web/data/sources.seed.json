@@ -1,5 +1,85 @@
 [
   {
+    "slug": "hex/council-execution",
+    "name": "Council Execution",
+    "source_repo": "hex/claude-council",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/council-execution",
+    "subpath": "skills/council-execution",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "multi-agent",
+      "planning"
+    ],
+    "description": "Executes council queries by running the query pipeline across selected AI providers (Gemini, OpenAI, Grok, Perplexity), displaying formatted responses verbatim, and generating a synthesis of consensus, divergence, and recommendations. Invoked by the ask command during...",
+    "stars": 582,
+    "tier": "community"
+  },
+  {
+    "slug": "hex/deep-execution",
+    "name": "Deep Execution",
+    "source_repo": "hex/claude-council",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/deep-execution",
+    "subpath": "skills/deep-execution",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "multi-agent",
+      "architecture"
+    ],
+    "description": "Executes agent-enhanced council queries by spawning parallel Claude subagents that each query a provider, evaluate response quality, ask follow-up questions, and return structured insights with confidence ratings and blind spot analysis. Invoked when the --agents flag is used...",
+    "stars": 582,
+    "tier": "community"
+  },
+  {
+    "slug": "hex/local-council-execution",
+    "name": "Local Council Execution",
+    "source_repo": "hex/claude-council",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/local-council-execution",
+    "subpath": "skills/local-council-execution",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "subagents",
+      "review"
+    ],
+    "description": "Runs a local council when no external AI providers are configured. Spawns N independent Claude subagents (one per role, blind to each other) that each answer the question from a single assigned lens, then synthesizes their perspectives. Invoked by the ask command via --local,...",
+    "stars": 582,
+    "tier": "community"
+  },
+  {
+    "slug": "hex/provider-integration",
+    "name": "Provider Integration",
+    "source_repo": "hex/claude-council",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/provider-integration",
+    "subpath": "skills/provider-integration",
+    "category": "ai",
+    "tags": [
+      "providers",
+      "configuration",
+      "integration"
+    ],
+    "description": "Adds new AI providers to claude-council, configures provider API settings, troubleshoots provider connections, and documents the provider script interface. Covers creating provider shell scripts, setting API keys, and validating connectivity. Triggers on \"add provider\", \"new...",
+    "stars": 582,
+    "tier": "community"
+  },
+  {
+    "slug": "hex/image-generation",
+    "name": "Image Generation",
+    "source_repo": "hex/claude-image-generation",
+    "source_url": "https://github.com/hex/claude-image-generation/tree/main/skills/image-generation",
+    "subpath": "skills/image-generation",
+    "category": "ai",
+    "tags": [
+      "image",
+      "generation",
+      "gemini"
+    ],
+    "description": "Generates and edits images using Google Gemini, OpenAI GPT Image, and xAI Grok Image APIs via shell scripts. This skill should be used when the user asks to \"generate an image\", \"create an image\", \"edit an image\", \"modify an image\", \"make a picture\", \"draw me a\", \"text to...",
+    "stars": 6,
+    "tier": "community"
+  },
+  {
     "slug": "remotion-dev/remotion-best-practices",
     "name": "Remotion Best Practices",
     "source_repo": "remotion-dev/skills",

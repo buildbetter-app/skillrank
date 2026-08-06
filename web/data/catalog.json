@@ -62302,6 +62302,130 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "hex/council-execution",
+    "display_name": "Council Execution",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "multi-agent",
+      "planning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/council-execution",
+    "source_repo": "hex/claude-council",
+    "source_subpath": "skills/council-execution",
+    "description": "Executes council queries by running the query pipeline across selected AI providers (Gemini, OpenAI, Grok, Perplexity), displaying formatted responses verbatim, and generating a synthesis of consensus, divergence, and recommendations. Invoked by the ask command during...",
+    "signals": {
+      "stars": 582,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 38,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "hex/deep-execution",
+    "display_name": "Deep Execution",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "multi-agent",
+      "architecture"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/deep-execution",
+    "source_repo": "hex/claude-council",
+    "source_subpath": "skills/deep-execution",
+    "description": "Executes agent-enhanced council queries by spawning parallel Claude subagents that each query a provider, evaluate response quality, ask follow-up questions, and return structured insights with confidence ratings and blind spot analysis. Invoked when the --agents flag is used...",
+    "signals": {
+      "stars": 582,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 38,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "hex/local-council-execution",
+    "display_name": "Local Council Execution",
+    "category": "ai",
+    "tags": [
+      "agents",
+      "subagents",
+      "review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/local-council-execution",
+    "source_repo": "hex/claude-council",
+    "source_subpath": "skills/local-council-execution",
+    "description": "Runs a local council when no external AI providers are configured. Spawns N independent Claude subagents (one per role, blind to each other) that each answer the question from a single assigned lens, then synthesizes their perspectives. Invoked by the ask command via --local,...",
+    "signals": {
+      "stars": 582,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 38,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "hex/provider-integration",
+    "display_name": "Provider Integration",
+    "category": "ai",
+    "tags": [
+      "providers",
+      "configuration",
+      "integration"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hex/claude-council/tree/main/skills/provider-integration",
+    "source_repo": "hex/claude-council",
+    "source_subpath": "skills/provider-integration",
+    "description": "Adds new AI providers to claude-council, configures provider API settings, troubleshoots provider connections, and documents the provider script interface. Covers creating provider shell scripts, setting API keys, and validating connectivity. Triggers on \"add provider\", \"new...",
+    "signals": {
+      "stars": 582,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 38,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "michalparkola/tapestry-skills",
     "display_name": "Tapestry Skills",
     "category": "data",
@@ -63714,6 +63838,37 @@
       "tier": "community"
     },
     "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "hex/image-generation",
+    "display_name": "Image Generation",
+    "category": "ai",
+    "tags": [
+      "image",
+      "generation",
+      "gemini"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hex/claude-image-generation/tree/main/skills/image-generation",
+    "source_repo": "hex/claude-image-generation",
+    "source_subpath": "skills/image-generation",
+    "description": "Generates and edits images using Google Gemini, OpenAI GPT Image, and xAI Grok Image APIs via shell scripts. This skill should be used when the user asks to \"generate an image\", \"create an image\", \"edit an image\", \"modify an image\", \"make a picture\", \"draw me a\", \"text to...",
+    "signals": {
+      "stars": 6,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 12,
     "provisional": true,
     "added_at": "2026-07-07"
   }
