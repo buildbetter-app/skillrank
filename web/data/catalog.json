@@ -19657,6 +19657,285 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "emilkowalski/animate",
+    "display_name": "Animate",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/animate",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/animate",
+    "description": "Build an animation from scratch, making the decisions in the order that determines whether it feels right — should it animate at all, what purpose, which tool, which properties, which curve and duration, how it interrupts, how it exits. Writes the implementation. Use when...",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/animation-vocabulary",
+    "display_name": "Animation Vocabulary",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/animation-vocabulary",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/animation-vocabulary",
+    "description": "Reverse-lookup glossary that turns a vague description of a web animation or motion effect into its exact term (\"the bouncy thing when a popover opens\" → Pop in; \"the iOS rubber-band scroll\" → Rubber-banding). Use when the user asks \"what's it called when…\", or describes a...",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/apple-design",
+    "display_name": "Apple Design",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/apple-design",
+    "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography...",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/emil-design-eng",
+    "display_name": "Emil Design Eng",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/emil-design-eng",
+    "description": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great.",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/find-animation-opportunities",
+    "display_name": "Find Animation Opportunities",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/find-animation-opportunities",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/find-animation-opportunities",
+    "description": "Search a codebase or UI for places that don't animate but should, and reject everything that shouldn't. Read-only; it proposes motion with exact values, it does not implement it. Use when the user asks \"what could be animated here?\" or wants to \"make this feel more alive\"....",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/improve-animations",
+    "display_name": "Improve Animations",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/improve-animations",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/improve-animations",
+    "description": "Survey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper models) to execute. Read-only on source code — it plans improvements, it does not apply them. Use...",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/pick-ui-library",
+    "display_name": "Pick Ui Library",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/pick-ui-library",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/pick-ui-library",
+    "description": "Pick the right library for a given frontend task from a curated, opinionated list — numbers, OTP inputs, charts, command menus, virtualization, drag and drop, toasts, state, styling, and more. Only runs when explicitly invoked; it does not trigger on its own.",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/prototype",
+    "display_name": "Prototype",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/prototype",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/prototype",
+    "description": "Build multiple genuinely different versions of a UI piece you describe, rendered behind a visual picker so you can flip through them live and promote the one that feels right. Only runs when explicitly invoked; it does not trigger on its own.",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "emilkowalski/review-animations",
+    "display_name": "Review Animations",
+    "category": "styling",
+    "tags": [
+      "design",
+      "animation",
+      "ui"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/review-animations",
+    "source_repo": "emilkowalski/skills",
+    "source_subpath": "skills/review-animations",
+    "description": "Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design engineering philosophy. Default to flagging; approval is earned.",
+    "signals": {
+      "stars": 25861,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 61,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "vercel-labs/find-skills",
     "display_name": "find-skills",
     "category": "other",
@@ -20518,6 +20797,966 @@
       "model": "",
       "eval_tier": "",
       "tier": "self"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-babysit-pr",
+    "display_name": "Ce Babysit Pr",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-babysit-pr",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-babysit-pr",
+    "description": "Babysits or watches an open GitHub PR until merge-ready, continuously reacting to review comments, CI failures, and routine base movement throughout the PR's life. Use when asked to 'babysit the PR', 'watch the PR', monitor, or keep an eye on a PR over time — not a one-shot...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-brainstorm",
+    "display_name": "Ce Brainstorm",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-brainstorm",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-brainstorm",
+    "description": "Explore vague or ambitious ideas into a right-sized requirements-only unified plan. Use when the user wants to brainstorm, think through scope, decide what to build, or needs collaborative product framing before planning. Also use when the user must scope work in territory...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-code-review",
+    "display_name": "Ce Code Review",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-code-review",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-code-review",
+    "description": "Structured code review for bugs, regressions, tests, and standards. Use before PRs or when asked for review; report-only by default, with explicit local apply available for user-directed fix workflows.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-commit-push-pr",
+    "display_name": "Ce Commit Push Pr",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-commit-push-pr",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-commit-push-pr",
+    "description": "Commit, push, and open a PR. Use when asked to ship/open a PR, or for PR-description-only flows like writing, rewriting, or describing a PR body.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-commit",
+    "display_name": "Ce Commit",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-commit",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-commit",
+    "description": "Create a git commit with a clear, value-communicating message. Use when the user asks to commit/save staged or unstaged changes with a repo-appropriate message.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-compound-refresh",
+    "display_name": "Ce Compound Refresh",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-compound-refresh",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-compound-refresh",
+    "description": "Refresh the repo's captured learnings against the current codebase. Use when auditing stale, overlapping, superseded, or drifted learnings; avoid general refactor, debugging, or code review unless the learnings store is explicit.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-compound",
+    "display_name": "Ce Compound",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-compound",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-compound",
+    "description": "Document a recently solved problem as a durable repo learning, or capture project vocabulary in CONCEPTS.md. Use when capturing a learning after work.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-debug",
+    "display_name": "Ce Debug",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-debug",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-debug",
+    "description": "Diagnosis loop for bugs and failing behavior. Use for errors, stack traces, regressions, failed tests, issue-tracker bugs, stuck investigations after failed fixes, or asks to debug/fix a bug.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-doc-review",
+    "display_name": "Ce Doc Review",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-doc-review",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-doc-review",
+    "description": "Review requirements, plans, or specs with role-specific lenses. Use when the user wants to improve an existing planning document.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-dogfood",
+    "display_name": "Ce Dogfood",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-dogfood",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-dogfood",
+    "description": "Hands-off, diff-scoped browser QA of the active branch: maps user flows, drives a real browser, autonomously fixes small breakages with regression tests and commits, judges experience against product personas, and writes a durable dogfood report. Manual invocation only.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-explain",
+    "display_name": "Ce Explain",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-explain",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-explain",
+    "description": "Create a durable, visual teaching artifact — plus an optional check-in (predict-then-reveal for diffs, corrected exercises) that makes it stick — for something worth learning: a concept, a diff, an idea, or a window of your own recent work. Use when the user wants to be...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-handoff",
+    "display_name": "Ce Handoff",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-handoff",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-handoff",
+    "description": "Create a session handoff for another agent, or resume, find, and read any user-selected continuity source. Use when work or conversation must continue without access to the current session history.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-ideate",
+    "display_name": "Ce Ideate",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-ideate",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-ideate",
+    "description": "Generate and evaluate grounded ideas. Use when the user asks for ideas, improvements, surprising options, or AI-generated directions before choosing one to develop; use ce-brainstorm to refine the user's own idea.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-optimize",
+    "display_name": "Ce Optimize",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-optimize",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-optimize",
+    "description": "Run metric-driven optimization loops. Use when improving measurable outcomes such as search relevance, clustering quality, build performance, prompt quality, or scored behavior through experiments.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-plan",
+    "display_name": "Ce Plan",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-plan",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-plan",
+    "description": "Create structured plans for multi-step work, including software and non-software tasks. Use when asked to plan, break down implementation, plan from requirements, or deepen an existing plan; prefer ce-brainstorm for exploratory framing.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-polish",
+    "display_name": "Ce Polish",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-polish",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-polish",
+    "description": "Start the dev server, inspect the feature in browser, and iterate on polish.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-pov",
+    "display_name": "Ce Pov",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-pov",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-pov",
+    "description": "Give a decisive, project-grounded point of view in the subject's own shape: a graded verdict on an external-adoption question, a holistic take on a document, or a position on a user-supplied approach set. Use for a solo POV, a mid-session second opinion, a named-peer...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-product-pulse",
+    "display_name": "Ce Product Pulse",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-product-pulse",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-product-pulse",
+    "description": "Generate time-windowed product pulse reports from configured signals.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-promote",
+    "display_name": "Ce Promote",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-promote",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-promote",
+    "description": "Draft launch or promotion copy for a shipped feature.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-proof",
+    "display_name": "Ce Proof",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-proof",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-proof",
+    "description": "Publish, read, comment on, or edit markdown in Proof. Use for Proof links, sharing specs/plans/drafts, or publish handoffs from planning workflows; avoid proofread, math, evidence, or proof-of-concept meanings.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-resolve-pr-feedback",
+    "display_name": "Ce Resolve Pr Feedback",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-resolve-pr-feedback",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-resolve-pr-feedback",
+    "description": "Resolve PR review feedback. Use when addressing review comments, resolving review threads, or fixing code-review feedback.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-retune",
+    "display_name": "Ce Retune",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-retune",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-retune",
+    "description": "Retune a skill corpus for a new model, measurement-first: mine the run archive for a baseline, establish a noise floor, audit the corpus adversarially, then cut in measured passes until a pre-registered bar clears. Requires a benchmark harness that can A/B two builds of the...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-riffrec-feedback-analysis",
+    "display_name": "Ce Riffrec Feedback Analysis",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-riffrec-feedback-analysis",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-riffrec-feedback-analysis",
+    "description": "Analyze Riffrec feedback captures from bundles or standalone recordings. Always load for `riffrec-*.zip`, `session.json` + `events.json` + `recording.webm` + `voice.webm` bundles, `.mp4`/`.mov`/`.webm` videos, `.m4a`/`.mp3`/`.wav` audio, or capture/share requests.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-setup",
+    "display_name": "Ce Setup",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-setup",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-setup",
+    "description": "Check Compound Engineering health and repo-local config.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-simplify-code",
+    "display_name": "Ce Simplify Code",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-simplify-code",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-simplify-code",
+    "description": "Simplify settled, recently changed code for clarity, reuse, quality, and efficiency while preserving behavior. Use after implementation and before review; use ce-debug for bugs.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-strategy",
+    "display_name": "Ce Strategy",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-strategy",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-strategy",
+    "description": "Create or update STRATEGY.md. Use when starting a product, changing direction or roadmap, or when ce-ideate, ce-brainstorm, or ce-plan need upstream product grounding.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-sweep",
+    "display_name": "Ce Sweep",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-sweep",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-sweep",
+    "description": "Sweep configured feedback sources (Slack, GitHub Issues; email experimental) for new items: acknowledge at source, analyze recordings, verify fixes merged to main, and emit an `lfg`-ready plan. First run sets up sources; supports mode:non-interactive for scheduled runs.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-test-browser",
+    "display_name": "Ce Test Browser",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-test-browser",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-test-browser",
+    "description": "Run browser tests for pages affected by the current branch or PR.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-test-xcode",
+    "display_name": "Ce Test Xcode",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-test-xcode",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-test-xcode",
+    "description": "Build and test iOS apps on simulator with XcodeBuildMCP.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-work",
+    "display_name": "Ce Work",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-work",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-work",
+    "description": "Execute a plan or concrete work prompt end-to-end. Use when implementing from a plan document, a spec path, or a clear build request; use ce-debug for open-ended bugs. Standalone use owns the shipping tail; outer orchestrators pass `mode:return-to-caller...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/ce-worktree",
+    "display_name": "Ce Worktree",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/ce-worktree",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/ce-worktree",
+    "description": "Set up isolated git worktrees — create a new branch for fresh work, or attach a worktree to an existing branch/PR/commit to work on it in isolation. Use when starting isolated work or isolating an existing ref; detects existing isolation first.",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 60,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "EveryInc/lfg",
+    "display_name": "Lfg",
+    "category": "meta",
+    "tags": [
+      "workflow",
+      "agents"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/EveryInc/compound-engineering-plugin/tree/main/skills/lfg",
+    "source_repo": "EveryInc/compound-engineering-plugin",
+    "source_subpath": "skills/lfg",
+    "description": "Run the full autonomous shipping pipeline end-to-end, hands-off with no check-ins: plan, implement, review and fix, commit, push a branch, open a PR, and watch CI to green. Use only when the user explicitly asks to build or ship something autonomously all the way to an open...",
+    "signals": {
+      "stars": 24036,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
     },
     "score": 60,
     "provisional": true,
@@ -41459,6 +42698,409 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "petergyang/no-ai-slop",
+    "display_name": "No AI Slop",
+    "category": "document",
+    "tags": [
+      "writing",
+      "editing",
+      "voice"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/petergyang/no-ai-slop/tree/main/skills/no-ai-slop",
+    "source_repo": "petergyang/no-ai-slop",
+    "source_subpath": "skills/no-ai-slop",
+    "description": "Edit drafts into sharper, more human writing while preserving the writer's voice, or detect 20+ AI-slop patterns without rewriting.",
+    "signals": {
+      "stars": 4221,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-best-practices",
+    "display_name": "Remotion Best Practices",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-best-practices",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-best-practices",
+    "description": "Router for all Remotion skills",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-captions",
+    "display_name": "Remotion Captions",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-captions",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-captions",
+    "description": "Transcribing, displaying and animating captions",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-create",
+    "display_name": "Remotion Create",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-create",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-create",
+    "description": "Create a new Remotion video",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-docs",
+    "display_name": "Remotion Docs",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-docs",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-docs",
+    "description": "Search Remotion documentation",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-interactivity",
+    "display_name": "Remotion Interactivity",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-interactivity",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-interactivity",
+    "description": "Structure Remotion markup for interactivity",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-maps",
+    "display_name": "Remotion Maps",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-maps",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-maps",
+    "description": "Remotion Map animation knowledge",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-markup",
+    "display_name": "Remotion Markup",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-markup",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-markup",
+    "description": "Content, animation and effects best practices",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-multimedia",
+    "display_name": "Remotion Multimedia",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-multimedia",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-multimedia",
+    "description": "Interacting with Mediabunny",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-render",
+    "display_name": "Remotion Render",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-render",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-render",
+    "description": "Export a Remotion video",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-saas",
+    "display_name": "Remotion Saas",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-saas",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-saas",
+    "description": "Build an app with Remotion",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-studio",
+    "display_name": "Remotion Studio",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-studio",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-studio",
+    "description": "Preview a Remotion video",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "remotion-dev/remotion-upgrade",
+    "display_name": "Remotion Upgrade",
+    "category": "frontend",
+    "tags": [
+      "remotion",
+      "video",
+      "react"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/remotion-dev/skills/tree/main/skills/remotion-upgrade",
+    "source_repo": "remotion-dev/skills",
+    "source_subpath": "skills/remotion-upgrade",
+    "description": "Upgrade Remotion, and related packages",
+    "signals": {
+      "stars": 4215,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "browser-act/browser-act",
     "display_name": "browser-act",
     "category": "devops",
@@ -61653,6 +63295,36 @@
     },
     "score": 20,
     "provisional": false,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "kitze/council",
+    "display_name": "Council",
+    "category": "meta",
+    "tags": [
+      "agents",
+      "planning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/kitze/council",
+    "source_repo": "kitze/council",
+    "source_subpath": "",
+    "description": "Convene a council of AI coding agents before finalizing a plan. The agent you're talking to — whichever CLI is the lead (claude, codex, cursor, gemini, grok, opencode) — drafts a plan, presents it independently to every other agent CLI installed on the machine, each member...",
+    "signals": {
+      "stars": 22,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
     "added_at": "2026-07-07"
   },
   {
