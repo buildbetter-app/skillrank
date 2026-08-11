@@ -54,18 +54,33 @@ DANGER_PATTERNS = [
     (r"\bANTHROPIC_API_KEY\b", "touches ANTHROPIC_API_KEY"),
 ]
 
-# Keyword -> catalog category. First match wins, so order matters.
+# Keyword -> catalog category. First match wins, and matching is on whole words
+# so "database" stops counting as a hit for "data". Order runs most specific to
+# most generic: "agent" would otherwise swallow nearly everything into "ai".
 CATEGORY_RULES = [
-    ("testing", ["test", "playwright", "e2e", "pytest", "jest", "qa "]),
-    ("security", ["security", "vulnerab", "pentest", "audit", "owasp", "threat"]),
-    ("devops", ["deploy", "docker", "kubernet", "terraform", "ci/cd", "infra", "aws", "devops"]),
-    ("data", ["data", "sql", "analytics", "etl", "pandas", "dataset", "scrape"]),
-    ("ai", ["llm", "prompt", "agent", "rag", "mcp", "model", "openai", "gpt", "claude"]),
-    ("frontend", ["react", "vue", "svelte", "next.js", "frontend", "component", "video", "remotion"]),
-    ("styling", ["design", "css", "tailwind", "animation", "motion", "ui ", "figma", "theme"]),
-    ("backend", ["backend", "api", "server", "django", "rails", "microservice", "grpc"]),
-    ("document", ["writ", "doc", "pdf", "markdown", "slide", "report", "content", "blog"]),
-    ("meta", ["skill", "workflow", "plan", "review", "commit", "git ", "productivity"]),
+    ("testing", ["test", "tests", "testing", "playwright", "e2e", "pytest", "jest", "qa", "tdd"]),
+    ("security", ["security", "secure", "vulnerability", "vulnerabilities", "pentest",
+                  "owasp", "threat", "auth", "authentication", "encryption", "cve"]),
+    ("devops", ["deploy", "deployment", "docker", "kubernetes", "k8s", "terraform",
+                "ci", "cd", "infrastructure", "aws", "devops", "pipeline"]),
+    ("styling", ["design", "css", "tailwind", "animation", "motion", "figma",
+                 "theme", "styling", "ux", "typography"]),
+    ("frontend", ["react", "vue", "svelte", "nextjs", "frontend", "component",
+                  "ui", "browser", "dom", "remotion", "video"]),
+    ("backend", ["backend", "server", "django", "rails", "microservice", "grpc",
+                 "database", "sql", "postgres", "redis", "api", "endpoint"]),
+    ("data", ["data", "analytics", "etl", "pandas", "dataset", "scrape",
+              "scraping", "dataframe", "visualization"]),
+    ("document", ["writing", "write", "docs", "documentation", "pdf", "markdown",
+                  "slides", "report", "blog", "article", "content", "copy"]),
+    ("ai", ["llm", "prompt", "rag", "mcp", "openai", "gpt", "claude", "agent",
+            "agents", "model", "embedding", "inference"]),
+    ("meta", ["skill", "skills", "workflow", "plan", "planning", "review",
+              "commit", "git", "refactor", "debug", "productivity"]),
+]
+CATEGORY_MATCHERS = [
+    (cat, re.compile(r"\b(?:%s)\b" % "|".join(re.escape(w) for w in words)))
+    for cat, words in CATEGORY_RULES
 ]
 
 
@@ -164,8 +179,8 @@ def categorize(skill_text, repo_text=""):
     """
     for source in (skill_text, repo_text):
         low = source.lower()
-        for category, words in CATEGORY_RULES:
-            if any(w in low for w in words):
+        for category, matcher in CATEGORY_MATCHERS:
+            if matcher.search(low):
                 return category
     return "other"
 

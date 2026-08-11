@@ -10,12 +10,20 @@ they go in the catalog. Run web/data/build-catalog.mjs afterwards to rebuild.
 """
 
 import argparse
+import importlib.util
 import json
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SEED = ROOT / "web" / "data" / "sources.seed.json"
+
+# Reuse the discovery script's classifier so categories can be recomputed from
+# a saved report without re-crawling GitHub.
+_spec = importlib.util.spec_from_file_location(
+    "discover_skills", Path(__file__).resolve().parent / "discover-skills.py")
+_discover = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_discover)
 
 STOPWORDS = {"the", "a", "an", "and", "or", "for", "with", "to", "of", "in", "on"}
 
@@ -72,13 +80,14 @@ def main():
         known_slugs.add(slug.lower())
         known_pairs.add((e["repo"].lower(), e["subpath"]))
         per_repo[e["repo"]] = per_repo.get(e["repo"], 0) + 1
+        category = _discover.categorize(f"{e['skill_name']} {e['description']}")
         added.append({
             "slug": slug,
             "name": display_name(e["skill_name"]),
             "source_repo": e["repo"],
             "source_url": e["source_url"],
             "subpath": e["subpath"],
-            "category": e["category"],
+            "category": category,
             "tags": tags_for(e),
             "description": e["description"],
             "stars": e["stars"],
