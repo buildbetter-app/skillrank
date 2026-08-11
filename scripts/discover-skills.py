@@ -259,6 +259,9 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--allow-collections", action="store_true",
                     help="include awesome-list repos that re-host others' skills")
+    ap.add_argument("--repos-file",
+                    help="newline-separated owner/repo list to vet instead of "
+                         "searching GitHub (e.g. repos mined from skills.sh)")
     ap.add_argument("--out", default=".context/candidates.json")
     args = ap.parse_args()
 
@@ -271,12 +274,23 @@ def main():
 
     # --- discover ---
     pool = {}
-    for query in QUERIES:
-        for sort in ("stars", "updated"):
-            hits = search_repos(query, sort)
-            for r in hits:
-                pool[r["full_name"].lower()] = r
-            print(f"  search {query!r} [{sort}]: +{len(hits)} (pool {len(pool)})", flush=True)
+    if args.repos_file:
+        names = [ln.strip() for ln in Path(args.repos_file).read_text().splitlines()
+                 if ln.strip() and "/" in ln]
+        names = [n for n in names if n.lower() not in known_repos]
+        print(f"vetting {len(names)} repos from {args.repos_file}", flush=True)
+        with ThreadPoolExecutor(max_workers=args.workers) as ex:
+            for meta in ex.map(lambda n: fetch(f"https://api.github.com/repos/{n}"), names):
+                if meta and meta.get("full_name"):
+                    pool[meta["full_name"].lower()] = meta
+        print(f"  {len(pool)} repos resolved", flush=True)
+    else:
+        for query in QUERIES:
+            for sort in ("stars", "updated"):
+                hits = search_repos(query, sort)
+                for r in hits:
+                    pool[r["full_name"].lower()] = r
+                print(f"  search {query!r} [{sort}]: +{len(hits)} (pool {len(pool)})", flush=True)
 
     cutoff = None
     if args.since_days:
