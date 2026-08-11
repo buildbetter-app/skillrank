@@ -1,5 +1,21 @@
 [
   {
+    "slug": "ShawnPana/phone-harness",
+    "name": "Phone Harness",
+    "source_repo": "ShawnPana/phone-harness",
+    "source_url": "https://github.com/ShawnPana/phone-harness",
+    "subpath": "",
+    "category": "other",
+    "tags": [
+      "mobile",
+      "ios",
+      "automation"
+    ],
+    "description": "Control the user's iPhone through the Mac's iPhone Mirroring window: open apps, tap, type, swipe, read the screen via OCR.",
+    "stars": 1340,
+    "tier": "community"
+  },
+  {
     "slug": "hex/council-execution",
     "name": "Council Execution",
     "source_repo": "hex/claude-council",

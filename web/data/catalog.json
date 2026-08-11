@@ -62121,6 +62121,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "ShawnPana/phone-harness",
+    "display_name": "Phone Harness",
+    "category": "other",
+    "tags": [
+      "mobile",
+      "ios",
+      "automation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ShawnPana/phone-harness",
+    "source_repo": "ShawnPana/phone-harness",
+    "source_subpath": "",
+    "description": "Control the user's iPhone through the Mac's iPhone Mirroring window: open apps, tap, type, swipe, read the screen via OCR.",
+    "signals": {
+      "stars": 1340,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 43,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "NeoLabHQ/context-engineering-kit",
     "display_name": "Context Engineering Kit",
     "category": "meta",
