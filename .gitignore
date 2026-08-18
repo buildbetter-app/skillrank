@@ -13,3 +13,7 @@
 .vercel/
 site/.vercel/
 logs/
+
+# Scratch output from scripts/discover-skills.py et al — regenerated each run
+/.context/
+__pycache__/
