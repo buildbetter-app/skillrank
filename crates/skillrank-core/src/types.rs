@@ -77,6 +77,16 @@ pub struct SkillSummary {
     pub rating_count: i64,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub summary: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub license_spdx: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub license_url: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub package_kind: String,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub collection_ids: Vec<String>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub agents: Vec<String>,
 }
 
 /// One value of one facet, and how many catalog entries carry it.
@@ -170,6 +180,28 @@ pub struct ScanReport {
     pub findings: Vec<ScanFinding>,
 }
 
+/// One verified companion file in a registry package.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct PackageAsset {
+    pub path: String,
+    #[serde(default)]
+    pub byte_size: i64,
+    pub content_hash: String,
+    pub raw_content_url: String,
+}
+
+/// Import compatibility and the verified assets belonging to one skill.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SkillPackage {
+    pub kind: String,
+    #[serde(default)]
+    pub manifest_version: i64,
+    #[serde(default)]
+    pub assets: Vec<PackageAsset>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub reason: String,
+}
+
 /// One (tier, cell) rollup shown on a skill page.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EvalSummaryCell {
@@ -228,10 +260,99 @@ pub struct ResolveResponse {
     pub tombstoned: bool,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub tombstone_reason: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub license_spdx: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub license_url: String,
+    #[serde(default)]
+    pub package: SkillPackage,
     /// Evidence for `scan_tier`, so an install confirmation can name the exact
     /// line that made a skill risky instead of saying "unverified".
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub scan: Option<ScanReport>,
+}
+
+/// One exact compatible member of a first-class collection.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionMember {
+    pub slug: String,
+    pub content_hash: String,
+    pub scan_tier: ScanTier,
+    #[serde(default)]
+    pub package_kind: String,
+    #[serde(default)]
+    pub license_spdx: String,
+    #[serde(default)]
+    pub license_url: String,
+}
+
+/// One member excluded from collection import and its stable reason.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionExclusion {
+    #[serde(flatten)]
+    pub member: CollectionMember,
+    pub reason: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionLicenseSummary {
+    #[serde(default)]
+    pub spdx_ids: Vec<String>,
+    #[serde(default)]
+    pub complete: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionCompatibility {
+    #[serde(default)]
+    pub compatible: i64,
+    #[serde(default)]
+    pub excluded: i64,
+}
+
+/// Collection fields shared by list and detail responses.
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionSummary {
+    pub id: String,
+    pub name: String,
+    #[serde(default)]
+    pub description: String,
+    pub source_url: String,
+    pub collection_hash: String,
+    #[serde(default)]
+    pub member_count: i64,
+    #[serde(default)]
+    pub total_member_count: i64,
+    #[serde(default)]
+    pub excluded_count: i64,
+    #[serde(default)]
+    pub license_summary: CollectionLicenseSummary,
+    #[serde(default)]
+    pub compatibility: CollectionCompatibility,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionListResponse {
+    #[serde(default)]
+    pub items: Vec<CollectionSummary>,
+    #[serde(default)]
+    pub next_cursor: String,
+    #[serde(default)]
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct CollectionDetail {
+    #[serde(flatten)]
+    pub summary: CollectionSummary,
+    #[serde(default)]
+    pub members: Vec<CollectionMember>,
+    #[serde(default)]
+    pub excluded: Vec<CollectionExclusion>,
+    #[serde(default)]
+    pub next_cursor: String,
+    #[serde(default)]
+    pub excluded_next_cursor: String,
 }
 
 // ---- Eval types (used by the runner and `skillrank eval`) ----

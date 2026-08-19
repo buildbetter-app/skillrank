@@ -3,7 +3,7 @@
 The hosted registry. It serves the `/v3/rest/skill-registry` contract as a single
 Vercel function (`api/registry.mjs`), split into two halves:
 
-- **Reads** — search / show / resolve / eval-suites, served from the ingested
+- **Reads** — search / show / resolve / collections / eval-suites, served from the ingested
   public-skill catalog (`api/enriched.json`, `api/ingested.json`). Fully
   anonymous, edge-cacheable, and identical whether or not a token is presented.
 - **Writes** — accounts, tokens, and eval-result ingest, backed by Upstash Redis
@@ -30,6 +30,8 @@ Every path below is relative to `/v3/rest/skill-registry`.
 | `GET` | `/skills/<slug>` | none | detail |
 | `GET` | `/skills/<slug>/resolve` | none | install coordinates |
 | `GET` | `/skills/<slug>/eval-results` | none | published aggregate cells; counts only, never contributor identities |
+| `GET` | `/collections` | none | cursor-paginated source-repository collections |
+| `GET` | `/collections/<owner>/<repo>` | none | exact compatible members and excluded-member reasons |
 | `GET` | `/eval-suites` | none | suite index (no task bodies) |
 | `GET` | `/eval-suites/<id>` | none | suite definition |
 | `GET` | `/eval-suites/<id>/verifiers` | none | verifier scripts |
@@ -49,6 +51,27 @@ that filter returns — so a client builds its filter UI from the catalog instea
 guessing option lists that match nothing. `GET /eval-suites` answers
 `{items:[{id, version, task_count, reference_env, title?, description?}], total}`;
 task instructions stay in `GET /eval-suites/<id>` so the index stays small.
+
+`GET /skills` applies `q`, `category`, `stack`, `scan_tier`, and `agent` before
+pagination. `sort` accepts `relevance`, `signals`, or `name`; every sort has a
+slug tie-breaker. `limit` is bounded to 1 through 100. `next_cursor` is opaque
+and bound to the active filters and sort, so reusing it with a different search
+returns `400 invalid_cursor` instead of silently skipping rows.
+
+Search, detail, and resolve responses include upstream license evidence and
+package compatibility. Ingest records a pinned SPDX identifier or license URL
+when GitHub can prove one. It also inspects the pinned skill directory: a skill
+with no companion files is `self_contained`; a bounded bundle carries relative
+paths, byte sizes, SHA-256 hashes, and pinned raw URLs; an incomplete, oversized,
+or unsafe package is `unsupported`. Existing catalog rows that predate this
+metadata answer conservatively as `unknown` until the catalog workflow
+backfills them.
+
+Collections are first-class source-repository groups. They are never synthesized
+from category facets. Collection hashes cover the exact member slug and content
+hash sequence. Detail responses separate import-compatible members from entries
+excluded for missing license evidence, unsupported packages, or missing pinned
+content.
 
 `POST /eval-results` answers `200 {accepted:true, result_id, tier_state,
 conforming}` on success, `400 {accepted:false, error, reason}` on a validation

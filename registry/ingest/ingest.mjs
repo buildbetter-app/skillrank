@@ -78,6 +78,23 @@ function ghRaw(repo, sha, filePath) {
   return Buffer.from(res.content, res.encoding === "base64" ? "base64" : "utf8").toString("utf8");
 }
 
+function rawUrl(repo, sha, filePath) {
+  const encodedPath = filePath.split("/").map(encodeURIComponent).join("/");
+  return `https://raw.githubusercontent.com/${repo}/${sha}/${encodedPath}`;
+}
+
+function rawBytes(repo, sha, filePath) {
+  try {
+    return execFileSync("curl", ["-fsSL", "--max-time", "20", rawUrl(repo, sha, filePath)], {
+      encoding: "buffer",
+      stdio: ["ignore", "pipe", "ignore"],
+      maxBuffer: 6 * 1024 * 1024,
+    });
+  } catch {
+    return null;
+  }
+}
+
 // per-repo cache: metadata + head commit sha
 const repoCache = new Map();
 function repoInfo(repo) {
@@ -87,17 +104,66 @@ function repoInfo(repo) {
   if (meta && meta.default_branch) {
     const branch = meta.default_branch;
     const commit = gh(`repos/${repo}/commits/${branch}`);
+    const headSha = commit && commit.sha ? commit.sha : null;
+    const license = headSha ? gh(`repos/${repo}/license?ref=${headSha}`) : null;
+    const tree = headSha ? gh(`repos/${repo}/git/trees/${headSha}?recursive=1`) : null;
+    const spdx = meta.license?.spdx_id;
     info = {
       default_branch: branch,
-      head_sha: commit && commit.sha ? commit.sha : null,
+      head_sha: headSha,
       stars: meta.stargazers_count ?? null,
       forks: meta.forks_count ?? null,
       pushed_at: meta.pushed_at ?? null,
       open_issues: meta.open_issues_count ?? null,
+      license_spdx: spdx && spdx !== "NOASSERTION" && spdx !== "other" ? spdx : "",
+      license_url: typeof license?.html_url === "string" ? license.html_url : "",
+      tree: Array.isArray(tree?.tree) && tree.truncated !== true ? tree.tree : [],
+      tree_complete: Array.isArray(tree?.tree) && tree.truncated !== true,
     };
   }
   repoCache.set(repo, info);
   return info;
+}
+
+const MAX_PACKAGE_ASSETS = 50;
+const MAX_PACKAGE_ASSET_BYTES = 1024 * 1024;
+const MAX_PACKAGE_BYTES = 5 * 1024 * 1024;
+
+function packageManifest(repo, info, skillPath) {
+  if (!info.tree_complete) {
+    return { kind: "unsupported", manifest_version: 1, assets: [], reason: "source tree could not be verified" };
+  }
+  const directory = path.posix.dirname(skillPath);
+  const prefix = directory === "." ? "" : `${directory}/`;
+  const candidates = info.tree
+    .filter((entry) => entry.type === "blob" && entry.path !== skillPath && (!prefix || entry.path.startsWith(prefix)))
+    .sort((a, b) => a.path.localeCompare(b.path));
+  if (candidates.length === 0) return { kind: "self_contained", manifest_version: 1, assets: [] };
+  if (candidates.length > MAX_PACKAGE_ASSETS) {
+    return { kind: "unsupported", manifest_version: 1, assets: [], reason: `package has more than ${MAX_PACKAGE_ASSETS} companion files` };
+  }
+  const totalBytes = candidates.reduce((sum, entry) => sum + (Number.isFinite(entry.size) ? entry.size : MAX_PACKAGE_BYTES + 1), 0);
+  if (candidates.some((entry) => !Number.isFinite(entry.size) || entry.size > MAX_PACKAGE_ASSET_BYTES) || totalBytes > MAX_PACKAGE_BYTES) {
+    return { kind: "unsupported", manifest_version: 1, assets: [], reason: "package exceeds verified asset limits" };
+  }
+  const assets = [];
+  for (const entry of candidates) {
+    const relative = path.posix.relative(directory === "." ? "" : directory, entry.path);
+    if (!relative || relative.startsWith("../") || path.posix.isAbsolute(relative)) {
+      return { kind: "unsupported", manifest_version: 1, assets: [], reason: "package contains an unsafe asset path" };
+    }
+    const bytes = rawBytes(repo, info.head_sha, entry.path);
+    if (!bytes || bytes.length !== entry.size) {
+      return { kind: "unsupported", manifest_version: 1, assets: [], reason: `could not verify companion file ${relative}` };
+    }
+    assets.push({
+      path: relative,
+      byte_size: bytes.length,
+      content_hash: "sha256:" + createHash("sha256").update(bytes).digest("hex"),
+      raw_content_url: rawUrl(repo, info.head_sha, entry.path),
+    });
+  }
+  return { kind: "bundle", manifest_version: 1, assets };
 }
 
 function candidatePaths(skill) {
@@ -132,14 +198,20 @@ let ok = 0,
 let reused = 0;
 let repinned = 0;
 let rescanned = 0;
+let metadataBackfilled = 0;
 for (const skill of ordered) {
   // incremental: keep prior result, skip network.
   if (prevEnriched.has(skill.slug)) {
     const prev = prevIngested.get(skill.slug);
+    const previousEntry = prevEnriched.get(skill.slug);
+    const metadataCurrent =
+      Object.hasOwn(previousEntry, "license_spdx") &&
+      Object.hasOwn(previousEntry, "license_url") &&
+      (!prev || (prev.package?.manifest_version === 1 && Array.isArray(prev.package.assets)));
     const staleScan = RESCAN && prev && !scanIsCurrent(prev);
     // --refresh: re-ingest installable skills whose source repo advanced past
     // the commit we pinned; otherwise reuse (cheap: one HEAD check per repo).
-    if (REFRESH && prev && !staleScan) {
+    if (REFRESH && prev && !staleScan && metadataCurrent) {
       const info = repoInfo(skill.source_repo);
       if (info && info.head_sha && prev.pinned_commit && info.head_sha === prev.pinned_commit) {
         enriched.push(prevEnriched.get(skill.slug));
@@ -150,11 +222,13 @@ for (const skill of ordered) {
       repinned++; // source advanced → fall through and re-fetch/re-pin
     } else if (staleScan) {
       rescanned++; // verdict predates the current rules → fall through and re-tier
-    } else {
-      enriched.push(prevEnriched.get(skill.slug));
+    } else if (metadataCurrent) {
+      enriched.push(previousEntry);
       if (prev) installable.push(prev);
       reused++;
       continue;
+    } else {
+      metadataBackfilled++;
     }
   }
   const info = repoInfo(skill.source_repo);
@@ -169,6 +243,7 @@ for (const skill of ordered) {
     source_subpath: skill.source_subpath,
     description: skill.description,
     tier: skill.eval.tier,
+    agents: Array.isArray(skill.agents) ? skill.agents : [],
   };
 
   if (!info || !info.head_sha) {
@@ -180,6 +255,7 @@ for (const skill of ordered) {
 
   const signals = { stars: info.stars, forks: info.forks, installs: null, pushed_at: info.pushed_at };
   const score = provisionalScore(info.stars, info.forks);
+  const importMetadata = { license_spdx: info.license_spdx, license_url: info.license_url };
 
   let found = null;
   for (const p of candidatePaths(skill)) {
@@ -192,7 +268,14 @@ for (const skill of ordered) {
 
   if (!found) {
     collection++;
-    enriched.push({ ...base, status: "collection", signals, score });
+    enriched.push({
+      ...base,
+      ...importMetadata,
+      package: { kind: "unsupported", manifest_version: 1, assets: [], reason: "source has no single SKILL.md" },
+      status: "collection",
+      signals,
+      score,
+    });
     console.log(`  ~ ${skill.slug} — no single SKILL.md (collection/other layout)`);
     continue;
   }
@@ -211,6 +294,7 @@ for (const skill of ordered) {
   ok++;
   const entry = {
     ...base,
+    ...importMetadata,
     pinned_commit: info.head_sha,
     skill_path: found.path,
     content_hash: hash,
@@ -226,6 +310,7 @@ for (const skill of ordered) {
       content_hash: hash,
       findings: scan.findings.slice(0, MAX_PERSISTED_FINDINGS),
     },
+    package: packageManifest(skill.source_repo, info, found.path),
     signals,
     score,
     provisional: true,
@@ -250,7 +335,7 @@ for (const dir of [OUT_DIR, API_DIR]) {
 }
 
 console.log(
-  `\nattempted ${ordered.length}: ${reused} reused, ${repinned} re-pinned, ${rescanned} re-scanned, ${ok} newly ingested, ${collection} collections, ${failed} failed`
+  `\nattempted ${ordered.length}: ${reused} reused, ${metadataBackfilled} import-metadata backfills, ${repinned} re-pinned, ${rescanned} re-scanned, ${ok} newly ingested, ${collection} collections, ${failed} failed`
 );
 console.log(`wrote registry/{data,api}/ingested.json (${installable.length}) + enriched.json (${enriched.length})`);
 
