@@ -17,6 +17,7 @@
 // client (skillrank-core::hash), so `skillrank install` hash-verification passes.
 
 import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { Redis } from "@upstash/redis";
 
 import {
@@ -53,7 +54,52 @@ const verifiers = safeRead(new URL("./verifiers.json", import.meta.url), {});
 
 const bySlug = new Map(enriched.map((e) => [e.slug, e]));
 const installBySlug = new Map(ingested.map((e) => [e.slug, e]));
-const sorted = [...enriched].sort((a, b) => (b.score || 0) - (a.score || 0));
+const MAX_PAGE_SIZE = 100;
+const DEFAULT_PAGE_SIZE = 20;
+const SUPPORTED_SORTS = new Set(["relevance", "signals", "name"]);
+const sorted = [...enriched];
+const catalogFingerprint = createHash("sha256")
+  .update(enriched.map((entry) => `${entry.slug}\0${entry.content_hash || ""}\0${entry.score || 0}`).sort().join("\n"))
+  .digest("base64url")
+  .slice(0, 16);
+
+const normalizedText = (value) => String(value ?? "").trim().toLowerCase();
+const compareText = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+const stableSlugCompare = (a, b) => compareText(String(a.slug), String(b.slug));
+
+function licenseInfo(e) {
+  return {
+    license_spdx: typeof e?.license_spdx === "string" ? e.license_spdx : "",
+    license_url: typeof e?.license_url === "string" ? e.license_url : "",
+  };
+}
+
+function packageInfo(e) {
+  const stored = e?.package;
+  if (!stored || typeof stored !== "object") {
+    return { kind: "unknown", manifest_version: 1, assets: [] };
+  }
+  const kinds = new Set(["self_contained", "bundle", "unsupported", "unknown"]);
+  const kind = kinds.has(stored.kind) ? stored.kind : "unknown";
+  const assets = Array.isArray(stored.assets)
+    ? stored.assets.map((asset) => ({
+        path: String(asset.path || ""),
+        byte_size: Number.isFinite(asset.byte_size) ? asset.byte_size : 0,
+        content_hash: String(asset.content_hash || ""),
+        raw_content_url: String(asset.raw_content_url || ""),
+      }))
+    : [];
+  return {
+    kind,
+    manifest_version: 1,
+    assets,
+    ...(stored.reason ? { reason: String(stored.reason) } : {}),
+  };
+}
+
+function supportedAgents(e) {
+  return Array.isArray(e?.agents) ? [...new Set(e.agents.map(normalizedText).filter(Boolean))].sort() : [];
+}
 
 /// The tier the ingestion pipeline computed from the pinned content.
 ///
@@ -102,6 +148,8 @@ function scanReport(e) {
 }
 
 function summary(e) {
+  const license = licenseInfo(e);
+  const pkg = packageInfo(e);
   return {
     slug: e.slug,
     display_name: e.display_name,
@@ -114,8 +162,130 @@ function summary(e) {
     signals_score: typeof e.score === "number" ? e.score : null,
     rating_count: 0,
     summary: e.description || "",
+    ...license,
+    package_kind: pkg.kind,
+    collection_ids: e.source_repo ? [e.source_repo] : [],
+    agents: supportedAgents(e),
   };
 }
+
+function pageSize(raw) {
+  return Math.max(1, Math.min(MAX_PAGE_SIZE, parseInt(raw || String(DEFAULT_PAGE_SIZE), 10) || DEFAULT_PAGE_SIZE));
+}
+
+function cursorFingerprint(scope) {
+  return createHash("sha256").update(JSON.stringify({ catalogFingerprint, ...scope })).digest("base64url").slice(0, 16);
+}
+
+function encodeCursor(offset, fingerprint) {
+  return Buffer.from(JSON.stringify({ v: 1, offset, fingerprint }), "utf8").toString("base64url");
+}
+
+function decodeCursor(raw, fingerprint) {
+  if (!raw) return { ok: true, offset: 0 };
+  try {
+    const parsed = JSON.parse(Buffer.from(raw, "base64url").toString("utf8"));
+    if (parsed.v !== 1 || parsed.fingerprint !== fingerprint || !Number.isSafeInteger(parsed.offset) || parsed.offset < 0) {
+      return { ok: false, offset: 0 };
+    }
+    return { ok: true, offset: parsed.offset };
+  } catch {
+    return { ok: false, offset: 0 };
+  }
+}
+
+function paginate(items, limit, rawCursor, scope) {
+  const fingerprint = cursorFingerprint(scope);
+  const cursor = decodeCursor(rawCursor, fingerprint);
+  if (!cursor.ok || cursor.offset > items.length) return { ok: false };
+  const page = items.slice(cursor.offset, cursor.offset + limit);
+  const nextOffset = cursor.offset + page.length;
+  return {
+    ok: true,
+    items: page,
+    next_cursor: nextOffset < items.length ? encodeCursor(nextOffset, fingerprint) : "",
+  };
+}
+
+function searchComparator(sort, q) {
+  if (sort === "name") {
+    return (a, b) => compareText(normalizedText(a.display_name), normalizedText(b.display_name)) || stableSlugCompare(a, b);
+  }
+  if (sort === "relevance" && q) {
+    const relevance = (entry) => {
+      const slug = normalizedText(entry.slug);
+      const name = normalizedText(entry.display_name);
+      if (slug === q) return 1000;
+      if (name === q) return 900;
+      if (slug.startsWith(q)) return 700;
+      if (name.startsWith(q)) return 600;
+      return 0;
+    };
+    return (a, b) => relevance(b) - relevance(a) || (b.score || 0) - (a.score || 0) || stableSlugCompare(a, b);
+  }
+  return (a, b) => (b.score || 0) - (a.score || 0) || stableSlugCompare(a, b);
+}
+
+function buildCollections() {
+  const grouped = new Map();
+  for (const entry of enriched) {
+    if (!entry.source_repo) continue;
+    const rows = grouped.get(entry.source_repo) || [];
+    rows.push(entry);
+    grouped.set(entry.source_repo, rows);
+  }
+  return [...grouped.entries()]
+    .map(([id, entries]) => {
+      entries.sort(stableSlugCompare);
+      const compatible = [];
+      const excluded = [];
+      for (const entry of entries) {
+        const pkg = packageInfo(entry);
+        const license = licenseInfo(entry);
+        const base = {
+          slug: entry.slug,
+          content_hash: entry.content_hash || "",
+          scan_tier: scanTier(entry),
+          package_kind: pkg.kind,
+          ...license,
+        };
+        if (!entry.content_hash) excluded.push({ ...base, reason: "not_installable" });
+        else if (!license.license_spdx && !license.license_url) excluded.push({ ...base, reason: "license_missing" });
+        else if (pkg.kind !== "self_contained" && pkg.kind !== "bundle") excluded.push({ ...base, reason: "package_unsupported" });
+        else compatible.push(base);
+      }
+      const collectionHash =
+        "sha256:" +
+        createHash("sha256")
+          .update(entries.map((entry) => `${entry.slug}\0${entry.content_hash || ""}`).join("\n"))
+          .digest("hex");
+      const licenses = [...new Set(entries.map((entry) => licenseInfo(entry).license_spdx).filter(Boolean))].sort();
+      return {
+        id,
+        name: id,
+        description: `Skills indexed from ${id}.`,
+        source_url: `https://github.com/${id}`,
+        collection_hash: collectionHash,
+        member_count: compatible.length,
+        total_member_count: entries.length,
+        excluded_count: excluded.length,
+        license_summary: {
+          spdx_ids: licenses,
+          complete: excluded.every((entry) => entry.reason !== "license_missing"),
+        },
+        compatibility: {
+          compatible: compatible.length,
+          excluded: excluded.length,
+        },
+        members: compatible,
+        excluded,
+      };
+    })
+    .sort((a, b) => compareText(a.name, b.name));
+}
+
+const collections = buildCollections();
+const collectionById = new Map(collections.map((collection) => [collection.id, collection]));
 
 /// One row of the eval-suite index. Task INSTRUCTIONS are the bulk of a suite and
 /// a caller choosing between suites cannot use them, so the list carries only what
@@ -648,6 +818,35 @@ async function route(req, res) {
   if (parts[0] === "auth") return handleAuth(req, res, parts.slice(1));
   if (parts[0] === "eval-results") return handleEvalResults(req, res);
 
+  // ---- collections: stable source-repository groups, never category facets ----
+  if (parts[0] === "collections") {
+    const collectionId = parts.slice(1).join("/");
+    const limit = pageSize(url.searchParams.get("limit"));
+    const rawCursor = url.searchParams.get("cursor") || "";
+    if (!collectionId) {
+      const rows = collections.map(({ members, excluded, ...item }) => item);
+      const page = paginate(rows, limit, rawCursor, { resource: "collections" });
+      if (!page.ok) return json(res, 400, { code: "invalid_cursor", error: "cursor does not match this collection search" });
+      return json(res, 200, { items: page.items, next_cursor: page.next_cursor, total: rows.length });
+    }
+    const collection = collectionById.get(collectionId);
+    if (!collection) return json(res, 404, { code: "collection_not_found", error: "collection not found" });
+    const page = paginate(collection.members, limit, rawCursor, { resource: "collection-members", collectionId });
+    if (!page.ok) return json(res, 400, { code: "invalid_cursor", error: "cursor does not match this collection" });
+    const excludedLimit = pageSize(url.searchParams.get("excluded_limit"));
+    const excludedCursor = url.searchParams.get("excluded_cursor") || "";
+    const excludedPage = paginate(collection.excluded, excludedLimit, excludedCursor, { resource: "collection-exclusions", collectionId });
+    if (!excludedPage.ok) return json(res, 400, { code: "invalid_cursor", error: "excluded cursor does not match this collection" });
+    const { members, excluded, ...detail } = collection;
+    return json(res, 200, {
+      ...detail,
+      members: page.items,
+      next_cursor: page.next_cursor,
+      excluded: excludedPage.items,
+      excluded_next_cursor: excludedPage.next_cursor,
+    });
+  }
+
   if (parts[0] !== "skills") return json(res, 404, { error: "not found" });
   const rest = parts.slice(1);
 
@@ -659,25 +858,36 @@ async function route(req, res) {
     // unrated route would let one request burn seconds of serverless time. 128
     // chars is far past any real search; extra terms are dropped, not an error.
     const q = (url.searchParams.get("q") || "").toLowerCase().slice(0, 128);
-    const stack = (url.searchParams.get("stack") || "").toLowerCase();
-    const category = (url.searchParams.get("category") || "").toLowerCase();
+    const stack = normalizedText(url.searchParams.get("stack"));
+    const category = normalizedText(url.searchParams.get("category"));
     // `/skills/facets` advertises scan tiers as a filter vocabulary, so this has
     // to honour them: without it, picking a tier facet silently returned the
     // whole catalog instead of the count the facet promised. Compared through
     // `scanTier` rather than the raw field so the same normalization (and the
     // pending/unknown fallback) applies on both sides.
-    const scan = (url.searchParams.get("scan_tier") || "").toLowerCase();
-    const limit = Math.max(1, parseInt(url.searchParams.get("limit") || "20", 10) || 20);
+    const scan = normalizedText(url.searchParams.get("scan_tier"));
+    const agent = normalizedText(url.searchParams.get("agent"));
+    const requestedSort = normalizedText(url.searchParams.get("sort"));
+    const sort = requestedSort || (q ? "relevance" : "signals");
+    if (!SUPPORTED_SORTS.has(sort)) {
+      return json(res, 400, { code: "invalid_sort", error: `sort must be one of ${[...SUPPORTED_SORTS].join(", ")}` });
+    }
+    const limit = pageSize(url.searchParams.get("limit"));
+    const rawCursor = url.searchParams.get("cursor") || "";
     let items = sorted.filter((e) => {
       if (stack && !(e.tags || []).some((s) => s.toLowerCase() === stack)) return false;
       if (category && (e.category || "").toLowerCase() !== category) return false;
       if (scan && scanTier(e) !== scan) return false;
+      const agents = supportedAgents(e);
+      if (agent && agents.length > 0 && !agents.includes(agent)) return false;
       if (q && !matchesQuery(e, q)) return false;
       return true;
     });
     const total = items.length;
-    items = items.slice(0, limit).map(summary);
-    return json(res, 200, { items, total });
+    items.sort(searchComparator(sort, q));
+    const page = paginate(items, limit, rawCursor, { resource: "skills", q, stack, category, scan, agent, sort });
+    if (!page.ok) return json(res, 400, { code: "invalid_cursor", error: "cursor does not match this skill search" });
+    return json(res, 200, { items: page.items.map(summary), next_cursor: page.next_cursor, total });
   }
 
   // /skills/facets -> the catalog's real filter vocabulary, with counts.
@@ -729,6 +939,20 @@ async function route(req, res) {
         tombstone_reason: `"${e.slug}" is a skill collection, not a single SKILL.md. Browse and install from the source repo: ${e.source_url}`,
       });
     }
+    const requestedVersion = url.searchParams.get("version") || "";
+    if (requestedVersion && requestedVersion !== inst.content_hash) {
+      return json(
+        res,
+        409,
+        {
+          code: "registry_changed",
+          error: "the requested skill version is no longer current",
+          requested_content_hash: requestedVersion,
+          current_content_hash: inst.content_hash,
+        },
+        "no-store",
+      );
+    }
     // The CLI calls resolve immediately before every install, so this is our
     // best server-side install-intent signal. Count it (best-effort) and skip
     // CDN caching on this response so counts aren't hidden behind the edge cache.
@@ -752,6 +976,8 @@ async function route(req, res) {
         signals_score: typeof inst.score === "number" ? inst.score : null,
         raw_content_url: inst.raw_content_url || "",
         tombstoned: false,
+        ...licenseInfo(inst),
+        package: packageInfo(inst),
         ...(report ? { scan: report } : {}),
       },
       "no-store",
@@ -763,6 +989,7 @@ async function route(req, res) {
   const report = scanReport(inst);
   return json(res, 200, {
     ...summary(e),
+    package: packageInfo(inst || e),
     versions: inst
       ? [
           {
