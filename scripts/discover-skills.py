@@ -49,8 +49,15 @@ DANGER_PATTERNS = [
     (r"wget[^\n|]*\|\s*(sudo\s+)?(ba)?sh", "wget|sh"),
     (r"eval\s+\"?\$\(\s*curl", "eval $(curl)"),
     (r"base64\s+-d[^\n]*\|\s*(ba)?sh", "base64|sh"),
-    (r"\bsudo\s+rm\s+-rf\s+/", "sudo rm -rf /"),
-    (r"~/\.ssh/id_[a-z0-9_]+", "reads ssh private key"),
+    # Root itself, not any absolute path: deleting a specific system directory
+    # is ordinary cleanup.
+    (r"\bsudo\s+rm\s+-rf\s+/(\s|\*|$)", "sudo rm -rf /"),
+    # Only the private half, and only when something is reading it. Registering
+    # a .pub key or running ssh-add is ordinary setup, not exfiltration.
+    # Reading the private half into something that could ship it elsewhere.
+    # `scp -i` / `ssh -i` pass the key to the client for auth, which is normal.
+    (r"(cat|curl|echo|base64|upload|xxd)[^\n]{0,40}"
+     r"~/\.ssh/id_[a-z0-9_]+(?!\.pub)", "reads ssh private key"),
     (r"\bANTHROPIC_API_KEY\b", "touches ANTHROPIC_API_KEY"),
 ]
 
@@ -205,6 +212,17 @@ def valid_skill_name(name):
     return bool(re.fullmatch(r"[a-z0-9][a-z0-9._-]{0,63}", name or ""))
 
 
+# A SKILL.md under one of these is test data, not a publishable skill. Security
+# scanners in particular ship deliberately malicious fixtures to test against.
+EXCLUDED_PATH_PARTS = re.compile(
+    r"(^|/)(tests?|__tests__|fixtures?|__fixtures__|spec|specs|"
+    r"node_modules|vendor|\.git|dist|build)(/|$)", re.I)
+
+
+def publishable_path(path):
+    return not EXCLUDED_PATH_PARTS.search(path)
+
+
 def inspect(repo_row, max_skills):
     """Return skill entries for one repo, or [] if it ships no usable SKILL.md."""
     repo = repo_row["full_name"]
@@ -213,7 +231,8 @@ def inspect(repo_row, max_skills):
     if not tree or "tree" not in tree:
         return []
     paths = [t["path"] for t in tree["tree"]
-             if t["path"] == "SKILL.md" or t["path"].endswith("/SKILL.md")]
+             if (t["path"] == "SKILL.md" or t["path"].endswith("/SKILL.md"))
+             and publishable_path(t["path"])]
     if not paths:
         return []
 
