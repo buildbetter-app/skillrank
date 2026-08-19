@@ -63716,5 +63716,965 @@
     "score": 19,
     "provisional": true,
     "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/align-product-stakeholders",
+    "display_name": "align-product-stakeholders",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/align-product-stakeholders",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/align-product-stakeholders",
+    "description": "Map stakeholders, incentives, decision rights, conflicts, evidence needs, and communication paths for a product decision or initiative.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/analyze-competitors",
+    "display_name": "analyze-competitors",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/analyze-competitors",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/analyze-competitors",
+    "description": "Analyze direct competitors, indirect alternatives, non-consumption, and customer switching criteria using current evidence.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/cluster-feedback-into-jobs",
+    "display_name": "cluster-feedback-into-jobs",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/cluster-feedback-into-jobs",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/cluster-feedback-into-jobs",
+    "description": "Reframe a body of feature requests, complaints, call snippets, tickets, and survey responses into customer jobs with a traceable clustering receipt.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/define-ideal-customer-profile",
+    "display_name": "define-ideal-customer-profile",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/define-ideal-customer-profile",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/define-ideal-customer-profile",
+    "description": "Define an evidence-backed ideal customer profile using shared needs, value realization, urgency, fit, economics, adoption conditions, and disqualifiers.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/define-jobs-to-be-done",
+    "display_name": "define-jobs-to-be-done",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/define-jobs-to-be-done",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/define-jobs-to-be-done",
+    "description": "Define a durable job to be done from customer evidence, including situation, motivation, outcome, alternatives, forces, success evidence, and boundaries.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/define-product-metrics",
+    "display_name": "define-product-metrics",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/define-product-metrics",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/define-product-metrics",
+    "description": "Define a product metric system connecting customer value, a North Star or outcome measure, controllable inputs, guardrails, business effects, and decision rules.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/define-product-positioning",
+    "display_name": "define-product-positioning",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/define-product-positioning",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/define-product-positioning",
+    "description": "Define evidence-backed product positioning from competitive alternatives, differentiated capabilities, customer value, best-fit segment, category context, and proof.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/define-product-vision",
+    "display_name": "define-product-vision",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/define-product-vision",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/define-product-vision",
+    "description": "Define a durable, directional product vision describing the future customer reality, target beneficiary, distinctive change, principles, and boundaries.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/design-growth-loop",
+    "display_name": "design-growth-loop",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/design-growth-loop",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/design-growth-loop",
+    "description": "Design and evaluate a product-native growth loop with a value-producing action, transmission mechanism, recipient conversion, re-entry, coefficient, cycle time, quality guardrails, and experiment plan.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/design-pricing-packaging",
+    "display_name": "design-pricing-packaging",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/design-pricing-packaging",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/design-pricing-packaging",
+    "description": "Design pricing and packaging from customer value, segments, usage, willingness to pay, cost, competitive alternatives, and operational constraints.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/design-product-experiment",
+    "display_name": "design-product-experiment",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/design-product-experiment",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/design-product-experiment",
+    "description": "Design a product experiment that tests a decision-critical hypothesis with a valid comparison, primary metric, guardrails, stopping rule, analysis plan, and follow-up decision.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/evaluate-product-market-fit",
+    "display_name": "evaluate-product-market-fit",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/evaluate-product-market-fit",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/evaluate-product-market-fit",
+    "description": "Evaluate product-market fit using converging retention, behavior, customer pull, switching, economics, growth, and qualitative evidence by segment.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/manage-product-sunset",
+    "display_name": "manage-product-sunset",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/manage-product-sunset",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/manage-product-sunset",
+    "description": "Plan and govern a safe product, feature, integration, API, or plan sunset with evidence, affected-user analysis, alternatives, communication, migration, support, access, data, billing, and rollback.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/map-customer-journey",
+    "display_name": "map-customer-journey",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/map-customer-journey",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/map-customer-journey",
+    "description": "Map an evidence-backed customer journey across stages, actors, jobs, touchpoints, emotions, friction, handoffs, and measures.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/map-product-opportunities",
+    "display_name": "map-product-opportunities",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/map-product-opportunities",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/map-product-opportunities",
+    "description": "Build an evidence-backed opportunity map connecting a desired outcome to customer problems, possible solutions, assumptions, and tests.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/plan-customer-interviews",
+    "display_name": "plan-customer-interviews",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/plan-customer-interviews",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/plan-customer-interviews",
+    "description": "Prepare unbiased customer interviews that investigate past behavior, struggling moments, alternatives, and decision context.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/plan-outcome-roadmap",
+    "display_name": "plan-outcome-roadmap",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/plan-outcome-roadmap",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/plan-outcome-roadmap",
+    "description": "Build an outcome-oriented roadmap that connects strategy, customer problems, bets, learning, dependencies, and evidence without presenting distant feature promises as certainty.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/plan-product-discovery",
+    "display_name": "plan-product-discovery",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/plan-product-discovery",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/plan-product-discovery",
+    "description": "Build an evidence-driven continuous discovery cadence with clear learning goals, participants, methods, decision points, and evidence hygiene.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/plan-product-launch",
+    "display_name": "plan-product-launch",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/plan-product-launch",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/plan-product-launch",
+    "description": "Plan a product launch across customer readiness, product quality, support, operations, go-to-market, measurement, rollout, rollback, and post-launch learning.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/prioritize-product-opportunities",
+    "display_name": "prioritize-product-opportunities",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/prioritize-product-opportunities",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/prioritize-product-opportunities",
+    "description": "Prioritize product opportunities using strategy, customer impact, evidence strength, urgency, risk, effort, dependencies, and learning value without hiding judgment behind a score.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/review-product-plan",
+    "display_name": "review-product-plan",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/review-product-plan",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/review-product-plan",
+    "description": "Review a product strategy, requirements document, roadmap, launch plan, or bet using an independent evidence-first rubric for clarity, grounding, coherence, risk, and verifiability.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/run-product-premortem",
+    "display_name": "run-product-premortem",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/run-product-premortem",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/run-product-premortem",
+    "description": "Run a structured premortem on a product bet, requirements document, rollout, migration, or launch and convert plausible failure modes into mitigations, owners, triggers, and contingency plans.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/run-product-review",
+    "display_name": "run-product-review",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/run-product-review",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/run-product-review",
+    "description": "Run a recurring product operating review focused on outcomes, customer evidence, metric movement, delivery reality, risks, decisions, and learning.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/scope-product-release",
+    "display_name": "scope-product-release",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/scope-product-release",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/scope-product-release",
+    "description": "Reduce a product release to the smallest coherent outcome while preserving trust, usability, measurement, and operational safety.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/shape-product-strategy",
+    "display_name": "shape-product-strategy",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/shape-product-strategy",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/shape-product-strategy",
+    "description": "Shape an evidence-backed product strategy with a diagnosis, guiding policy, coherent choices, resource allocation, explicit deferrals, risks, and measures.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/size-market-opportunity",
+    "display_name": "size-market-opportunity",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/size-market-opportunity",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/size-market-opportunity",
+    "description": "Estimate market opportunity with transparent top-down and bottom-up models, ranges, assumptions, sensitivity, and evidence quality.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/size-product-bet",
+    "display_name": "size-product-bet",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/size-product-bet",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/size-product-bet",
+    "description": "Set the appetite, boundaries, assumptions, option value, and kill criteria for a product bet before detailed solutioning.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/synthesize-customer-research",
+    "display_name": "synthesize-customer-research",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "discovery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/synthesize-customer-research",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/synthesize-customer-research",
+    "description": "Turn interviews, calls, surveys, observations, support records, and notes into traceable findings and decision implications.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/validate-product-problem",
+    "display_name": "validate-product-problem",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "strategy"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/validate-product-problem",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/validate-product-problem",
+    "description": "Assess whether a product problem is important, frequent, underserved, strategically relevant, and supported by sufficient evidence to justify the next investment.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/verify-product-outcomes",
+    "display_name": "verify-product-outcomes",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/verify-product-outcomes",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/verify-product-outcomes",
+    "description": "Compare implemented and observed product behavior against intended customer outcomes, requirements, quality constraints, and release evidence.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/write-product-decision",
+    "display_name": "write-product-decision",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "operate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/write-product-decision",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/write-product-decision",
+    "description": "Write a durable product decision record capturing context, decision, evidence, options, tradeoffs, dissent, owner, consequences, follow-up, and reconsideration triggers.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "buildbetter-app/write-product-requirements",
+    "display_name": "write-product-requirements",
+    "category": "other",
+    "tags": [
+      "product-management",
+      "delivery"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/buildbetter-app/product-os/tree/main/skills/write-product-requirements",
+    "source_repo": "buildbetter-app/product-os",
+    "source_subpath": "skills/write-product-requirements",
+    "description": "Write evidence-linked product requirements that define the problem, target users, outcomes, scope, behavior, quality constraints, success evidence, non-goals, risks, and open decisions without over-specifying implementation.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
   }
 ]
