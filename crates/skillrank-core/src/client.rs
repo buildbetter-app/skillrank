@@ -3,7 +3,10 @@
 
 use crate::config;
 use crate::hash::split_ref;
-use crate::types::{ResolveResponse, SearchResponse, SkillDetail, SkillFacets, SuiteListResponse};
+use crate::types::{
+    CollectionDetail, CollectionListResponse, ResolveResponse, SearchResponse, SkillDetail,
+    SkillFacets, SuiteListResponse,
+};
 use serde::de::DeserializeOwned;
 
 /// The registry's REST namespace, distinct from any tenant `/v3/rest/skills` routes.
@@ -115,6 +118,9 @@ impl Client {
         if !opts.sort.is_empty() {
             query.push(("sort", &opts.sort));
         }
+        if !opts.cursor.is_empty() {
+            query.push(("cursor", &opts.cursor));
+        }
         query.push(("limit", &limit));
         self.get_json(&format!("{PATH_PREFIX}/skills"), &query)
     }
@@ -143,6 +149,46 @@ impl Client {
     /// `total` the equivalent [`Client::search`] returns.
     pub fn skill_facets(&self) -> Result<SkillFacets, ClientError> {
         self.get_json(&format!("{PATH_PREFIX}/skills/facets"), &[])
+    }
+
+    /// List first-class source-repository and curated collections.
+    pub fn list_collections(
+        &self,
+        limit: u32,
+        cursor: &str,
+    ) -> Result<CollectionListResponse, ClientError> {
+        let limit = if limit == 0 {
+            "20".to_string()
+        } else {
+            limit.to_string()
+        };
+        let mut query = vec![("limit", limit.as_str())];
+        if !cursor.is_empty() {
+            query.push(("cursor", cursor));
+        }
+        self.get_json(&format!("{PATH_PREFIX}/collections"), &query)
+    }
+
+    /// Fetch one collection and one cursor page of its compatible members.
+    pub fn get_collection(
+        &self,
+        id: &str,
+        limit: u32,
+        cursor: &str,
+    ) -> Result<CollectionDetail, ClientError> {
+        let limit = if limit == 0 {
+            "20".to_string()
+        } else {
+            limit.to_string()
+        };
+        let mut query = vec![("limit", limit.as_str())];
+        if !cursor.is_empty() {
+            query.push(("cursor", cursor));
+        }
+        self.get_json(
+            &format!("{PATH_PREFIX}/collections/{}", encode_path(id)),
+            &query,
+        )
     }
 
     /// List the registry's eval suites: ids, versions, task counts, and reference
@@ -377,6 +423,7 @@ mod tests {
     use crate::types::DevicePoll;
     use std::io::{Read, Write};
     use std::net::TcpListener;
+    use std::sync::mpsc;
 
     /// Answer the first request with one canned response and hand back a base
     /// URL to point a `Client` at. Stdlib only — the device poll's whole
@@ -403,6 +450,41 @@ mod tests {
 
     fn client_at(base_url: String) -> Client {
         Client { base_url }
+    }
+
+    fn serve_once_and_capture(body: &'static str) -> (String, mpsc::Receiver<String>) {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let address = listener.local_addr().unwrap();
+        let (send, receive) = mpsc::channel();
+        let response = format!(
+            "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+            body.len()
+        );
+        std::thread::spawn(move || {
+            if let Ok((mut stream, _)) = listener.accept() {
+                let mut scratch = [0u8; 4096];
+                let read = stream.read(&mut scratch).unwrap_or_default();
+                let request = String::from_utf8_lossy(&scratch[..read]).to_string();
+                let _ = send.send(request);
+                let _ = stream.write_all(response.as_bytes());
+                let _ = stream.flush();
+            }
+        });
+        (format!("http://{address}"), receive)
+    }
+
+    #[test]
+    fn search_sends_the_opaque_cursor() {
+        let (base, request) = serve_once_and_capture(r#"{"items":[],"total":0}"#);
+        let client = client_at(base);
+        client
+            .search(&SearchOptions {
+                cursor: "eyJ2IjoxLCJvZmZzZXQiOjJ9".into(),
+                ..SearchOptions::default()
+            })
+            .unwrap();
+        let request = request.recv().unwrap();
+        assert!(request.contains("cursor=eyJ2IjoxLCJvZmZzZXQiOjJ9"));
     }
 
     #[test]
