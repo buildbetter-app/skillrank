@@ -45,5 +45,125 @@
         "claude-sonnet-5"
       ]
     }
+  },
+  {
+    "id": "design-shotgun-landing-page",
+    "version": "1",
+    "title": "Design shotgun landing-page directions",
+    "description": "Measures whether a skill helps an agent produce several genuinely distinct, truthful landing-page directions and a useful comparison board.",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "c3389ba4a978c1577f567da0592866f865c5c94f"
+    },
+    "tasks": [
+      {
+        "id": "pulse-deck-directions",
+        "instruction": "Read tasks/design-shotgun/brief.md. Create three genuinely distinct, polished, responsive landing-page directions under tasks/design-shotgun/output named direction-a.html, direction-b.html, and direction-c.html. Each must work as a standalone HTML file, preserve every supplied product truth, avoid invented proof, and use a different visual concept and information hierarchy. Add tasks/design-shotgun/output/comparison.html that links to all three directions and explains the trade-offs, risks, and best-fit audience for each. Put a short data-direction attribute on each direction's body element naming its concept. Do not modify the brief.",
+        "verifier_contract": "Three standalone responsive HTML directions and a comparison board exist; directions are structurally distinct, preserve supplied product truths, and contain no unsupported social proof.",
+        "timeout_sec": 600,
+        "est_tokens": 30000,
+        "est_cost_usd": 0
+      }
+    ],
+    "reference_env": {
+      "agent_version_band": "",
+      "models": ["gpt-5.4-mini"]
+    }
+  },
+  {
+    "id": "programmatic-seo-integration-directory",
+    "version": "1",
+    "title": "Programmatic SEO integration directory",
+    "description": "Measures whether a skill helps an agent turn structured records into useful, differentiated, indexable pages without invented claims.",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "c3389ba4a978c1577f567da0592866f865c5c94f"
+    },
+    "tasks": [
+      {
+        "id": "relayops-integration-pages",
+        "instruction": "Read tasks/programmatic-seo/brief.md and integrations.csv. Build a static integration directory under tasks/programmatic-seo/output. Create index.html plus one page per CSV row at pages/<slug>.html. Pages must be useful for a human choosing an integration, not keyword-swapped boilerplate. Give every page unique metadata and copy grounded only in its row, the exact canonical URL under https://relayops.example/integrations/, valid FAQ structured data, and useful internal links. Include the supplied setup time and best-for use case. Do not modify the brief or CSV and do not invent proof or capabilities.",
+        "verifier_contract": "The directory contains a complete page set with unique grounded content, canonical and metadata hygiene, valid FAQ structured data, internal linking, and no fabricated claims.",
+        "timeout_sec": 600,
+        "est_tokens": 30000,
+        "est_cost_usd": 0
+      }
+    ],
+    "reference_env": {
+      "agent_version_band": "",
+      "models": ["gpt-5.4-mini"]
+    }
+  },
+  {
+    "id": "apple-design-interactive-sheet",
+    "version": "1",
+    "title": "Apple-style interruptible sheet interaction",
+    "description": "Measures whether a skill helps an agent implement a fluid, accessible, gesture-driven interface rather than a cosmetic imitation.",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "c3389ba4a978c1577f567da0592866f865c5c94f"
+    },
+    "tasks": [
+      {
+        "id": "queue-detail-sheet",
+        "instruction": "Improve tasks/apple-design/index.html in place. Turn the static bottom sheet into a polished, gesture-driven interaction that can be dragged between open and collapsed states with mouse or touch, uses velocity-aware settling and spring-like motion, remains interruptible during animation, respects prefers-reduced-motion, and is accessible from the keyboard. Preserve the supplied content and keep the result dependency-free in one HTML file.",
+        "verifier_contract": "The standalone page implements pointer and keyboard interaction, velocity-aware spring settling, interruptible animation, reduced-motion behavior, and accessible state semantics.",
+        "timeout_sec": 600,
+        "est_tokens": 30000,
+        "est_cost_usd": 0
+      }
+    ],
+    "reference_env": {
+      "agent_version_band": "",
+      "models": ["gpt-5.4-mini"]
+    }
+  },
+  {
+    "id": "frontend-design-signal-dashboard",
+    "version": "1",
+    "title": "Distinctive frontend dashboard redesign",
+    "description": "Measures whether a skill helps an agent replace generic component styling with a coherent, accessible, responsive visual system.",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "c3389ba4a978c1577f567da0592866f865c5c94f"
+    },
+    "tasks": [
+      {
+        "id": "signal-desk-redesign",
+        "instruction": "Redesign tasks/frontend-design/index.html in place into a distinctive, production-quality evidence dashboard for product teams. Keep the three supplied topics and counts, but replace the generic card grid with a coherent visual concept, strong hierarchy, responsive behavior, accessible landmarks and controls, visible keyboard focus, and thoughtful hover/active states. Use no external packages, images, emoji, or invented product claims. Add a short data-visual-concept attribute to the body naming the chosen concept.",
+        "verifier_contract": "The single-file dashboard has an explicit visual concept, a tokenized responsive system, semantic landmarks, accessible focus and interaction states, and preserves all supplied content without invented claims.",
+        "timeout_sec": 600,
+        "est_tokens": 30000,
+        "est_cost_usd": 0
+      }
+    ],
+    "reference_env": {
+      "agent_version_band": "",
+      "models": ["gpt-5.4-mini"]
+    }
+  },
+  {
+    "id": "marketing-ideas-constrained-launch",
+    "version": "1",
+    "title": "Constrained creator-product launch ideas",
+    "description": "Measures whether a skill helps an agent turn a tight launch brief into five concrete, testable, budget-aware marketing plays.",
+    "fixture": {
+      "git_url": "https://github.com/buildbetter-app/skillrank-eval-fixtures",
+      "commit": "c3389ba4a978c1577f567da0592866f865c5c94f"
+    },
+    "tasks": [
+      {
+        "id": "clipforge-launch-plan",
+        "instruction": "Read tasks/marketing-ideas/brief.md and write tasks/marketing-ideas/marketing-plan.md. Propose exactly five materially different launch ideas that fit every budget, time, audience, and evidence constraint. For each idea provide the channel, specific hook or message, why it might work for this audience, cash cost, founder time, a measurable success metric, and the smallest first test. Add a 30-day sequencing section and a budget table whose total does not exceed $1,000. Do not modify the brief or invent users, proof, partnerships, or guaranteed outcomes.",
+        "verifier_contract": "The plan contains exactly five distinct, complete, testable ideas plus a feasible 30-day sequence and budget at or below $1,000, with no fabricated proof.",
+        "timeout_sec": 600,
+        "est_tokens": 30000,
+        "est_cost_usd": 0
+      }
+    ],
+    "reference_env": {
+      "agent_version_band": "",
+      "models": ["gpt-5.4-mini"]
+    }
   }
 ]

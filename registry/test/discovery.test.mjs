@@ -71,6 +71,20 @@ test("every indexed suite is fetchable at the id and version it advertises", asy
   }
 });
 
+test("every suite task has one non-empty hidden verifier", async () => {
+  const index = await call("eval-suites");
+  for (const item of index.body.items) {
+    const detail = await call(`eval-suites/${item.id}`);
+    const verifierResponse = await call(`eval-suites/${item.id}/verifiers`);
+    assert.equal(verifierResponse.status, 200, `${item.id} verifier map must resolve`);
+    const expectedTaskIds = detail.body.tasks.map((task) => task.id).sort();
+    assert.deepEqual(Object.keys(verifierResponse.body).sort(), expectedTaskIds);
+    for (const taskId of expectedTaskIds) {
+      assert.ok(verifierResponse.body[taskId].trim().length > 0, `${item.id}/${taskId} verifier must not be blank`);
+    }
+  }
+});
+
 test("the suite index is an anonymous, cacheable read", async () => {
   const anonymous = await call("eval-suites");
   assert.match(anonymous.headers.get("cache-control"), /s-maxage/);
