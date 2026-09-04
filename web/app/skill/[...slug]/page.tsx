@@ -10,6 +10,7 @@ import {
   skillPath,
   skills
 } from "../../../lib/catalog";
+import { SITE_URL } from "../../../lib/site";
 
 export const dynamicParams = false;
 
@@ -39,11 +40,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const title = `${skill.display_name} (${skill.slug})`;
+  const description = `${skill.description} Install with skillrank install ${skill.slug}.`;
+  const canonical = skillPath(skill.slug);
+  const socialImage = new URL(`/api/og/skill/?slug=${encodeURIComponent(skill.slug)}`, SITE_URL).toString();
+
   return {
-    title: `${skill.display_name} (${skill.slug})`,
-    description: `${skill.description} SkillRank score ${skill.score}/100, provisional while evals are pending.`,
+    title,
+    description,
     alternates: {
-      canonical: skillPath(skill.slug)
+      canonical
+    },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      siteName: "SkillRank",
+      title,
+      description,
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: `${skill.display_name} on SkillRank`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [socialImage]
     }
   };
 }
