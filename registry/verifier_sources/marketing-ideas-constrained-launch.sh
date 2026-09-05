@@ -38,8 +38,8 @@ else:
     line_amounts=[float(x.replace(',','')) for line in budget.splitlines() if 'total' not in line.lower() for x in re.findall(r'\$\s*([0-9][0-9,]*(?:\.\d{1,2})?)',line)]
     if total>1000: errors.append(f'budget exceeds $1,000: ${total:g}')
     if line_amounts and abs(sum(line_amounts)-total)>0.01: errors.append(f'budget line items sum to ${sum(line_amounts):g}, not ${total:g}')
-for phrase in ['12 hours','free trial']:
-    if phrase not in low: errors.append(f'plan does not account for {phrase}')
+if not re.search(r'\b12\b[^.\n]{0,30}\bhours?\b|\bhours?\b[^.\n]{0,30}\b12\b',low): errors.append('plan does not account for the 12-hour founder limit')
+if not re.search(r'\bfree[- ]trial\b',low): errors.append('plan does not account for the free trial')
 claims=low
 for term in ['existing audience','our customers say','guaranteed','industry-leading']:
     claims=re.sub(rf'\b(?:no|without|avoid|never|not)\b[^.\n]{{0,100}}\b{re.escape(term)}\b','',claims)
