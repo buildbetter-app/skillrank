@@ -118,6 +118,8 @@ pub struct Config {
     pub trials: u32,
     /// Model id used and recorded.
     pub model: String,
+    /// Optional directory where completed trial workspaces are copied before cleanup.
+    pub artifacts_dir: Option<PathBuf>,
 }
 
 /// Paired per-task summary printed locally.
@@ -260,9 +262,10 @@ pub fn run_eval(
         };
         for arm in [TrialArm::Control, TrialArm::Treatment] {
             for i in 0..trials {
-                let rec = run_one_trial(task, arm, skill, cfg, agent, fixtures, verifier).map_err(
-                    |e| format!("task {} arm {} trial {}: {e}", task.id, arm.as_str(), i + 1),
-                )?;
+                let rec = run_one_trial(task, arm, i + 1, skill, cfg, agent, fixtures, verifier)
+                    .map_err(|e| {
+                        format!("task {} arm {} trial {}: {e}", task.id, arm.as_str(), i + 1)
+                    })?;
                 match arm {
                     TrialArm::Control => acc.ctrl.record(&rec),
                     TrialArm::Treatment => acc.treat.record(&rec),
@@ -351,6 +354,7 @@ pub fn run_eval(
 fn run_one_trial(
     task: &crate::types::SuiteTask,
     arm: TrialArm,
+    trial_number: u32,
     skill: &ResolveResponse,
     cfg: &Config,
     agent: &dyn AgentRunner,
@@ -386,15 +390,31 @@ fn run_one_trial(
     };
     if outcome.agent_error {
         rec.verdict = "agent_error".into();
-        return Ok(rec);
+    } else {
+        // Verifier isolation: only now, after the agent process has exited, do we
+        // apply the verifier.
+        match verifier.verify(&workspace.path, &task.id) {
+            Err(_) => rec.verdict = "verifier_error".into(),
+            Ok(v) if v.verifier_error => rec.verdict = "verifier_error".into(),
+            Ok(v) if v.pass => rec.verdict = "pass".into(),
+            Ok(_) => rec.verdict = "fail".into(),
+        }
     }
-    // Verifier isolation: only now, after the agent process has exited, do we
-    // apply the verifier.
-    match verifier.verify(&workspace.path, &task.id) {
-        Err(_) => rec.verdict = "verifier_error".into(),
-        Ok(v) if v.verifier_error => rec.verdict = "verifier_error".into(),
-        Ok(v) if v.pass => rec.verdict = "pass".into(),
-        Ok(_) => rec.verdict = "fail".into(),
+    if let Some(root) = &cfg.artifacts_dir {
+        let destination = root
+            .join(&task.id)
+            .join(arm.as_str())
+            .join(format!("trial-{trial_number}"));
+        if destination.exists() {
+            return Err(format!(
+                "artifact destination already exists: {}",
+                destination.display()
+            ));
+        }
+        std::fs::create_dir_all(&destination)
+            .map_err(|e| format!("create artifact directory: {e}"))?;
+        fixture::copy_tree(&workspace.path, &destination)
+            .map_err(|e| format!("preserve trial workspace: {e}"))?;
     }
     Ok(rec)
 }
@@ -636,6 +656,7 @@ mod tests {
             &Config {
                 trials,
                 model: "sonnet".into(),
+                artifacts_dir: None,
             },
             &agent,
             &StubFixture,
@@ -711,6 +732,7 @@ mod tests {
         let cfg = Config {
             trials: 3,
             model: "sonnet".into(),
+            artifacts_dir: None,
         };
         let result = run_eval(&suite, &skill, &cfg, &agent, &fixtures, &verifier).unwrap();
 
@@ -746,6 +768,32 @@ mod tests {
     }
 
     #[test]
+    fn preserves_each_trial_workspace_when_requested() {
+        let root =
+            std::env::temp_dir().join(format!("skillrank-artifact-test-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&root);
+        let cfg = Config {
+            trials: 1,
+            model: "sonnet".into(),
+            artifacts_dir: Some(root.clone()),
+        };
+        let result = run_eval(
+            &one_task_suite(),
+            &demo_skill(),
+            &cfg,
+            &StubAgent {
+                saw_verifier: AtomicBool::new(false),
+            },
+            &StubFixture,
+            &one_task_verifier(),
+        );
+        assert!(result.is_ok());
+        assert!(root.join("task-a/control/trial-1/README.md").is_file());
+        assert!(root.join("task-a/treatment/trial-1/solution.txt").is_file());
+        let _ = std::fs::remove_dir_all(root);
+    }
+
+    #[test]
     fn config_hash_deterministic_and_sensitive() {
         let suite = Suite {
             id: "s".into(),
@@ -770,6 +818,7 @@ mod tests {
             &Config {
                 trials: 3,
                 model: "sonnet".into(),
+                artifacts_dir: None,
             },
             &cell,
         );
@@ -779,6 +828,7 @@ mod tests {
             &Config {
                 trials: 3,
                 model: "sonnet".into(),
+                artifacts_dir: None,
             },
             &cell,
         );
@@ -791,6 +841,7 @@ mod tests {
             &Config {
                 trials: 3,
                 model: "opus".into(),
+                artifacts_dir: None,
             },
             &cell_opus,
         );
@@ -801,6 +852,7 @@ mod tests {
             &Config {
                 trials: 5,
                 model: "sonnet".into(),
+                artifacts_dir: None,
             },
             &cell,
         );
@@ -829,6 +881,7 @@ mod tests {
             &Config {
                 trials: 3,
                 model: String::new(),
+                artifacts_dir: None,
             },
         );
         assert_eq!(tokens, 18000);
@@ -999,6 +1052,7 @@ mod tests {
             &Config {
                 trials: 3,
                 model: String::new(),
+                artifacts_dir: None,
             },
             &ScriptedAgent::new(|_, _| RunOutcome::default()),
             &StubFixture,
