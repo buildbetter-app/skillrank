@@ -33,7 +33,7 @@ if not cp.is_file(): errors.append('missing comparison.html')
 else:
     d=Doc(); d.feed(cp.read_text(errors='ignore')); visible=norm(' '.join(d.text+d.labels))
     for name in ['direction-a.html','direction-b.html','direction-c.html']:
-        if name not in d.hrefs: errors.append(f'comparison misses link to {name}')
+        if name not in [href.split('#',1)[0].split('?',1)[0].rsplit('/',1)[-1] for href in d.hrefs]: errors.append(f'comparison misses link to {name}')
     if not re.search(r'trade[- ]?offs?',visible): errors.append('comparison misses trade-offs')
     if 'risk' not in visible or not re.search(r'best[- ]?fit|audience',visible): errors.append('comparison misses risks or fit guidance')
 for e in errors: print('FAIL',e)
