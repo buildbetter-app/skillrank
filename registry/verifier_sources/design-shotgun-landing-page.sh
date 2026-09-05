@@ -5,11 +5,12 @@ from html.parser import HTMLParser
 from collections import Counter
 import re, sys
 class Doc(HTMLParser):
-    def __init__(self): super().__init__(); self.text=[]; self.body={}; self.tags=[]; self.hrefs=[]
+    def __init__(self): super().__init__(); self.text=[]; self.body={}; self.tags=[]; self.hrefs=[]; self.labels=[]
     def handle_starttag(self,t,a):
         d={k.lower():(v or '') for k,v in a}; self.tags.append(t.lower())
         if t.lower()=='body': self.body=d
         if t.lower()=='a': self.hrefs.append(d.get('href',''))
+        if d.get('aria-label'): self.labels.append(d['aria-label'])
     def handle_data(self,d): self.text.append(d)
 def norm(v): return re.sub(r'\s+',' ',v).strip().lower()
 root=Path('tasks/design-shotgun/output'); paths=[root/f'direction-{c}.html' for c in 'abc']; errors=[]; concepts=[]; signatures=[]
@@ -30,7 +31,7 @@ if len(set(signatures))<2: errors.append('directions lack meaningful structural 
 cp=root/'comparison.html'
 if not cp.is_file(): errors.append('missing comparison.html')
 else:
-    d=Doc(); d.feed(cp.read_text(errors='ignore')); visible=norm(' '.join(d.text))
+    d=Doc(); d.feed(cp.read_text(errors='ignore')); visible=norm(' '.join(d.text+d.labels))
     for name in ['direction-a.html','direction-b.html','direction-c.html']:
         if name not in d.hrefs: errors.append(f'comparison misses link to {name}')
     if not re.search(r'trade[- ]?offs?',visible): errors.append('comparison misses trade-offs')

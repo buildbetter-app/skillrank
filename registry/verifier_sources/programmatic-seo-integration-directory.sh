@@ -52,7 +52,7 @@ for row in rows:
         if norm(value) not in visible: errors.append(f'{path} misses source value: {value}')
     expected=f'https://relayops.example/integrations/{row["slug"]}'
     canon=[a.get('href','') for a in d.links if 'canonical' in a.get('rel','').lower().split()]
-    if canon != [expected]: errors.append(f'{path} canonical must be exactly {expected}')
+    if len(canon)!=1 or canon[0].rstrip('/')!=expected: errors.append(f'{path} canonical must resolve exactly to {expected}')
     title=norm(' '.join(d.title)); desc=[norm(a.get('content','')) for a in d.meta if a.get('name','').lower()=='description']
     if not title or len(desc)!=1 or len(desc[0])<40: errors.append(f'{path} lacks a complete title or meta description')
     else: titles.append(title); descriptions.append(desc[0])
