@@ -30,12 +30,16 @@ else:
 if not re.search(r'30[- ]day',low) or not re.search(r'\b(?:days?|weeks?)\s*[1-4]\b',low): errors.append('missing concrete 30-day sequence')
 budget_section=re.split(r'^#{2,3}\s+.*budget.*$',raw,flags=re.I|re.M)
 budget=budget_section[-1] if len(budget_section)>1 else ''
-amounts=[float(x.replace(',','')) for x in re.findall(r'\$\s*([0-9][0-9,]*(?:\.\d{1,2})?)',budget)]
-declared=re.search(r'\btotal\b[^\n$]*\$\s*([0-9][0-9,]*(?:\.\d{1,2})?)',budget,re.I)
+budget_lines=[]; in_table=False
+for line in budget.splitlines():
+    if line.strip().startswith('|') and line.strip().endswith('|'): budget_lines.append(line); in_table=True
+    elif in_table and line.strip(): break
+budget_table='\n'.join(budget_lines)
+declared=re.search(r'\btotal\b[^\n$]*\$\s*([0-9][0-9,]*(?:\.\d{1,2})?)',budget_table,re.I)
 if not budget or not declared: errors.append('budget section needs an explicit total')
 else:
     total=float(declared.group(1).replace(',',''))
-    line_amounts=[float(x.replace(',','')) for line in budget.splitlines() if 'total' not in line.lower() for x in re.findall(r'\$\s*([0-9][0-9,]*(?:\.\d{1,2})?)',line)]
+    line_amounts=[float(x.replace(',','')) for line in budget_lines if 'total' not in line.lower() for x in re.findall(r'\$\s*([0-9][0-9,]*(?:\.\d{1,2})?)',line)]
     if total>1000: errors.append(f'budget exceeds $1,000: ${total:g}')
     if line_amounts and abs(sum(line_amounts)-total)>0.01: errors.append(f'budget line items sum to ${sum(line_amounts):g}, not ${total:g}')
 if not re.search(r'\b12\b[^.\n]{0,30}\bhours?\b|\bhours?\b[^.\n]{0,30}\b12\b',low): errors.append('plan does not account for the 12-hour founder limit')
