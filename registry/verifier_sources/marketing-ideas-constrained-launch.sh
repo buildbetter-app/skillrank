@@ -15,8 +15,9 @@ for i,line in enumerate(table_lines):
             table_ideas.append(values)
         break
 heads=list(re.finditer(r'^##\s+(.+)$',raw,re.I|re.M))
-reserved=re.compile(r'30[- ]day|sequence|budget|summary|overview|five launch ideas|launch ideas',re.I)
-ideas=[h for h in heads if not reserved.search(h.group(1))]
+reserved=re.compile(r'30[- ]day|sequence|budget|summary|overview|five launch ideas|launch ideas|notes?|constraints?|method',re.I)
+numbered=list(re.finditer(r'^#{2,3}\s+(?:(?:idea|play|experiment)\s*)?[1-5][.):-]?\s+(.+)$',raw,re.I|re.M))
+ideas=numbered if numbered else [h for h in heads if not reserved.search(h.group(1))]
 if table_ideas:
     if len(table_ideas)!=5: errors.append(f'plan table must contain exactly five ideas; found {len(table_ideas)}')
 else:
