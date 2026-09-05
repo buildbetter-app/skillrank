@@ -122,6 +122,12 @@ pub struct Config {
     pub artifacts_dir: Option<PathBuf>,
 }
 
+#[derive(Debug, Clone, Copy)]
+struct TrialPosition {
+    arm: TrialArm,
+    number: u32,
+}
+
 /// Paired per-task summary printed locally.
 ///
 /// Pass rate answers "did the skill make the agent correct", which most skills do
@@ -262,10 +268,18 @@ pub fn run_eval(
         };
         for arm in [TrialArm::Control, TrialArm::Treatment] {
             for i in 0..trials {
-                let rec = run_one_trial(task, arm, i + 1, skill, cfg, agent, fixtures, verifier)
-                    .map_err(|e| {
-                        format!("task {} arm {} trial {}: {e}", task.id, arm.as_str(), i + 1)
-                    })?;
+                let rec = run_one_trial(
+                    task,
+                    TrialPosition { arm, number: i + 1 },
+                    skill,
+                    cfg,
+                    agent,
+                    fixtures,
+                    verifier,
+                )
+                .map_err(|e| {
+                    format!("task {} arm {} trial {}: {e}", task.id, arm.as_str(), i + 1)
+                })?;
                 match arm {
                     TrialArm::Control => acc.ctrl.record(&rec),
                     TrialArm::Treatment => acc.treat.record(&rec),
@@ -353,14 +367,14 @@ pub fn run_eval(
 
 fn run_one_trial(
     task: &crate::types::SuiteTask,
-    arm: TrialArm,
-    trial_number: u32,
+    position: TrialPosition,
     skill: &ResolveResponse,
     cfg: &Config,
     agent: &dyn AgentRunner,
     fixtures: &dyn FixtureProvider,
     verifier: &dyn Verifier,
 ) -> Result<TrialRecord, String> {
+    let arm = position.arm;
     // The workspace lives until the end of this function, so the verifier can run
     // against it after the agent exits.
     let workspace = fixtures.prepare(&task.id)?;
@@ -404,7 +418,7 @@ fn run_one_trial(
         let destination = root
             .join(&task.id)
             .join(arm.as_str())
-            .join(format!("trial-{trial_number}"));
+            .join(format!("trial-{}", position.number));
         if destination.exists() {
             return Err(format!(
                 "artifact destination already exists: {}",
