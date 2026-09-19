@@ -110736,6 +110736,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "MengTo/gsap",
+    "display_name": "GSAP",
+    "category": "styling",
+    "tags": [
+      "gsap",
+      "animation",
+      "scrolltrigger"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/MengTo/Skills/tree/main/agent-skills/web-design/gsap",
+    "source_repo": "MengTo/Skills",
+    "source_subpath": "agent-skills/web-design/gsap",
+    "description": "Add or debug professional web animations with GSAP timelines, ScrollTrigger, stagger, transforms, and performance-conscious patterns across HTML, CSS, JavaScript, and React.",
+    "signals": {
+      "stars": 6089,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 50,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "epiral/bb-browser-openclaw",
     "display_name": "Bb Browser Openclaw",
     "category": "frontend",
@@ -604538,6 +604569,37 @@
       "tier": "community"
     },
     "score": 18,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "Lisuiwen/html-prototype-build",
+    "display_name": "HTML Prototype Build",
+    "category": "styling",
+    "tags": [
+      "html",
+      "prototype",
+      "annotation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/Lisuiwen/ai-html-annotation/tree/master/skills/html-prototype-build",
+    "source_repo": "Lisuiwen/ai-html-annotation",
+    "source_subpath": "skills/html-prototype-build",
+    "description": "Build, annotate, review, screenshot, and deliver native HTML UI prototypes with reusable UI packs, DOM-bound product annotations, in-browser editing, review pins, and multi-state screenshots.",
+    "signals": {
+      "stars": 17,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 17,
     "provisional": true,
     "added_at": "2026-07-07"
   },
