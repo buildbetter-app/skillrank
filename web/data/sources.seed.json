@@ -310706,5 +310706,37 @@
     "description": "Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install.",
     "stars": 2317,
     "tier": "community"
+  },
+  {
+    "slug": "MengTo/gsap",
+    "name": "GSAP",
+    "source_repo": "MengTo/Skills",
+    "source_url": "https://github.com/MengTo/Skills/tree/main/agent-skills/web-design/gsap",
+    "subpath": "agent-skills/web-design/gsap",
+    "category": "styling",
+    "tags": [
+      "gsap",
+      "animation",
+      "scrolltrigger"
+    ],
+    "description": "Add or debug professional web animations with GSAP timelines, ScrollTrigger, stagger, transforms, and performance-conscious patterns across HTML, CSS, JavaScript, and React.",
+    "stars": 6089,
+    "tier": "community"
+  },
+  {
+    "slug": "Lisuiwen/html-prototype-build",
+    "name": "HTML Prototype Build",
+    "source_repo": "Lisuiwen/ai-html-annotation",
+    "source_url": "https://github.com/Lisuiwen/ai-html-annotation/tree/master/skills/html-prototype-build",
+    "subpath": "skills/html-prototype-build",
+    "category": "styling",
+    "tags": [
+      "html",
+      "prototype",
+      "annotation"
+    ],
+    "description": "Build, annotate, review, screenshot, and deliver native HTML UI prototypes with reusable UI packs, DOM-bound product annotations, in-browser editing, review pins, and multi-state screenshots.",
+    "stars": 17,
+    "tier": "community"
   }
 ]
