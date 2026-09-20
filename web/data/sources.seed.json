@@ -310738,5 +310738,53 @@
     "description": "Build, annotate, review, screenshot, and deliver native HTML UI prototypes with reusable UI packs, DOM-bound product annotations, in-browser editing, review pins, and multi-state screenshots.",
     "stars": 17,
     "tier": "community"
+  },
+  {
+    "slug": "coldteadotai/pr-lens",
+    "name": "PR Lens",
+    "source_repo": "coldteadotai/pr-lens",
+    "source_url": "https://github.com/coldteadotai/pr-lens/tree/main/skills/pr-lens",
+    "subpath": "skills/pr-lens",
+    "category": "document",
+    "tags": [
+      "architecture",
+      "diagram",
+      "pull-request"
+    ],
+    "description": "Draw code changes and systems as validated animated architecture or data-flow diagrams, with optional pull-request attachment and guided walkthroughs.",
+    "stars": 1237,
+    "tier": "community"
+  },
+  {
+    "slug": "GanyuanRan/anti-entropy-governance",
+    "name": "Anti-Entropy Governance",
+    "source_repo": "GanyuanRan/Aegis",
+    "source_url": "https://github.com/GanyuanRan/Aegis/tree/main/skills/anti-entropy-governance",
+    "subpath": "skills/anti-entropy-governance",
+    "category": "meta",
+    "tags": [
+      "cleanup",
+      "migration",
+      "governance"
+    ],
+    "description": "Retire obsolete logic, collapse duplicate owners and fallbacks, and handle schema or persistence boundaries with explicit deletion classification and safety gates.",
+    "stars": 1223,
+    "tier": "community"
+  },
+  {
+    "slug": "paleo/alignfirst-openclaw-playbook",
+    "name": "AlignFirst OpenClaw Playbook",
+    "source_repo": "paleo/alignfirst",
+    "source_url": "https://github.com/paleo/alignfirst/tree/main/skills/alignfirst-openclaw-playbook",
+    "subpath": "skills/alignfirst-openclaw-playbook",
+    "category": "meta",
+    "tags": [
+      "openclaw",
+      "routing",
+      "workflow"
+    ],
+    "description": "Route AlignFirst assistant messages between channel handling and working sessions while preserving project, ticket, workspace, delegation, and delivery boundaries.",
+    "stars": 86,
+    "tier": "community"
   }
 ]
