@@ -321468,5 +321468,268 @@
     "score": 24,
     "provisional": true,
     "installable": true
+  },
+  {
+    "slug": "minorun365/slide-story",
+    "display_name": "Slide Story",
+    "category": "document",
+    "tags": [
+      "marp",
+      "presentation",
+      "storytelling"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/minorun365/minorun-marp-skill/tree/main/skills/slide-story",
+    "source_repo": "minorun365/minorun-marp-skill",
+    "source_subpath": "skills/slide-story",
+    "description": "Structure live-talk and lecture slides around audience context, progressive disclosure, speaker pacing, concrete examples, and a measured finish rather than document-style density.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/minorun365/minorun-marp-skill/blob/c6b20bbb8a1f2d2059e3764e2acd539c312785e4/LICENSE",
+    "pinned_commit": "c6b20bbb8a1f2d2059e3764e2acd539c312785e4",
+    "skill_path": "skills/slide-story/SKILL.md",
+    "content_hash": "sha256:1c912aa4fe040b4e829eafb9883b3abe314a982f82c90b7ee6a33e20143eb88e",
+    "raw_content_url": "https://raw.githubusercontent.com/minorun365/minorun-marp-skill/c6b20bbb8a1f2d2059e3764e2acd539c312785e4/skills/slide-story/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:1c912aa4fe040b4e829eafb9883b3abe314a982f82c90b7ee6a33e20143eb88e",
+      "findings": []
+    },
+    "package": {
+      "kind": "self_contained",
+      "manifest_version": 1,
+      "assets": []
+    },
+    "signals": {
+      "stars": 290,
+      "forks": 6,
+      "installs": null,
+      "pushed_at": "2026-09-20T14:55:18Z"
+    },
+    "score": 30,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "adhhamdev/modern-react-guidance",
+    "display_name": "Modern React Guidance",
+    "category": "frontend",
+    "tags": [
+      "react",
+      "react-19",
+      "migration"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/adhhamdev/modern-react-guidance",
+    "source_repo": "adhhamdev/modern-react-guidance",
+    "source_subpath": "",
+    "description": "Write, review, and migrate React 19+ applications using current Actions, Suspense, Compiler, concurrent UI, refs, effects, and codemod patterns with official-documentation checks for volatile APIs.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/adhhamdev/modern-react-guidance/blob/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/LICENSE",
+    "pinned_commit": "2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8",
+    "skill_path": "SKILL.md",
+    "content_hash": "sha256:17c810ab019a220d7030494373db091fa3fdf2392cd9a4fdeafa57315ceb19b0",
+    "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:17c810ab019a220d7030494373db091fa3fdf2392cd9a4fdeafa57315ceb19b0",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "LICENSE",
+          "byte_size": 1076,
+          "content_hash": "sha256:a152e6bd03ce7f114e1f530c7c656cc53a4723d1cfb0ff96236838a8c3c4fd29",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "byte_size": 1461,
+          "content_hash": "sha256:561b6243ed5e60e9677de56516331e17edcb136e3319e22d3acb72985d3ad9ac",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/README.md"
+        },
+        {
+          "path": "references/actions-and-forms.md",
+          "byte_size": 2018,
+          "content_hash": "sha256:ba2409b74c27fd04aa490affc25b3bc9e3043265925fc8f89889651f9295425c",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/references/actions-and-forms.md"
+        },
+        {
+          "path": "references/api-cheatsheet.md",
+          "byte_size": 1353,
+          "content_hash": "sha256:09fb17cb713ee703407668237cf57c12cfce926d834b3bfae967f4fd4dcd1f43",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/references/api-cheatsheet.md"
+        },
+        {
+          "path": "references/compiler-and-memo.md",
+          "byte_size": 1255,
+          "content_hash": "sha256:d920a2352b84842147b911336eecbbc1b4a132239e6d4b9d33856b2f7a01610e",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/references/compiler-and-memo.md"
+        },
+        {
+          "path": "references/concurrent-ux.md",
+          "byte_size": 2225,
+          "content_hash": "sha256:a75101a5026642e4758f0bef68fe37b51790beccaaf6db2c7c10451a0ed96e0a",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/references/concurrent-ux.md"
+        },
+        {
+          "path": "references/effects-and-data.md",
+          "byte_size": 1641,
+          "content_hash": "sha256:129fc99fe39ad128814574e5578ce35dd03cee5bc97aac0e6840d654e1afa2ce",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/references/effects-and-data.md"
+        },
+        {
+          "path": "references/migration-codemods.md",
+          "byte_size": 1854,
+          "content_hash": "sha256:f625c3b1dbeebf810d016db2c324983fcbc90a5490004d42b749a6d7207d17a7",
+          "raw_content_url": "https://raw.githubusercontent.com/adhhamdev/modern-react-guidance/2ebb9d4e70e372ab24c8c8dd1ab8efedecba34b8/references/migration-codemods.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 25,
+      "forks": 1,
+      "installs": null,
+      "pushed_at": "2026-09-21T05:36:54Z"
+    },
+    "score": 17,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "sven-ericmolzahn/iphone-duo-adaptation",
+    "display_name": "iPhone Duo Adaptation",
+    "category": "frontend",
+    "tags": [
+      "ios",
+      "swiftui",
+      "iphone-duo"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/sven-ericmolzahn/iphone-duo-skill/tree/main/skills/iphone-duo-adaptation",
+    "source_repo": "sven-ericmolzahn/iphone-duo-skill",
+    "source_subpath": "skills/iphone-duo-adaptation",
+    "description": "Audit and adapt SwiftUI or UIKit apps for iPhone Duo layouts, hinges, reserved regions, vertical bars, live folding, and iOS 27.1 APIs using SDK-verified guidance and measurement-based checks.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/sven-ericmolzahn/iphone-duo-skill/blob/cbaf5689e761a9300696f7015305c8c45bcb58f7/LICENSE",
+    "pinned_commit": "cbaf5689e761a9300696f7015305c8c45bcb58f7",
+    "skill_path": "skills/iphone-duo-adaptation/SKILL.md",
+    "content_hash": "sha256:7189d2f61a4b6f1207e068d15c8f8caf1f374f6d4a5325864a145ce9fefe97d9",
+    "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:7189d2f61a4b6f1207e068d15c8f8caf1f374f6d4a5325864a145ce9fefe97d9",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "agents/openai.yaml",
+          "byte_size": 474,
+          "content_hash": "sha256:a4959b4148afac79e78695eb5a4aaaea089646fee412438cddddf4155cb5c1d6",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/agents/openai.yaml"
+        },
+        {
+          "path": "assets/DuoLayoutProbe.swift",
+          "byte_size": 6107,
+          "content_hash": "sha256:4e64f5317d89d834db939b0ef94b21d49231569999b667e8d0671fe778b07cab",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/assets/DuoLayoutProbe.swift"
+        },
+        {
+          "path": "references/api-reference.md",
+          "byte_size": 12536,
+          "content_hash": "sha256:e9bd0cac8f9bc061b226bdf077b72b5c7baf6165ff8fd4fb5f7eaf9f72ed4756",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/api-reference.md"
+        },
+        {
+          "path": "references/arrangement-views.md",
+          "byte_size": 17574,
+          "content_hash": "sha256:0e5a88c3ee7e779b856f0561d4696569ca8a710814884ea80ad52de56f2ef9c4",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/arrangement-views.md"
+        },
+        {
+          "path": "references/audit-checklist.md",
+          "byte_size": 7547,
+          "content_hash": "sha256:d1cd48202b166be5ce658f298a1e89eb6454eed8aae596f79c42c78a86e60e53",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/audit-checklist.md"
+        },
+        {
+          "path": "references/camera-and-scenes.md",
+          "byte_size": 6840,
+          "content_hash": "sha256:15c63c18fe1b3abbcea3136669215bc45571504c783c1397a83568969c997fde",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/camera-and-scenes.md"
+        },
+        {
+          "path": "references/device-and-metrics.md",
+          "byte_size": 6426,
+          "content_hash": "sha256:2fa6e24038c849e589d126674645396387c9ff34a2c232dd444c4ab7f791252e",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/device-and-metrics.md"
+        },
+        {
+          "path": "references/reserved-regions-and-hinge.md",
+          "byte_size": 6819,
+          "content_hash": "sha256:16c19247c8a475ec4f6051b4503089c2220371553b732b0b56089ef8d09a1c15",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/reserved-regions-and-hinge.md"
+        },
+        {
+          "path": "references/simulator-and-verification.md",
+          "byte_size": 7043,
+          "content_hash": "sha256:5cb5844d2ca908b761374ac32380e6035692f5c833d3ea3c4fb1d7a6ba0d8299",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/simulator-and-verification.md"
+        },
+        {
+          "path": "references/vertical-bars.md",
+          "byte_size": 9739,
+          "content_hash": "sha256:55c70e78cf48242baf6cc733b4b755118833bdc91e5e994693d1d24d6d640d8f",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/references/vertical-bars.md"
+        },
+        {
+          "path": "scripts/audit.sh",
+          "byte_size": 6039,
+          "content_hash": "sha256:aacbd27669a3bd26a703810b415ec956b5670d740acb947902bb7c3caf3b72a8",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/scripts/audit.sh"
+        },
+        {
+          "path": "scripts/capture-displays.sh",
+          "byte_size": 2397,
+          "content_hash": "sha256:c60208d66f5f91fbea1a1e8275d681b25e2919b37abb97a5cc89ec9e7ff2bb68",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/scripts/capture-displays.sh"
+        },
+        {
+          "path": "scripts/check-sdk.sh",
+          "byte_size": 6375,
+          "content_hash": "sha256:ccc5e8de306dffc260d1eca8900930d986f0f54420e4185d8081898fe713e82c",
+          "raw_content_url": "https://raw.githubusercontent.com/sven-ericmolzahn/iphone-duo-skill/cbaf5689e761a9300696f7015305c8c45bcb58f7/skills/iphone-duo-adaptation/scripts/check-sdk.sh"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 10,
+      "forks": 0,
+      "installs": null,
+      "pushed_at": "2026-09-20T16:38:47Z"
+    },
+    "score": 12,
+    "provisional": true,
+    "installable": true
   }
 ]
