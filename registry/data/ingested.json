@@ -321265,5 +321265,208 @@
     "score": 46,
     "provisional": true,
     "installable": true
+  },
+  {
+    "slug": "coldteadotai/pr-lens",
+    "display_name": "PR Lens",
+    "category": "document",
+    "tags": [
+      "architecture",
+      "diagram",
+      "pull-request"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/coldteadotai/pr-lens/tree/main/skills/pr-lens",
+    "source_repo": "coldteadotai/pr-lens",
+    "source_subpath": "skills/pr-lens",
+    "description": "Draw code changes and systems as validated animated architecture or data-flow diagrams, with optional pull-request attachment and guided walkthroughs.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/coldteadotai/pr-lens/blob/ce81274c292706e39dac58d25e9e21c295a3dd86/LICENSE",
+    "pinned_commit": "ce81274c292706e39dac58d25e9e21c295a3dd86",
+    "skill_path": "skills/pr-lens/SKILL.md",
+    "content_hash": "sha256:055cc4f0b3d65954aabf77807eb266975f2ca6ffcfbe3501714f7b07b24eccb8",
+    "raw_content_url": "https://raw.githubusercontent.com/coldteadotai/pr-lens/ce81274c292706e39dac58d25e9e21c295a3dd86/skills/pr-lens/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:055cc4f0b3d65954aabf77807eb266975f2ca6ffcfbe3501714f7b07b24eccb8",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "LICENSE",
+          "byte_size": 1067,
+          "content_hash": "sha256:f95e90af396c71c9a94648bd58e4f5bb2dcab4f6ac3ab7d3d2ca3f4e4f4a1ae7",
+          "raw_content_url": "https://raw.githubusercontent.com/coldteadotai/pr-lens/ce81274c292706e39dac58d25e9e21c295a3dd86/skills/pr-lens/LICENSE"
+        },
+        {
+          "path": "references/config.md",
+          "byte_size": 3893,
+          "content_hash": "sha256:b8d69e718a9f10b2d463243f7dbbf33fdac79330db6f257d987a14911327ec3e",
+          "raw_content_url": "https://raw.githubusercontent.com/coldteadotai/pr-lens/ce81274c292706e39dac58d25e9e21c295a3dd86/skills/pr-lens/references/config.md"
+        },
+        {
+          "path": "references/example.graph.json",
+          "byte_size": 17814,
+          "content_hash": "sha256:fbc097b34641b5d2d527aac73bd00d52bdfa98a204fb102ca0005c476bbb6e91",
+          "raw_content_url": "https://raw.githubusercontent.com/coldteadotai/pr-lens/ce81274c292706e39dac58d25e9e21c295a3dd86/skills/pr-lens/references/example.graph.json"
+        },
+        {
+          "path": "references/graph-document.md",
+          "byte_size": 15319,
+          "content_hash": "sha256:dcd2bb17e092806f175d580d552419b5aec7c10a302ff954c1a3541ba7db0fda",
+          "raw_content_url": "https://raw.githubusercontent.com/coldteadotai/pr-lens/ce81274c292706e39dac58d25e9e21c295a3dd86/skills/pr-lens/references/graph-document.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 1237,
+      "forks": 45,
+      "installs": null,
+      "pushed_at": "2026-09-20T01:35:46Z"
+    },
+    "score": 39,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "GanyuanRan/anti-entropy-governance",
+    "display_name": "Anti-Entropy Governance",
+    "category": "meta",
+    "tags": [
+      "cleanup",
+      "migration",
+      "governance"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/GanyuanRan/Aegis/tree/main/skills/anti-entropy-governance",
+    "source_repo": "GanyuanRan/Aegis",
+    "source_subpath": "skills/anti-entropy-governance",
+    "description": "Retire obsolete logic, collapse duplicate owners and fallbacks, and handle schema or persistence boundaries with explicit deletion classification and safety gates.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/GanyuanRan/Aegis/blob/60321eda49c3b473a183ca0edef5fbfba91eaad1/LICENSE",
+    "pinned_commit": "60321eda49c3b473a183ca0edef5fbfba91eaad1",
+    "skill_path": "skills/anti-entropy-governance/SKILL.md",
+    "content_hash": "sha256:5922a8c9e240b8bf659085db493169c3a1fce10f3367cb5624f33b33d72e593d",
+    "raw_content_url": "https://raw.githubusercontent.com/GanyuanRan/Aegis/60321eda49c3b473a183ca0edef5fbfba91eaad1/skills/anti-entropy-governance/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:5922a8c9e240b8bf659085db493169c3a1fce10f3367cb5624f33b33d72e593d",
+      "findings": []
+    },
+    "package": {
+      "kind": "self_contained",
+      "manifest_version": 1,
+      "assets": []
+    },
+    "signals": {
+      "stars": 1223,
+      "forks": 53,
+      "installs": null,
+      "pushed_at": "2026-09-20T11:25:37Z"
+    },
+    "score": 39,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "paleo/alignfirst-openclaw-playbook",
+    "display_name": "AlignFirst OpenClaw Playbook",
+    "category": "meta",
+    "tags": [
+      "openclaw",
+      "routing",
+      "workflow"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/paleo/alignfirst/tree/main/skills/alignfirst-openclaw-playbook",
+    "source_repo": "paleo/alignfirst",
+    "source_subpath": "skills/alignfirst-openclaw-playbook",
+    "description": "Route AlignFirst assistant messages between channel handling and working sessions while preserving project, ticket, workspace, delegation, and delivery boundaries.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "CC0-1.0",
+    "license_url": "https://github.com/paleo/alignfirst/blob/7eab922f0fea816cec1df76060a2f51b6989384c/LICENSE",
+    "pinned_commit": "7eab922f0fea816cec1df76060a2f51b6989384c",
+    "skill_path": "skills/alignfirst-openclaw-playbook/SKILL.md",
+    "content_hash": "sha256:85f07dd8a819ec2ea84a0fa8fe14d2b32c57f92858945a0ecc645e5b7d50875d",
+    "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:85f07dd8a819ec2ea84a0fa8fe14d2b32c57f92858945a0ecc645e5b7d50875d",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/channel-handling.md",
+          "byte_size": 10533,
+          "content_hash": "sha256:a3a6773a626811bc753cc0be0a8289602f6c4fb8d4fddce64271b03b6d41f5d6",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/channel-handling.md"
+        },
+        {
+          "path": "references/discord-message-tool.md",
+          "byte_size": 1443,
+          "content_hash": "sha256:b6541ced7f1578e7a41e2b164fe4ce1cc9ebdb60f4820d263d89138057a0f83c",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/discord-message-tool.md"
+        },
+        {
+          "path": "references/runbooks/consultation.md",
+          "byte_size": 4745,
+          "content_hash": "sha256:a6001170dff53717dcefac913cd4ae6873cccedc80e9cd4afc4765009d78e167",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/runbooks/consultation.md"
+        },
+        {
+          "path": "references/runbooks/project-lifecycle.md",
+          "byte_size": 10512,
+          "content_hash": "sha256:270953eec0744b88413468a1374bb871b4694760f4e39babe96ca54fffa76ed7",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/runbooks/project-lifecycle.md"
+        },
+        {
+          "path": "references/runbooks/project-workspace-setup.md",
+          "byte_size": 10270,
+          "content_hash": "sha256:13f54db1476061ee7231f3d60eecfd1712cb5d540d8a0e477058e28b68fa5f65",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/runbooks/project-workspace-setup.md"
+        },
+        {
+          "path": "references/slack-message-tool.md",
+          "byte_size": 1189,
+          "content_hash": "sha256:f14bc426285c9af72f77b334695250b01c73eef9c3e3f4dbdb0086f6f80b039f",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/slack-message-tool.md"
+        },
+        {
+          "path": "references/working-session.md",
+          "byte_size": 34636,
+          "content_hash": "sha256:9812fb075b796aa45cb042b9187f12eedff23ffb24a2cd66250e4ebc8d781059",
+          "raw_content_url": "https://raw.githubusercontent.com/paleo/alignfirst/7eab922f0fea816cec1df76060a2f51b6989384c/skills/alignfirst-openclaw-playbook/references/working-session.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 86,
+      "forks": 7,
+      "installs": null,
+      "pushed_at": "2026-09-20T17:50:31Z"
+    },
+    "score": 24,
+    "provisional": true,
+    "installable": true
   }
 ]
