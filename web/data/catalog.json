@@ -370921,6 +370921,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "minorun365/slide-story",
+    "display_name": "Slide Story",
+    "category": "document",
+    "tags": [
+      "marp",
+      "presentation",
+      "storytelling"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/minorun365/minorun-marp-skill/tree/main/skills/slide-story",
+    "source_repo": "minorun365/minorun-marp-skill",
+    "source_subpath": "skills/slide-story",
+    "description": "Structure live-talk and lecture slides around audience context, progressive disclosure, speaker pacing, concrete examples, and a measured finish rather than document-style density.",
+    "signals": {
+      "stars": 289,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 33,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "shawnpang/code-review",
     "display_name": "Code Review",
     "category": "meta",
@@ -584185,6 +584216,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "adhhamdev/modern-react-guidance",
+    "display_name": "Modern React Guidance",
+    "category": "frontend",
+    "tags": [
+      "react",
+      "react-19",
+      "migration"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/adhhamdev/modern-react-guidance",
+    "source_repo": "adhhamdev/modern-react-guidance",
+    "source_subpath": "",
+    "description": "Write, review, and migrate React 19+ applications using current Actions, Suspense, Compiler, concurrent UI, refs, effects, and codemod patterns with official-documentation checks for volatile APIs.",
+    "signals": {
+      "stars": 25,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "interfluve-wav/karpathy-guidelines",
     "display_name": "Karpathy Guidelines",
     "category": "document",
@@ -604693,6 +604755,37 @@
       "tier": "community"
     },
     "score": 17,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "sven-ericmolzahn/iphone-duo-adaptation",
+    "display_name": "iPhone Duo Adaptation",
+    "category": "frontend",
+    "tags": [
+      "ios",
+      "swiftui",
+      "iphone-duo"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/sven-ericmolzahn/iphone-duo-skill/tree/main/skills/iphone-duo-adaptation",
+    "source_repo": "sven-ericmolzahn/iphone-duo-skill",
+    "source_subpath": "skills/iphone-duo-adaptation",
+    "description": "Audit and adapt SwiftUI or UIKit apps for iPhone Duo layouts, hinges, reserved regions, vertical bars, live folding, and iOS 27.1 APIs using SDK-verified guidance and measurement-based checks.",
+    "signals": {
+      "stars": 10,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 14,
     "provisional": true,
     "added_at": "2026-07-07"
   },
