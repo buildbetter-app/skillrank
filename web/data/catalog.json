@@ -604790,6 +604790,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "TencentCloud/octop-browser",
+    "display_name": "Octop Browser",
+    "category": "testing",
+    "tags": [
+      "browser",
+      "automation",
+      "cdp"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/TencentCloud/octop-browser/tree/main/skills/octop-browser",
+    "source_repo": "TencentCloud/octop-browser",
+    "source_subpath": "skills/octop-browser",
+    "description": "Drive persistent Chrome sessions through the octop-browser CDP CLI using fresh DOM references for navigation, interaction, extraction, screenshots, tab control, and reusable login profiles.",
+    "signals": {
+      "stars": 8,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 13,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "hex/image-generation",
     "display_name": "Image Generation",
     "category": "ai",
@@ -605763,6 +605794,37 @@
     "source_repo": "buildbetter-app/product-os",
     "source_subpath": "skills/write-product-requirements",
     "description": "Write evidence-linked product requirements that define the problem, target users, outcomes, scope, behavior, quality constraints, success evidence, non-goals, risks, and open decisions without over-specifying implementation.",
+    "signals": {
+      "stars": 0,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 0,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "evgeniyzakharow-design/thermoforming-dfm",
+    "display_name": "Thermoforming DFM",
+    "category": "other",
+    "tags": [
+      "thermoforming",
+      "manufacturing",
+      "dfm"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/evgeniyzakharow-design/thermoforming-dfm/tree/main/skills/thermoforming-dfm",
+    "source_repo": "evgeniyzakharow-design/thermoforming-dfm",
+    "source_subpath": "skills/thermoforming-dfm",
+    "description": "Review STL, 3MF, or STEP parts and moulds for vacuum-forming manufacturability using measured draft, draw, wall-thickness, undercut, venting, radius, and sheet-layout checks with explicit assumptions.",
     "signals": {
       "stars": 0,
       "installs": null
