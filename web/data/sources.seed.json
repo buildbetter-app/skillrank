@@ -310834,5 +310834,37 @@
     "description": "Audit and adapt SwiftUI or UIKit apps for iPhone Duo layouts, hinges, reserved regions, vertical bars, live folding, and iOS 27.1 APIs using SDK-verified guidance and measurement-based checks.",
     "stars": 10,
     "tier": "community"
+  },
+  {
+    "slug": "evgeniyzakharow-design/thermoforming-dfm",
+    "name": "Thermoforming DFM",
+    "source_repo": "evgeniyzakharow-design/thermoforming-dfm",
+    "source_url": "https://github.com/evgeniyzakharow-design/thermoforming-dfm/tree/main/skills/thermoforming-dfm",
+    "subpath": "skills/thermoforming-dfm",
+    "category": "other",
+    "tags": [
+      "thermoforming",
+      "manufacturing",
+      "dfm"
+    ],
+    "description": "Review STL, 3MF, or STEP parts and moulds for vacuum-forming manufacturability using measured draft, draw, wall-thickness, undercut, venting, radius, and sheet-layout checks with explicit assumptions.",
+    "stars": 0,
+    "tier": "community"
+  },
+  {
+    "slug": "TencentCloud/octop-browser",
+    "name": "Octop Browser",
+    "source_repo": "TencentCloud/octop-browser",
+    "source_url": "https://github.com/TencentCloud/octop-browser/tree/main/skills/octop-browser",
+    "subpath": "skills/octop-browser",
+    "category": "testing",
+    "tags": [
+      "browser",
+      "automation",
+      "cdp"
+    ],
+    "description": "Drive persistent Chrome sessions through the octop-browser CDP CLI using fresh DOM references for navigation, interaction, extraction, screenshots, tab control, and reusable login profiles.",
+    "stars": 8,
+    "tier": "community"
   }
 ]

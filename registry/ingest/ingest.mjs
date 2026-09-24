@@ -204,10 +204,16 @@ for (const skill of ordered) {
   if (prevEnriched.has(skill.slug)) {
     const prev = prevIngested.get(skill.slug);
     const previousEntry = prevEnriched.get(skill.slug);
+    // A failed repository lookup has no license/package metadata to backfill.
+    // Treat that result as complete during the default incremental pass;
+    // otherwise every catalog run retries every unreachable entry (currently
+    // thousands of network calls). `--refresh` remains the explicit retry path.
     const metadataCurrent =
-      Object.hasOwn(previousEntry, "license_spdx") &&
-      Object.hasOwn(previousEntry, "license_url") &&
-      (!prev || (prev.package?.manifest_version === 1 && Array.isArray(prev.package.assets)));
+      previousEntry.status === "repo_unreachable" ||
+      (Object.hasOwn(previousEntry, "license_spdx") &&
+        Object.hasOwn(previousEntry, "license_url") &&
+        (!prev || (prev.package?.manifest_version === 1 && Array.isArray(prev.package.assets))));
+    const retryUnreachable = REFRESH && previousEntry.status === "repo_unreachable";
     const staleScan = RESCAN && prev && !scanIsCurrent(prev);
     // --refresh: re-ingest installable skills whose source repo advanced past
     // the commit we pinned; otherwise reuse (cheap: one HEAD check per repo).
@@ -222,7 +228,7 @@ for (const skill of ordered) {
       repinned++; // source advanced → fall through and re-fetch/re-pin
     } else if (staleScan) {
       rescanned++; // verdict predates the current rules → fall through and re-tier
-    } else if (metadataCurrent) {
+    } else if (metadataCurrent && !retryUnreachable) {
       enriched.push(previousEntry);
       if (prev) installable.push(prev);
       reused++;
