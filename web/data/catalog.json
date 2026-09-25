@@ -604852,6 +604852,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "dbhq-uk/vela",
+    "display_name": "Vela",
+    "category": "development",
+    "tags": [
+      "code-search",
+      "scip",
+      "dotnet"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/dbhq-uk/vela-skill/tree/main/skills/vela",
+    "source_repo": "dbhq-uk/vela-skill",
+    "source_subpath": "skills/vela",
+    "description": "Search compiler-generated SCIP indexes for exact symbol definitions, references, callers, and change impact across .NET, Razor, Blazor, and imported language indexes without modifying the repository.",
+    "signals": {
+      "stars": 6,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 11,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "buildbetter-app/align-product-stakeholders",
     "display_name": "align-product-stakeholders",
     "category": "other",
