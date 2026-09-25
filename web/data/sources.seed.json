@@ -310866,5 +310866,21 @@
     "description": "Drive persistent Chrome sessions through the octop-browser CDP CLI using fresh DOM references for navigation, interaction, extraction, screenshots, tab control, and reusable login profiles.",
     "stars": 8,
     "tier": "community"
+  },
+  {
+    "slug": "dbhq-uk/vela",
+    "name": "Vela",
+    "source_repo": "dbhq-uk/vela-skill",
+    "source_url": "https://github.com/dbhq-uk/vela-skill/tree/main/skills/vela",
+    "subpath": "skills/vela",
+    "category": "development",
+    "tags": [
+      "code-search",
+      "scip",
+      "dotnet"
+    ],
+    "description": "Search compiler-generated SCIP indexes for exact symbol definitions, references, callers, and change impact across .NET, Razor, Blazor, and imported language indexes without modifying the repository.",
+    "stars": 6,
+    "tier": "community"
   }
 ]
