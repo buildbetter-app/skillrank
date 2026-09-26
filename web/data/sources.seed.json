@@ -310882,5 +310882,53 @@
     "description": "Search compiler-generated SCIP indexes for exact symbol definitions, references, callers, and change impact across .NET, Razor, Blazor, and imported language indexes without modifying the repository.",
     "stars": 6,
     "tier": "community"
+  },
+  {
+    "slug": "leter/zh-tech-writing",
+    "name": "Chinese Technical Writing",
+    "source_repo": "leter/zh-tech-writing",
+    "source_url": "https://github.com/leter/zh-tech-writing/tree/main/skills/zh-tech-writing",
+    "subpath": "skills/zh-tech-writing",
+    "category": "document",
+    "tags": [
+      "chinese",
+      "technical-writing",
+      "documentation"
+    ],
+    "description": "Write and revise clear Chinese technical documentation using short concrete sentences, disciplined structure and typography, and an explicit checklist for removing vague or AI-styled prose.",
+    "stars": 269,
+    "tier": "community"
+  },
+  {
+    "slug": "sagochiko/aws-drawio-diagram",
+    "name": "AWS draw.io Diagram",
+    "source_repo": "sagochiko/aws-drawio-diagram-skill",
+    "source_url": "https://github.com/sagochiko/aws-drawio-diagram-skill/tree/main/skills/aws-drawio-diagram",
+    "subpath": "skills/aws-drawio-diagram",
+    "category": "devops",
+    "tags": [
+      "aws",
+      "drawio",
+      "architecture-diagram"
+    ],
+    "description": "Create and revise readable AWS architecture diagrams as draw.io XML using official AWS4 icons, meaningful network boundaries, explicit data-flow labels, deterministic placement, XML validation, and rendered-image inspection.",
+    "stars": 8,
+    "tier": "community"
+  },
+  {
+    "slug": "raimondasl/isitdone",
+    "name": "isitdone",
+    "source_repo": "raimondasl/isitdone",
+    "source_url": "https://github.com/raimondasl/isitdone/tree/main/skills/isitdone",
+    "subpath": "skills/isitdone",
+    "category": "testing",
+    "tags": [
+      "verification",
+      "testing",
+      "completion-gate"
+    ],
+    "description": "Prove a coding task is complete by running the repository's detected test, typecheck, and lint commands on the exact working tree, recording a git-bound receipt, and reporting failures without weakening checks.",
+    "stars": 1,
+    "tier": "community"
   }
 ]

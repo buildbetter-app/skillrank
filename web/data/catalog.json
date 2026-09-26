@@ -376501,6 +376501,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "leter/zh-tech-writing",
+    "display_name": "Chinese Technical Writing",
+    "category": "document",
+    "tags": [
+      "chinese",
+      "technical-writing",
+      "documentation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/leter/zh-tech-writing/tree/main/skills/zh-tech-writing",
+    "source_repo": "leter/zh-tech-writing",
+    "source_subpath": "skills/zh-tech-writing",
+    "description": "Write and revise clear Chinese technical documentation using short concrete sentences, disciplined structure and typography, and an explicit checklist for removing vague or AI-styled prose.",
+    "signals": {
+      "stars": 269,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 32,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "agiprolabs/backtrader",
     "display_name": "Backtrader",
     "category": "other",
@@ -604821,6 +604852,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "sagochiko/aws-drawio-diagram",
+    "display_name": "AWS draw.io Diagram",
+    "category": "devops",
+    "tags": [
+      "aws",
+      "drawio",
+      "architecture-diagram"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/sagochiko/aws-drawio-diagram-skill/tree/main/skills/aws-drawio-diagram",
+    "source_repo": "sagochiko/aws-drawio-diagram-skill",
+    "source_subpath": "skills/aws-drawio-diagram",
+    "description": "Create and revise readable AWS architecture diagrams as draw.io XML using official AWS4 icons, meaningful network boundaries, explicit data-flow labels, deterministic placement, XML validation, and rendered-image inspection.",
+    "signals": {
+      "stars": 8,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 13,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "hex/image-generation",
     "display_name": "Image Generation",
     "category": "ai",
@@ -604879,6 +604941,37 @@
       "tier": "community"
     },
     "score": 11,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "raimondasl/isitdone",
+    "display_name": "isitdone",
+    "category": "testing",
+    "tags": [
+      "verification",
+      "testing",
+      "completion-gate"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/raimondasl/isitdone/tree/main/skills/isitdone",
+    "source_repo": "raimondasl/isitdone",
+    "source_subpath": "skills/isitdone",
+    "description": "Prove a coding task is complete by running the repository's detected test, typecheck, and lint commands on the exact working tree, recording a git-bound receipt, and reporting failures without weakening checks.",
+    "signals": {
+      "stars": 1,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 4,
     "provisional": true,
     "added_at": "2026-07-07"
   },
