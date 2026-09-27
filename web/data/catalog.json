@@ -531358,6 +531358,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "yha9806/verify-refs",
+    "display_name": "Reference Authenticity Check",
+    "category": "document",
+    "tags": [
+      "citations",
+      "bibtex",
+      "academic-writing"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/yha9806/academic-writing-toolkit/tree/main/.claude/skills/verify-refs",
+    "source_repo": "yha9806/academic-writing-toolkit",
+    "source_subpath": ".claude/skills/verify-refs",
+    "description": "Validate BibTeX references and manuscript citations for missing fields, malformed identifiers, duplicate keys, invalid URLs, metadata mismatches, and undefined or unused citation keys.",
+    "signals": {
+      "stars": 41,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 22,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "akillness/agenticskills",
     "display_name": "Agenticskills",
     "category": "document",
@@ -584278,6 +584309,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "MiguelElGallo/iparq-parquet-inspector",
+    "display_name": "iParq Parquet Inspector",
+    "category": "data",
+    "tags": [
+      "parquet",
+      "metadata",
+      "data-inspection"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/MiguelElGallo/iparq/tree/main/.agents/skills/iparq-parquet-inspector",
+    "source_repo": "MiguelElGallo/iparq",
+    "source_subpath": ".agents/skills/iparq-parquet-inspector",
+    "description": "Inspect Parquet storage metadata without reading row data, including compression, encodings, logical types, row groups, statistics, indexes, Bloom filters, and storage sizes.",
+    "signals": {
+      "stars": 25,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 19,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "interfluve-wav/karpathy-guidelines",
     "display_name": "Karpathy Guidelines",
     "category": "document",
@@ -604786,6 +604848,37 @@
       "tier": "community"
     },
     "score": 17,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "liustack/pptwise",
+    "display_name": "pptwise",
+    "category": "document",
+    "tags": [
+      "powerpoint",
+      "presentations",
+      "pptx"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/liustack/pptwise/tree/main/skills/pptwise",
+    "source_repo": "liustack/pptwise",
+    "source_subpath": "skills/pptwise",
+    "description": "Generate native editable PowerPoint decks from structured intent, narrative, theme, and page specifications with deterministic validation, preview, audit, and rendering.",
+    "signals": {
+      "stars": 16,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 16,
     "provisional": true,
     "added_at": "2026-07-07"
   },
