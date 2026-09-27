@@ -310930,5 +310930,53 @@
     "description": "Prove a coding task is complete by running the repository's detected test, typecheck, and lint commands on the exact working tree, recording a git-bound receipt, and reporting failures without weakening checks.",
     "stars": 1,
     "tier": "community"
+  },
+  {
+    "slug": "liustack/pptwise",
+    "name": "pptwise",
+    "source_repo": "liustack/pptwise",
+    "source_url": "https://github.com/liustack/pptwise/tree/main/skills/pptwise",
+    "subpath": "skills/pptwise",
+    "category": "document",
+    "tags": [
+      "powerpoint",
+      "presentations",
+      "pptx"
+    ],
+    "description": "Generate native editable PowerPoint decks from structured intent, narrative, theme, and page specifications with deterministic validation, preview, audit, and rendering.",
+    "stars": 16,
+    "tier": "community"
+  },
+  {
+    "slug": "MiguelElGallo/iparq-parquet-inspector",
+    "name": "iParq Parquet Inspector",
+    "source_repo": "MiguelElGallo/iparq",
+    "source_url": "https://github.com/MiguelElGallo/iparq/tree/main/.agents/skills/iparq-parquet-inspector",
+    "subpath": ".agents/skills/iparq-parquet-inspector",
+    "category": "data",
+    "tags": [
+      "parquet",
+      "metadata",
+      "data-inspection"
+    ],
+    "description": "Inspect Parquet storage metadata without reading row data, including compression, encodings, logical types, row groups, statistics, indexes, Bloom filters, and storage sizes.",
+    "stars": 25,
+    "tier": "community"
+  },
+  {
+    "slug": "yha9806/verify-refs",
+    "name": "Reference Authenticity Check",
+    "source_repo": "yha9806/academic-writing-toolkit",
+    "source_url": "https://github.com/yha9806/academic-writing-toolkit/tree/main/.claude/skills/verify-refs",
+    "subpath": ".claude/skills/verify-refs",
+    "category": "document",
+    "tags": [
+      "citations",
+      "bibtex",
+      "academic-writing"
+    ],
+    "description": "Validate BibTeX references and manuscript citations for missing fields, malformed identifiers, duplicate keys, invalid URLs, metadata mismatches, and undefined or unused citation keys.",
+    "stars": 41,
+    "tier": "community"
   }
 ]
