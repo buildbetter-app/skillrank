@@ -286707,5 +286707,162 @@
     "score": 45,
     "provisional": true,
     "installable": true
+  },
+  {
+    "slug": "lzehrung/codegraph",
+    "display_name": "Codegraph",
+    "category": "development",
+    "tags": [
+      "code-navigation",
+      "dependency-analysis",
+      "impact-analysis"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/lzehrung/codegraph/tree/main/codegraph-skill/codegraph",
+    "source_repo": "lzehrung/codegraph",
+    "source_subpath": "codegraph-skill/codegraph",
+    "description": "Navigate repository structure, symbols, references, calls, dependencies, duplicates, and pull-request impact with explicit static-analysis evidence boundaries.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/lzehrung/codegraph/blob/e44c9bb926908e3b821830e5f48617ebcf4885e0/LICENSE",
+    "pinned_commit": "e44c9bb926908e3b821830e5f48617ebcf4885e0",
+    "skill_path": "codegraph-skill/codegraph/SKILL.md",
+    "content_hash": "sha256:8697c9b07bfa773be5a0b20567fc790552ba76fefbdc74ab3b1497428ab9d2b1",
+    "raw_content_url": "https://raw.githubusercontent.com/lzehrung/codegraph/e44c9bb926908e3b821830e5f48617ebcf4885e0/codegraph-skill/codegraph/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:8697c9b07bfa773be5a0b20567fc790552ba76fefbdc74ab3b1497428ab9d2b1",
+      "findings": []
+    },
+    "package": {
+      "kind": "self_contained",
+      "manifest_version": 1,
+      "assets": []
+    },
+    "signals": {
+      "stars": 6,
+      "forks": 0,
+      "installs": null,
+      "pushed_at": "2026-09-28T21:48:13Z"
+    },
+    "score": 10,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "YangKuoshih/security-audit",
+    "display_name": "Security Audit",
+    "category": "security",
+    "tags": [
+      "secret-scanning",
+      "security-audit",
+      "sarif"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/YangKuoshih/security-audit/tree/main/skills/security-audit",
+    "source_repo": "YangKuoshih/security-audit",
+    "source_subpath": "skills/security-audit",
+    "description": "Run a lightweight local repository security scan for hardcoded secrets, risky tracked files, and common vulnerability patterns, then triage only redacted findings into Markdown, JSON, or SARIF.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/YangKuoshih/security-audit/blob/4d3b53ccb8e488f39d0d237947dfc1380c094976/LICENSE",
+    "pinned_commit": "4d3b53ccb8e488f39d0d237947dfc1380c094976",
+    "skill_path": "skills/security-audit/SKILL.md",
+    "content_hash": "sha256:afd7cf753078a6d27d7457622764c9c0b74bd63ee10e2abb0bc21a93e926ccaf",
+    "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:afd7cf753078a6d27d7457622764c9c0b74bd63ee10e2abb0bc21a93e926ccaf",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "agents/openai.yaml",
+          "byte_size": 249,
+          "content_hash": "sha256:11b7760604ae1cf81437bfa02648f9ac56a6159e7b67402f8c41ab3eb2d0829f",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/agents/openai.yaml"
+        },
+        {
+          "path": "examples/sample-report.md",
+          "byte_size": 3714,
+          "content_hash": "sha256:3cc95e6d55805dbe5891673c244ac14baf77108a0cef7992be1efc0ce6ec2f5d",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/examples/sample-report.md"
+        },
+        {
+          "path": "examples/sample-report.sarif.json",
+          "byte_size": 16714,
+          "content_hash": "sha256:320efff64503734f1b354cd0ec6be979f3e56feb9783df8bd636b7e13b9b3de7",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/examples/sample-report.sarif.json"
+        },
+        {
+          "path": "examples/security-audit.yml",
+          "byte_size": 3575,
+          "content_hash": "sha256:5255339d4c6cf98e947289094b310970536ac0510257ac62fd7d4aeaea8de1e3",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/examples/security-audit.yml"
+        },
+        {
+          "path": "references/secret-patterns.md",
+          "byte_size": 21018,
+          "content_hash": "sha256:220ce5e72442fa46e7cf343fdbcd999d76ed5ba24c9a0f2cda995d55dc392065",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/references/secret-patterns.md"
+        },
+        {
+          "path": "references/severity-guide.md",
+          "byte_size": 10052,
+          "content_hash": "sha256:5bd6cf537a5cbe271989ac29fb417e773282fdc0294b4f875d2a11da77d27f8b",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/references/severity-guide.md"
+        },
+        {
+          "path": "references/vulnerability-patterns.md",
+          "byte_size": 14929,
+          "content_hash": "sha256:cfe8814836e55ca571f8338ad72185936d45274a5d7f59eec6cefbb955a8f2d3",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/references/vulnerability-patterns.md"
+        },
+        {
+          "path": "scripts/generate-report.py",
+          "byte_size": 26469,
+          "content_hash": "sha256:8c2fe9300a8c1fcaa4e5008a964513797304b37401ca94a44bd77ed9b5b3d419",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/scripts/generate-report.py"
+        },
+        {
+          "path": "scripts/patterns.dat",
+          "byte_size": 6096,
+          "content_hash": "sha256:f770e65ca5ddd78ab3fcf01a8a30129dd4f070c125870d0bd54b3bf8f1705833",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/scripts/patterns.dat"
+        },
+        {
+          "path": "scripts/scan-secrets.py",
+          "byte_size": 38139,
+          "content_hash": "sha256:8e879c260c52947a8fd262b8e5bebee1c502402cabfe7ef0337fd0ca65d6a806",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/scripts/scan-secrets.py"
+        },
+        {
+          "path": "scripts/scan-secrets.sh",
+          "byte_size": 13898,
+          "content_hash": "sha256:c8ac5b7b35c97ed3d6d6c04abde82a4e0b94f081b45af5d220ec02a0a807f394",
+          "raw_content_url": "https://raw.githubusercontent.com/YangKuoshih/security-audit/4d3b53ccb8e488f39d0d237947dfc1380c094976/skills/security-audit/scripts/scan-secrets.sh"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 5,
+      "forks": 0,
+      "installs": null,
+      "pushed_at": "2026-09-28T19:42:20Z"
+    },
+    "score": 9,
+    "provisional": true,
+    "installable": true
   }
 ]

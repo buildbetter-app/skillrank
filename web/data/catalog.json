@@ -605038,6 +605038,68 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "lzehrung/codegraph",
+    "display_name": "Codegraph",
+    "category": "development",
+    "tags": [
+      "code-navigation",
+      "dependency-analysis",
+      "impact-analysis"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/lzehrung/codegraph/tree/main/codegraph-skill/codegraph",
+    "source_repo": "lzehrung/codegraph",
+    "source_subpath": "codegraph-skill/codegraph",
+    "description": "Navigate repository structure, symbols, references, calls, dependencies, duplicates, and pull-request impact with explicit static-analysis evidence boundaries.",
+    "signals": {
+      "stars": 6,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 11,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "YangKuoshih/security-audit",
+    "display_name": "Security Audit",
+    "category": "security",
+    "tags": [
+      "secret-scanning",
+      "security-audit",
+      "sarif"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/YangKuoshih/security-audit/tree/main/skills/security-audit",
+    "source_repo": "YangKuoshih/security-audit",
+    "source_subpath": "skills/security-audit",
+    "description": "Run a lightweight local repository security scan for hardcoded secrets, risky tracked files, and common vulnerability patterns, then triage only redacted findings into Markdown, JSON, or SARIF.",
+    "signals": {
+      "stars": 5,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 10,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "raimondasl/isitdone",
     "display_name": "isitdone",
     "category": "testing",
