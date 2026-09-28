@@ -310978,5 +310978,37 @@
     "description": "Validate BibTeX references and manuscript citations for missing fields, malformed identifiers, duplicate keys, invalid URLs, metadata mismatches, and undefined or unused citation keys.",
     "stars": 41,
     "tier": "community"
+  },
+  {
+    "slug": "lzehrung/codegraph",
+    "name": "Codegraph",
+    "source_repo": "lzehrung/codegraph",
+    "source_url": "https://github.com/lzehrung/codegraph/tree/main/codegraph-skill/codegraph",
+    "subpath": "codegraph-skill/codegraph",
+    "category": "development",
+    "tags": [
+      "code-navigation",
+      "dependency-analysis",
+      "impact-analysis"
+    ],
+    "description": "Navigate repository structure, symbols, references, calls, dependencies, duplicates, and pull-request impact with explicit static-analysis evidence boundaries.",
+    "stars": 6,
+    "tier": "community"
+  },
+  {
+    "slug": "YangKuoshih/security-audit",
+    "name": "Security Audit",
+    "source_repo": "YangKuoshih/security-audit",
+    "source_url": "https://github.com/YangKuoshih/security-audit/tree/main/skills/security-audit",
+    "subpath": "skills/security-audit",
+    "category": "security",
+    "tags": [
+      "secret-scanning",
+      "security-audit",
+      "sarif"
+    ],
+    "description": "Run a lightweight local repository security scan for hardcoded secrets, risky tracked files, and common vulnerability patterns, then triage only redacted findings into Markdown, JSON, or SARIF.",
+    "stars": 5,
+    "tier": "community"
   }
 ]
