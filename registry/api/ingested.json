@@ -286709,6 +286709,158 @@
     "installable": true
   },
   {
+    "slug": "00200200/reproducibility",
+    "display_name": "Reproducibility",
+    "category": "testing",
+    "tags": [
+      "reproducibility",
+      "machine-learning",
+      "experiment-validation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/00200200/repro-lens/tree/main/skills/reproducibility",
+    "source_repo": "00200200/repro-lens",
+    "source_subpath": "skills/reproducibility",
+    "description": "Audit or repair machine-learning experiment reproducibility, verify recorded outputs, and compare before-and-after evidence without importing the target project.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/00200200/repro-lens/blob/10c9b6ee5e88478bf8fb00eab29f1731e9c313da/LICENSE",
+    "pinned_commit": "10c9b6ee5e88478bf8fb00eab29f1731e9c313da",
+    "skill_path": "skills/reproducibility/SKILL.md",
+    "content_hash": "sha256:49f4eae7f388e47f6b688b2ffc3e8ace971b0e1084c65d687535a24ad865e289",
+    "raw_content_url": "https://raw.githubusercontent.com/00200200/repro-lens/10c9b6ee5e88478bf8fb00eab29f1731e9c313da/skills/reproducibility/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:49f4eae7f388e47f6b688b2ffc3e8ace971b0e1084c65d687535a24ad865e289",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "agents/openai.yaml",
+          "byte_size": 237,
+          "content_hash": "sha256:7e7a1bb890cf9cd413c09b600b1d38a010b20ed8dffbeb99e4e85c8596e4b7fd",
+          "raw_content_url": "https://raw.githubusercontent.com/00200200/repro-lens/10c9b6ee5e88478bf8fb00eab29f1731e9c313da/skills/reproducibility/agents/openai.yaml"
+        },
+        {
+          "path": "references/change-review.md",
+          "byte_size": 2411,
+          "content_hash": "sha256:a1d940f523f3b9acea0c7aa94d659da763db0063b026def75c47a984c7c24f42",
+          "raw_content_url": "https://raw.githubusercontent.com/00200200/repro-lens/10c9b6ee5e88478bf8fb00eab29f1731e9c313da/skills/reproducibility/references/change-review.md"
+        },
+        {
+          "path": "references/evidence.md",
+          "byte_size": 1616,
+          "content_hash": "sha256:5c525aa5c346c24e1cdb53ffa306e38794e30029d111544759dc544cc658f99c",
+          "raw_content_url": "https://raw.githubusercontent.com/00200200/repro-lens/10c9b6ee5e88478bf8fb00eab29f1731e9c313da/skills/reproducibility/references/evidence.md"
+        },
+        {
+          "path": "scripts/run.py",
+          "byte_size": 576,
+          "content_hash": "sha256:56e923990b5d44a89047f076ac9e03343909beb76d90e16e2f0ed99089195924",
+          "raw_content_url": "https://raw.githubusercontent.com/00200200/repro-lens/10c9b6ee5e88478bf8fb00eab29f1731e9c313da/skills/reproducibility/scripts/run.py"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 40,
+      "forks": 3,
+      "installs": null,
+      "pushed_at": "2026-09-29T14:13:03Z"
+    },
+    "score": 20,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "haoming-luo/agentfem",
+    "display_name": "AgentFEM",
+    "category": "development",
+    "tags": [
+      "finite-element-analysis",
+      "scientific-computing",
+      "simulation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/haoming-luo/agentfem/tree/main/skills/agentfem",
+    "source_repo": "haoming-luo/agentfem",
+    "source_subpath": "skills/agentfem",
+    "description": "Build, validate, diagnose, migrate, and report finite-element simulations with explicit units, solver evidence, formulation boundaries, and reproducibility requirements.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/haoming-luo/agentfem/blob/a3733faebd8aa5a04f674467daedda66d95d9cc2/LICENSE",
+    "pinned_commit": "a3733faebd8aa5a04f674467daedda66d95d9cc2",
+    "skill_path": "skills/agentfem/SKILL.md",
+    "content_hash": "sha256:59f9857229c0546f4832c548d6d28f44c29e66d6709b66a5b7bb6e706d8526e3",
+    "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:59f9857229c0546f4832c548d6d28f44c29e66d6709b66a5b7bb6e706d8526e3",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "agents/openai.yaml",
+          "byte_size": 296,
+          "content_hash": "sha256:c0bd71f3c7e0034b4b528664726ee03d6036783cffeb398f0b5e1cc3f5679ecb",
+          "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/agents/openai.yaml"
+        },
+        {
+          "path": "references/concepts.md",
+          "byte_size": 8137,
+          "content_hash": "sha256:05986ac081a0b0a1b02241cc06cfafd3ff8a47f5b7f540ae963d204c49f4073e",
+          "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/references/concepts.md"
+        },
+        {
+          "path": "references/extension_rules.md",
+          "byte_size": 1583,
+          "content_hash": "sha256:44cb9a83f17f51c3edd561f8c6538d63fc9e98636d3a4f725e15536776206ea8",
+          "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/references/extension_rules.md"
+        },
+        {
+          "path": "references/module_map.md",
+          "byte_size": 5615,
+          "content_hash": "sha256:fd7573e28ec622b2564832406649572feb3580654398b9c08209cc430a702426",
+          "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/references/module_map.md"
+        },
+        {
+          "path": "references/validation.md",
+          "byte_size": 5903,
+          "content_hash": "sha256:7bc4e56ff8e72a0fd7176edda556bdd482cfc9e1b429a74b3a54879f5c14f744",
+          "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/references/validation.md"
+        },
+        {
+          "path": "references/workflow.md",
+          "byte_size": 6382,
+          "content_hash": "sha256:ac8f52becd8a397321f845c3e481beac30c891d8543a3b8b9e88d19d58fcde6f",
+          "raw_content_url": "https://raw.githubusercontent.com/haoming-luo/agentfem/a3733faebd8aa5a04f674467daedda66d95d9cc2/skills/agentfem/references/workflow.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 18,
+      "forks": 3,
+      "installs": null,
+      "pushed_at": "2026-09-29T14:32:38Z"
+    },
+    "score": 16,
+    "provisional": true,
+    "installable": true
+  },
+  {
     "slug": "lzehrung/codegraph",
     "display_name": "Codegraph",
     "category": "development",
@@ -286860,6 +287012,124 @@
       "forks": 0,
       "installs": null,
       "pushed_at": "2026-09-28T19:42:20Z"
+    },
+    "score": 9,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "hermes-labs-ai/quick-gate-js",
+    "display_name": "Quick Gate JS",
+    "category": "testing",
+    "tags": [
+      "javascript",
+      "quality-gate",
+      "lighthouse"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hermes-labs-ai/quick-gate-js/tree/main/skills/quick-gate-js",
+    "source_repo": "hermes-labs-ai/quick-gate-js",
+    "source_subpath": "skills/quick-gate-js",
+    "description": "Run a pinned deterministic lint, typecheck, build, and Lighthouse gate over JavaScript or TypeScript changes and interpret its structured verdict without weakening failed checks.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/hermes-labs-ai/quick-gate-js/blob/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/LICENSE",
+    "pinned_commit": "6b2bf80645ed9246dd34bb64b84ba83d88d3cbae",
+    "skill_path": "skills/quick-gate-js/SKILL.md",
+    "content_hash": "sha256:e9ed5fa2885ab06f39326d813926af2d9d362827f19c43dff6c3555623681506",
+    "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:e9ed5fa2885ab06f39326d813926af2d9d362827f19c43dff6c3555623681506",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "fixtures/broken/changed-files.txt",
+          "byte_size": 12,
+          "content_hash": "sha256:d5c4a58332e0eebc713de4f6ab262e2680503615cb135035e3fd34acfd0015b0",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/broken/changed-files.txt"
+        },
+        {
+          "path": "fixtures/broken/eslint.config.js",
+          "byte_size": 71,
+          "content_hash": "sha256:3268772d12ce00856acb964769663c5d6475a4dc1951f39e0d0e551147f67c7d",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/broken/eslint.config.js"
+        },
+        {
+          "path": "fixtures/broken/greeting.ts",
+          "byte_size": 131,
+          "content_hash": "sha256:9026ce5d5212cb3be061deb032d49c37bb588a04dec38db9d436cb074c412b3d",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/broken/greeting.ts"
+        },
+        {
+          "path": "fixtures/broken/package.json",
+          "byte_size": 230,
+          "content_hash": "sha256:6214a4203e1fe8d754cb6b9eac298bd10d45622e803a2f05640be02295263ec8",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/broken/package.json"
+        },
+        {
+          "path": "fixtures/broken/quick-gate.config.json",
+          "byte_size": 133,
+          "content_hash": "sha256:bc8ff16bbeff133122feb7e7e79a3534b3cb9ca40e5eb664bb69a45e227d203b",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/broken/quick-gate.config.json"
+        },
+        {
+          "path": "fixtures/broken/tsconfig.json",
+          "byte_size": 183,
+          "content_hash": "sha256:2aa3e5423c2dd5a4fc2f0413b2e7f60ef01e6aec7ea333f0739720e9827792b4",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/broken/tsconfig.json"
+        },
+        {
+          "path": "fixtures/clean/changed-files.txt",
+          "byte_size": 12,
+          "content_hash": "sha256:d5c4a58332e0eebc713de4f6ab262e2680503615cb135035e3fd34acfd0015b0",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/clean/changed-files.txt"
+        },
+        {
+          "path": "fixtures/clean/eslint.config.js",
+          "byte_size": 71,
+          "content_hash": "sha256:3268772d12ce00856acb964769663c5d6475a4dc1951f39e0d0e551147f67c7d",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/clean/eslint.config.js"
+        },
+        {
+          "path": "fixtures/clean/greeting.ts",
+          "byte_size": 154,
+          "content_hash": "sha256:ff0ce4500d07492422dbe14eff4d4dbb813b34bbdd368369c696c5965ea0740d",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/clean/greeting.ts"
+        },
+        {
+          "path": "fixtures/clean/package.json",
+          "byte_size": 229,
+          "content_hash": "sha256:113f8fcb417328c0c0705a3da4f85e172901cbb9cb250babab2fc9769ad7771d",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/clean/package.json"
+        },
+        {
+          "path": "fixtures/clean/quick-gate.config.json",
+          "byte_size": 133,
+          "content_hash": "sha256:bc8ff16bbeff133122feb7e7e79a3534b3cb9ca40e5eb664bb69a45e227d203b",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/clean/quick-gate.config.json"
+        },
+        {
+          "path": "fixtures/clean/tsconfig.json",
+          "byte_size": 183,
+          "content_hash": "sha256:2aa3e5423c2dd5a4fc2f0413b2e7f60ef01e6aec7ea333f0739720e9827792b4",
+          "raw_content_url": "https://raw.githubusercontent.com/hermes-labs-ai/quick-gate-js/6b2bf80645ed9246dd34bb64b84ba83d88d3cbae/skills/quick-gate-js/fixtures/clean/tsconfig.json"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 5,
+      "forks": 0,
+      "installs": null,
+      "pushed_at": "2026-09-29T14:16:01Z"
     },
     "score": 9,
     "provisional": true,
