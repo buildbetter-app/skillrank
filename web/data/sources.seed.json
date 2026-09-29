@@ -311010,5 +311010,53 @@
     "description": "Run a lightweight local repository security scan for hardcoded secrets, risky tracked files, and common vulnerability patterns, then triage only redacted findings into Markdown, JSON, or SARIF.",
     "stars": 5,
     "tier": "community"
+  },
+  {
+    "slug": "00200200/reproducibility",
+    "name": "Reproducibility",
+    "source_repo": "00200200/repro-lens",
+    "source_url": "https://github.com/00200200/repro-lens/tree/main/skills/reproducibility",
+    "subpath": "skills/reproducibility",
+    "category": "testing",
+    "tags": [
+      "reproducibility",
+      "machine-learning",
+      "experiment-validation"
+    ],
+    "description": "Audit or repair machine-learning experiment reproducibility, verify recorded outputs, and compare before-and-after evidence without importing the target project.",
+    "stars": 40,
+    "tier": "community"
+  },
+  {
+    "slug": "hermes-labs-ai/quick-gate-js",
+    "name": "Quick Gate JS",
+    "source_repo": "hermes-labs-ai/quick-gate-js",
+    "source_url": "https://github.com/hermes-labs-ai/quick-gate-js/tree/main/skills/quick-gate-js",
+    "subpath": "skills/quick-gate-js",
+    "category": "testing",
+    "tags": [
+      "javascript",
+      "quality-gate",
+      "lighthouse"
+    ],
+    "description": "Run a pinned deterministic lint, typecheck, build, and Lighthouse gate over JavaScript or TypeScript changes and interpret its structured verdict without weakening failed checks.",
+    "stars": 5,
+    "tier": "community"
+  },
+  {
+    "slug": "haoming-luo/agentfem",
+    "name": "AgentFEM",
+    "source_repo": "haoming-luo/agentfem",
+    "source_url": "https://github.com/haoming-luo/agentfem/tree/main/skills/agentfem",
+    "subpath": "skills/agentfem",
+    "category": "development",
+    "tags": [
+      "finite-element-analysis",
+      "scientific-computing",
+      "simulation"
+    ],
+    "description": "Build, validate, diagnose, migrate, and report finite-element simulations with explicit units, solver evidence, formulation boundaries, and reproducibility requirements.",
+    "stars": 18,
+    "tier": "community"
   }
 ]

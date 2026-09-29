@@ -534581,6 +534581,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "00200200/reproducibility",
+    "display_name": "Reproducibility",
+    "category": "testing",
+    "tags": [
+      "reproducibility",
+      "machine-learning",
+      "experiment-validation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/00200200/repro-lens/tree/main/skills/reproducibility",
+    "source_repo": "00200200/repro-lens",
+    "source_subpath": "skills/reproducibility",
+    "description": "Audit or repair machine-learning experiment reproducibility, verify recorded outputs, and compare before-and-after evidence without importing the target project.",
+    "signals": {
+      "stars": 40,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 21,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "mgifford/ci-cd",
     "display_name": "Ci Cd",
     "category": "testing",
@@ -604821,6 +604852,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "haoming-luo/agentfem",
+    "display_name": "AgentFEM",
+    "category": "development",
+    "tags": [
+      "finite-element-analysis",
+      "scientific-computing",
+      "simulation"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/haoming-luo/agentfem/tree/main/skills/agentfem",
+    "source_repo": "haoming-luo/agentfem",
+    "source_subpath": "skills/agentfem",
+    "description": "Build, validate, diagnose, migrate, and report finite-element simulations with explicit units, solver evidence, formulation boundaries, and reproducibility requirements.",
+    "signals": {
+      "stars": 18,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 17,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "Lisuiwen/html-prototype-build",
     "display_name": "HTML Prototype Build",
     "category": "styling",
@@ -605082,6 +605144,37 @@
     "source_repo": "YangKuoshih/security-audit",
     "source_subpath": "skills/security-audit",
     "description": "Run a lightweight local repository security scan for hardcoded secrets, risky tracked files, and common vulnerability patterns, then triage only redacted findings into Markdown, JSON, or SARIF.",
+    "signals": {
+      "stars": 5,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 10,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "hermes-labs-ai/quick-gate-js",
+    "display_name": "Quick Gate JS",
+    "category": "testing",
+    "tags": [
+      "javascript",
+      "quality-gate",
+      "lighthouse"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/hermes-labs-ai/quick-gate-js/tree/main/skills/quick-gate-js",
+    "source_repo": "hermes-labs-ai/quick-gate-js",
+    "source_subpath": "skills/quick-gate-js",
+    "description": "Run a pinned deterministic lint, typecheck, build, and Lighthouse gate over JavaScript or TypeScript changes and interpret its structured verdict without weakening failed checks.",
     "signals": {
       "stars": 5,
       "installs": null
