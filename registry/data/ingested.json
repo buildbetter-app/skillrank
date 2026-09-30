@@ -286709,6 +286709,176 @@
     "installable": true
   },
   {
+    "slug": "read2017/learn-anything-skill",
+    "display_name": "Learn Anything Skill",
+    "category": "other",
+    "tags": [
+      "learning",
+      "study-plans",
+      "mastery-learning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/read2017/learn-anything-with-AI/tree/main/skills/learn-anything-skill",
+    "source_repo": "read2017/learn-anything-with-AI",
+    "source_subpath": "skills/learn-anything-skill",
+    "description": "Teach a topic in Chinese through goal diagnosis, structured explanations, project-based practice, mastery checks, durable study notes, and explicit next steps.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/read2017/learn-anything-with-AI/blob/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/LICENSE",
+    "pinned_commit": "cc4962b7d48149b16c50a0e4dd81890c9c4e7b19",
+    "skill_path": "skills/learn-anything-skill/SKILL.md",
+    "content_hash": "sha256:001f8e2c80b7d4eac393cdc805b66bb8aa571d2df0a89603731b68920f865d0f",
+    "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:001f8e2c80b7d4eac393cdc805b66bb8aa571d2df0a89603731b68920f865d0f",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "agents/openai.yaml",
+          "byte_size": 295,
+          "content_hash": "sha256:c14d9b2cd02e190555b5c652a31ba621ad6aece83f8e9e74ab13b25b7c4dfee4",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/agents/openai.yaml"
+        },
+        {
+          "path": "assets/learning-plan-template.md",
+          "byte_size": 769,
+          "content_hash": "sha256:9683541df0a0a4039e0d666508fd760daad9e4d2bc77f82030be948079ac8fe6",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/assets/learning-plan-template.md"
+        },
+        {
+          "path": "assets/mastery-check-template.md",
+          "byte_size": 456,
+          "content_hash": "sha256:2915d61fe0bb9bb2b8c20f1e4f55aeac3dc8002b5283b3938dbc2634931dca94",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/assets/mastery-check-template.md"
+        },
+        {
+          "path": "assets/mistakes-log-template.md",
+          "byte_size": 680,
+          "content_hash": "sha256:be6f9f20d47097bd0d519c44de97a6ac684411152adc33d48c717609fd493eea",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/assets/mistakes-log-template.md"
+        },
+        {
+          "path": "assets/project-brief-template.md",
+          "byte_size": 483,
+          "content_hash": "sha256:998ce3be9354ff82a5d320fd581dbf53903dae375fa45170934542e94cafd3eb",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/assets/project-brief-template.md"
+        },
+        {
+          "path": "assets/session-review-template.md",
+          "byte_size": 447,
+          "content_hash": "sha256:41ae183cd24a8db64185bd91b3b4a3437f5f2fe7e6fdde20daa1d77711e3af04",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/assets/session-review-template.md"
+        },
+        {
+          "path": "assets/study-notes-template.md",
+          "byte_size": 472,
+          "content_hash": "sha256:b107699c5eb55ccfb3e561a4c305d4b7c047cce76186ad3eb79ce838bc8a726b",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/assets/study-notes-template.md"
+        },
+        {
+          "path": "references/mastery-rubric.md",
+          "byte_size": 1722,
+          "content_hash": "sha256:496b8301fcd4042789c62d0b9e362d4b8a57cf39cb85d28419fb0b7f73f16bad",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/references/mastery-rubric.md"
+        },
+        {
+          "path": "references/project-patterns.md",
+          "byte_size": 1380,
+          "content_hash": "sha256:8339ded532c03a2e6381af7e3d3d1799343eb4928f5baa52128dcdd4699ea3aa",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/references/project-patterns.md"
+        },
+        {
+          "path": "references/source-strategy.md",
+          "byte_size": 1200,
+          "content_hash": "sha256:6f869e45c91ee190d9f928ab56213719c9d665145c181be3c2fed100522bc44f",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/references/source-strategy.md"
+        },
+        {
+          "path": "references/teaching-playbook.md",
+          "byte_size": 1601,
+          "content_hash": "sha256:04a57c56958763be63f4eac270e462f36821add485284c0365727758254ae5b4",
+          "raw_content_url": "https://raw.githubusercontent.com/read2017/learn-anything-with-AI/cc4962b7d48149b16c50a0e4dd81890c9c4e7b19/skills/learn-anything-skill/references/teaching-playbook.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 189,
+      "forks": 16,
+      "installs": null,
+      "pushed_at": "2026-09-30T13:28:44Z"
+    },
+    "score": 29,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "ultimatile/arxiv-lookup",
+    "display_name": "arXiv Lookup",
+    "category": "document",
+    "tags": [
+      "arxiv",
+      "academic-research",
+      "metadata"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ultimatile/arxiv-skills/tree/main/skills/arxiv-lookup",
+    "source_repo": "ultimatile/arxiv-skills",
+    "source_subpath": "skills/arxiv-lookup",
+    "description": "Look up arXiv paper metadata, journal DOIs, and matching arXiv identifiers through focused API queries for research and documentation workflows.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/ultimatile/arxiv-skills/blob/1904531bdfdff02341ad24d9c8ddba9fa92e42f4/LICENSE",
+    "pinned_commit": "1904531bdfdff02341ad24d9c8ddba9fa92e42f4",
+    "skill_path": "skills/arxiv-lookup/SKILL.md",
+    "content_hash": "sha256:a327f593cfab93b9414b441e4ec216fa30b2eee5b4a0ae1d8c5397c7e504837e",
+    "raw_content_url": "https://raw.githubusercontent.com/ultimatile/arxiv-skills/1904531bdfdff02341ad24d9c8ddba9fa92e42f4/skills/arxiv-lookup/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:a327f593cfab93b9414b441e4ec216fa30b2eee5b4a0ae1d8c5397c7e504837e",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "scripts/get_doi.py",
+          "byte_size": 838,
+          "content_hash": "sha256:6b0da67a22010a241e239bef39f0b1deeed20d7e6b9ed76da0211d2b7a453071",
+          "raw_content_url": "https://raw.githubusercontent.com/ultimatile/arxiv-skills/1904531bdfdff02341ad24d9c8ddba9fa92e42f4/skills/arxiv-lookup/scripts/get_doi.py"
+        },
+        {
+          "path": "scripts/search_id.py",
+          "byte_size": 1152,
+          "content_hash": "sha256:459afdd3a325255fc6d799c70c626a158bdc564e5105f8d851b834fb0919a1ca",
+          "raw_content_url": "https://raw.githubusercontent.com/ultimatile/arxiv-skills/1904531bdfdff02341ad24d9c8ddba9fa92e42f4/skills/arxiv-lookup/scripts/search_id.py"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 47,
+      "forks": 3,
+      "installs": null,
+      "pushed_at": "2026-09-30T13:28:26Z"
+    },
+    "score": 20,
+    "provisional": true,
+    "installable": true
+  },
+  {
     "slug": "00200200/reproducibility",
     "display_name": "Reproducibility",
     "category": "testing",
