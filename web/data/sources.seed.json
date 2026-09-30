@@ -311058,5 +311058,37 @@
     "description": "Build, validate, diagnose, migrate, and report finite-element simulations with explicit units, solver evidence, formulation boundaries, and reproducibility requirements.",
     "stars": 18,
     "tier": "community"
+  },
+  {
+    "slug": "read2017/learn-anything-skill",
+    "name": "Learn Anything Skill",
+    "source_repo": "read2017/learn-anything-with-AI",
+    "source_url": "https://github.com/read2017/learn-anything-with-AI/tree/main/skills/learn-anything-skill",
+    "subpath": "skills/learn-anything-skill",
+    "category": "other",
+    "tags": [
+      "learning",
+      "study-plans",
+      "mastery-learning"
+    ],
+    "description": "Teach a topic in Chinese through goal diagnosis, structured explanations, project-based practice, mastery checks, durable study notes, and explicit next steps.",
+    "stars": 189,
+    "tier": "community"
+  },
+  {
+    "slug": "ultimatile/arxiv-lookup",
+    "name": "arXiv Lookup",
+    "source_repo": "ultimatile/arxiv-skills",
+    "source_url": "https://github.com/ultimatile/arxiv-skills/tree/main/skills/arxiv-lookup",
+    "subpath": "skills/arxiv-lookup",
+    "category": "document",
+    "tags": [
+      "arxiv",
+      "academic-research",
+      "metadata"
+    ],
+    "description": "Look up arXiv paper metadata, journal DOIs, and matching arXiv identifiers through focused API queries for research and documentation workflows.",
+    "stars": 47,
+    "tier": "community"
   }
 ]

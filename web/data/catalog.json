@@ -409068,6 +409068,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "read2017/learn-anything-skill",
+    "display_name": "Learn Anything Skill",
+    "category": "other",
+    "tags": [
+      "learning",
+      "study-plans",
+      "mastery-learning"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/read2017/learn-anything-with-AI/tree/main/skills/learn-anything-skill",
+    "source_repo": "read2017/learn-anything-with-AI",
+    "source_subpath": "skills/learn-anything-skill",
+    "description": "Teach a topic in Chinese through goal diagnosis, structured explanations, project-based practice, mastery checks, durable study notes, and explicit next steps.",
+    "signals": {
+      "stars": 189,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 30,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "LLMQuant/llmquant-commodities",
     "display_name": "Llmquant Commodities",
     "category": "meta",
@@ -515629,6 +515660,37 @@
     "source_repo": "ningzimu/codex-gpt-image",
     "source_subpath": "skills/codex-gpt-image",
     "description": "Generate or edit images with gpt-image-2 through Codex/ChatGPT subscription authentication instead of OPENAI_API_KEY. Use for text-to-image, reference-image editing, or visual assets when the user wants local Codex auth, especially when no native image tool is available. Do...",
+    "signals": {
+      "stars": 47,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 22,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "ultimatile/arxiv-lookup",
+    "display_name": "arXiv Lookup",
+    "category": "document",
+    "tags": [
+      "arxiv",
+      "academic-research",
+      "metadata"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ultimatile/arxiv-skills/tree/main/skills/arxiv-lookup",
+    "source_repo": "ultimatile/arxiv-skills",
+    "source_subpath": "skills/arxiv-lookup",
+    "description": "Look up arXiv paper metadata, journal DOIs, and matching arXiv identifiers through focused API queries for research and documentation workflows.",
     "signals": {
       "stars": 47,
       "installs": null
