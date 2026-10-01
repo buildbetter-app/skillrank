@@ -311090,5 +311090,21 @@
     "description": "Look up arXiv paper metadata, journal DOIs, and matching arXiv identifiers through focused API queries for research and documentation workflows.",
     "stars": 47,
     "tier": "community"
+  },
+  {
+    "slug": "nanaism/yomiyasu",
+    "name": "yomiyasu",
+    "source_repo": "nanaism/yomiyasu",
+    "source_url": "https://github.com/nanaism/yomiyasu/tree/main/skills/yomiyasu",
+    "subpath": "skills/yomiyasu",
+    "category": "document",
+    "tags": [
+      "japanese",
+      "rewriting",
+      "editing"
+    ],
+    "description": "Rewrite AI-generated or awkward Japanese into natural, information-dense prose while preserving the original claims, emphasis, certainty, and purpose.",
+    "stars": 852,
+    "tier": "community"
   }
 ]

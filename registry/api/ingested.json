@@ -286709,6 +286709,106 @@
     "installable": true
   },
   {
+    "slug": "nanaism/yomiyasu",
+    "display_name": "yomiyasu",
+    "category": "document",
+    "tags": [
+      "japanese",
+      "rewriting",
+      "editing"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/nanaism/yomiyasu/tree/main/skills/yomiyasu",
+    "source_repo": "nanaism/yomiyasu",
+    "source_subpath": "skills/yomiyasu",
+    "description": "Rewrite AI-generated or awkward Japanese into natural, information-dense prose while preserving the original claims, emphasis, certainty, and purpose.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/nanaism/yomiyasu/blob/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/LICENSE",
+    "pinned_commit": "b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa",
+    "skill_path": "skills/yomiyasu/SKILL.md",
+    "content_hash": "sha256:2dfd5604a82ce42b3d0fe3a0a0dc6018763e9cff55e89d4b6d3c5904d08dc7d2",
+    "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:2dfd5604a82ce42b3d0fe3a0a0dc6018763e9cff55e89d4b6d3c5904d08dc7d2",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": ".claude-plugin/marketplace.json",
+          "byte_size": 723,
+          "content_hash": "sha256:3679b92d3226a991a3e8be5e1194bb5aac5e65aa07e3fe011ad55927e6042835",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/.claude-plugin/marketplace.json"
+        },
+        {
+          "path": ".claude-plugin/plugin.json",
+          "byte_size": 367,
+          "content_hash": "sha256:051bd5bfcc98999b7628e958bb1f911f1c71ad4733940d0c127eb048bd33cd64",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/.claude-plugin/plugin.json"
+        },
+        {
+          "path": "assets/algo-artis.png",
+          "byte_size": 29045,
+          "content_hash": "sha256:57c7c204d43d0e2873e3b61221db3ac4ba75a7ce29271a6deaeb3bd09f26fdec",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/assets/algo-artis.png"
+        },
+        {
+          "path": "references/domains/business.md",
+          "byte_size": 3686,
+          "content_hash": "sha256:37d674c07fd7446135127d70cdd6c9e541316478349c444222f20b1d9815e422",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/references/domains/business.md"
+        },
+        {
+          "path": "references/domains/essay.md",
+          "byte_size": 2228,
+          "content_hash": "sha256:8b078e9e552699d401a37b8f8f2a7d9ab2be3b541a4008ca28d7537b86dfd72c",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/references/domains/essay.md"
+        },
+        {
+          "path": "references/domains/tech.md",
+          "byte_size": 2718,
+          "content_hash": "sha256:fbb9f019d948f756bc0ec0d14405154d60a8ad783158c2bfa818f501931adc80",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/references/domains/tech.md"
+        },
+        {
+          "path": "references/gemini-syntax.md",
+          "byte_size": 17540,
+          "content_hash": "sha256:d779e95a5026e70026ae34ed7b1e9ffed595d0391f217376c3a17dd775e900fc",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/references/gemini-syntax.md"
+        },
+        {
+          "path": "references/slop-catalog.md",
+          "byte_size": 10353,
+          "content_hash": "sha256:6a7a07f95fcbf5432e598605f1d3a4860aaa00903cb71ee877e1d34827ad785f",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/references/slop-catalog.md"
+        },
+        {
+          "path": "scripts/yomiyasu_lint.py",
+          "byte_size": 19158,
+          "content_hash": "sha256:b3db05011adf6f6903b03fa73ba7cdc4b8bcad061b24f4a12c10291f039dd9d0",
+          "raw_content_url": "https://raw.githubusercontent.com/nanaism/yomiyasu/b14ee43c9b722cf4fd2bb1e893c6c386f1a362aa/skills/yomiyasu/scripts/yomiyasu_lint.py"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 852,
+      "forks": 15,
+      "installs": null,
+      "pushed_at": "2026-10-01T14:16:47Z"
+    },
+    "score": 36,
+    "provisional": true,
+    "installable": true
+  },
+  {
     "slug": "read2017/learn-anything-skill",
     "display_name": "Learn Anything Skill",
     "category": "other",
