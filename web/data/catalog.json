@@ -252152,6 +252152,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "nanaism/yomiyasu",
+    "display_name": "yomiyasu",
+    "category": "document",
+    "tags": [
+      "japanese",
+      "rewriting",
+      "editing"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/nanaism/yomiyasu/tree/main/skills/yomiyasu",
+    "source_repo": "nanaism/yomiyasu",
+    "source_subpath": "skills/yomiyasu",
+    "description": "Rewrite AI-generated or awkward Japanese into natural, information-dense prose while preserving the original claims, emphasis, certainty, and purpose.",
+    "signals": {
+      "stars": 852,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 39,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "joeseesun/qiaomu-goal-meta-skill",
     "display_name": "Qiaomu Goal Meta Skill",
     "category": "meta",
