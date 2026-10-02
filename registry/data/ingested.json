@@ -286809,6 +286809,224 @@
     "installable": true
   },
   {
+    "slug": "aperivue/calc-sample-size",
+    "display_name": "Calc Sample Size",
+    "category": "data",
+    "tags": [
+      "statistics",
+      "power-analysis",
+      "medical-research"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/Aperivue/medsci-skills/tree/main/skills/calc-sample-size",
+    "source_repo": "Aperivue/medsci-skills",
+    "source_subpath": "skills/calc-sample-size",
+    "description": "Choose an appropriate study-design power calculation, produce reproducible R and Python code, and draft an assumption-explicit sample-size justification for research protocols.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/Aperivue/medsci-skills/blob/19cfac079d2812adac4e3a7cc1acd80acba50d2f/LICENSE",
+    "pinned_commit": "19cfac079d2812adac4e3a7cc1acd80acba50d2f",
+    "skill_path": "skills/calc-sample-size/SKILL.md",
+    "content_hash": "sha256:1463091d022da96a738f4207e2ddcf849b77beb55d765b9d9d0984385edb0119",
+    "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:1463091d022da96a738f4207e2ddcf849b77beb55d765b9d9d0984385edb0119",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/formulas.md",
+          "byte_size": 55635,
+          "content_hash": "sha256:e1b6f35683d83b0543125f90bb74ccadf125291143b733ecce4577ca5965de9b",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/formulas.md"
+        },
+        {
+          "path": "references/justification_examples.md",
+          "byte_size": 4790,
+          "content_hash": "sha256:23d10dc1709caa1f2fe61edec1a0f8f41d9575919c591ed8c453ff845792c951",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/justification_examples.md"
+        },
+        {
+          "path": "references/mrmc_reader_study_sample_size.md",
+          "byte_size": 5867,
+          "content_hash": "sha256:67e391fc4ce9800f3ac98d1aa84afacbbb975c6343d1cd8affdf5faad08e7dc8",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/mrmc_reader_study_sample_size.md"
+        },
+        {
+          "path": "references/multi_model_comparison_sample_size.md",
+          "byte_size": 9045,
+          "content_hash": "sha256:bad0254eb97aa31d0aac2f98cfa1b20f7e5a0adfd07e74b601ba09acd8d2baef",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/multi_model_comparison_sample_size.md"
+        },
+        {
+          "path": "references/observational_cohort.md",
+          "byte_size": 2142,
+          "content_hash": "sha256:97062f5aa63ce8f5b5e340e6b65683720b3ce1d94e34d201977d9a2601293038",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/observational_cohort.md"
+        },
+        {
+          "path": "references/prediction_model_sample_size.md",
+          "byte_size": 6694,
+          "content_hash": "sha256:8a308390e0df508f36f97736757ee15bd415032187768c00749ec0ae507f21b2",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/prediction_model_sample_size.md"
+        },
+        {
+          "path": "references/segmentation_acceptability_sample_size.md",
+          "byte_size": 8465,
+          "content_hash": "sha256:276641b9a9fbb621167c28825a0515c8e55d078f5221e6c8b9cfdd097c448cfa",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/segmentation_acceptability_sample_size.md"
+        },
+        {
+          "path": "references/segmentation_metric_sample_size.md",
+          "byte_size": 4671,
+          "content_hash": "sha256:c4972986c289a561b7c4a45112622c074954fe98521c6dd9473c5d2aed41efcf",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/references/segmentation_metric_sample_size.md"
+        },
+        {
+          "path": "skill.yml",
+          "byte_size": 3136,
+          "content_hash": "sha256:b9e9c6e34ecb3df67c56824e0909c21494e544f13bce4c31356423928af5d640",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/skill.yml"
+        },
+        {
+          "path": "tests/test_worked_examples.py",
+          "byte_size": 22489,
+          "content_hash": "sha256:ff9b3158a58ed2dbb9079ca42d664fbfc3d6d2572e009e9936983240a51b3d48",
+          "raw_content_url": "https://raw.githubusercontent.com/Aperivue/medsci-skills/19cfac079d2812adac4e3a7cc1acd80acba50d2f/skills/calc-sample-size/tests/test_worked_examples.py"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 323,
+      "forks": 78,
+      "installs": null,
+      "pushed_at": "2026-10-02T14:31:26Z"
+    },
+    "score": 33,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "gsd-build/gsd-browser",
+    "display_name": "GSD Browser",
+    "category": "testing",
+    "tags": [
+      "browser-automation",
+      "web-testing",
+      "scraping"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/gsd-build/gsd-browser/tree/main/gsd-browser-skill",
+    "source_repo": "gsd-build/gsd-browser",
+    "source_subpath": "gsd-browser-skill",
+    "description": "Drive the GSD Browser CLI through versioned page snapshots to navigate, interact, extract data, test web apps, debug failures, and share a live browser view.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/gsd-build/gsd-browser/blob/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/LICENSE-APACHE",
+    "pinned_commit": "e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c",
+    "skill_path": "gsd-browser-skill/SKILL.md",
+    "content_hash": "sha256:e9515055fb99b2dacbc93257c8af2aab6e0154faa4a5e9357903e99efbc2f144",
+    "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:e9515055fb99b2dacbc93257c8af2aab6e0154faa4a5e9357903e99efbc2f144",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/command-reference.md",
+          "byte_size": 10768,
+          "content_hash": "sha256:4f316b16ecfd8d172a0cec810b0871fd2e398df870593b205e646ddf0d8a7b4d",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/references/command-reference.md"
+        },
+        {
+          "path": "references/configuration.md",
+          "byte_size": 2233,
+          "content_hash": "sha256:263f660f9eea67d185c4bac8d14d7b556d762e145371cf9744a2fa158d32a876",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/references/configuration.md"
+        },
+        {
+          "path": "references/error-recovery.md",
+          "byte_size": 4205,
+          "content_hash": "sha256:9786614b0b360e81872442f0c9e157aa08376e7939d7a368c97bcf35c10a64fb",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/references/error-recovery.md"
+        },
+        {
+          "path": "references/semantic-intents.md",
+          "byte_size": 2459,
+          "content_hash": "sha256:accec9ec7ca66f6cdd377b257bc8e45d97149bf570081b266faf071a912d191b",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/references/semantic-intents.md"
+        },
+        {
+          "path": "references/snapshot-and-refs.md",
+          "byte_size": 2697,
+          "content_hash": "sha256:9f74bc8f8cd0e759bb62679e5714323af66db4c79e33ebdfe7e88097b7f72a85",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/references/snapshot-and-refs.md"
+        },
+        {
+          "path": "workflows/debug-and-diagnose.md",
+          "byte_size": 3448,
+          "content_hash": "sha256:f702b406b0a27640f64be38ea53251c40f528727df47bd3df45cb3bd1fd5e81d",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/workflows/debug-and-diagnose.md"
+        },
+        {
+          "path": "workflows/live-viewer-and-narration.md",
+          "byte_size": 4289,
+          "content_hash": "sha256:fccf1553a8e75cb4387b057c86f729281680d49a4a33d573186ec87e7058b75e",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/workflows/live-viewer-and-narration.md"
+        },
+        {
+          "path": "workflows/navigate-and-interact.md",
+          "byte_size": 4800,
+          "content_hash": "sha256:1ef8c85ab1258f0f8873c0a2170cdde5b824ba719d7093994174be5dbfb04015",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/workflows/navigate-and-interact.md"
+        },
+        {
+          "path": "workflows/scrape-and-extract.md",
+          "byte_size": 4787,
+          "content_hash": "sha256:d3127c7bf8afa01db5bbb86a48cad7fc61f46115f03e7966250b29b19f1f946f",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/workflows/scrape-and-extract.md"
+        },
+        {
+          "path": "workflows/setup-and-configure.md",
+          "byte_size": 3879,
+          "content_hash": "sha256:d3777483edd29a33fe95cc81832ca5a982a3f875cad34bc40b57ae057dc41821",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/workflows/setup-and-configure.md"
+        },
+        {
+          "path": "workflows/test-and-assert.md",
+          "byte_size": 6324,
+          "content_hash": "sha256:ed730fd494fefe546a1a0733a95fc4adc40ea9980dc388b8f183c20f3101fe06",
+          "raw_content_url": "https://raw.githubusercontent.com/gsd-build/gsd-browser/e5ec085e3b726e2ecb3ad1f7f805c39272d5f42c/gsd-browser-skill/workflows/test-and-assert.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 267,
+      "forks": 18,
+      "installs": null,
+      "pushed_at": "2026-05-03T22:39:21Z"
+    },
+    "score": 31,
+    "provisional": true,
+    "installable": true
+  },
+  {
     "slug": "read2017/learn-anything-skill",
     "display_name": "Learn Anything Skill",
     "category": "other",
