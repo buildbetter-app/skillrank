@@ -362648,6 +362648,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "aperivue/calc-sample-size",
+    "display_name": "Calc Sample Size",
+    "category": "data",
+    "tags": [
+      "statistics",
+      "power-analysis",
+      "medical-research"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/Aperivue/medsci-skills/tree/main/skills/calc-sample-size",
+    "source_repo": "Aperivue/medsci-skills",
+    "source_subpath": "skills/calc-sample-size",
+    "description": "Choose an appropriate study-design power calculation, produce reproducible R and Python code, and draft an assumption-explicit sample-size justification for research protocols.",
+    "signals": {
+      "stars": 323,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 33,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "proficientlyjobs/setup",
     "display_name": "Setup",
     "category": "other",
@@ -378351,6 +378382,37 @@
     "source_repo": "yushui2022/MathModel-Skill",
     "source_subpath": "packages/claude/.claude/skills/quality-assurance-auditor",
     "description": "强制审计论文生成质量，防止模型偷换、逻辑断链、内容空洞。Invoke when 用户提出检查/审计/验收/确保/verify/QA，或合并前需要把关。",
+    "signals": {
+      "stars": 267,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 32,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "gsd-build/gsd-browser",
+    "display_name": "GSD Browser",
+    "category": "testing",
+    "tags": [
+      "browser-automation",
+      "web-testing",
+      "scraping"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/gsd-build/gsd-browser/tree/main/gsd-browser-skill",
+    "source_repo": "gsd-build/gsd-browser",
+    "source_subpath": "gsd-browser-skill",
+    "description": "Drive the GSD Browser CLI through versioned page snapshots to navigate, interact, extract data, test web apps, debug failures, and share a live browser view.",
     "signals": {
       "stars": 267,
       "installs": null

@@ -311106,5 +311106,37 @@
     "description": "Rewrite AI-generated or awkward Japanese into natural, information-dense prose while preserving the original claims, emphasis, certainty, and purpose.",
     "stars": 852,
     "tier": "community"
+  },
+  {
+    "slug": "aperivue/calc-sample-size",
+    "name": "Calc Sample Size",
+    "source_repo": "Aperivue/medsci-skills",
+    "source_url": "https://github.com/Aperivue/medsci-skills/tree/main/skills/calc-sample-size",
+    "subpath": "skills/calc-sample-size",
+    "category": "data",
+    "tags": [
+      "statistics",
+      "power-analysis",
+      "medical-research"
+    ],
+    "description": "Choose an appropriate study-design power calculation, produce reproducible R and Python code, and draft an assumption-explicit sample-size justification for research protocols.",
+    "stars": 323,
+    "tier": "community"
+  },
+  {
+    "slug": "gsd-build/gsd-browser",
+    "name": "GSD Browser",
+    "source_repo": "gsd-build/gsd-browser",
+    "source_url": "https://github.com/gsd-build/gsd-browser/tree/main/gsd-browser-skill",
+    "subpath": "gsd-browser-skill",
+    "category": "testing",
+    "tags": [
+      "browser-automation",
+      "web-testing",
+      "scraping"
+    ],
+    "description": "Drive the GSD Browser CLI through versioned page snapshots to navigate, interact, extract data, test web apps, debug failures, and share a live browser view.",
+    "stars": 267,
+    "tier": "community"
   }
 ]
