@@ -287139,6 +287139,149 @@
     "installable": true
   },
   {
+    "slug": "ollygarden/otel-semantic-conventions",
+    "display_name": "OpenTelemetry Semantic Conventions",
+    "category": "devops",
+    "tags": [
+      "opentelemetry",
+      "observability",
+      "semantic-conventions"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ollygarden/opentelemetry-agent-skills/tree/main/skills/otel-semantic-conventions",
+    "source_repo": "ollygarden/opentelemetry-agent-skills",
+    "source_subpath": "skills/otel-semantic-conventions",
+    "description": "Look up released OpenTelemetry semantic conventions, select stable attributes and span names, and report exact versioned source context without relying on model memory.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/ollygarden/opentelemetry-agent-skills/blob/ea1a9401c449a43e319a634030bea66390173dff/LICENSE",
+    "pinned_commit": "ea1a9401c449a43e319a634030bea66390173dff",
+    "skill_path": "skills/otel-semantic-conventions/SKILL.md",
+    "content_hash": "sha256:c3cc3df469bd5eae9ffb0983c97d9afd0f99bb53983a564669d1077cc8ec3cff",
+    "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-semantic-conventions/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 6,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:c3cc3df469bd5eae9ffb0983c97d9afd0f99bb53983a564669d1077cc8ec3cff",
+      "findings": [
+        {
+          "rule": "unpinned-bundled-script",
+          "severity": "info",
+          "excerpt": "- list groups: `./scripts/query-otel-semantic-conventions.sh --groups`",
+          "line": 25,
+          "why": "This runs `./scripts/query-otel-semantic-conventions.sh`, a file next to the skill in its source repository. Install copies and hashes only SKILL.md, so that script is fetched from the repository's current state and is not covered by the version this registry pinned."
+        },
+        {
+          "rule": "unpinned-bundled-script",
+          "severity": "info",
+          "excerpt": "- after changing the parser, run `OTEL_SEMCONV_REPO=/path/to/semantic-conventions bash ./scripts/test-query-otel-semantic-conventions.sh`",
+          "line": 30,
+          "why": "This runs `scripts/test-query-otel-semantic-conventions.sh`, a file next to the skill in its source repository. Install copies and hashes only SKILL.md, so that script is fetched from the repository's current state and is not covered by the version this registry pinned."
+        }
+      ]
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/otel-semantic-conventions.md",
+          "byte_size": 2074,
+          "content_hash": "sha256:97b828683d9ecf5f9c14da4b31856c19e7356000aefcf27e8cd01f670511eb2b",
+          "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-semantic-conventions/references/otel-semantic-conventions.md"
+        },
+        {
+          "path": "references/semconv-selection.md",
+          "byte_size": 2288,
+          "content_hash": "sha256:76e3904b4ce16668730f51992655bc5cf230c83a557e14207a2b9e4d3c9b2c6b",
+          "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-semantic-conventions/references/semconv-selection.md"
+        },
+        {
+          "path": "scripts/query-otel-semantic-conventions.sh",
+          "byte_size": 18098,
+          "content_hash": "sha256:b326418c25d0983aeb4d85adcdb8baac835ddeb91c159a1eba2605acb6a866a9",
+          "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-semantic-conventions/scripts/query-otel-semantic-conventions.sh"
+        },
+        {
+          "path": "scripts/test-query-otel-semantic-conventions.sh",
+          "byte_size": 1810,
+          "content_hash": "sha256:4f16f588b437c82babbc15b93105a48b96d50bc6f9d51f17573e1c2a4bb1dd66",
+          "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-semantic-conventions/scripts/test-query-otel-semantic-conventions.sh"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 104,
+      "forks": 12,
+      "installs": null,
+      "pushed_at": "2026-10-03T14:05:39Z"
+    },
+    "score": 26,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "ollygarden/otel-upgrade",
+    "display_name": "OpenTelemetry Upgrade",
+    "category": "devops",
+    "tags": [
+      "opentelemetry",
+      "upgrades",
+      "observability"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ollygarden/opentelemetry-agent-skills/tree/main/skills/otel-upgrade",
+    "source_repo": "ollygarden/opentelemetry-agent-skills",
+    "source_subpath": "skills/otel-upgrade",
+    "description": "Assess OpenTelemetry dependency and Collector upgrades with authoritative release evidence, explicit compatibility boundaries, isolated validation, and a minimal rollout path.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "Apache-2.0",
+    "license_url": "https://github.com/ollygarden/opentelemetry-agent-skills/blob/ea1a9401c449a43e319a634030bea66390173dff/LICENSE",
+    "pinned_commit": "ea1a9401c449a43e319a634030bea66390173dff",
+    "skill_path": "skills/otel-upgrade/SKILL.md",
+    "content_hash": "sha256:9498dd58b6679fdecbee87d9d931ebdfabda5b687b8c4756f0024b838005c459",
+    "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-upgrade/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:9498dd58b6679fdecbee87d9d931ebdfabda5b687b8c4756f0024b838005c459",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/collector-upgrade.md",
+          "byte_size": 6521,
+          "content_hash": "sha256:f0ae2abb070c20cf6495b07547d2e0756aa8620aaf43ddd4a4c983c516f4a9b7",
+          "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-upgrade/references/collector-upgrade.md"
+        },
+        {
+          "path": "references/dependency-upgrade.md",
+          "byte_size": 3916,
+          "content_hash": "sha256:5cebee19d3da3f1097b4a5b18d8686f342942a0d805ae13c0c13519b76ad9d72",
+          "raw_content_url": "https://raw.githubusercontent.com/ollygarden/opentelemetry-agent-skills/ea1a9401c449a43e319a634030bea66390173dff/skills/otel-upgrade/references/dependency-upgrade.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 104,
+      "forks": 12,
+      "installs": null,
+      "pushed_at": "2026-10-03T14:05:39Z"
+    },
+    "score": 26,
+    "provisional": true,
+    "installable": true
+  },
+  {
     "slug": "ultimatile/arxiv-lookup",
     "display_name": "arXiv Lookup",
     "category": "document",
@@ -287345,6 +287488,184 @@
       "pushed_at": "2026-09-29T14:32:38Z"
     },
     "score": 16,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "nickture/nickture-interface",
+    "display_name": "Nickture Interface",
+    "category": "styling",
+    "tags": [
+      "interface-design",
+      "accessibility",
+      "design-review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/nickture/skills/tree/main/skills/nickture-interface",
+    "source_repo": "nickture/skills",
+    "source_subpath": "skills/nickture-interface",
+    "description": "Build or review interfaces against a source-attributed Russian-language rule library covering hierarchy, typography, forms, states, accessibility, motion, performance, and generated-design failure modes.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "CC-BY-4.0",
+    "license_url": "https://github.com/nickture/skills/blob/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/LICENSE",
+    "pinned_commit": "5261387c4b18c16b1b7c88fc37e4a64b617a84f5",
+    "skill_path": "skills/nickture-interface/SKILL.md",
+    "content_hash": "sha256:99d6ceb5f051bbc75ea98593ddbbe294aa36639c7f9e829a2ff151b5a8c2e36a",
+    "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:99d6ceb5f051bbc75ea98593ddbbe294aa36639c7f9e829a2ff151b5a8c2e36a",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "rules/accessibility.md",
+          "byte_size": 8128,
+          "content_hash": "sha256:de626ecd13664d6073daa5dd7d6c084732d4390ad713343c90734ef191782702",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/accessibility.md"
+        },
+        {
+          "path": "rules/charts.md",
+          "byte_size": 8335,
+          "content_hash": "sha256:2d397aebaa0c74338dea4845915201bad3ed00749aa88209fa669b80c0b44764",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/charts.md"
+        },
+        {
+          "path": "rules/color.md",
+          "byte_size": 8393,
+          "content_hash": "sha256:d6490d866b3f94629591dc28026333c31b274dbfd89c33dcbffbbc0d0792c1b8",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/color.md"
+        },
+        {
+          "path": "rules/components.md",
+          "byte_size": 22825,
+          "content_hash": "sha256:1181d931e868787ed904209a3b8dfb89397df17147099722c9ce3db751f5eef7",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/components.md"
+        },
+        {
+          "path": "rules/documents.md",
+          "byte_size": 4084,
+          "content_hash": "sha256:c62fdbf077dc6ba59972f51472b31abfaa6c48080e78f9a4c9d6cfbc22356775",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/documents.md"
+        },
+        {
+          "path": "rules/email.md",
+          "byte_size": 1067,
+          "content_hash": "sha256:d4ae59549c98056f945347e17cc950664b879273e0df5c68ee15b2f2da0860a9",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/email.md"
+        },
+        {
+          "path": "rules/forms.md",
+          "byte_size": 16139,
+          "content_hash": "sha256:e55c35caf8a56dd2bf4fd72b8430a20f96c74a9b505811589a3b98e316fb2296",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/forms.md"
+        },
+        {
+          "path": "rules/hierarchy.md",
+          "byte_size": 6634,
+          "content_hash": "sha256:9983a17c75ca680e9bde2513d6e5af3410df185f9c3c55e2e57eda40ce06d682",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/hierarchy.md"
+        },
+        {
+          "path": "rules/icons.md",
+          "byte_size": 5636,
+          "content_hash": "sha256:78695f23daa033c944a8548c99131db7a836ebd77a6e96c0aa8c07a88b56d1ae",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/icons.md"
+        },
+        {
+          "path": "rules/mobile.md",
+          "byte_size": 9048,
+          "content_hash": "sha256:e29845723af413a79e7d4cdbfc6edec00bb27575cce6e80ca09b7bb9d45db3ea",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/mobile.md"
+        },
+        {
+          "path": "rules/motion.md",
+          "byte_size": 12804,
+          "content_hash": "sha256:b0d3ec7e36f483b31c22b9bc6132f30dce2191ced8ce08825d67b22de5156420",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/motion.md"
+        },
+        {
+          "path": "rules/navigation.md",
+          "byte_size": 10489,
+          "content_hash": "sha256:5a1d33bc7df7801f7b57a2d2125ea1f07f36d2562d91076b5f1628d9b79b1718",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/navigation.md"
+        },
+        {
+          "path": "rules/onboarding.md",
+          "byte_size": 5991,
+          "content_hash": "sha256:d1bfbfa12ede626edc6060d8573fcf12580e2ef1d3a0c90693b1d2adf074c22a",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/onboarding.md"
+        },
+        {
+          "path": "rules/performance.md",
+          "byte_size": 4485,
+          "content_hash": "sha256:33149464f5a15d23ba28671c78f3d30b13317adcc8d441baac0bcca52a2216ec",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/performance.md"
+        },
+        {
+          "path": "rules/principles.md",
+          "byte_size": 10916,
+          "content_hash": "sha256:ee64fdaf639bf8df78c5042f58c103e72a84ee7838567c076989c26cc939072d",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/principles.md"
+        },
+        {
+          "path": "rules/scrolling.md",
+          "byte_size": 3978,
+          "content_hash": "sha256:ba3de4403c6e5f37a3501e3ff149e891578662711e7b87b11f5aa9ea11564578",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/scrolling.md"
+        },
+        {
+          "path": "rules/slop.md",
+          "byte_size": 11156,
+          "content_hash": "sha256:3fb7876ac6326ffd48edf6995eab88e34a2b102298aa1fd83a290191bdfac662",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/slop.md"
+        },
+        {
+          "path": "rules/space.md",
+          "byte_size": 17136,
+          "content_hash": "sha256:0a99e6accd097cd0b8c671425c8bbe08756ccf236596ea5bd66330bb4c0cf2ff",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/space.md"
+        },
+        {
+          "path": "rules/states.md",
+          "byte_size": 13469,
+          "content_hash": "sha256:221b01c82e11801866ae8b8e27e4a09c316ed333731109916349c9b234e208ed",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/states.md"
+        },
+        {
+          "path": "rules/typography.md",
+          "byte_size": 17373,
+          "content_hash": "sha256:86ab6a88da20742024754120f83b4645d573e037a794b3ddbe3b5d732e7e60e4",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/typography.md"
+        },
+        {
+          "path": "rules/what-to-define.md",
+          "byte_size": 5431,
+          "content_hash": "sha256:e1360826f1ed2f54ee6c9751d661005a676548025790b6bc7f8f642327a90d7f",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/rules/what-to-define.md"
+        },
+        {
+          "path": "sources.md",
+          "byte_size": 33209,
+          "content_hash": "sha256:14bb9462ddd4fd69335bd7e6efc1e01854b6e94a4e57cff41dd2aabba6571b53",
+          "raw_content_url": "https://raw.githubusercontent.com/nickture/skills/5261387c4b18c16b1b7c88fc37e4a64b617a84f5/skills/nickture-interface/sources.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 14,
+      "forks": 0,
+      "installs": null,
+      "pushed_at": "2026-10-03T14:34:52Z"
+    },
+    "score": 13,
     "provisional": true,
     "installable": true
   },
