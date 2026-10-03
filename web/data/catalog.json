@@ -451958,6 +451958,68 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "ollygarden/otel-semantic-conventions",
+    "display_name": "OpenTelemetry Semantic Conventions",
+    "category": "devops",
+    "tags": [
+      "opentelemetry",
+      "observability",
+      "semantic-conventions"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ollygarden/opentelemetry-agent-skills/tree/main/skills/otel-semantic-conventions",
+    "source_repo": "ollygarden/opentelemetry-agent-skills",
+    "source_subpath": "skills/otel-semantic-conventions",
+    "description": "Look up released OpenTelemetry semantic conventions, select stable attributes and span names, and report exact versioned source context without relying on model memory.",
+    "signals": {
+      "stars": 104,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 27,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "ollygarden/otel-upgrade",
+    "display_name": "OpenTelemetry Upgrade",
+    "category": "devops",
+    "tags": [
+      "opentelemetry",
+      "upgrades",
+      "observability"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/ollygarden/opentelemetry-agent-skills/tree/main/skills/otel-upgrade",
+    "source_repo": "ollygarden/opentelemetry-agent-skills",
+    "source_subpath": "skills/otel-upgrade",
+    "description": "Assess OpenTelemetry dependency and Collector upgrades with authoritative release evidence, explicit compatibility boundaries, isolated validation, and a minimal rollout path.",
+    "signals": {
+      "stars": 104,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 27,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "Ilm-Alan/frontend-design",
     "display_name": "Frontend Design",
     "category": "styling",
@@ -605084,6 +605146,37 @@
     "description": "Generate native editable PowerPoint decks from structured intent, narrative, theme, and page specifications with deterministic validation, preview, audit, and rendering.",
     "signals": {
       "stars": 16,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 16,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "nickture/nickture-interface",
+    "display_name": "Nickture Interface",
+    "category": "styling",
+    "tags": [
+      "interface-design",
+      "accessibility",
+      "design-review"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/nickture/skills/tree/main/skills/nickture-interface",
+    "source_repo": "nickture/skills",
+    "source_subpath": "skills/nickture-interface",
+    "description": "Build or review interfaces against a source-attributed Russian-language rule library covering hierarchy, typography, forms, states, accessibility, motion, performance, and generated-design failure modes.",
+    "signals": {
+      "stars": 14,
       "installs": null
     },
     "eval": {

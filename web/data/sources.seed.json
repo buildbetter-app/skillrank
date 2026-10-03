@@ -311138,5 +311138,53 @@
     "description": "Drive the GSD Browser CLI through versioned page snapshots to navigate, interact, extract data, test web apps, debug failures, and share a live browser view.",
     "stars": 267,
     "tier": "community"
+  },
+  {
+    "slug": "ollygarden/otel-semantic-conventions",
+    "name": "OpenTelemetry Semantic Conventions",
+    "source_repo": "ollygarden/opentelemetry-agent-skills",
+    "source_url": "https://github.com/ollygarden/opentelemetry-agent-skills/tree/main/skills/otel-semantic-conventions",
+    "subpath": "skills/otel-semantic-conventions",
+    "category": "devops",
+    "tags": [
+      "opentelemetry",
+      "observability",
+      "semantic-conventions"
+    ],
+    "description": "Look up released OpenTelemetry semantic conventions, select stable attributes and span names, and report exact versioned source context without relying on model memory.",
+    "stars": 104,
+    "tier": "community"
+  },
+  {
+    "slug": "ollygarden/otel-upgrade",
+    "name": "OpenTelemetry Upgrade",
+    "source_repo": "ollygarden/opentelemetry-agent-skills",
+    "source_url": "https://github.com/ollygarden/opentelemetry-agent-skills/tree/main/skills/otel-upgrade",
+    "subpath": "skills/otel-upgrade",
+    "category": "devops",
+    "tags": [
+      "opentelemetry",
+      "upgrades",
+      "observability"
+    ],
+    "description": "Assess OpenTelemetry dependency and Collector upgrades with authoritative release evidence, explicit compatibility boundaries, isolated validation, and a minimal rollout path.",
+    "stars": 104,
+    "tier": "community"
+  },
+  {
+    "slug": "nickture/nickture-interface",
+    "name": "Nickture Interface",
+    "source_repo": "nickture/skills",
+    "source_url": "https://github.com/nickture/skills/tree/main/skills/nickture-interface",
+    "subpath": "skills/nickture-interface",
+    "category": "styling",
+    "tags": [
+      "interface-design",
+      "accessibility",
+      "design-review"
+    ],
+    "description": "Build or review interfaces against a source-attributed Russian-language rule library covering hierarchy, typography, forms, states, accessibility, motion, performance, and generated-design failure modes.",
+    "stars": 14,
+    "tier": "community"
   }
 ]
