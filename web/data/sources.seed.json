@@ -311186,5 +311186,37 @@
     "description": "Build or review interfaces against a source-attributed Russian-language rule library covering hierarchy, typography, forms, states, accessibility, motion, performance, and generated-design failure modes.",
     "stars": 14,
     "tier": "community"
+  },
+  {
+    "slug": "aurorascharff/nextjs-app-architecture",
+    "name": "Next.js App Architecture",
+    "source_repo": "aurorascharff/nextjs-app-architecture-skill",
+    "source_url": "https://github.com/aurorascharff/nextjs-app-architecture-skill",
+    "subpath": "",
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "react-server-components",
+      "architecture"
+    ],
+    "description": "Build or audit Next.js 16 App Router applications with feature-owned server components, synchronous composition pages, deliberate Suspense boundaries, cache contracts, and loading-sequence verification.",
+    "stars": 90,
+    "tier": "community"
+  },
+  {
+    "slug": "QingYunA/answer-me-with-html",
+    "name": "Answer Me with HTML",
+    "source_repo": "QingYunA/answer-me-with-html",
+    "source_url": "https://github.com/QingYunA/answer-me-with-html/tree/main/skills/answer-me-with-html",
+    "subpath": "skills/answer-me-with-html",
+    "category": "styling",
+    "tags": [
+      "visual-explanations",
+      "html",
+      "diagrams"
+    ],
+    "description": "Turn complex explanations, comparisons, hierarchies, and workflows into a single-file visual HTML page from a compact extended-Markdown draft, with optional explicitly requested narrated video export.",
+    "stars": 835,
+    "tier": "community"
   }
 ]
