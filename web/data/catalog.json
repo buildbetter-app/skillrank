@@ -255376,6 +255376,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "QingYunA/answer-me-with-html",
+    "display_name": "Answer Me with HTML",
+    "category": "styling",
+    "tags": [
+      "visual-explanations",
+      "html",
+      "diagrams"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/QingYunA/answer-me-with-html/tree/main/skills/answer-me-with-html",
+    "source_repo": "QingYunA/answer-me-with-html",
+    "source_subpath": "skills/answer-me-with-html",
+    "description": "Turn complex explanations, comparisons, hierarchies, and workflows into a single-file visual HTML page from a compact extended-Markdown draft, with optional explicitly requested narrated video export.",
+    "signals": {
+      "stars": 835,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 39,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "xuboyuebobb/a16z-crypto",
     "display_name": "A16z Crypto",
     "category": "devops",
@@ -459159,6 +459190,37 @@
     "source_repo": "travisjneuman/.claude",
     "source_subpath": "skills/customer-success",
     "description": "Support workflows, ticketing systems (Zendesk, Intercom), knowledge base design, chatbot design, and metrics (CSAT, NPS). Use when building support infrastructure, designing help centers, or optimizing customer experience.",
+    "signals": {
+      "stars": 90,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 26,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "aurorascharff/nextjs-app-architecture",
+    "display_name": "Next.js App Architecture",
+    "category": "frontend",
+    "tags": [
+      "nextjs",
+      "react-server-components",
+      "architecture"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/aurorascharff/nextjs-app-architecture-skill",
+    "source_repo": "aurorascharff/nextjs-app-architecture-skill",
+    "source_subpath": "",
+    "description": "Build or audit Next.js 16 App Router applications with feature-owned server components, synchronous composition pages, deliberate Suspense boundaries, cache contracts, and loading-sequence verification.",
     "signals": {
       "stars": 90,
       "installs": null
