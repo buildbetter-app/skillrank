@@ -13,3 +13,6 @@
 .vercel/
 site/.vercel/
 logs/
+
+# Scratch output from skill-discovery scripts (regenerated each run)
+/.context/
