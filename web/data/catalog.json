@@ -122450,6 +122450,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "morluto/reverse-engineer-anything",
+    "display_name": "Reverse Engineer Anything",
+    "category": "security",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "runtime-evidence"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/morluto/rea/tree/main/skills/reverse-engineer-anything",
+    "source_repo": "morluto/rea",
+    "source_subpath": "skills/reverse-engineer-anything",
+    "description": "Reverse engineer native, managed, Electron, packaged, and browser applications with evidence-backed static and explicitly scoped runtime analysis.",
+    "signals": {
+      "stars": 4434,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 48,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "mvanhorn/printing-press-amend",
     "display_name": "Printing Press Amend",
     "category": "backend",
@@ -414748,6 +414779,37 @@
     "source_repo": "Xquik-dev/x-twitter-scraper",
     "source_subpath": "skills/xquik-social-research",
     "description": "Research public X data with Xquik. Use for tweet search, tweet lookup, user discovery, profile timelines, threads, followers, trends, exports, monitoring plans, or MCP setup. Keep public reads bounded. Require explicit approval before private reads, writes, persistent...",
+    "signals": {
+      "stars": 178,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 30,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "Calix-L/latex-rescue",
+    "display_name": "LaTeX Rescue",
+    "category": "document",
+    "tags": [
+      "latex",
+      "build-repair",
+      "diagnostics"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/Calix-L/awesome-latex-skills/tree/main/latex-rescue",
+    "source_repo": "Calix-L/awesome-latex-skills",
+    "source_subpath": "latex-rescue",
+    "description": "Diagnose LaTeX build failures from source or logs, apply minimal evidence-based repairs, and verify the result without changing scientific meaning or reference identity.",
     "signals": {
       "stars": 178,
       "installs": null

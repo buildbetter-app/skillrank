@@ -311218,5 +311218,37 @@
     "description": "Turn complex explanations, comparisons, hierarchies, and workflows into a single-file visual HTML page from a compact extended-Markdown draft, with optional explicitly requested narrated video export.",
     "stars": 835,
     "tier": "community"
+  },
+  {
+    "slug": "morluto/reverse-engineer-anything",
+    "name": "Reverse Engineer Anything",
+    "source_repo": "morluto/rea",
+    "source_url": "https://github.com/morluto/rea/tree/main/skills/reverse-engineer-anything",
+    "subpath": "skills/reverse-engineer-anything",
+    "category": "security",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "runtime-evidence"
+    ],
+    "description": "Reverse engineer native, managed, Electron, packaged, and browser applications with evidence-backed static and explicitly scoped runtime analysis.",
+    "stars": 4434,
+    "tier": "community"
+  },
+  {
+    "slug": "Calix-L/latex-rescue",
+    "name": "LaTeX Rescue",
+    "source_repo": "Calix-L/awesome-latex-skills",
+    "source_url": "https://github.com/Calix-L/awesome-latex-skills/tree/main/latex-rescue",
+    "subpath": "latex-rescue",
+    "category": "document",
+    "tags": [
+      "latex",
+      "build-repair",
+      "diagnostics"
+    ],
+    "description": "Diagnose LaTeX build failures from source or logs, apply minimal evidence-based repairs, and verify the result without changing scientific meaning or reference identity.",
+    "stars": 178,
+    "tier": "community"
   }
 ]
