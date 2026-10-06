@@ -185886,6 +185886,76 @@
     "installable": true
   },
   {
+    "slug": "morluto/reverse-engineer-anything",
+    "display_name": "Reverse Engineer Anything",
+    "category": "security",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "runtime-evidence"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/morluto/rea/tree/main/skills/reverse-engineer-anything",
+    "source_repo": "morluto/rea",
+    "source_subpath": "skills/reverse-engineer-anything",
+    "description": "Reverse engineer native, managed, Electron, packaged, and browser applications with evidence-backed static and explicitly scoped runtime analysis.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/morluto/rea/blob/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/LICENSE",
+    "pinned_commit": "bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49",
+    "skill_path": "skills/reverse-engineer-anything/SKILL.md",
+    "content_hash": "sha256:b7d1e7eee328999777800cc517ff7c5114a83f973ca986e6a46caf01803a78c5",
+    "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:b7d1e7eee328999777800cc517ff7c5114a83f973ca986e6a46caf01803a78c5",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/evidence-workflows.md",
+          "byte_size": 1874,
+          "content_hash": "sha256:a604735cf99f77ce4445fb5e5613f6671369f68a6cf0c8aabb5eb1cbd25c92e4",
+          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/evidence-workflows.md"
+        },
+        {
+          "path": "references/javascript-applications.md",
+          "byte_size": 2241,
+          "content_hash": "sha256:12a7c717dd0740b79846193147f714dfd841da29bb94c7c91a24ef1f28b65dba",
+          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/javascript-applications.md"
+        },
+        {
+          "path": "references/native-and-artifacts.md",
+          "byte_size": 2018,
+          "content_hash": "sha256:38a56a4ac98d81d56080c64611734831724f2f60ef0a679a6c5c5b79ebe0c9c7",
+          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/native-and-artifacts.md"
+        },
+        {
+          "path": "references/runtime-observation.md",
+          "byte_size": 1469,
+          "content_hash": "sha256:10601f71ebc379a92c6048ec6c57c2c402eceeba04e9253636840186fa82ba9f",
+          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/runtime-observation.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 4445,
+      "forks": 458,
+      "installs": null,
+      "pushed_at": "2026-10-05T14:36:27Z"
+    },
+    "score": 48,
+    "provisional": true,
+    "installable": true
+  },
+  {
     "slug": "HKUDS/adaptive-stem-alignment",
     "display_name": "Adaptive Stem Alignment",
     "category": "other",
@@ -228757,76 +228827,6 @@
       "pushed_at": "2026-04-20T08:02:42Z"
     },
     "score": 47,
-    "provisional": true,
-    "installable": true
-  },
-  {
-    "slug": "morluto/reverse-engineer-anything",
-    "display_name": "Reverse Engineer Anything",
-    "category": "security",
-    "tags": [
-      "reverse-engineering",
-      "binary-analysis",
-      "runtime-evidence"
-    ],
-    "source_type": "github",
-    "source_url": "https://github.com/morluto/rea/tree/main/skills/reverse-engineer-anything",
-    "source_repo": "morluto/rea",
-    "source_subpath": "skills/reverse-engineer-anything",
-    "description": "Reverse engineer native, managed, Electron, packaged, and browser applications with evidence-backed static and explicitly scoped runtime analysis.",
-    "tier": "community",
-    "agents": [],
-    "license_spdx": "MIT",
-    "license_url": "https://github.com/morluto/rea/blob/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/LICENSE",
-    "pinned_commit": "bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49",
-    "skill_path": "skills/reverse-engineer-anything/SKILL.md",
-    "content_hash": "sha256:b7d1e7eee328999777800cc517ff7c5114a83f973ca986e6a46caf01803a78c5",
-    "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/SKILL.md",
-    "scan_tier": "safe",
-    "scan": {
-      "tier": "safe",
-      "score": 0,
-      "scanner_version": "1.1.1",
-      "content_hash": "sha256:b7d1e7eee328999777800cc517ff7c5114a83f973ca986e6a46caf01803a78c5",
-      "findings": []
-    },
-    "package": {
-      "kind": "bundle",
-      "manifest_version": 1,
-      "assets": [
-        {
-          "path": "references/evidence-workflows.md",
-          "byte_size": 1874,
-          "content_hash": "sha256:a604735cf99f77ce4445fb5e5613f6671369f68a6cf0c8aabb5eb1cbd25c92e4",
-          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/evidence-workflows.md"
-        },
-        {
-          "path": "references/javascript-applications.md",
-          "byte_size": 2241,
-          "content_hash": "sha256:12a7c717dd0740b79846193147f714dfd841da29bb94c7c91a24ef1f28b65dba",
-          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/javascript-applications.md"
-        },
-        {
-          "path": "references/native-and-artifacts.md",
-          "byte_size": 2018,
-          "content_hash": "sha256:38a56a4ac98d81d56080c64611734831724f2f60ef0a679a6c5c5b79ebe0c9c7",
-          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/native-and-artifacts.md"
-        },
-        {
-          "path": "references/runtime-observation.md",
-          "byte_size": 1469,
-          "content_hash": "sha256:10601f71ebc379a92c6048ec6c57c2c402eceeba04e9253636840186fa82ba9f",
-          "raw_content_url": "https://raw.githubusercontent.com/morluto/rea/bb91abd3df52802ec8f9d3d1fb215dce5eb6ea49/skills/reverse-engineer-anything/references/runtime-observation.md"
-        }
-      ]
-    },
-    "signals": {
-      "stars": 4445,
-      "forks": 458,
-      "installs": null,
-      "pushed_at": "2026-10-05T14:36:27Z"
-    },
-    "score": 48,
     "provisional": true,
     "installable": true
   },
