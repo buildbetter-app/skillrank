@@ -101236,6 +101236,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "morluto/reverse-engineer-anything",
+    "display_name": "Reverse Engineer Anything",
+    "category": "security",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "runtime-evidence"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/morluto/rea/tree/main/skills/reverse-engineer-anything",
+    "source_repo": "morluto/rea",
+    "source_subpath": "skills/reverse-engineer-anything",
+    "description": "Reverse engineer native, managed, Electron, packaged, and browser applications with evidence-backed static and explicitly scoped runtime analysis.",
+    "signals": {
+      "stars": 7351,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 51,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "HKUDS/adaptive-stem-alignment",
     "display_name": "Adaptive Stem Alignment",
     "category": "other",
@@ -122434,37 +122465,6 @@
     "description": "Comprehensively reviews SwiftUI code for best practices on modern APIs, maintainability, and performance. Use when reading, writing, or reviewing SwiftUI projects.",
     "signals": {
       "stars": 4440,
-      "installs": null
-    },
-    "eval": {
-      "success_delta_pct": null,
-      "token_delta_pct": null,
-      "n_trials": null,
-      "suite": "",
-      "model": "",
-      "eval_tier": "",
-      "tier": "community"
-    },
-    "score": 48,
-    "provisional": true,
-    "added_at": "2026-07-07"
-  },
-  {
-    "slug": "morluto/reverse-engineer-anything",
-    "display_name": "Reverse Engineer Anything",
-    "category": "security",
-    "tags": [
-      "reverse-engineering",
-      "binary-analysis",
-      "runtime-evidence"
-    ],
-    "source_type": "github",
-    "source_url": "https://github.com/morluto/rea/tree/main/skills/reverse-engineer-anything",
-    "source_repo": "morluto/rea",
-    "source_subpath": "skills/reverse-engineer-anything",
-    "description": "Reverse engineer native, managed, Electron, packaged, and browser applications with evidence-backed static and explicitly scoped runtime analysis.",
-    "signals": {
-      "stars": 4434,
       "installs": null
     },
     "eval": {
