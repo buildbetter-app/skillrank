@@ -426103,6 +426103,37 @@
     "added_at": "2026-07-07"
   },
   {
+    "slug": "szymdzum/bdg",
+    "display_name": "Browser Debugger CLI",
+    "category": "development",
+    "tags": [
+      "browser-automation",
+      "chrome-devtools-protocol",
+      "debugging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/szymdzum/browser-debugger-cli/tree/main/.claude/skills/bdg",
+    "source_repo": "szymdzum/browser-debugger-cli",
+    "source_subpath": ".claude/skills/bdg",
+    "description": "Drive and debug a real Chrome session from the shell with semantic DOM actions, action-effect reporting, network and console inspection, layout diagnostics, and raw CDP access.",
+    "signals": {
+      "stars": 151,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 29,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
     "slug": "makenotion/notion-cli",
     "display_name": "Notion Cli",
     "category": "devops",
@@ -605330,6 +605361,68 @@
     "source_repo": "sven-ericmolzahn/iphone-duo-skill",
     "source_subpath": "skills/iphone-duo-adaptation",
     "description": "Audit and adapt SwiftUI or UIKit apps for iPhone Duo layouts, hinges, reserved regions, vertical bars, live folding, and iOS 27.1 APIs using SDK-verified guidance and measurement-based checks.",
+    "signals": {
+      "stars": 10,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 14,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "scoobynko/case-study",
+    "display_name": "Case Study",
+    "category": "document",
+    "tags": [
+      "portfolio",
+      "case-study",
+      "design"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/scoobynko/case-study-skill/tree/main/case-study",
+    "source_repo": "scoobynko/case-study-skill",
+    "source_subpath": "case-study",
+    "description": "Coach designers and design engineers through evidence-grounded portfolio case studies, asking for missing context and producing concise Markdown without inventing outcomes or tradeoffs.",
+    "signals": {
+      "stars": 10,
+      "installs": null
+    },
+    "eval": {
+      "success_delta_pct": null,
+      "token_delta_pct": null,
+      "n_trials": null,
+      "suite": "",
+      "model": "",
+      "eval_tier": "",
+      "tier": "community"
+    },
+    "score": 14,
+    "provisional": true,
+    "added_at": "2026-07-07"
+  },
+  {
+    "slug": "newsbubbles/ismail",
+    "display_name": "Ismail",
+    "category": "other",
+    "tags": [
+      "music",
+      "audio-production",
+      "sound-design"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/newsbubbles/ismail/tree/main/skills/ismail",
+    "source_repo": "newsbubbles/ismail",
+    "source_subpath": "skills/ismail",
+    "description": "Compose, arrange, sound-design, mix, master, and evaluate music through a text-driven agent DAW using measured references, structured session sheets, and repeatable listening evidence.",
     "signals": {
       "stars": 10,
       "installs": null

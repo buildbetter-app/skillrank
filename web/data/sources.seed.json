@@ -311250,5 +311250,53 @@
     "description": "Diagnose LaTeX build failures from source or logs, apply minimal evidence-based repairs, and verify the result without changing scientific meaning or reference identity.",
     "stars": 178,
     "tier": "community"
+  },
+  {
+    "slug": "szymdzum/bdg",
+    "name": "Browser Debugger CLI",
+    "source_repo": "szymdzum/browser-debugger-cli",
+    "source_url": "https://github.com/szymdzum/browser-debugger-cli/tree/main/.claude/skills/bdg",
+    "subpath": ".claude/skills/bdg",
+    "category": "development",
+    "tags": [
+      "browser-automation",
+      "chrome-devtools-protocol",
+      "debugging"
+    ],
+    "description": "Drive and debug a real Chrome session from the shell with semantic DOM actions, action-effect reporting, network and console inspection, layout diagnostics, and raw CDP access.",
+    "stars": 151,
+    "tier": "community"
+  },
+  {
+    "slug": "scoobynko/case-study",
+    "name": "Case Study",
+    "source_repo": "scoobynko/case-study-skill",
+    "source_url": "https://github.com/scoobynko/case-study-skill/tree/main/case-study",
+    "subpath": "case-study",
+    "category": "document",
+    "tags": [
+      "portfolio",
+      "case-study",
+      "design"
+    ],
+    "description": "Coach designers and design engineers through evidence-grounded portfolio case studies, asking for missing context and producing concise Markdown without inventing outcomes or tradeoffs.",
+    "stars": 10,
+    "tier": "community"
+  },
+  {
+    "slug": "newsbubbles/ismail",
+    "name": "Ismail",
+    "source_repo": "newsbubbles/ismail",
+    "source_url": "https://github.com/newsbubbles/ismail/tree/main/skills/ismail",
+    "subpath": "skills/ismail",
+    "category": "other",
+    "tags": [
+      "music",
+      "audio-production",
+      "sound-design"
+    ],
+    "description": "Compose, arrange, sound-design, mix, master, and evaluate music through a text-driven agent DAW using measured references, structured session sheets, and repeatable listening evidence.",
+    "stars": 10,
+    "tier": "community"
   }
 ]

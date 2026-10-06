@@ -276137,5 +276137,280 @@
     "score": 27,
     "provisional": true,
     "installable": true
+  },
+  {
+    "slug": "szymdzum/bdg",
+    "display_name": "Browser Debugger CLI",
+    "category": "development",
+    "tags": [
+      "browser-automation",
+      "chrome-devtools-protocol",
+      "debugging"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/szymdzum/browser-debugger-cli/tree/main/.claude/skills/bdg",
+    "source_repo": "szymdzum/browser-debugger-cli",
+    "source_subpath": ".claude/skills/bdg",
+    "description": "Drive and debug a real Chrome session from the shell with semantic DOM actions, action-effect reporting, network and console inspection, layout diagnostics, and raw CDP access.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/szymdzum/browser-debugger-cli/blob/168f2bbda6f554ce02535857b11fe42333815983/LICENSE",
+    "pinned_commit": "168f2bbda6f554ce02535857b11fe42333815983",
+    "skill_path": ".claude/skills/bdg/SKILL.md",
+    "content_hash": "sha256:148ca082207d0f6debf6340b67e9359f4bf8cdcaa309d70b96106ff5718c33f5",
+    "raw_content_url": "https://raw.githubusercontent.com/szymdzum/browser-debugger-cli/168f2bbda6f554ce02535857b11fe42333815983/.claude/skills/bdg/SKILL.md",
+    "scan_tier": "low",
+    "scan": {
+      "tier": "low",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:148ca082207d0f6debf6340b67e9359f4bf8cdcaa309d70b96106ff5718c33f5",
+      "findings": []
+    },
+    "package": {
+      "kind": "self_contained",
+      "manifest_version": 1,
+      "assets": []
+    },
+    "signals": {
+      "stars": 151,
+      "forks": 9,
+      "installs": null,
+      "pushed_at": "2026-10-06T14:48:53Z"
+    },
+    "score": 27,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "scoobynko/case-study",
+    "display_name": "Case Study",
+    "category": "document",
+    "tags": [
+      "portfolio",
+      "case-study",
+      "design"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/scoobynko/case-study-skill/tree/main/case-study",
+    "source_repo": "scoobynko/case-study-skill",
+    "source_subpath": "case-study",
+    "description": "Coach designers and design engineers through evidence-grounded portfolio case studies, asking for missing context and producing concise Markdown without inventing outcomes or tradeoffs.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/scoobynko/case-study-skill/blob/b0c606544c8b21c066e5ecd526f212a8e623c063/LICENSE",
+    "pinned_commit": "b0c606544c8b21c066e5ecd526f212a8e623c063",
+    "skill_path": "case-study/SKILL.md",
+    "content_hash": "sha256:38aebf556a04467284e8fb94946917ad9aa84874183b36a52caad0e4daa3d8e3",
+    "raw_content_url": "https://raw.githubusercontent.com/scoobynko/case-study-skill/b0c606544c8b21c066e5ecd526f212a8e623c063/case-study/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:38aebf556a04467284e8fb94946917ad9aa84874183b36a52caad0e4daa3d8e3",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "references/hiring-rubric.md",
+          "byte_size": 5123,
+          "content_hash": "sha256:e2b35ce4432396a0345ccf4191608821dd4293f198f75f3e28b90847ea276ef3",
+          "raw_content_url": "https://raw.githubusercontent.com/scoobynko/case-study-skill/b0c606544c8b21c066e5ecd526f212a8e623c063/case-study/references/hiring-rubric.md"
+        },
+        {
+          "path": "references/metrics-guide.md",
+          "byte_size": 7090,
+          "content_hash": "sha256:400e04701e4c5017288a9979ce78be9daed578b20a31c2bb758e794c70ded4bb",
+          "raw_content_url": "https://raw.githubusercontent.com/scoobynko/case-study-skill/b0c606544c8b21c066e5ecd526f212a8e623c063/case-study/references/metrics-guide.md"
+        },
+        {
+          "path": "references/structure-guide.md",
+          "byte_size": 10261,
+          "content_hash": "sha256:622df1be9330f99cd9b50a4e2c548d6f4f31200dc6fe5e46922df2b793702fef",
+          "raw_content_url": "https://raw.githubusercontent.com/scoobynko/case-study-skill/b0c606544c8b21c066e5ecd526f212a8e623c063/case-study/references/structure-guide.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 10,
+      "forks": 0,
+      "installs": null,
+      "pushed_at": "2026-10-06T14:48:03Z"
+    },
+    "score": 12,
+    "provisional": true,
+    "installable": true
+  },
+  {
+    "slug": "newsbubbles/ismail",
+    "display_name": "Ismail",
+    "category": "other",
+    "tags": [
+      "music",
+      "audio-production",
+      "sound-design"
+    ],
+    "source_type": "github",
+    "source_url": "https://github.com/newsbubbles/ismail/tree/main/skills/ismail",
+    "source_repo": "newsbubbles/ismail",
+    "source_subpath": "skills/ismail",
+    "description": "Compose, arrange, sound-design, mix, master, and evaluate music through a text-driven agent DAW using measured references, structured session sheets, and repeatable listening evidence.",
+    "tier": "community",
+    "agents": [],
+    "license_spdx": "MIT",
+    "license_url": "https://github.com/newsbubbles/ismail/blob/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/LICENSE",
+    "pinned_commit": "a604ab3f714a6c75d34aec0bb1d65a84a12f996f",
+    "skill_path": "skills/ismail/SKILL.md",
+    "content_hash": "sha256:da78d144a4180832c123383477a8f857294816f033ef3997ed13f55d0fcc5da1",
+    "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/SKILL.md",
+    "scan_tier": "safe",
+    "scan": {
+      "tier": "safe",
+      "score": 0,
+      "scanner_version": "1.1.1",
+      "content_hash": "sha256:da78d144a4180832c123383477a8f857294816f033ef3997ed13f55d0fcc5da1",
+      "findings": []
+    },
+    "package": {
+      "kind": "bundle",
+      "manifest_version": 1,
+      "assets": [
+        {
+          "path": "evals/evals.json",
+          "byte_size": 1871,
+          "content_hash": "sha256:0c5006409f3c6479506d83a3d84a4422f4b1dc33e30089987a5e2b379df02b97",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/evals/evals.json"
+        },
+        {
+          "path": "examples/disco_set.py",
+          "byte_size": 6059,
+          "content_hash": "sha256:74cabcb25b5ee6082c9507e234c3079da317102693f92a85c8c3f01901e2d526",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/examples/disco_set.py"
+        },
+        {
+          "path": "references/blind-tests.md",
+          "byte_size": 15607,
+          "content_hash": "sha256:e89e01bd98b7b15a93326e0c268f964b25306b6b6f54afdeb4be22ecf5cc2fd3",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/blind-tests.md"
+        },
+        {
+          "path": "references/composition.md",
+          "byte_size": 6789,
+          "content_hash": "sha256:60c1305558c3a4a6752585ef4f32f6586c8b959df10dee9d46d78bc0f4fb275c",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/composition.md"
+        },
+        {
+          "path": "references/contributing.md",
+          "byte_size": 3494,
+          "content_hash": "sha256:a9bd677f6580537fd233bfa4f0d1da1c7b63b43cde88a14de28a51541ef88c3c",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/contributing.md"
+        },
+        {
+          "path": "references/development.md",
+          "byte_size": 24948,
+          "content_hash": "sha256:0fccf338dddf4050035dcd3ac239b44b23e4f96d42d054a9c1d485d55843456d",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/development.md"
+        },
+        {
+          "path": "references/instruments.md",
+          "byte_size": 13880,
+          "content_hash": "sha256:7a650c4f64174ad4ebe0b41f70ff85c9f65a1b53315e1d01ebaea6fbee34fe2a",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/instruments.md"
+        },
+        {
+          "path": "references/listening.md",
+          "byte_size": 4859,
+          "content_hash": "sha256:76eea4e03b9d6ed72ca3689aedd21562e8d754eda2105374bb74d49516c49919",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/listening.md"
+        },
+        {
+          "path": "references/live.md",
+          "byte_size": 34214,
+          "content_hash": "sha256:130c4a476d2d406f64e4306f57d085acfbd8043e6775112aafbe8a7dbec0891f",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/live.md"
+        },
+        {
+          "path": "references/maintainer.md",
+          "byte_size": 6293,
+          "content_hash": "sha256:9f4fcc18cf3c71128bf577a21f4d05d7ea5308e0fe715d3f3572c33cb479d1d4",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/maintainer.md"
+        },
+        {
+          "path": "references/mastering.md",
+          "byte_size": 3353,
+          "content_hash": "sha256:415a42db05bcac83557f4371ce49bafd14b021f18ae5c7326a0d685c43537219",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/mastering.md"
+        },
+        {
+          "path": "references/music-video.md",
+          "byte_size": 13585,
+          "content_hash": "sha256:c282d48f68f75311a96d7463be8d31473844c839a7a8ab3834220022015c24dc",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/music-video.md"
+        },
+        {
+          "path": "references/phone.md",
+          "byte_size": 13309,
+          "content_hash": "sha256:732e5ee8af659b6df03c487fefdc56775104855efcdd71c1d50164d1e0ce564c",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/phone.md"
+        },
+        {
+          "path": "references/recreate.md",
+          "byte_size": 9823,
+          "content_hash": "sha256:2f9deca990f6b08d85b9adbd4d21b5415ca6f86e8d147ae071e5c35dc7ab1eed",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/recreate.md"
+        },
+        {
+          "path": "references/setup.md",
+          "byte_size": 7956,
+          "content_hash": "sha256:c53aa8eb1d8fe07c47bf88735a182732046b7318864d2c32fc69e6fbb4f8d384",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/setup.md"
+        },
+        {
+          "path": "references/sound-design.md",
+          "byte_size": 9452,
+          "content_hash": "sha256:65b3d6da51f17f3ce89d1d7a48f34e5d32e4078f842d1e320aad8d707f3f79b6",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/sound-design.md"
+        },
+        {
+          "path": "references/stage-dev.md",
+          "byte_size": 6143,
+          "content_hash": "sha256:19d8825da041ff654281a0de95d5496dcaaf53ed6fa5ce3d5f2e56e7b1e13f16",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/stage-dev.md"
+        },
+        {
+          "path": "references/stage-takes.md",
+          "byte_size": 4995,
+          "content_hash": "sha256:b441da04772f954484bf9bd619292500451718b07ef1510fc7ef0931f08741eb",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/stage-takes.md"
+        },
+        {
+          "path": "references/stage.md",
+          "byte_size": 21954,
+          "content_hash": "sha256:c1334230f0b4583bfc66e372632ce4b1b79ea3d091559300d3f372c694673f20",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/stage.md"
+        },
+        {
+          "path": "references/user-experience.md",
+          "byte_size": 6557,
+          "content_hash": "sha256:6506b57799559eb80a8bdde9ed8c20fe7ac298f456bf56ecac2a1733a39d2913",
+          "raw_content_url": "https://raw.githubusercontent.com/newsbubbles/ismail/a604ab3f714a6c75d34aec0bb1d65a84a12f996f/skills/ismail/references/user-experience.md"
+        }
+      ]
+    },
+    "signals": {
+      "stars": 10,
+      "forks": 1,
+      "installs": null,
+      "pushed_at": "2026-10-06T14:47:33Z"
+    },
+    "score": 13,
+    "provisional": true,
+    "installable": true
   }
 ]
