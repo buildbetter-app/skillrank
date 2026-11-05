@@ -22,6 +22,8 @@ import os
 import re
 import subprocess
 import sys
+import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -117,10 +119,46 @@ def fetch(url, accept="application/vnd.github+json"):
 
 
 def raw_file(repo, branch, path):
+    # Unauthenticated: candidates are always public (they came back from a
+    # GitHub search this token can see), and a session-scoped token that
+    # can't read the repo's contents API would just add failure modes here
+    # for no benefit.
     cmd = ["curl", "-sSL", "--max-time", "30",
-           "-H", f"Authorization: Bearer {TOKEN}",
            f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"]
     return subprocess.run(cmd, capture_output=True, text=True).stdout
+
+
+# Some sessions run with a GitHub token that is scoped to this repo only;
+# `api.github.com/repos/{other}/...` then 403s with a "GitHub access to this
+# repository is not enabled for this session" message for every candidate,
+# which would otherwise look identical to "no SKILL.md here" and silently
+# zero out a run. Code search isn't repo-scoped the same way, so it works as
+# a fallback for listing paths — but it's capped at 10 req/min, so pace it
+# with a shared lock regardless of thread count.
+_CODE_SEARCH_LOCK = threading.Lock()
+_CODE_SEARCH_LAST = [0.0]
+_CODE_SEARCH_MIN_INTERVAL = 6.5
+INSPECT_FAILURES = []  # repos where neither tree nor code-search fallback worked
+
+
+def _code_search_paths(repo):
+    with _CODE_SEARCH_LOCK:
+        wait = _CODE_SEARCH_LAST[0] + _CODE_SEARCH_MIN_INTERVAL - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        cmd = ["gh", "api", "-X", "GET", "search/code",
+               "-f", f"q=repo:{repo} filename:SKILL.md"]
+        out = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        _CODE_SEARCH_LAST[0] = time.monotonic()
+    if out.returncode != 0:
+        return None
+    try:
+        data = json.loads(out.stdout)
+    except json.JSONDecodeError:
+        return None
+    if "items" not in data:
+        return None
+    return [it["path"] for it in data["items"] if publishable_path(it["path"])]
 
 
 def search_repos(query, sort, pages=3):
@@ -228,11 +266,19 @@ def inspect(repo_row, max_skills):
     repo = repo_row["full_name"]
     branch = repo_row.get("default_branch") or "main"
     tree = fetch(f"https://api.github.com/repos/{repo}/git/trees/{branch}?recursive=1")
-    if not tree or "tree" not in tree:
+    if tree and "tree" in tree:
+        paths = [t["path"] for t in tree["tree"]
+                 if (t["path"] == "SKILL.md" or t["path"].endswith("/SKILL.md"))
+                 and publishable_path(t["path"])]
+    elif tree and isinstance(tree, dict) and "message" in tree:
+        found = _code_search_paths(repo)
+        if found is None:
+            INSPECT_FAILURES.append(repo)
+            return []
+        paths = [p for p in found if p == "SKILL.md" or p.endswith("/SKILL.md")]
+    else:
+        INSPECT_FAILURES.append(repo)
         return []
-    paths = [t["path"] for t in tree["tree"]
-             if (t["path"] == "SKILL.md" or t["path"].endswith("/SKILL.md"))
-             and publishable_path(t["path"])]
     if not paths:
         return []
 
@@ -370,6 +416,7 @@ def main():
         "repos_with_skills": with_skills,
         "skills_found": len(entries),
         "skills_flagged": len(flagged),
+        "repos_inspect_failed": len(INSPECT_FAILURES),
         "entries": entries,
     }, indent=2) + "\n")
 
@@ -378,6 +425,11 @@ def main():
     print(f"{len(flagged)} carry risk flags")
     if collections:
         print(f"{len(collections)} collection repos skipped (use --allow-collections)")
+    if INSPECT_FAILURES:
+        print(f"WARNING: {len(INSPECT_FAILURES)}/{len(candidates)} candidate repos "
+              "could not be inspected at all (neither contents API nor code-search "
+              "fallback worked) -- treat a low skills_found count as inconclusive, "
+              "not as 'no new skills'.")
     print(f"wrote {out}")
 
 
