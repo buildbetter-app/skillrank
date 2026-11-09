@@ -11,6 +11,10 @@
 __pycache__/
 *.pyc
 
+# Scratch I/O for scripts/discover-skills.py, add-discovered-skills.py,
+# triage-flagged.py, outreach-drafts.py — never a committed deliverable
+.context/
+
 # Vercel local project link
 .vercel/
 site/.vercel/
