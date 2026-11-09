@@ -8,6 +8,8 @@
 *.log
 .claude/settings.local.json
 .DS_Store
+__pycache__/
+*.pyc
 
 # Vercel local project link
 .vercel/
