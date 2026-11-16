@@ -17,3 +17,5 @@ logs/
 # Scratch output from discovery/vetting scripts (scripts/discover-skills.py,
 # scripts/add-discovered-skills.py --dry-run), never a catalog source
 .context/
+__pycache__/
+*.pyc
