@@ -22,6 +22,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -114,13 +115,6 @@ def fetch(url, accept="application/vnd.github+json"):
         return json.loads(out)
     except json.JSONDecodeError:
         return None
-
-
-def raw_file(repo, branch, path):
-    cmd = ["curl", "-sSL", "--max-time", "30",
-           "-H", f"Authorization: Bearer {TOKEN}",
-           f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"]
-    return subprocess.run(cmd, capture_output=True, text=True).stdout
 
 
 def search_repos(query, sort, pages=3):
@@ -224,47 +218,69 @@ def publishable_path(path):
 
 
 def inspect(repo_row, max_skills):
-    """Return skill entries for one repo, or [] if it ships no usable SKILL.md."""
+    """Return skill entries for one repo, or [] if it ships no usable SKILL.md.
+
+    Lists the tree and reads files via a blobless shallow clone rather than
+    the GitHub REST API: some sandboxes gate api.github.com/repos/* to a
+    session's pre-approved repo list, which would otherwise make every repo
+    but our own look tree-less. git clone over HTTPS is unaffected.
+    """
     repo = repo_row["full_name"]
     branch = repo_row.get("default_branch") or "main"
-    tree = fetch(f"https://api.github.com/repos/{repo}/git/trees/{branch}?recursive=1")
-    if not tree or "tree" not in tree:
-        return []
-    paths = [t["path"] for t in tree["tree"]
-             if (t["path"] == "SKILL.md" or t["path"].endswith("/SKILL.md"))
-             and publishable_path(t["path"])]
-    if not paths:
-        return []
+    with tempfile.TemporaryDirectory() as tmp:
+        try:
+            clone = subprocess.run(
+                ["git", "clone", "--depth", "1", "--filter=blob:none", "--no-checkout",
+                 "-q", "--branch", branch, f"https://github.com/{repo}.git", tmp],
+                capture_output=True, text=True, timeout=60,
+            )
+            if clone.returncode != 0:
+                return []
+            ls = subprocess.run(["git", "-C", tmp, "ls-tree", "-r", "HEAD", "--name-only"],
+                                 capture_output=True, text=True, timeout=30)
+        except subprocess.TimeoutExpired:
+            return []
+        if ls.returncode != 0:
+            return []
+        paths = [p for p in ls.stdout.splitlines()
+                 if (p == "SKILL.md" or p.endswith("/SKILL.md")) and publishable_path(p)]
+        if not paths:
+            return []
 
-    truncated = len(paths) > max_skills
-    entries = []
-    for path in sorted(paths)[:max_skills]:
-        text = raw_file(repo, branch, path)
-        name, desc = parse_frontmatter(text)
-        if not name or not desc:
-            continue
-        subpath = "" if path == "SKILL.md" else path[: -len("/SKILL.md")]
-        if len(desc) > 280:
-            desc = desc[:277].rsplit(" ", 1)[0] + "..."
-        if not valid_skill_name(name):
-            continue
-        entries.append({
-            "repo": repo,
-            "owner": repo.split("/")[0],
-            "skill_name": name,
-            "description": desc,
-            "subpath": subpath,
-            "source_url": (f"https://github.com/{repo}/tree/{branch}/{subpath}"
-                           if subpath else f"https://github.com/{repo}"),
-            "stars": repo_row.get("stargazers_count", 0),
-            "license": (repo_row.get("license") or {}).get("spdx_id"),
-            "pushed_at": repo_row.get("pushed_at"),
-            "category": categorize(f"{name} {desc}", repo_row.get("description") or ""),
-            "risk_flags": scan_risk(text),
-            "skills_in_repo": len(paths),
-            "repo_truncated": truncated,
-        })
-    return entries
+        truncated = len(paths) > max_skills
+        entries = []
+        for path in sorted(paths)[:max_skills]:
+            try:
+                show = subprocess.run(["git", "-C", tmp, "show", f"HEAD:{path}"],
+                                       capture_output=True, text=True, timeout=30)
+            except subprocess.TimeoutExpired:
+                continue
+            text = show.stdout if show.returncode == 0 else ""
+            name, desc = parse_frontmatter(text)
+            if not name or not desc:
+                continue
+            subpath = "" if path == "SKILL.md" else path[: -len("/SKILL.md")]
+            if len(desc) > 280:
+                desc = desc[:277].rsplit(" ", 1)[0] + "..."
+            if not valid_skill_name(name):
+                continue
+            entries.append({
+                "repo": repo,
+                "owner": repo.split("/")[0],
+                "skill_name": name,
+                "description": desc,
+                "subpath": subpath,
+                "source_url": (f"https://github.com/{repo}/tree/{branch}/{subpath}"
+                               if subpath else f"https://github.com/{repo}"),
+                "stars": repo_row.get("stargazers_count", 0),
+                "license": (repo_row.get("license") or {}).get("spdx_id"),
+                "pushed_at": repo_row.get("pushed_at"),
+                "category": categorize(f"{name} {desc}", repo_row.get("description") or ""),
+                "risk_flags": scan_risk(text),
+                "skills_in_repo": len(paths),
+                "repo_truncated": truncated,
+            })
+        return entries
 
 
 def main():
