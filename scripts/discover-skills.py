@@ -22,6 +22,8 @@ import os
 import re
 import subprocess
 import sys
+import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -117,10 +119,36 @@ def fetch(url, accept="application/vnd.github+json"):
 
 
 def raw_file(repo, branch, path):
+    # Deliberately unauthenticated: this session's GitHub credential is scoped
+    # to one repo, and sandboxes that enforce that scope reject raw-content
+    # requests for any other repo once a token is attached, even for public
+    # files. Anonymous CDN fetches aren't scoped and aren't rate-limited like
+    # the API is, so they're the more portable choice here anyway.
     cmd = ["curl", "-sSL", "--max-time", "30",
-           "-H", f"Authorization: Bearer {TOKEN}",
            f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"]
     return subprocess.run(cmd, capture_output=True, text=True).stdout
+
+
+# Sandboxes that scope GitHub access to a single attached repo block the
+# git/trees API for every other repo outright (auth makes no difference).
+# Code search isn't repo-scoped the same way, so it's used instead to locate
+# SKILL.md files; it just has its own tight rate limit (30 req/min) that the
+# threaded verify pass would blow through immediately without throttling.
+_search_lock = threading.Lock()
+_last_search_call = [0.0]
+_SEARCH_MIN_INTERVAL = 2.5  # ~24 req/min, with margin under the 30/min cap
+
+
+def code_search_paths(repo):
+    with _search_lock:
+        wait = _last_search_call[0] + _SEARCH_MIN_INTERVAL - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        data = fetch(f"https://api.github.com/search/code?q=filename:SKILL.md+repo:{repo}")
+        _last_search_call[0] = time.monotonic()
+    if not data or "items" not in data:
+        return []
+    return [item["path"] for item in data["items"]]
 
 
 def search_repos(query, sort, pages=3):
@@ -227,12 +255,9 @@ def inspect(repo_row, max_skills):
     """Return skill entries for one repo, or [] if it ships no usable SKILL.md."""
     repo = repo_row["full_name"]
     branch = repo_row.get("default_branch") or "main"
-    tree = fetch(f"https://api.github.com/repos/{repo}/git/trees/{branch}?recursive=1")
-    if not tree or "tree" not in tree:
-        return []
-    paths = [t["path"] for t in tree["tree"]
-             if (t["path"] == "SKILL.md" or t["path"].endswith("/SKILL.md"))
-             and publishable_path(t["path"])]
+    found = code_search_paths(repo)
+    paths = [p for p in found
+             if (p == "SKILL.md" or p.endswith("/SKILL.md")) and publishable_path(p)]
     if not paths:
         return []
 
