@@ -13,3 +13,8 @@
 .vercel/
 site/.vercel/
 logs/
+
+# Scratch output from scripts/discover-skills.py and friends
+.context/
+__pycache__/
+*.pyc
