@@ -11,6 +11,7 @@ import {
   skills
 } from "../../../lib/catalog";
 import { SITE_URL } from "../../../lib/site";
+import { ZeroShotCompanion } from "../../../components/ZeroShotCompanion";
 
 export const dynamicParams = false;
 
@@ -176,6 +177,8 @@ export default async function SkillPage({ params }: PageProps) {
             </code>
           </div>
         </section>
+
+        <ZeroShotCompanion placement="skill-page" />
       </main>
 
       <nav className="keybar" aria-label="commands">

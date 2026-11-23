@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ZeroShotCompanion } from "../../components/ZeroShotCompanion";
 
 export const metadata: Metadata = {
   title: "How it works — evals & scoring",
@@ -123,6 +124,8 @@ export default function HowItWorks() {
             <a href="https://github.com/buildbetter-app/skillrank">source ▸</a>
           </p>
         </section>
+
+        <ZeroShotCompanion placement="how-it-works" />
       </main>
 
       <nav className="keybar" aria-label="commands">
