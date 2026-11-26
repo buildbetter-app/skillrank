@@ -1154,6 +1154,29 @@ button {
   margin-top: 10px;
 }
 
+/* ZeroShot companion: the one optional pointer off-site. Same panel chrome as
+   the install panel so it reads as part of the page, not an ad. */
+.companion-lead {
+  max-width: 78ch;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.companion-links {
+  margin: 12px 0 0;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+}
+
+.companion-note {
+  color: var(--ink-faint);
+  font-size: 12px;
+}
+
 /* changelog: one stacked panel per release, rendered from the repo's own
    CHANGELOG.md. Prose caps near 78ch to match .how-list — overlong measure is
    the main thing that makes a full-width changelog unreadable. */

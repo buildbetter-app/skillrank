@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Skill } from "../lib/catalog";
 import { SCORE_EXPLAINER, formatCount, scoreBand, scoreBar, skillPath } from "../lib/catalog";
+import { zeroshotUrl } from "../lib/zeroshot";
 
 const SORT_NAMES = {
   score: "skillrank score",
@@ -13,8 +14,6 @@ const SORT_NAMES = {
 
 const SUBMIT_URL =
   "https://github.com/buildbetter-app/skillrank/issues/new?template=skill-submission.yml";
-
-const ZEROSHOT_URL = "https://buildbetter.sh?source=skillrank-web";
 
 type SortKey = keyof typeof SORT_NAMES;
 
@@ -522,7 +521,7 @@ export function RegistryClient({ skills }: RegistryClientProps) {
             <a href={SUBMIT_URL}>submit a skill ▸</a>
           </span>
           <span>
-            <a href={ZEROSHOT_URL}>ZeroShot — auto-recommends skills from your sessions ▸</a>
+            <a href={zeroshotUrl("home-footer")}>ZeroShot — find and measure skills in your own sessions ▸</a>
           </span>
         </footer>
       </main>
